@@ -1,0 +1,1356 @@
+[ 2017-11-08T09:54:01+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017208s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.013774s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013869s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007864s ]
+
+[ 2017-11-08T09:58:41+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000421s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002070s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005223s ]
+SQL: select id from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000772s ]
+
+[ 2017-11-08T10:02:41+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000944s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001036s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.053603s ]
+SQL: select id from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000573s ]
+
+[ 2017-11-08T10:03:17+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000788s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000751s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000801s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005806s ]
+SQL: select id from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000416s ]
+
+[ 2017-11-08T10:06:14+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000533s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000973s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001080s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.055658s ]
+SQL: select id from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000391s ]
+
+[ 2017-11-08T10:15:33+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000401s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001260s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001358s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.017049s ]
+SQL: select id from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000401s ]
+
+[ 2017-11-08T10:15:39+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001030s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001044s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001125s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.071107s ]
+
+[ 2017-11-08T10:41:30+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000959s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.048472s ]
+
+[ 2017-11-08T10:41:35+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000440s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001179s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001271s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.063945s ]
+SQL: select id,name,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000432s ]
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : select id,name,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e'
+
+[ 2017-11-08T10:41:39+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000538s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000817s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000875s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.060661s ]
+SQL: select id,name,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000324s ]
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : select id,name,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e'
+
+[ 2017-11-08T10:42:12+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000439s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000848s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.066459s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000479s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005236s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T11:03:34+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000747s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000800s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.006937s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004734s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T11:06:06+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000403s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000824s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000882s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.029023s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.006589s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T11:06:31+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000555s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001775s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001883s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.077184s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005885s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T11:08:45+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000797s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000842s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005503s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000359s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004990s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T11:09:59+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000570s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001005s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001088s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.020815s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000575s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005507s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T11:10:11+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000595s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001118s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001208s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.020957s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000512s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004910s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T11:27:13+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000373s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001331s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.023940s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000443s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005888s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T13:33:34+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000845s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001345s ]
+
+[ 2017-11-08T13:54:54+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000645s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001410s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.008906s ]
+
+[ 2017-11-08T13:55:19+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001347s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.016800s ]
+
+[ 2017-11-08T13:55:30+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000379s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000818s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000877s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.053984s ]
+
+[ 2017-11-08T13:56:11+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000631s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000788s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000843s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.006200s ]
+
+[ 2017-11-08T13:58:39+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000573s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000809s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000864s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062779s ]
+
+[ 2017-11-08T13:58:51+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000390s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000928s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001017s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.064968s ]
+
+[ 2017-11-08T13:59:02+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000848s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001111s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001194s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.201349s ]
+
+[ 2017-11-08T14:00:17+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000571s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001120s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001202s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.069581s ]
+
+[ 2017-11-08T14:00:29+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000620s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000878s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000953s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.068355s ]
+
+[ 2017-11-08T14:00:59+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000451s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001481s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001582s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062206s ]
+
+[ 2017-11-08T14:01:32+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000596s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000930s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001005s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.058984s ]
+
+[ 2017-11-08T14:08:46+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000133s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000819s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000838s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000903s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.076007s ]
+
+[ 2017-11-08T14:08:55+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000662s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000892s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000981s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.017570s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000536s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.007700s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:11:17+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001046s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001124s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.006897s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000495s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005911s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:11:43+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000640s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001542s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.038064s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000370s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004983s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:11:53+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000540s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000791s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000862s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.025169s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000365s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.006151s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:12:10+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000377s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001550s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.066348s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000446s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005062s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:12:36+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000569s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000896s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000971s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.056579s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000336s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005635s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:13:08+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000487s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001799s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001876s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.093868s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000514s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005490s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:13:19+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001226s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001308s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.105066s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000501s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.029378s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:13:55+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000398s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000896s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.063498s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005452s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:13:57+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000417s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000992s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001066s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.020922s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000421s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005271s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:14:54+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001488s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.095850s ]
+INFO: [ app_end ] --END-- [ RunTime:0.095977s ]
+
+[ 2017-11-08T14:15:01+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000417s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001449s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001575s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000768s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000830s ]
+
+[ 2017-11-08T14:15:05+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000830s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000933s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000992s ]
+
+[ 2017-11-08T14:21:37+08:00 ] 127.0.0.1 /tianping/User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000425s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000869s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000925s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.113560s ]
+
+[ 2017-11-08T14:21:42+08:00 ] 127.0.0.1 /tianping/User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000616s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000786s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000856s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.072218s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005589s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005498s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:21:47+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000432s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001057s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001131s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007339s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000309s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.085320s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:50:57+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000392s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000979s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001036s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.067781s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000452s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.006671s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T14:51:10+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001358s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001190s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001280s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001265s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001350s ]
+
+[ 2017-11-08T14:52:35+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000524s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000825s ]
+
+[ 2017-11-08T15:42:59+08:00 ] 127.0.0.1 /tianping/user/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000992s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001380s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.061836s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000472s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.003972s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T15:43:06+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000535s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001119s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001189s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.065772s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004839s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T15:44:01+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000617s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002567s ]
+
+[ 2017-11-08T15:44:29+08:00 ] 127.0.0.1 /tianping/user/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000594s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001077s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001269s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.044426s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004251s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T15:44:36+08:00 ] 127.0.0.1 /tianping/user/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000604s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001060s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001134s ]
+
+[ 2017-11-08T15:47:56+08:00 ] 127.0.0.1 /tianping/user/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000854s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000912s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005813s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000415s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.003730s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:13:58+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000834s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000882s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.057649s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000573s ]
+NOTIC: [8] Array to string conversion C:\wpy\my\tianping\Application\Home\Model\UserModel.class.php 第 61 行.
+SQL: select * from user_role as a left join role as b on a.roleId = b.id where a.userId = Array[id] and b.status = 0 [ RunTime:0.000333s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[id] and b.status = 0' at line 1
+ [ SQL语句 ] : select * from user_role as a left join role as b on a.roleId = b.id where a.userId = Array[id] and b.status = 0
+
+[ 2017-11-08T16:14:16+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000584s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001973s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002103s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.068641s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000478s ]
+NOTIC: [8] Array to string conversion C:\wpy\my\tianping\Application\Home\Model\UserModel.class.php 第 61 行.
+
+[ 2017-11-08T16:16:21+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000377s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001156s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001210s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062299s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000432s ]
+
+[ 2017-11-08T16:17:01+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000392s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000829s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000898s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.014183s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000499s ]
+SQL: select * from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000374s ]
+
+[ 2017-11-08T16:18:00+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000376s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000819s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000880s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.015141s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000482s ]
+SQL: select * from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000400s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.003841s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+NOTIC: [8] Undefined variable: userId C:\wpy\my\tianping\Application\Home\Model\UserModel.class.php 第 66 行.
+
+[ 2017-11-08T16:18:19+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000133s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001409s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001040s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001102s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.019079s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000392s ]
+
+[ 2017-11-08T16:18:44+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000426s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002990s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003073s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.102582s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000357s ]
+SQL: select * from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004326s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:19:49+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001662s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001425s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.018367s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000504s ]
+SQL: select * from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000472s ]
+
+[ 2017-11-08T16:21:55+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000681s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000826s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000884s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.064058s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000374s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.013962s ]
+
+[ 2017-11-08T16:30:25+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000555s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001118s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.069563s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000523s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.001875s ]
+SQL: select action,function,name,parentId,order,group from permission where status = 0 and id in(1) [ RunTime:0.007147s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order,group from permission where status = 0 and id in(1)' at line 1
+ [ SQL语句 ] : select action,function,name,parentId,order,group from permission where status = 0 and id in(1)
+
+[ 2017-11-08T16:30:41+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005979s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000577s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000452s ]
+
+[ 2017-11-08T16:33:52+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000646s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001165s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001241s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.050993s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000417s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000374s ]
+SQL: select action,function,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000363s ]
+
+[ 2017-11-08T16:35:24+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000543s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001481s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001557s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.055793s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000408s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000285s ]
+SQL: select action,function,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000264s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004242s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:35:53+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000376s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000842s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000904s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.061467s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000362s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000277s ]
+SQL: select action,function,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000241s ]
+
+[ 2017-11-08T16:37:59+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000544s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002109s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002421s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.056332s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000679s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000991s ]
+SQL: select action,function,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004461s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:39:58+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000624s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000824s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000890s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.061598s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000409s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000337s ]
+SQL: select CONCAT(`action`,'\',`function`) as url,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000280s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''\',`function`) as url,name,parentId,`order`,`group` from permission where statu' at line 1
+ [ SQL语句 ] : select CONCAT(`action`,'\',`function`) as url,name,parentId,`order`,`group` from permission where status = 0 and id in(1)
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004277s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:40:17+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000377s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001144s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001223s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.058020s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000442s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000554s ]
+
+[ 2017-11-08T16:41:09+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001153s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001234s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.061992s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000550s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000471s ]
+
+[ 2017-11-08T16:41:19+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001378s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001085s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001166s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.068035s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000402s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000372s ]
+SQL: select CONCAT(`action`,'\\',`function`) as url,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000445s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004136s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:48:44+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000524s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001063s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001132s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062494s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000414s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000311s ]
+SQL: select CONCAT(`action`,'\',`function`) as url,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000225s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''\',`function`) as url,name,parentId,`order`,`group` from permission where statu' at line 1
+ [ SQL语句 ] : select CONCAT(`action`,'\',`function`) as url,name,parentId,`order`,`group` from permission where status = 0 and id in(1)
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004627s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:48:50+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000739s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000812s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.139001s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000369s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000267s ]
+SQL: select CONCAT(`action`,'\\',`function`) as url,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.003937s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:49:04+08:00 ] 127.0.0.1 /tianping/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000637s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000810s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000903s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062373s ]
+SQL: select id,uname,pwd from user where uname = 'sdfgh' and pwd = 'e10adc3949ba59abbe56e057f20f883e' [ RunTime:0.000848s ]
+SQL: select b.id,b.name,b.permission from user_role as a left join role as b on a.roleId = b.id where a.userId = 2 and b.status = 0 [ RunTime:0.000531s ]
+SQL: select action,function,name,parentId,`order`,`group` from permission where status = 0 and id in(1) [ RunTime:0.000600s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.006713s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T16:51:14+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000273s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000897s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000957s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.064339s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.003866s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T17:02:35+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000590s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000884s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000946s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062389s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000486s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004370s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T17:03:09+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000554s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001107s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.063167s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004062s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T17:03:24+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000719s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001191s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.064174s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000392s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004778s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T17:03:43+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000657s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000999s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001113s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.057762s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000371s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004157s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T17:04:10+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000382s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001043s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001111s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.110740s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000330s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.003772s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T17:04:20+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000970s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000806s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000866s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.064931s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004955s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001503s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001594s ]
+
+[ 2017-11-08T17:17:19+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000563s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001490s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.061592s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000400s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.004187s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+
+[ 2017-11-08T17:18:07+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000435s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001441s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.064194s ]
+SQL: select id,uname,pwd from user where id = 2 [ RunTime:0.000375s ]
+SQL: SHOW COLUMNS FROM `token` [ RunTime:0.005026s ]
+ERR: 1146:Table 'main.token' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `token`
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001274s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001363s ]
+
+[ 2017-11-08T18:30:38+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000674s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000895s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000982s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062855s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005804s ]
+
+[ 2017-11-08T18:31:00+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000858s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000947s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.061082s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.004760s ]
+
+[ 2017-11-08T18:31:30+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000513s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001418s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.058599s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005739s ]
+
+[ 2017-11-08T18:31:38+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000539s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001123s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.057301s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.004908s ]
+
+[ 2017-11-08T18:31:44+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000401s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000758s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000815s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062842s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005173s ]
+
+[ 2017-11-08T18:31:49+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000542s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000797s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000865s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.054665s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.004700s ]
+
+[ 2017-11-08T18:31:53+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000370s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001072s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001190s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.012378s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.004995s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.001356s ]
+
+[ 2017-11-08T18:32:03+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000904s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000970s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.086221s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005231s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000399s ]
+
+[ 2017-11-08T18:32:07+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000372s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000942s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001003s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.012140s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005070s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000480s ]
+
+[ 2017-11-08T18:32:12+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000591s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001288s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.065811s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005880s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000407s ]
+
+[ 2017-11-08T18:32:20+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000569s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000815s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000871s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.055966s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005903s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000344s ]
+
+[ 2017-11-08T18:32:30+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000578s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001229s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.075368s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.006442s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000343s ]
+
+[ 2017-11-08T18:32:56+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000552s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001408s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.059591s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005146s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000370s ]
+
+[ 2017-11-08T18:33:17+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000607s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001202s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.065656s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.004846s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000357s ]
+
+[ 2017-11-08T18:35:40+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000570s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001214s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001299s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.022230s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005153s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000324s ]
+
+[ 2017-11-08T18:36:39+08:00 ] 127.0.0.1 /tianping/User/addPermission
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000510s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001651s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001738s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.056555s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005310s ]
+SQL: select id from permission where id = 1 and status = 0 [ RunTime:0.000320s ]
+SQL: insert into permission (`cid`,`action`,`function`,`name`,`parentId`,`order`,`group`,`ctime`) values ('1','sadf','sdfg','sdfgh','1','1','1','2017-11-08 18:36:39') [ RunTime:0.000563s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 102 行.
+
+[ 2017-11-08T18:39:26+08:00 ] 127.0.0.1 /tianping/login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000644s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000940s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001011s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.164767s ]
+SQL: select uname,phone,email from user [ RunTime:0.000316s ]
+
+[ 2017-11-08T18:39:31+08:00 ] 127.0.0.1 /tianping/login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000397s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001053s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001127s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.005143s ]
+SQL: select uname,phone,email from user [ RunTime:0.000349s ]
+
+[ 2017-11-08T18:39:35+08:00 ] 127.0.0.1 /tianping/login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000731s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001083s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001187s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.070465s ]
+SQL: select uname,phone,email from user [ RunTime:0.000399s ]
+
+[ 2017-11-08T18:40:23+08:00 ] 127.0.0.1 /tianping/login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000578s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001046s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001119s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.062063s ]
+SQL: select uname,phone,email from user [ RunTime:0.000432s ]
+
+[ 2017-11-08T18:41:30+08:00 ] 127.0.0.1 /tianping/login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000517s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001133s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001325s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.055813s ]
+SQL: select uname,phone,email from user [ RunTime:0.000613s ]
+SQL: insert into user (`uname`,`pwd`,`phone`,`email`,`ctime`) values ('sdfghaa','sdfg','13501310140','asdfgh@ca.aa','2017-11-08 18:41:30') [ RunTime:0.001013s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given C:\wpy\my\tianping\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 102 行.
+
