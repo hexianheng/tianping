@@ -154,8 +154,6 @@ class UserModel extends BaseModel {
 
     //获取权限列表
     public function getPermission($page = 0){
-        if($page != '' is_numeric())
-        echo $page;die;
         $sql = "select id,name,parentId,status,ctime from permission where status = 0 order by parentId";
         $re = $this->sqlQuery('permission',$sql);
         if(empty($re)){
