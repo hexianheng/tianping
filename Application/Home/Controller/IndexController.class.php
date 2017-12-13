@@ -5,6 +5,6 @@ class IndexController extends Controller {
 
     //首页
     public function index(){
-        $this->display('Index/Index');
+        $this->display('/Index/Index');
     }
 }
