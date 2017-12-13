@@ -13,9 +13,9 @@ class CommonController extends BaseController {
         //实例化
         $this->obj = new UserModel();
         //验证userId,token
-        //$this->checkToken();
+        $this->checkToken();
         //验证是否有请求权限
-        //$this->checkRequest();
+        $this->checkRequest();
     }
 
     //验证token
