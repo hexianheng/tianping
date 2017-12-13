@@ -1,0 +1,7 @@
+﻿# Web站点忽略的目录
+.buildpath
+.project
+.settings/
+Application/Runtime/
+Uploads/
+.idea/
