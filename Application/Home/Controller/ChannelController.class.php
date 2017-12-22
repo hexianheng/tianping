@@ -63,7 +63,7 @@ class ChannelController extends CommonController {
         $this->response($result,'json');
     }
 
-    //获取单条渠道数据
+    //修改渠道状态
     public function updateStatus(){
         $id = I('post.id');
         $obj = new ChannelModel();

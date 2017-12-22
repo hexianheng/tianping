@@ -26,4 +26,49 @@ class ProductController extends CommonController
         $result = $obj->addProduct($data);
         $this->response($result,'json');
     }
+
+    //修改产品
+    public function updProduct(){
+        $data = [
+            'id' => I('post.id'),
+            'mId' => I('post.userId'),
+            'name' => I('post.name'),
+            'desc' => I('post.desc'),
+            'projectStr' => I('post.projectStr')
+        ];
+        $obj = new ProductModel();
+        $result = $obj->updProduct($data);
+        $this->response($result,'json');
+    }
+
+    //获取产品单条数据
+    public function getOneProduct(){
+        $id = I('post.id');
+        $obj = new ProductModel();
+        $result = $obj->getOneProduct($id);
+        $this->response($result,'json');
+    }
+
+    //修改产品状态
+    public function updateStatus(){
+        $id = I('post.id');
+        $obj = new ProductModel();
+        $result = $obj->updateStatus($id);
+        $this->response($result,'json');
+    }
+
+    //获取产品列表
+    public function listProduct(){
+        $page = I('post.page');
+        $obj = new ProductModel();
+        $result = $obj->listProduct($page);
+        $this->response($result,'json');
+    }
+
+    //获取产品下拉
+    public function productSelect(){
+        $obj = new ProductModel();
+        $result = $obj->productSelect();
+        $this->response($result,'json');
+    }
 }
