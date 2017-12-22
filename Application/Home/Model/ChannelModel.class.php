@@ -1,5 +1,8 @@
 <?php
-
+/* *
+ * 渠道Model
+ * author：PeiYun Wang
+ * */
 namespace Home\Model;
 class ChannelModel extends BaseModel {
 

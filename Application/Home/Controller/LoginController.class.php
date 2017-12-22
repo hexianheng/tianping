@@ -1,4 +1,8 @@
 <?php
+/* *
+ * 登陆控制器
+ * author：PeiYun Wang
+ * */
 namespace Home\Controller;
 use Home\Model\UserModel;
 class LoginController extends BaseController {

@@ -1,4 +1,8 @@
 <?php
+/* *
+ * 用户控制器
+ * author：PeiYun Wang
+ * */
 namespace Home\Controller;
 use Home\Model\TokenModel;
 use Home\Model\UserModel;

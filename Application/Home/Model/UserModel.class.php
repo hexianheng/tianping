@@ -1,5 +1,8 @@
 <?php
-
+/* *
+ * 用户Model
+ * author：PeiYun Wang
+ * */
 namespace Home\Model;
 use Home\Model\TokenModel;
 class UserModel extends BaseModel {

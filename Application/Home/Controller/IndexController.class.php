@@ -1,4 +1,8 @@
 <?php
+/* *
+ * 路由控制器
+ * author：PeiYun Wang
+ * */
 namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {

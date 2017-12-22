@@ -1,5 +1,8 @@
 <?php
-
+/* *
+ * 公共Model
+ * author：PeiYun Wang
+ * */
 namespace Home\Model;
 use Think\Model;
 class BaseModel extends Model {

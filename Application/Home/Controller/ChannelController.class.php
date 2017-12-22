@@ -1,4 +1,8 @@
 <?php
+/* *
+ * 渠道控制器
+ * author：PeiYun Wang
+ * */
 namespace Home\Controller;
 use Home\Model\ChannelModel;
 class ChannelController extends CommonController {

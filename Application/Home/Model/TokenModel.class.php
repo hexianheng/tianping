@@ -1,5 +1,8 @@
 <?php
-
+/* *
+ * TOKEN Model
+ * author：PeiYun Wang
+ * */
 namespace Home\Model;
 class TokenModel extends BaseModel {
 

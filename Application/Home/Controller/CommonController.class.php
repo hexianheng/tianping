@@ -1,4 +1,8 @@
 <?php
+/* *
+ * 公共控制器
+ * author：PeiYun Wang
+ * */
 namespace Home\Controller;
 use Home\Model\UserModel;
 
