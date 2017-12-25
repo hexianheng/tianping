@@ -8,7 +8,11 @@ use Think\Controller;
 class IndexController extends Controller {
 
     //首页
+    /**
+     * [index description]
+     * @return [type] [description]
+     */
     public function index(){
-        $this->display('/Index/Index');
+        $this->display('/Index/Login');
     }
 }
