@@ -8,7 +8,14 @@ use Home\Model\TokenModel;
 class UserModel extends BaseModel {
 
     //添加用户
-    public function register($data){
+    public function addUser($data){
+        //验证角色ID
+        if($data['roleId'] == ''){
+            return $this->returnMsg('A020');
+        }else{
+            $roleId = $data['roleId'];
+            unset($data['roleId']);
+        }
         //验证用户名
         if($data['uname'] == ''){
             return $this->returnMsg('A001');
@@ -17,10 +24,10 @@ class UserModel extends BaseModel {
         if($data['pwd'] == ''){
             return $this->returnMsg('A002');
         }else{
-            $data = md5($data['pwd']);
+            $data['pwd'] = md5($data['pwd']);
         }
         //验证手机号
-        $reg = "/^[1][3,4,5,7,8][0-9]{9}$/";
+        $reg = "/^(13|14|15|17|18)[0-9]{9}$/";
         if($data['phone'] == '' || !preg_match($reg,$data['phone'])){
             return $this->returnMsg('A003');
         }
@@ -43,6 +50,9 @@ class UserModel extends BaseModel {
         $data['ctime'] = date('Y-m-d H:i:s');
         //入库
         $this->sqlInsert('user',$data);
+        $sql = "select id from user where phone = $data[phone]";
+        $id = $this->sqlQuery('user',$sql)[0]['id'];
+        $this->userRole(['userId' => $id,'roleId' => $roleId]);
         return $this->returnMsg(0);
     }
 
@@ -106,6 +116,80 @@ class UserModel extends BaseModel {
                 }
             }
         }
+    }
+
+    //修改用户
+    public function updUser($data){
+        //验证角色ID
+        if($data['roleId'] == ''){
+            return $this->returnMsg('A020');
+        }else{
+            $roleId = $data['roleId'];
+            unset($data['roleId']);
+        }
+        //验证用户名
+        if($data['uname'] == ''){
+            return $this->returnMsg('A001');
+        }
+        //验证密码及确认密码
+        if($data['pwd'] == ''){
+            return $this->returnMsg('A002');
+        }else{
+            $data['pwd'] = md5($data['pwd']);
+        }
+        //验证手机号
+        $reg = "/^(13|14|15|17|18)[0-9]{9}$/";
+        if($data['phone'] == '' || !preg_match($reg,$data['phone'])){
+            return $this->returnMsg('A003');
+        }
+        //验证email
+        if($data['email'] == '' || !strstr($data['email'],'@') || !strstr($data['email'],'.')){
+            return $this->returnMsg('A004');
+        }
+        //验证ID
+        $id = $data['id'];
+        unset($data['id']);
+        $sql = "select * from user where id = ". $id;
+        $baseData = $this->sqlQuery('user',$sql)[0];
+        if(empty($baseData)){
+            return $this->returnMsg('A011');
+        }
+
+        foreach ($data as $key => $val){
+            if($val == $baseData[$key]){
+                unset($data[$key]);
+            }
+        }
+
+        $filed = [];
+        if(!empty($data['uname'])){
+            $filed[] = 'uname';
+        }
+        if(!empty($data['phone'])){
+            $filed[] = 'phone';
+        }
+        if(!empty($data['email'])){
+            $filed[] = 'email';
+        }
+        if(!empty($filed)){
+            $sql = "select ".implode(',',$filed) . " from user";
+            $temp = $this->sqlQuery('user',$sql);
+            if(!empty($data['uname']) && in_array($data['uname'],array_column($temp,'uname'))){
+                return $this->returnMsg('A005');
+            }
+            if(!empty($data['phone']) && in_array($data['phone'],array_column($temp,'phone'))){
+                return $this->returnMsg('A006');
+            }
+            if(!empty($data['email']) && in_array($data['email'],array_column($temp,'email'))){
+                return $this->returnMsg('A007');
+            }
+        }
+
+        $data['mtime'] = date('Y-m-d H:i:s');
+        //入库
+        $this->sqlUpdate('user',$data,"id = ".$id);
+        $this->userRole(['userId' => $id,'roleId' => $roleId]);
+        return $this->returnMsg(0);
     }
 
     //添加权限
@@ -201,11 +285,27 @@ class UserModel extends BaseModel {
         }
     }
 
-    //获取用户角色列表
-    public function userRoleList(){
-        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id";
+    //获取用户列表
+    public function userRoleList($page){
+        if($page == ''){
+            $page = 1;
+        }else{
+            if(!is_numeric($page)){
+                return $this->returnMsg(-4);
+            }
+        }
+
+        $countSql = "select count(a.id) as count from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id";
+        $count = $this->sqlQuery('user',$countSql)[0]['count'];
+        if(empty($count)){
+            return $this->returnMsg(-3);
+        }
+
+        $limit = $this->_makeLimit($page,10);
+
+        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id" . $limit;
         $re = $this->sqlQuery('user',$sql);
-        return $this->returnMsg(0,$re);
+        return $this->returnMsg(0,$re,['page'=>$page,'maxPage'=>ceil($count/10)]);
     }
 
     //绑定用户及角色
@@ -290,6 +390,7 @@ class UserModel extends BaseModel {
         }
     }
 
+    //修改权限
     public function updPermission($data){
         //验证控制器名
         if($data['action'] == ''){
@@ -332,6 +433,33 @@ class UserModel extends BaseModel {
         $this->sqlUpdate('permission',$data,"id = $id");
         return $this->returnMsg(0);
     }
+
+    //获取用户以及关联角色信息
+    public function getOneUser($id){
+        if($id == ''){
+            return $this->returnMsg('A011');
+        }
+        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id where a.id = $id";
+        $re = $this->sqlQuery('user',$sql);
+        if(empty($re[0])){
+            return $this->returnMsg('A011');
+        }else{
+            return $this->returnMsg(0,$re[0]);
+        }
+    }
+
+    //获取角色下拉
+    public function getSelectRole(){
+        $sql = "select id,name from role";
+        $re = $this->sqlQuery('role',$sql);
+        if(empty($re)){
+            return $this->returnMsg(-3);
+        }else {
+            return $this->returnMsg(0, $re);
+        }
+    }
+
+
 }
 
 ?>
