@@ -127,4 +127,15 @@ class UserController extends CommonController {
         $result = $obj->updPermission($data);
         $this->response($result,'json');
     }
+
+    //添加用户
+    public function addUser(){
+        $data['uname'] = I('post.userName');
+        $data['pwd'] = I('post.password');
+        $data['phone'] = I('post.phone');
+        $data['email'] = I('post.email');
+        $obj = new UserModel();
+        $result = $obj->register($data);
+        $this->response($result,'json');
+    }
 }

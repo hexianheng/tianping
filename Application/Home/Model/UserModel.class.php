@@ -7,17 +7,16 @@ namespace Home\Model;
 use Home\Model\TokenModel;
 class UserModel extends BaseModel {
 
-    //注册
+    //添加用户
     public function register($data){
         //验证用户名
         if($data['uname'] == ''){
             return $this->returnMsg('A001');
         }
         //验证密码及确认密码
-        if($data['pwd'] == '' || $data['pwdAgain'] == '' || $data['pwd'] != $data['pwdAgain']){
+        if($data['pwd'] == ''){
             return $this->returnMsg('A002');
         }else{
-            unset($data['pwdAgain']);
             $data = md5($data['pwd']);
         }
         //验证手机号
