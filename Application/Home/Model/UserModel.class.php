@@ -5,6 +5,7 @@
  * */
 namespace Home\Model;
 use Home\Model\TokenModel;
+use Home\Model\SmsModel;
 class UserModel extends BaseModel {
 
     //添加用户
@@ -66,7 +67,7 @@ class UserModel extends BaseModel {
         if($data['pwd'] == ''){
             return $this->returnMsg('A009');
         }
-        $sql = "select id,uname,pwd from user where uname = '$data[uname]' and pwd = '". md5($data['pwd'])."'";
+        $sql = "select id,uname,pwd,repwd from user where uname = '$data[uname]' and pwd = '". md5($data['pwd'])."'";
         $rs = $this->sqlQuery('user',$sql);
         if(empty($rs)){
             return $this->returnMsg('A010');
@@ -338,7 +339,7 @@ class UserModel extends BaseModel {
         if(empty($rs)){
             return $this->returnMsg('A021');
         }
-        $this->sqlUpdate('user',['pwd'=>md5($data['pwd'])],"id = $data[userId]");
+        $this->sqlUpdate('user',['pwd'=>md5($data['pwd']),'repwd' => 1],"id = $data[userId]");
         return $this->returnMsg(0);
     }
 
@@ -459,7 +460,22 @@ class UserModel extends BaseModel {
         }
     }
 
+    //修改密码发送验证码
+    public function sendPhoneCheck($data){
+        $reg = "/^(13|14|15|17|18)[0-9]{9}$/";
+        if($data['phone'] == '' || !preg_match($reg,$data['phone'])){
+            return $this->returnMsg('A003');
+        }
 
+        $obj = new SmsModel();
+        $num = rand(100000, 999999);
+        $re = $obj->sendPhoneCheck($data['phone'],$num);
+        if($re['code'] == 0){
+            return $this->returnMsg(0,['num' => $num]);
+        }else{
+            return $this->returnMsg('A036');
+        }
+    }
 }
 
 ?>

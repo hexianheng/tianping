@@ -21,6 +21,7 @@ class TokenModel extends BaseModel {
             'token' => $token,
             'time' => $this->tokenTime,
             'roleId' => $data['roleId'],
+            'repwd' => $data['repwd'],
             'roleName' => $data['roleName'],
             'permission' => $data['permission']
         );

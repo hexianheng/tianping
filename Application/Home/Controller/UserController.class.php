@@ -32,7 +32,14 @@ class UserController extends CommonController {
         $this->response($result,'json');
     }
 
-
+    //发送手机验证吗
+    public function sendPhoneCheck(){
+        $data['userId'] = I('post.userId');
+        $data['phone'] = I('post.phone');
+        $obj = new UserModel();
+        $result = $obj->sendPhoneCheck($data);
+        $this->response($result,'json');
+    }
 
     //修改权限
     public function updPermission(){
