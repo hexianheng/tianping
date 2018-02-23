@@ -354,6 +354,19 @@ class UserModel extends BaseModel {
         }
     }
 
+    //删除角色
+    public function delRole($roleId){
+        $sql = "select id from role where id = $roleId";
+        $re = $this->sqlQuery('role',$sql);
+        if(empty($re)){
+            return $this->returnMsg('A020');
+        }else{
+            $sql = "delete from role where id = $roleId";
+            $this->sqlQuery('role',$sql);
+            return $this->returnMsg(0);
+        }
+    }
+
     //修改角色
     public function updRole($data){
         if($data['name'] == ''){
@@ -388,6 +401,23 @@ class UserModel extends BaseModel {
             return $this->returnMsg('A022');
         }else{
             return $this->returnMsg(0,$re[0]);
+        }
+    }
+
+    //删除权限
+    public function delPermission($id){
+        if($id == ''){
+            return $this->returnMsg('A022');
+        }
+        $sql = "select id from permission where id = $id";
+        $re = $this->sqlQuery('permission',$sql);
+        if(empty($re)){
+            return $this->returnMsg('A022');
+        }else{
+            //删除权限
+            $sql = "delete from permission where id = $id";
+            $this->sqlQuery('permission',$sql);
+            return $this->returnMsg(0);
         }
     }
 
@@ -446,6 +476,21 @@ class UserModel extends BaseModel {
             return $this->returnMsg('A011');
         }else{
             return $this->returnMsg(0,$re[0]);
+        }
+    }
+
+    public function delUser($id){
+        if($id == ''){
+            return $this->returnMsg('A011');
+        }
+        $sql = "select id from `user` where id = $id";
+        $re = $this->sqlQuery('user',$sql);
+        if(empty($re[0])){
+            return $this->returnMsg('A011');
+        }else{
+            $sql = "delete from user where id = $id";
+            $this->sqlQuery('user',$sql);
+            return $this->returnMsg(0);
         }
     }
 

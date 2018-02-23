@@ -91,6 +91,14 @@ class UserController extends CommonController {
         $this->response($result,'json');
     }
 
+    //删除权限
+    public function delPermission(){
+        $permissionId = I('post.permissionId');
+        $obj = new UserModel();
+        $result = $obj->delPermission($permissionId);
+        $this->response($result,'json');
+    }
+
 
 
     //添加角色
@@ -127,6 +135,14 @@ class UserController extends CommonController {
     public function getSelectRole(){
         $obj = new UserModel();
         $result = $obj->getSelectRole();
+        $this->response($result,'json');
+    }
+
+    //删除角色
+    public function delRole(){
+        $rId = I('post.roleId');
+        $obj = new UserModel();
+        $result = $obj->delRole($rId);
         $this->response($result,'json');
     }
 
@@ -172,6 +188,14 @@ class UserController extends CommonController {
         $data['mId'] = I('post.userId');
         $obj = new UserModel();
         $result = $obj->updUser($data);
+        $this->response($result,'json');
+    }
+
+    //删除用户
+    public function delUser(){
+        $id = I('post.id');
+        $obj = new UserModel();
+        $result = $obj->delUser($id);
         $this->response($result,'json');
     }
 
