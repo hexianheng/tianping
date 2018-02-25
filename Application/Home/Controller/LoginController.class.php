@@ -19,15 +19,4 @@ class LoginController extends BaseController {
         $result = $this->obj->login($data);
         $this->response($result,'json');
     }
-
-    //注册方法
-    public function register(){
-        $data['uname'] = I('post.userName');
-        $data['pwd'] = I('post.password');
-        $data['pwdAgain'] = I('post.pwdAgain');
-        $data['phone'] = I('post.phone');
-        $data['email'] = I('post.email');
-        $result = $this->obj->register($data);
-        $this->response($result,'json');
-    }
 }

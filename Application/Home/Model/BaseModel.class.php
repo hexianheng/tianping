@@ -17,19 +17,30 @@ class BaseModel extends Model {
         $this->errorConfig = C('ERROR');
     }
 
+    //生成limit
+    public function _makeLimit($page = 1,$pageNum = 10){
+        return " limit " . ($page - 1) * $pageNum . "," . $pageNum;
+    }
+
 
     //封装调取错误码方法
-    public function returnMsg($code = 0,$return = []){
+    public function returnMsg($code = 0,$return = [],$parentArr = []){
         if(empty($this->errorConfig[$code])){
             $msg = $this->errorConfig[-1];
         }else{
             $msg = $this->errorConfig[$code];
         }
-        return array(
+        $return = array(
             'code' => $code,
             'msg' => $msg,
             'data' => $return
         );
+        if(!empty($parentArr)){
+            foreach ($parentArr as $key => $val){
+                $return[$key] = $val;
+            }
+        }
+        return $return;
     }
 
     //sql
