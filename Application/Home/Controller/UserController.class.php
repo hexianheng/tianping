@@ -147,6 +147,9 @@ class UserController extends CommonController {
         $data['phone'] = I('post.phone');
         $data['email'] = I('post.email');
         $data['cId'] = I('post.userId');
+        $data['sex'] =I('post.sex');
+        $data['channelId'] =I('post.channelId');
+        $data['job'] =I('post.job');
         $obj = new UserModel();
         $result = $obj->addUser($data);
         $this->response($result,'json');
@@ -163,8 +166,9 @@ class UserController extends CommonController {
     //用户列表
     public function userRoleList(){
         $page = I('post.page');
+        $where = I('post.where');
         $obj = new UserModel();
-        $result = $obj->userRoleList($page);
+        $result = $obj->userRoleList($page,$where);
         $this->response($result,'json');
     }
 
@@ -177,6 +181,9 @@ class UserController extends CommonController {
         $data['phone'] = I('post.phone');
         $data['email'] = I('post.email');
         $data['mId'] = I('post.userId');
+        $data['sex'] =I('post.sex');
+        $data['channelId'] =I('post.channelId');
+        $data['job'] =I('post.job');
         $obj = new UserModel();
         $result = $obj->updUser($data);
         $this->response($result,'json');

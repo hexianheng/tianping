@@ -9,7 +9,7 @@ use Home\Model\SmsModel;
 class UserModel extends BaseModel {
 
     //添加用户
-    public function addUser($data){
+    public function addUser($data,$num = 5){
         //验证角色ID
         if($data['roleId'] == ''){
             return $this->returnMsg('A020');
@@ -36,6 +36,28 @@ class UserModel extends BaseModel {
         if($data['email'] == '' || !strstr($data['email'],'@') || !strstr($data['email'],'.')){
             return $this->returnMsg('A004');
         }
+
+        //验证性别
+        if($data['sex'] == '' || !in_array($data['sex'],[1,2])){
+            return $this->returnMsg('A037');
+        }
+
+        //验证渠道ID
+        if($data['channelId'] == ''){
+            return $this->returnMsg('A038');
+        }else{
+            $sql = "select id from channel where id = ". $data['channelId'];
+            $re = $this->sqlQuery('channel',$sql);
+            if(empty($re)){
+                return $this->returnMsg('A038');
+            }
+        }
+
+        //验证职位
+        if($data['job'] == ''){
+            return $this->returnMsg('A039');
+        }
+
         //验证唯一
         $sql = "select uname,phone,email from user";
         $temp = $this->sqlQuery('user',$sql);
@@ -48,11 +70,17 @@ class UserModel extends BaseModel {
         if(in_array($data['email'],array_column($temp,'email'))){
             return $this->returnMsg('A007');
         }
+
         $data['ctime'] = date('Y-m-d H:i:s');
         //入库
         $this->sqlInsert('user',$data);
         $sql = "select id from user where phone = $data[phone]";
         $id = $this->sqlQuery('user',$sql)[0]['id'];
+
+        $code = 'TP' . str_pad($id,$num,"0",STR_PAD_LEFT);
+        $sql = "update user set code = '$code' where id = ".$id;
+        $this->sqlQuery('user',$sql);
+
         $this->userRole(['userId' => $id,'roleId' => $roleId]);
         return $this->returnMsg(0);
     }
@@ -147,6 +175,28 @@ class UserModel extends BaseModel {
         if($data['email'] == '' || !strstr($data['email'],'@') || !strstr($data['email'],'.')){
             return $this->returnMsg('A004');
         }
+
+        //验证性别
+        if($data['sex'] == '' || !in_array($data['sex'],[1,2])){
+            return $this->returnMsg('A037');
+        }
+
+        //验证渠道ID
+        if($data['channelId'] == ''){
+            return $this->returnMsg('A038');
+        }else{
+            $sql = "select id from channel where id = ". $data['channelId'];
+            $re = $this->sqlQuery('channel',$sql);
+            if(empty($re)){
+                return $this->returnMsg('A038');
+            }
+        }
+
+        //验证职位
+        if($data['job'] == ''){
+            return $this->returnMsg('A039');
+        }
+
         //验证ID
         $id = $data['id'];
         unset($data['id']);
@@ -287,7 +337,7 @@ class UserModel extends BaseModel {
     }
 
     //获取用户列表
-    public function userRoleList($page){
+    public function userRoleList($page,$where = ''){
         if($page == ''){
             $page = 1;
         }else{
@@ -296,7 +346,11 @@ class UserModel extends BaseModel {
             }
         }
 
-        $countSql = "select count(a.id) as count from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id";
+        if($where != ''){
+            $where = "where a.uname = '$where' or a.id = '$where' or a.code = '$where'";
+        }
+
+        $countSql = "select count(a.id) as count from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id " . $where;
         $count = $this->sqlQuery('user',$countSql)[0]['count'];
         if(empty($count)){
             return $this->returnMsg(-3);
@@ -304,7 +358,7 @@ class UserModel extends BaseModel {
 
         $limit = $this->_makeLimit($page,10);
 
-        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id" . $limit;
+        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id order by a.id desc " . $where . $limit;
         $re = $this->sqlQuery('user',$sql);
         return $this->returnMsg(0,$re,['page'=>$page,'maxPage'=>ceil($count/10)]);
     }
@@ -470,7 +524,7 @@ class UserModel extends BaseModel {
         if($id == ''){
             return $this->returnMsg('A011');
         }
-        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id where a.id = $id";
+        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id where a.id = $id";
         $re = $this->sqlQuery('user',$sql);
         if(empty($re[0])){
             return $this->returnMsg('A011');
