@@ -27,4 +27,14 @@ class LoginController extends BaseController {
         $result = $obj->sendPhoneCheck($data);
         $this->response($result,'json');
     }
+
+    //忘记密码
+    public function forgotPwd(){
+        $data['phone'] = I('post.phone');
+        $data['pwd'] = I('post.password');
+        $data['pwdAgain'] = I('post.pwdAgain');
+        $obj = new UserModel();
+        $result = $obj->forgotPwd($data);
+        $this->response($result,'json');
+    }
 }

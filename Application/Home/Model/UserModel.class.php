@@ -397,6 +397,25 @@ class UserModel extends BaseModel {
         return $this->returnMsg(0);
     }
 
+    //忘记密码
+    public function forgotPwd($data){
+        if($data['phone'] == ''){
+            return $this->returnMsg('A003');
+        }
+        //验证密码及确认密码
+        if($data['pwdAgain'] == '' || $data['pwd'] != $data['pwdAgain']){
+            return $this->returnMsg('A002');
+        }
+        //验证旧密码
+        $sql = "select id from user where phone = $data[phone]";
+        $rs = $this->sqlQuery('user',$sql);
+        if(empty($rs)){
+            return $this->returnMsg('A003');
+        }
+        $this->sqlUpdate('user',['pwd'=>md5($data['pwd']),'repwd' => 1],"phone = $data[phone]");
+        return $this->returnMsg(0);
+    }
+
     //获取单条角色
     public function getRoleOne($roleId){
         $sql = "select * from role where id = $roleId";
