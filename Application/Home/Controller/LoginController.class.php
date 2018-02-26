@@ -19,4 +19,12 @@ class LoginController extends BaseController {
         $result = $this->obj->login($data);
         $this->response($result,'json');
     }
+
+    //发送手机验证吗
+    public function sendPhoneCheck(){
+        $data['phone'] = I('post.phone');
+        $obj = new UserModel();
+        $result = $obj->sendPhoneCheck($data);
+        $this->response($result,'json');
+    }
 }
