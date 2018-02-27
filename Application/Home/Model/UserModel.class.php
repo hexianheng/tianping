@@ -403,7 +403,7 @@ class UserModel extends BaseModel {
             return $this->returnMsg('A003');
         }
         //验证密码及确认密码
-        if($data['pwdAgain'] == '' || $data['pwd'] != $data['pwdAgain']){
+        if($data['pwd'] == '' || $data['pwdAgain'] == '' || $data['pwd'] != $data['pwdAgain']){
             return $this->returnMsg('A002');
         }
         //验证旧密码
