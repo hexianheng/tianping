@@ -358,7 +358,7 @@ class UserModel extends BaseModel {
 
         $limit = $this->_makeLimit($page,10);
 
-        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id order by a.id desc " . $where . $limit;
+        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id " . $where ." order by a.id desc  ". $limit;
         $re = $this->sqlQuery('user',$sql);
         return $this->returnMsg(0,$re,['page'=>$page,'maxPage'=>ceil($count/10)]);
     }
