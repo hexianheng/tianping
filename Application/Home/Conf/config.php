@@ -2,7 +2,7 @@
 return array(
     //数据库配置信息
     'DB_TYPE'   => 'mysqli', // 数据库类型
-    'DB_HOST'   => '123.207.151.98', // 服务器地址
+    'DB_HOST'   => '123.207.151.98', // 服务器地址123.207.151.98
     'DB_NAME'   => 'main', // 数据库名
     'DB_USER'   => 'root', // 用户名
     'DB_PWD'    => 'rootroot', // 密码
@@ -18,4 +18,6 @@ return array(
         'host' => '127.0.0.1',
         'port' => 6379
     ),
+
+    'URL' => 'http://localhost:8080/gitjob/index.php',
 );
