@@ -13,9 +13,23 @@ class IndexController extends Controller {
      * @return [type] [description]
      */
     public function index(){
+        $url=C("URL");
+        $this->assign("url",$url);
         $this->display('Index/Login');
     }
 
+    public function login(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Index/Login');
+    }
+    public function startUpPwd(){
+        $this->display('Index/start_up_pwd');
+    }
+
+    public function wjmm(){
+        $this->display('Index/wjmm');
+    }
     //首页
     public function tianping(){
         $url=C("URL");
@@ -54,11 +68,11 @@ class IndexController extends Controller {
         $this->assign("url",$url);
         $this->display('Jurisdiction/js_list');
     }
-    //分配权限
-    public function fpqx(){
+    //权限列表
+    public function qxlb(){
         $url=C("URL");
         $this->assign("url",$url);
-        $this->display('Jurisdiction/fpqx');
+        $this->display('Jurisdiction/qxlb');
     }
     //新增管理员
     public function xzgly(){
