@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>天平永达后台系统</title>
 
-<link href="/Public/css/style.css" rel="stylesheet" type="text/css">
+<link href="/gitjob/Public/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body class="login">
 <!--<div class="login_logo"><img src="images/logo.png"></div>-->
-<div class="login_logo"><img src="/Public/images/login-logo.png"></div>
+<div class="login_logo"><img src="/gitjob/Public/images/login-logo.png"></div>
 <div class="login_m">
 	
 	<div class="login_boder">
@@ -23,14 +23,10 @@
 			<label>
 				<input type="password" name="textfield2" id="userpwd" class="txt_input" onfocus="if (value ==&#39;******&#39;){value =&#39;&#39;}" onblur="if (value ==&#39;&#39;){value=&#39;******&#39;}" value="******">
 			</label>
-            <!--<h2>验证码</h2>-->
-			<!--<label>-->
-				<!--<input type="text" id="yzm" class="txt_input3" onfocus="if (value ==&#39;******&#39;){value =&#39;&#39;}" onblur="if (value ==&#39;&#39;){value=&#39;******&#39;}" value="******"><img src="images/YZM.png" width="100" height="30" style=" vertical-align:middle" />-->
-			<!--</label>-->
 			<div class="rem_sub">
 
 				<label>
-					<input type="button" class="sub_button" onclick="button()" name="button" id="button" value="登录" style="opacity: 0.7;">
+					<input type="button" class="sub_button" name="button" id="button" value="登录" style="opacity: 0.7;">
 				</label>
 			</div>
 		</div>
@@ -43,4 +39,6 @@
 
 </body>
 </html>
-<script type="text/javascript" src="/Public/js/login.js"></script>
+<script type="text/javascript" src="/gitjob/Public/js/jquery.js"></script>
+<script type="text/javascript" src="/gitjob/Public/js/common.js"></script>
+<script type="text/javascript" src="/gitjob/Public/js_logic/login.js"></script>
