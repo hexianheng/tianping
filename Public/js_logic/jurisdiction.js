@@ -23,10 +23,10 @@ if(userId == "" || token == ""){
 				 html += "<td>" + obj.roleName + "</td>";
 				 html += "<td>" + obj.phone + "</td>";
 				 html += "<td>" + obj.email + "</td>";
-				 html += '<td><a class="btn04" id="xg_btn">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
+				 html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
 
 			});
-			$("#data").html(html);
+			$("#data").append(html);
 
 			var page = "";
 			for (var i = 1;i <= result.maxPage;i++)
@@ -38,6 +38,56 @@ if(userId == "" || token == ""){
 				}
 			}
 			$("#page").html(page);
+    });
+}
+
+//修改
+function upd(id) {
+    ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
+        var html_c = "";
+        $.each(result["data"], function(idx, obj) {
+            html_c += "<option value = '"+ obj.name +"'>" + obj.name +"</option>";
+        });
+        $("#channelId").html(html_c);
+    });
+    //角色下拉
+    ajax("/User/getSelectRole",{"userId":userId,"token":token},function(result){
+        var html_u = "";
+        $.each(result["data"], function(idx, obj) {
+            html_u += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
+        });
+        $("#roleId").html(html_u);
+    });
+    $('.pop_layer').show();
+    ajax("/User/getOneUser",{"userId":userId,"token":token,"id":id},function(result){
+        console.log(result)
+
+        $("#uname").val(result['data']['uname']);
+        $(":radio[name='radio'][value='" + result['data']['sex'] + "']").prop("checked", "checked");
+        $("#channelId").val(result['data']['channelName']);
+        $("#roleId").val(result['data']['roleId']);
+        $("#email").val(result['data']['email']);
+        $("#job").val(result['data']['job']);
+        $("#phone").val(result['data']['phone']);
+        var operation = "<a class='preview-btn btn04' onclick='update("+result['data']['userId']+")'>保存</a >";
+        $("#operation").html(operation);
+    });
+}
+
+//修改用户信息
+function update(id){
+    var roleId = $("#roleId").val();
+    var userName = $("#uname").val();
+    var phone = $("#phone").val();
+    var email = $("#email").val();
+    var sex = $("#sex").val();
+    var channelId = $("#channelId").val();
+    var job = $("#job").val();
+    ajax("/User/addUser",{"userId":userId,"token":token,"roleId":roleId,"userName":userName,"password":password,"phone":phone,"email":email,"sex":sex,"channelId":channelId,"job":job},function(result){
+        if(result["code"] == 0){
+            alert(result["msg"])
+            location.reload();
+        }
     });
 }
 
@@ -130,7 +180,6 @@ function del(id) {
 $("#search").click(function(){
 
 	var where=$("#text").val();
-	alert(where)
 	if(where == ""){
 		alert("搜索条件不能为空")
 	}else{
@@ -142,14 +191,20 @@ $("#search").click(function(){
 			$.each(result["data"], function(idx, obj) {
 				html += "<tr><td>" + obj.userId + "</td>";
 				html += "<td>" + obj.uname + "</td>";
+				if(obj.sex == '1'){
+					html += "<td>男</td>";
+				}else{
+					html += "<td>女</td>";
+				}
+				html += "<td>" + obj.channelName + "</td>";
+				html += "<td>" + obj.job + "</td>";
+				html += "<td>" + obj.roleName + "</td>";
 				html += "<td>" + obj.phone + "</td>";
 				html += "<td>" + obj.email + "</td>";
-				html += "<td><a class='btn04' id='xg_btn'>修改</a ></td></tr>";
+				html += '<td><a class="btn04" id="xg_btn">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
 
-				//alert();
 			});
 			$("#data").html(html);
-
 			var page = "";
 			for (var i = 1;i <= result.maxPage;i++)
 			{
