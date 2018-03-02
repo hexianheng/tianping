@@ -160,12 +160,6 @@ class UserModel extends BaseModel {
         if($data['uname'] == ''){
             return $this->returnMsg('A001');
         }
-        //验证密码及确认密码
-        if($data['pwd'] == ''){
-            return $this->returnMsg('A002');
-        }else{
-            $data['pwd'] = md5($data['pwd']);
-        }
         //验证手机号
         $reg = "/^(13|14|15|17|18)[0-9]{9}$/";
         if($data['phone'] == '' || !preg_match($reg,$data['phone'])){
@@ -358,7 +352,7 @@ class UserModel extends BaseModel {
 
         $limit = $this->_makeLimit($page,10);
 
-        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id " . $where ." order by a.id desc  ". $limit;
+        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,a.channelId,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id " . $where ." order by a.id desc  ". $limit;
         $re = $this->sqlQuery('user',$sql);
         return $this->returnMsg(0,$re,['page'=>$page,'maxPage'=>ceil($count/10)]);
     }
@@ -543,7 +537,7 @@ class UserModel extends BaseModel {
         if($id == ''){
             return $this->returnMsg('A011');
         }
-        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id where a.id = $id";
+        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,a.channel,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id where a.id = $id";
         $re = $this->sqlQuery('user',$sql);
         if(empty($re[0])){
             return $this->returnMsg('A011');
