@@ -177,7 +177,6 @@ class UserController extends CommonController {
         $data['id'] = I('post.id');
         $data['roleId'] = I('post.roleId');
         $data['uname'] = I('post.userName');
-        $data['pwd'] = I('post.password');
         $data['phone'] = I('post.phone');
         $data['email'] = I('post.email');
         $data['mId'] = I('post.userId');

@@ -104,5 +104,37 @@ class IndexController extends Controller {
         $this->assign("url",$url);
         $this->display('Code/xzbm');
     }
+    //编码分组
+    public function bmfz(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Code/bmfz');
+    }
+    //编码生成
+    public function bmsc(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Code/bmsc');
+    }
+
+    //编码出库
+    public function bmck(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Code/bmck');
+    }
+    //渠道列表
+    public function qd_list(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Channel/qd_list');
+    }
+
+    //渠道添加
+    public function qd_add(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Channel/qd_add');
+    }
 
 }

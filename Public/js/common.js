@@ -4,6 +4,9 @@ var CONFIG = {
     "path"  : "http://localhost:8080/gitjob/index.php/"
 }
 
+
+
+
 //ajax方法
 function ajax(url,data,success){    
     $.ajax({

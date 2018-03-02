@@ -3,7 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>新增编码</title>
-<link rel="stylesheet" type="text/css" href="css/erweima-style.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+<link href="__PUBLIC__/css/css_date/mobiscroll_date.css" rel="stylesheet" />
+<script src="__PUBLIC__/js/js_date/jquery.min.js"></script>
+<script src="__PUBLIC__/js/js_date/mobiscroll_date.js" charset="gb2312"></script>
+<script src="__PUBLIC__/js/js_date/mobiscroll.js"></script>
 </head>
 
 <body>
@@ -15,23 +19,26 @@
         <ul>
             <li>
                 <label>渠道编码：</label>
-                <input type="text" name="qd_numbern" class="w200" value="">
+                <input type="text" name="qd_numbern" id="code" class="w200" value="">
             </li>
             <li>
                 <label>渠道名称：</label>
-                <input type="text" name="qd_name" class="w200" value="">
+                <input type="text" name="qd_name" id="name" class="w200" value="">
             </li>
             <li>
-                <label>渠道状态：</label>
-                <input type="radio" name="state" class="" checked value="">启用
-                <input type="radio" name="state" class="" value="">禁用
+                <label>渠道邮编：</label>
+                <input type="text" name="address" id="address" class="w200" value="">
+            </li>
+            <li>
+                <label>渠道邮编：</label>
+                <input type="text" name="zipCode" id="zipCode" class="w200" value="">
             </li>
             <li>
                 <label>渠道级别：</label>
                 <select class="w200">
                     <option>A</option>
                     <option>B</option>
-                    <option>D</option>
+                    <option>C</option>
                 </select>
             </li>
             <li>
@@ -48,7 +55,7 @@
             </li>
             <li>
                 <label>创建时间：</label>
-                <input type="text" name="times" class="w200 create_times" value="">
+                <input type="text" name="USER_AGE" id="USER_AGE" class="w200" readonly value=""/>
             </li>
 
         </ul>
@@ -62,3 +69,26 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+    $(function () {
+        var currYear = (new Date()).getFullYear();
+        var opt={};
+        opt.date = {preset : 'date'};
+        opt.datetime = {preset : 'datetime'};
+        opt.time = {preset : 'time'};
+        opt.default = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'modal', //显示方式
+            mode: 'scroller', //日期选择模式
+            dateFormat: 'yyyy-mm-dd',
+            lang: 'zh',
+            showNow: true,
+            nowText: "今天",
+            startYear: currYear - 50, //开始年份
+            endYear: currYear + 10 //结束年份
+        };
+
+        $("#USER_AGE").mobiscroll($.extend(opt['date'], opt['default']));
+
+    });
+</script>
