@@ -537,7 +537,7 @@ class UserModel extends BaseModel {
         if($id == ''){
             return $this->returnMsg('A011');
         }
-        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,a.channel,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id where a.id = $id";
+        $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,a.channelId,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id where a.id = $id";
         $re = $this->sqlQuery('user',$sql);
         if(empty($re[0])){
             return $this->returnMsg('A011');
