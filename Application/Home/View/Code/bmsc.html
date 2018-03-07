@@ -15,30 +15,20 @@
         <ul>
             <li>
                 <label>生成数量：</label>
-                <input type="text" name="name" class="w200 name" value="">
+                <input type="text" name="num" id="num" class="w200 name" placeholder="请输入1~10000之间的数字" value="">
             </li>
             <li>
                 <label>产品：</label>
-                <select class="w200">
-                    <option>123</option>
-                    <option>321</option>
-                </select>
+                <select class="w200" id="productId"></select>
             </li>
             <li>
                 <label>渠道：</label>
-                <select class="w200">
-                    <option>444</option>
-                    <option>555</option>
-                </select>
-            </li>
-            <li>
-                <label>分组：</label>
-                <input type="text" class="w200 name" placeholder="直接自动生成年月日"/>
+                <select class="w200" id="channelId"></select>
             </li>
         </ul>
     </div>
     <div class="preview">
-        <a class="preview-btn btn05">提交</a>
+        <a class="preview-btn btn05" id="btn">提交</a>
         <a class="cancel-btn btn05">取消</a>
     </div>
   </div>
@@ -46,3 +36,6 @@
 </div>
 </body>
 </html>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/bmsc.js"></script>
