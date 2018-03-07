@@ -21,12 +21,10 @@ class ChannelController extends CommonController {
             'address' => I('post.address'),
             'zipCode' => I('post.zipCode'),
             'email' => I('post.email'),
-            'phone' => I('post.phone'),
-            'startDate' => I('post.startDate'),
-            'desc' => I('post.desc'),
             'linkman' => I('post.linkman'),
             'linkmanPhone' => I('post.linkmanPhone'),
             'linkmanEmail' => I('post.linkmanEmail'),
+            'label' => I('post.label')
         ];
         $obj = new ChannelModel();
         $result = $obj->addChannel($data);
@@ -43,12 +41,10 @@ class ChannelController extends CommonController {
             'address' => I('post.address'),
             'zipCode' => I('post.zipCode'),
             'email' => I('post.email'),
-            'phone' => I('post.phone'),
-            'startDate' => I('post.startDate'),
-            'desc' => I('post.desc'),
             'linkman' => I('post.linkman'),
             'linkmanPhone' => I('post.linkmanPhone'),
             'linkmanEmail' => I('post.linkmanEmail'),
+            'label' => I('post.label')
         ];
         $obj = new ChannelModel();
         $result = $obj->updChannel($data);

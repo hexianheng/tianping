@@ -18,9 +18,6 @@ class ChannelModel extends BaseModel {
         }
         //验证企业联系方式
         $reg = "/^[1][3,4,5,7,8][0-9]{9}$/";
-        if($data['phone'] == '' || !preg_match($reg,$data['phone'])){
-            return $this->returnMsg('A025');
-        }
         //验证企业邮箱
         if($data['email'] != ''){
             if(!strstr($data['email'],'@') || !strstr($data['email'],'.')){
@@ -47,6 +44,10 @@ class ChannelModel extends BaseModel {
             if(!preg_match($reg,$data['zipCode'])){
                 return $this->returnMsg('A028');
             }
+        }
+        //验证等级
+        if($data['label'] == '' || !in_array($data['label'],['A','B','C'])){
+            return $this->returnMsg('A043');
         }
         $data['ctime'] = date('Y-m-d H:i:s');
         $data['cId'] = $data['userId'];
@@ -69,11 +70,7 @@ class ChannelModel extends BaseModel {
         if($data['name'] == ''){
             return $this->returnMsg('A024');
         }
-        //验证企业联系方式
         $reg = "/^[1][3,4,5,7,8][0-9]{9}$/";
-        if($data['phone'] == '' || !preg_match($reg,$data['phone'])){
-            return $this->returnMsg('A025');
-        }
         //验证企业邮箱
         if($data['email'] != ''){
             if(!strstr($data['email'],'@') || !strstr($data['email'],'.')){
@@ -100,6 +97,10 @@ class ChannelModel extends BaseModel {
             if(!preg_match($reg,$data['zipCode'])){
                 return $this->returnMsg('A028');
             }
+        }
+        //验证等级
+        if($data['label'] == '' || !in_array($data['label'],['A','B','C'])){
+            return $this->returnMsg('A043');
         }
         //验证渠道ID
         $sql = "select id from channel where id = '$data[id]'";
