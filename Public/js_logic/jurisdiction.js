@@ -2,6 +2,11 @@
 //获取用户列表
 var userId = getCookie("userId")
 var token = getCookie("token")
+var sex = 1;
+
+$('.sex_get').click(function(){
+    sex = $(this).val();
+});
 
 if(userId == "" || token == ""){
 	parent.location.href = CONFIG['path'] + 'Index/Login';
@@ -46,7 +51,7 @@ function upd(id) {
     ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
         var html_c = "";
         $.each(result["data"], function(idx, obj) {
-            html_c += "<option value = '"+ obj.name +"'>" + obj.name +"</option>";
+            html_c += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
         });
         $("#channelId").html(html_c);
     });
@@ -63,8 +68,8 @@ function upd(id) {
         console.log(result)
 
         $("#uname").val(result['data']['uname']);
-        $(":radio[name='radio'][value='" + result['data']['sex'] + "']").prop("checked", "checked");
-        $("#channelId").val(result['data']['channelName']);
+        $(":radio[name='radio'][value='" + result['data']['sex'] + "']").attr("checked", "checked");
+        $("#channelId").val(result['data']['channelId']);
         $("#roleId").val(result['data']['roleId']);
         $("#email").val(result['data']['email']);
         $("#job").val(result['data']['job']);
@@ -80,10 +85,9 @@ function update(id){
     var userName = $("#uname").val();
     var phone = $("#phone").val();
     var email = $("#email").val();
-    var sex = $("#sex").val();
     var channelId = $("#channelId").val();
     var job = $("#job").val();
-    ajax("/User/addUser",{"userId":userId,"token":token,"roleId":roleId,"userName":userName,"password":password,"phone":phone,"email":email,"sex":sex,"channelId":channelId,"job":job},function(result){
+    ajax("/User/updUser",{"userId":userId,"token":token,"id":id,"roleId":roleId,"userName":userName,"phone":phone,"email":email,"sex":sex,"channelId":channelId,"job":job},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
@@ -91,80 +95,7 @@ function update(id){
     });
 }
 
-$("#last_page").click(function(){
-
-	var num=$(".pages-current").text();
-
-	if(num != 1){
-		var nums = num - 1;
-		ajax("/User/userRoleList",{"userId":userId,"token":token,"page":nums},function(result){
-			var Count = result["data"].length;
-			$("#count").text(Count);
-
-			var html = "";
-			$.each(result["data"], function(idx, obj) {
-				html += "<tr><td>" + obj.userId + "</td>";
-				html += "<td>" + obj.uname + "</td>";
-				html += "<td>" + obj.phone + "</td>";
-				html += "<td>" + obj.email + "</td>";
-				html += "<td><a class='btn04' id='xg_btn'>修改</a ></td></tr>";
-
-				//alert();
-			});
-			$("#data").html(html);
-
-			var page = "";
-			for (var i = 1;i <= result.maxPage;i++)
-			{
-				if(i==result.page){
-					page += "<a class='pages-current'>" + i +"</a>";
-				}else{
-					page += "<a>" + i +"</a>";
-				}
-			}
-			$("#page").html(page);
-		});
-	}else{
-		alert("不能再往前了")
-	}
-
-});
-
-
-$("#next_page").click(function(){
-
-	var num=$(".pages-current").text();
-	
-		var nums = num + 1;
-		ajax("/User/userRoleList",{"userId":userId,"token":token,"page":nums},function(result){
-			var Count = result["data"].length;
-			$("#count").text(Count);
-			var html = "";
-			$.each(result["data"], function(idx, obj) {
-				html += "<tr><td>" + obj.userId + "</td>";
-				html += "<td>" + obj.uname + "</td>";
-				html += "<td>" + obj.phone + "</td>";
-				html += "<td>" + obj.email + "</td>";
-				html += "<td><a class='btn04' id='xg_btn'>修改</a ></td></tr>";
-
-				//alert();
-			});
-			$("#data").html(html);
-
-			var page = "";
-			for (var i = 1;i <= result.maxPage;i++)
-			{
-				if(i==result.page){
-					page += "<a class='pages-current'>" + i +"</a>";
-				}else{
-					page += "<a>" + i +"</a>";
-				}
-			}
-			$("#page").html(page);
-		});
-
-});
-
+//删除用户
 function del(id) {
 	if (confirm("确定要删除吗？")) {
 		ajax("/User/delUser",{"userId":userId,"token":token,"id":id},function(result){
@@ -201,7 +132,7 @@ $("#search").click(function(){
 				html += "<td>" + obj.roleName + "</td>";
 				html += "<td>" + obj.phone + "</td>";
 				html += "<td>" + obj.email + "</td>";
-				html += '<td><a class="btn04" id="xg_btn">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
+				html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
 
 			});
 			$("#data").html(html);

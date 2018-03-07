@@ -3,6 +3,11 @@
 var userId = getCookie("userId")
 var token = getCookie("token")
 
+var sex = 1;
+
+$('.sex_get').click(function(){
+    sex = $(this).val();
+});
 if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'] + 'Index/Login';
 }else{
@@ -47,7 +52,6 @@ $("#btn").click(function(){
     var password = $("#password").val();
     var phone = $("#phone").val();
     var email = $("#email").val();
-    var sex = $("#sex").val();
     var channelId = $("#channelId").val();
     var job = $("#job").val();
     ajax("/User/addUser",{"userId":userId,"token":token,"roleId":roleId,"userName":userName,"password":password,"phone":phone,"email":email,"sex":sex,"channelId":channelId,"job":job},function(result){

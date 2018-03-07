@@ -25,7 +25,7 @@ function ajax(url,data,success){
             }
             else if(data['code'] == '-2'){
                 alert(data['msg'])
-                parent.location.reload();
+                location.reload();
             }else{
                 alert(data['msg'])
                 //parent.location.reload();

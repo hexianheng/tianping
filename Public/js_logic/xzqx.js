@@ -3,6 +3,11 @@
 var userId = getCookie("userId")
 var token = getCookie("token")
 
+var type = 1;
+
+$('.type').click(function(){
+	type = $(this).val();
+});
 if(userId == "" || token == ""){
 	parent.location.href = CONFIG['path'] + 'Index/Login';
 }else{
@@ -26,7 +31,6 @@ $("#button").click(function(){
 	var actionName = $("#actionName").val();
 	var functionName = $("#functionName").val();
 	var permissionPId = $("#select_parent").val();
-	var type = $("#type").val();
 
 	ajax("/User/addPermission",{"userId":userId,"token":token,"permissionPId":permissionPId,"actionName":actionName,"functionName":functionName,"permissionName":permissionName,"type":type},function(result){
 
