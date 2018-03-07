@@ -11,6 +11,6 @@ class GetCsvController extends BaseController {
     public function codeGroup(){
         $data = I('get.group');
         $obj = new CodeModel();
-        echo json_encode($obj->codeGroup($data));
+        echo $obj->codeGroup($data)['msg'];
     }
 }
