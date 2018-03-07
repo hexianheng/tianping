@@ -522,7 +522,7 @@ class UserModel extends BaseModel {
         if($id == ''){
             return $this->returnMsg('A022');
         }
-        $sql = "select id,action,function,status,name,parentId,group from permission where id = $id";
+        $sql = "select id,action,function,status,name,parentId,`group` from permission where id = $id";
         $re = $this->sqlQuery('permission',$sql);
         if(empty($re)){
             return $this->returnMsg('A022');
