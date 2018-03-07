@@ -67,7 +67,7 @@ class ItemModel extends BaseModel
 
     //项目下拉
     public function itemSel(){
-        $sql = "select * from item where status = 0 order by itemid desc";
+        $sql = "select itemid,name from item where status = 0 order by itemid desc";
         $re = $this->sqlQuery('item',$sql);
         return $this->returnMsg(0,$re);
     }
