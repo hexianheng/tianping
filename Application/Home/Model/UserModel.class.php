@@ -284,7 +284,7 @@ class UserModel extends BaseModel {
     }
 
     //获取权限列表
-    public function getPermission($page = 0){
+    public function getPermission(){
         $sql = "select id,name,parentId,status,ctime from permission where status = 0 order by parentId";
         $re = $this->sqlQuery('permission',$sql);
         if(empty($re)){
@@ -587,6 +587,32 @@ class UserModel extends BaseModel {
         }else{
             return $this->returnMsg('A036');
         }
+    }
+
+    //角色列表
+    public function getRole($page){
+        if($page == ''){
+            $page = 1;
+        }else{
+            if(!is_numeric($page) || $page < 1){
+                return $this->returnMsg(-4);
+            }
+        }
+
+        $pageNum = 10;
+        $sql = "select count(id) as num from role";
+        $num = $this->sqlQuery('role',$sql);
+        if(empty($num)){
+            return $this->returnMsg(-3);
+        }
+        $start = $pageNum * ($page -1);
+        $sql = "select * from role order by id desc limit $start,$pageNum";
+        $re = $this->sqlQuery('role',$sql);
+        $result = [
+            'data' => $re,
+            'maxPage' => ceil($num[0]['num']/$pageNum)
+        ];
+        return $this->returnMsg(0,[],$result);
     }
 }
 

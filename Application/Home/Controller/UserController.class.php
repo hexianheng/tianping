@@ -68,9 +68,8 @@ class UserController extends CommonController {
 
     //获取权限列表
     public function getPermission(){
-        $page = I('post.page');
         $obj = new UserModel();
-        $result = $obj->getPermission($page);
+        $result = $obj->getPermission();
         $this->response($result,'json');
     }
 
@@ -134,6 +133,14 @@ class UserController extends CommonController {
         $rId = I('post.roleId');
         $obj = new UserModel();
         $result = $obj->delRole($rId);
+        $this->response($result,'json');
+    }
+
+    //获取角色列表
+    public function getRole(){
+        $page = I('post.page');
+        $obj = new UserModel();
+        $result = $obj->getRole($page);
         $this->response($result,'json');
     }
 
