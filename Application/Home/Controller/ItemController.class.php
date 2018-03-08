@@ -14,7 +14,7 @@ class ItemController extends CommonController
         parent::__construct();
     }
 
-    //添加编码
+    //添加项目
     public function addItem(){
         $data = [
             'name' => I('post.name'),
@@ -25,7 +25,7 @@ class ItemController extends CommonController
         $this->response($result,'json');
     }
 
-    //修改编码
+    //修改项目
     public function updItem(){
         $data = [
             'id' => I('post.id'),
@@ -37,7 +37,7 @@ class ItemController extends CommonController
         $this->response($result,'json');
     }
 
-    //修改编码状态
+    //修改项目状态
     public function updateStatus(){
         $data = I('post.id');
         $obj = new ItemModel();
@@ -45,7 +45,7 @@ class ItemController extends CommonController
         $this->response($result,'json');
     }
 
-    //获取编码下拉
+    //获取项目下拉
     public function itemSel(){
         $obj = new ItemModel();
         $result = $obj->itemSel();
