@@ -1,11 +1,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>编码列表</title>
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
-<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>编码列表</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+  <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    /*
+      * 外面盒子样式---自己定义
+      */
+
+    .page_div {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      font-family: "microsoft yahei";
+      color: #666666;
+      margin-right: 10px;
+      padding-left: 135px;
+      box-sizing: border-box;
+    }
+    /*
+     * 页数按钮样式
+     */
+
+    .page_div a {
+      min-width: 30px;
+      height: 28px;
+      border: 1px solid #dce0e0!important;
+      text-align: center;
+      margin: 0 4px;
+      cursor: pointer;
+      line-height: 28px;
+      color: #666666;
+      font-size: 13px;
+      display: inline-block;
+    }
+
+    #firstPage,
+    #lastPage {
+      width: 50px;
+      color: #0073A9;
+      border: 1px solid #0073A9!important;
+    }
+
+    #prePage,
+    #nextPage {
+      width: 70px;
+      color: #0073A9;
+      border: 1px solid #0073A9!important;
+    }
+
+    .page_div .current {
+      background-color: #0073A9;
+      border-color: #0073A9;
+      color: #FFFFFF;
+    }
+
+    .totalPages {
+      margin: 0 10px;
+    }
+
+    .totalPages span,
+    .totalSize span {
+      color: #0073A9;
+      margin: 0 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -14,84 +81,83 @@
     <div class="title">
       <h4>编码管理>>编码列表</h4>
     </div>
-    <div class="right"> 
-        <p class="bm_list">
-            <textarea name="" id="" placeholder="用分号隔开输入多个编码" ></textarea>
-            <a href="javascript:;" class="btn02">查询</a>
-        </p>
-    	<a class="btn05" href="xzbm.html">新增编码</a>
-        <a class="btn05" id="xg_btn" href="javascript:;">跟新编码状态</a>
+    <div class="right">
+      <p class="bm_list">
+        <textarea name="" id="codeText" placeholder="用竖线隔开输入多个编码" ></textarea>
+        <a href="javascript:;" id="search" class="btn02">查询</a>
+      </p>
+      <a class="btn05" href="{$url}/Index/bmsc">新增编码</a>
+      <a class="btn05" id="xg_btn" href="javascript:;">更新编码状态</a>
       <!--detail start-->
-      <div class="co-detail clearfix"> 
+      <div class="co-detail clearfix">
         <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
-            <thead>
-              <tr>
-              	<th>请选择</th>
-                <th>ID</th>
-                <th>编码</th>
-                <th>产品</th>
-                <th>渠道</th>
-                <th>分组</th>
-                <th>状态</th>
-                <th>更新时间</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-              	<td><input type="radio" name="" /></td>
-                <td>001</td>
-                <td>12Eeqwer</td>
-                <td>123</td>
-                <td>在线</td>
-                <td>2017081412454</td>
-                <td>分发</td>
-                <td>20170814 12：13：14</td>
-                <!--<td class="operation"><a class="edit">删除</a></td>-->
-              </tr>
-            </tbody>
-          </table>
-          <!--分页 start-->
-          <div class="pages">
-            <div class="sum">共<i>18</i>条记录</div>
-            <div class="pages-btn">
-              <a class="pre">上一页</a>
-              <div class="num-btn"><a class="pages-current">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a></div>
-              <a class="after">下一页</a>
-            </div>
-          </div>
-          <!--分页 end-->
+          <thead>
+          <tr>
+            <th>全选&nbsp;<input type='checkbox' id="all"/></th>
+            <th>ID</th>
+            <th>编码</th>
+            <th>产品</th>
+            <th>渠道</th>
+            <th>分组</th>
+            <th>状态</th>
+            <th>更新时间</th>
+          </tr>
+          </thead>
+          <tbody id="data"></tbody><!--<td class="operation"><a class="edit">删除</a></td>-->
+        </table>
+        <!--分页 start-->
+        <div id="page" class="page_div"></div>
+        <!--分页 end-->
       </div>
-      <!--detail end--> 
+      <!--detail end-->
     </div>
   </div>
 </div>
 <div class="pop_layer add-mess">
   <div class="fill-info pop-layer-box">
-    <h3 class="title-big">修改班级信息</h3><a class="pop-close">X</a>
+    <h3 class="title-big">更新编码状态</h3><a class="pop-close">X</a>
     <div class="info-box">
       <ul>
         <li>
-          <label>班级名称：</label>
+          <label>编码：</label>
           <input type="text" name="name" class="w200 name" value="">
         </li>
         <li>
-          <label>班主任：</label>
+          <label>产品：</label>
           <select class="w200">
-            <option>于强</option>
-            <option>张三</option>
+            <option>123</option>
+            <option>321</option>
           </select>
         </li>
         <li>
-          <label>讲师：</label>
+          <label>渠道：</label>
           <select class="w200">
-            <option>李朋</option>
-            <option>王五</option>
+            <option>444</option>
+            <option>555</option>
+          </select>
+        </li>
+        <li>
+          <label>状态：</label>
+          <select class="w200">
+            <option>已分发</option>
+            <option>已出库</option>
           </select>
         </li>
       </ul>
     </div>
-    <div class="preview"> <a class="preview-btn btn01">保存</a> <a class="cancel-btn btn01">取消</a> </div>
+    <div class="preview">
+      <a class="preview-btn btn05">提交</a>
+      <a class="cancel-btn btn05">取消</a>
+    </div>
+    <div style="padding:10px">
+      <p>未分发:新生成的编码还没有操作;</p>
+      <p>已分发:状态已分发代表该组编码已经印刷;</p>
+      <p>已出库:代表编码已经寄出,或已经下发给渠道;</p>
+      <p>已使用:代表样本已经回收,(在上传用户检测信息时直接直接自动更新已使用);</p>
+    </div>
   </div>
 </div>
 </body>
 </html>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/bm_list.js"></script>

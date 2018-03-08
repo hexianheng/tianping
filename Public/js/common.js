@@ -4,6 +4,9 @@ var CONFIG = {
     "path"  : "http://localhost:8080/gitjob/index.php/"
 }
 
+
+
+
 //ajax方法
 function ajax(url,data,success){    
     $.ajax({
@@ -22,7 +25,7 @@ function ajax(url,data,success){
             }
             else if(data['code'] == '-2'){
                 alert(data['msg'])
-                parent.location.reload();
+                location.reload();
             }else{
                 alert(data['msg'])
                 //parent.location.reload();

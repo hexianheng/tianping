@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>渠道管理</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+</head>
+
+<body>
+<div class="chuda_co" id="container">
+  <div class="co-box">
+    <div class="title">
+      <h4>渠道管理>>渠道列表</h4>
+    </div>
+    <div class="right container">
+        <div class="custom-info">
+            <div class="info-box">
+                <ul class="ul-datetime">
+                    <li>
+                        <label>渠道名称：</label>
+                        <input type="text" class="w200">
+                    </li>
+                    <li><a class="btn01">查询</a></li>
+                    <a class="btn03" href="qd_add.html">渠道添加</a>
+                    <!--<a class="btn02" href="">批量删除</a>-->
+                </ul>
+            </div>
+        </div>
+      <!--detail start-->
+      <div class="co-detail clearfix"> 
+        <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>渠道编号</th>
+                <th>渠道名称</th>
+                <th>创建时间</th>
+                <th>渠道状态</th>
+                <th>渠道级别</th>
+                <th>渠道负责人</th>
+                <th>渠道负责人电话</th>
+                <th>我方对接人</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>asdf</td>
+                <td>666</td>
+                <td>2018-02-06 12:12:12</td>
+                <td>启用/关闭</td>
+                <td>A</td>
+                <td>胖子</td>
+                <td>13122228888</td>
+                <td>大胖子</td>
+                <td class="operation del">
+                    <a class="edit btn04">锁定</a>
+                    <a class="edit btn04">删除</a>
+                </td>
+              </tr>
+              <tr>
+                  <td>002</td>
+                  <td>asdf</td>
+                  <td>667</td>
+                  <td>2018-02-06 12:12:12</td>
+                  <td>启用/关闭</td>
+                  <td>C</td>
+                  <td>二胖子</td>
+                  <td>13122228888</td>
+                  <td>二大胖子</td>
+                  <td class="operation del">
+                      <a class="edit btn04">锁定</a>
+                      <a class="edit btn04">删除</a>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+          <!--分页 start-->
+          <div class="pages">
+            <div class="sum">共<i>18</i>条记录</div>
+            <div class="pages-btn">
+              <a class="pre">上一页</a>
+              <div class="num-btn"><a class="pages-current">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a></div>
+              <a class="after">下一页</a>
+            </div>
+          </div>
+          <!--分页 end-->
+      </div>
+      <!--detail end--> 
+    </div>
+  </div>
+</div>
+<div class="pop_layer add-mess">
+  <div class="fill-info pop-layer-box">
+    <h3 class="title-big">修改班级信息</h3><a class="pop-close">X</a>
+    <div class="info-box">
+      <ul>
+        <li>
+          <label>班级名称：</label>
+          <input type="text" name="name" class="w200 name" value="">
+        </li>
+        <li>
+          <label>班主任：</label>
+          <select class="w200">
+            <option>于强</option>
+            <option>张三</option>
+          </select>
+        </li>
+        <li>
+          <label>讲师：</label>
+          <select class="w200">
+            <option>李朋</option>
+            <option>王五</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+    <div class="preview"> <a class="preview-btn btn01">保存</a> <a class="cancel-btn btn01">取消</a> </div>
+  </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/qd_list.js"></script>

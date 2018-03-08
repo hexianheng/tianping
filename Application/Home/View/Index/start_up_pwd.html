@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>修改初始密码</title>
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="login">
+<div class="wrap">
+    <div class="login_logo">
+        <p class="name"><img src="__PUBLIC__/images/login-logo.png" alt=""/></p>
+    </div>
+    <div class="login_m">
+
+        <div class="login_boder">
+            <div class="login_padding">
+                <h2>旧密码</h2>
+                <label>
+                    <input type="password" id="pwdOld" class="txt_input" onfocus="if (value ==&#39;Your name&#39;){value =&#39;&#39;}">
+                </label>
+                <h2>新密码</h2>
+                <label>
+                    <input type="password" id="password" class="txt_input" onfocus="if (value ==&#39;Your name&#39;){value =&#39;&#39;}">
+                </label>
+                <h2>确认密码</h2>
+                <label>
+                    <input type="password" id="pwdAgain" class="txt_input" onfocus="if (value ==&#39;******&#39;){value =&#39;&#39;}">
+                </label>
+                <div class="rem_sub">
+                    <label>
+                        <input type="button" class="sub_button" name="button" id="btn2" value="确认" style="opacity: 0.7;">
+                    </label>
+                </div>
+            </div>
+        </div><!--login_boder end-->
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/login.js"></script>

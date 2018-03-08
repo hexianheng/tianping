@@ -12,6 +12,9 @@ class LoginController extends BaseController {
         $this->obj = new UserModel();
     }
 
+    
+    
+    
     //登录方法
     public function login(){
         $data['uname'] = I('post.userName');

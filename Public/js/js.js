@@ -1,7 +1,7 @@
 $(function(){
-	$('#xg_btn').click(function(){
+	/*$('#xg_btn').click(function(){
 		$('.pop_layer').show();
-		});
+    });*/
     $('.pop-close,.cancel-btn').click(function(){
 		$('.pop_layer').hide();
 		});

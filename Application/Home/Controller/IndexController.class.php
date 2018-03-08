@@ -13,9 +13,23 @@ class IndexController extends Controller {
      * @return [type] [description]
      */
     public function index(){
+        $url=C("URL");
+        $this->assign("url",$url);
         $this->display('Index/Login');
     }
 
+    public function login(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Index/Login');
+    }
+    public function startUpPwd(){
+        $this->display('Index/start_up_pwd');
+    }
+
+    public function wjmm(){
+        $this->display('Index/wjmm');
+    }
     //首页
     public function tianping(){
         $url=C("URL");
@@ -54,11 +68,11 @@ class IndexController extends Controller {
         $this->assign("url",$url);
         $this->display('Jurisdiction/js_list');
     }
-    //分配权限
-    public function fpqx(){
+    //权限列表
+    public function qxlb(){
         $url=C("URL");
         $this->assign("url",$url);
-        $this->display('Jurisdiction/fpqx');
+        $this->display('Jurisdiction/qxlb');
     }
     //新增管理员
     public function xzgly(){
@@ -89,6 +103,38 @@ class IndexController extends Controller {
         $url=C("URL");
         $this->assign("url",$url);
         $this->display('Code/xzbm');
+    }
+    //编码分组
+    public function bmfz(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Code/bmfz');
+    }
+    //编码生成
+    public function bmsc(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Code/bmsc');
+    }
+
+    //编码出库
+    public function bmck(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Code/bmck');
+    }
+    //渠道列表
+    public function qd_list(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Channel/qd_list');
+    }
+
+    //渠道添加
+    public function qd_add(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Channel/qd_add');
     }
 
 }

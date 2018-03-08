@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>分配权限</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+</head>
+
+<body>
+<div class="chuda_co" id="container">
+    <div class="co-box">
+        <div class="title">
+            <h4>权限管理>>权限列表</h4>
+        </div>
+        <div class="right">
+            <a class="btn03" href="{$url}/Index/xzqx">新增权限</a>
+            <!--detail start-->
+            <div class="co-detail clearfix">
+                <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>权限ID</th>
+                        <th>权限名称</th>
+                        <th>父级ID</th>
+                        <th>修改时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+                <!--分页 start-->
+                <div class="pages">
+                    <div class="sum">共<i><span id="count"></span></i>条记录</div>
+                    <div class="pages-btn">
+                        <a class="pre">上一页</a>
+                        <div class="num-btn" id="page"></div>
+                        <a class="after">下一页</a>
+                    </div>
+                </div>
+                <!--分页 end-->
+            </div>
+            <!--detail end-->
+        </div>
+    </div>
+</div>
+<div class="pop_layer add-mess">
+    <div class="fill-info pop-layer-box">
+        <h3 class="title-big">修改权限</h3><a class="pop-close">X</a >
+        <div class="info-box">
+            <ul>
+                <li>
+                    <label>权限名称：</label>
+                    <input type="text" id="permissionName" class="w200 name" value="">
+                </li>
+                <li>
+                    <label>父级权限：</label>
+                    <select class="w200" id="select_parent"></select>
+                </li>
+                <li>
+                    <label>控制器名：</label>
+                    <input type="text" id="actionName" class="w200 name" value="">
+                </li>
+                <li>
+                    <label>方法名：</label>
+                    <input type="text" id="functionName" class="w200 name" value="">
+                </li>
+                <li>
+                    <label>权限所属：</label>
+                    <input type="radio" id="type" name="radio" class="type" value="0">&nbsp;&nbsp;前端路由&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="type" name="radio" class="type" value="1">&nbsp;&nbsp;接口
+                </li>
+            </ul>
+        </div>
+        <div class="preview"><span id="operation"></span>&nbsp;&nbsp;&nbsp;&nbsp;<a class='cancel-btn btn04'>取消</a ></div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/qxlb.js"></script>

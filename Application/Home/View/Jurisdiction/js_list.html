@@ -15,7 +15,7 @@
       <h4>权限管理>>角色列表</h4>
     </div>
     <div class="right"> 
-    	<a class="btn03" href="xzjs.html">新增角色</a>
+    	<a class="btn03" href="{$url}/Index/xzjs">新增角色</a>
       <!--detail start-->
       <div class="co-detail clearfix"> 
         <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
@@ -23,28 +23,17 @@
               <tr>
                 <th>角色ID</th>
                 <th>角色名称</th>
-                <th>状态</th>
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>001</td>
-                <td>院长</td>
-                <td>启用</td>
-                <td class="operation del">
-                    <a class="edit btn04">锁定</a>
-                    <a class="edit btn04">删除</a>
-                </td>
-              </tr>
-            </tbody>
+            <tbody id="data"></tbody>
           </table>
           <!--分页 start-->
           <div class="pages">
-            <div class="sum">共<i>18</i>条记录</div>
+            <div class="sum">共<i><span id="count"></span></i>条记录</div>
             <div class="pages-btn">
               <a class="pre">上一页</a>
-              <div class="num-btn"><a class="pages-current">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a></div>
+              <div class="num-btn" id="page"></div>
               <a class="after">下一页</a>
             </div>
           </div>
@@ -84,3 +73,6 @@
 </div>
 </body>
 </html>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/js_list.js"></script>
