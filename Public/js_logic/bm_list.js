@@ -53,7 +53,6 @@ $("#search").click(function(){
         alert("搜索条件不能为空")
     }else{
         ajax("/Code/codeList",{"userId":userId,"token":token,"codeStr":codeStr},function(result){
-            console.log(result);
             var html = "";
             $.each(result["data"], function(idx, obj) {
                 html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
@@ -87,7 +86,6 @@ $("#search").click(function(){
 
 function codeList(num){
     ajax("/Code/codeList",{"userId":userId,"token":token,"page":num},function(result){
-        console.log(result);
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
@@ -110,7 +108,6 @@ function codeList(num){
 
 function codeListSearch(codeStr,num){
     ajax("/Code/codeList",{"userId":userId,"token":token,"page":num,"codeStr":codeStr},function(result){
-        console.log(result);
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
@@ -129,3 +126,36 @@ function codeListSearch(codeStr,num){
         $("#data").html(html);
     });
 }
+
+
+$("#xg_btn").click(function(){
+    $('.pop_layer').show();
+    //产品下拉
+    ajax("/Product/productSelect",{"userId":userId,"token":token},function(result){
+        var html_p = "";
+        $.each(result["data"], function(idx, obj) {
+            html_p += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
+        });
+        $("#productId").html(html_p);
+    });
+    //渠道下拉
+    ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
+        var html_c = "";
+        $.each(result["data"], function(idx, obj) {
+            html_c += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
+        });
+        $("#channelId").html(html_c);
+    });
+});
+
+$("#btn").click(function(){
+    var codeStr = $("#code").val();
+    var productId = $("#productId").val();
+    var channelId = $("#channelId").val();
+    ajax("/Code/outGoing",{"userId":userId,"token":token,"codeStr":codeStr,"productId":productId,"channelId":channelId},function(result){
+        if(result["code"] == 0){
+            alert(result["msg"])
+            location.reload();
+        }
+    });
+});

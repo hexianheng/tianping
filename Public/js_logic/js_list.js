@@ -7,8 +7,6 @@ if(userId == "" || token == ""){
 }else{
     //角色下拉
     ajax("/User/getSelectRole",{"userId":userId,"token":token},function(result){
-        var Count = result["data"].length;
-        $("#count").text(Count);
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
@@ -16,17 +14,6 @@ if(userId == "" || token == ""){
             html += '<td class="operation del"><a class="edit btn04">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
         });
         $("#data").html(html);
-
-        var page = "";
-        for (var i = 1;i <= result.maxPage;i++)
-        {
-            if(i==result.page){
-                page += "<a class='pages-current'>" + i +"</a>";
-            }else{
-                page += "<a>" + i +"</a>";
-            }
-        }
-        $("#page").html(page);
     });
 }
 

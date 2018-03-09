@@ -137,4 +137,11 @@ class IndexController extends Controller {
         $this->display('Channel/qd_add');
     }
 
+    //文件上传（数据）
+    public function results_import(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('File/results_import');
+    }
+
 }

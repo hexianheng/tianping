@@ -4,8 +4,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>编码分组</title>
   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css" />
   <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
   <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
 </head>
 
 <body>
@@ -19,47 +21,19 @@
         <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
           <thead>
           <tr>
-            <th></th>
+            <th>全选 <input type="checkbox" id="groupAll"></th>
             <th>批次</th>
             <th>个数</th>
-            <th>版本</th>
-            <th>操作</th>
-            <th>操作</th>
             <th>操作</th>
           </tr>
           </thead>
-          <tbody>
-          <tr>
-            <td>
-              <input type="checkbox">
-            </td>
-            <td>2018023234234234222</td>
-            <td>23个编2222码</td>
-            <td>第122222期</td>
-            <td class="operation">
-              <a class="edit btn04">导出</a>
-            </td>
-            <td class="operation">
-              <a class="edit btn04">打印</a>
-            </td>
-            <td class="operation">
-              <a class="edit btn04">分发</a>
-            </td>
-          </tr>
-          </tbody>
+          <tbody id="data"></tbody>
         </table>
         <div class="btn_div">
-          <button class="export_btn">导出Excel</button>
+          <button class="export_btn" id="allExcel">导出Excel</button>
         </div>
         <!--分页 start-->
-        <div class="pages">
-          <div class="sum">共<i>18</i>条记录</div>
-          <div class="pages-btn">
-            <a class="pre">上一页</a>
-            <div class="num-btn"><a class="pages-current">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a></div>
-            <a class="after">下一页</a>
-          </div>
-        </div>
+        <div id="page" class="page_div"></div>
         <!--分页 end-->
       </div>
       <!--detail end-->
@@ -68,31 +42,30 @@
 </div>
 <div class="pop_layer add-mess">
   <div class="fill-info pop-layer-box">
-    <h3 class="title-big">修改班级信息</h3><a class="pop-close">X</a>
+    <h3 class="title-big">更新编码状态</h3><a class="pop-close">X</a>
     <div class="info-box">
       <ul>
         <li>
-          <label>班级名称：</label>
-          <input type="text" name="name" class="w200 name" value="">
+          <label>产品：</label>
+          <select class="w200" id="productId"></select>
         </li>
         <li>
-          <label>班主任：</label>
-          <select class="w200">
-            <option>于强</option>
-            <option>张三</option>
-          </select>
-        </li>
-        <li>
-          <label>讲师：</label>
-          <select class="w200">
-            <option>李朋</option>
-            <option>王五</option>
-          </select>
+          <label>渠道：</label>
+          <select class="w200" id="channelId"></select>
         </li>
       </ul>
     </div>
-    <div class="preview"> <a class="preview-btn btn01">保存</a> <a class="cancel-btn btn01">取消</a> </div>
+    <div class="preview">
+      <span id="replace"></span>
+      <a class="cancel-btn btn05">取消</a>
+    </div>
+    <div style="padding:10px">
+      <p>未出库:代表样本已经生成，可以分配渠道产品;</p>
+      <p>已出库:代表编码已经寄出,或已经下发给渠道;</p>
+    </div>
   </div>
 </div>
 </body>
 </html>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/bmfz.js"></script>

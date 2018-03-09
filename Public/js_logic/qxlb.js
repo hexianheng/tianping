@@ -1,7 +1,9 @@
 
 //获取用户列表
-var userId = getCookie("userId");
-var token = getCookie("token");
+var userId = getCookie("userId")
+var token = getCookie("token")
+
+
 var type = 1;
 
 $('.type').click(function(){
@@ -65,6 +67,7 @@ function upd(id){
 
 //修改权限
 function update(id){
+	
 	var permissionName = $("#permissionName").val();
 	var actionName = $("#actionName").val();
 	var functionName = $("#functionName").val();
