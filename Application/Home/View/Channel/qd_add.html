@@ -34,42 +34,48 @@
                 <input type="text" name="zipCode" id="zipCode" class="w200" value="">
             </li>
             <li>
+                <label>渠道官方邮箱：</label>
+                <input type="text" name="zipCode" id="email" class="w200" value="">
+            </li>
+            <li>
                 <label>渠道级别：</label>
-                <select class="w200">
-                    <option>A</option>
-                    <option>B</option>
-                    <option>C</option>
+                <select class="w200" id="label">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
                 </select>
             </li>
             <li>
                 <label>渠道负责人：</label>
-                <input type="text" name="qd_header" class="w200 qd_header" value="">
+                <input type="text" name="qd_header" id="linkman" class="w200 qd_header" value="">
+            </li>
+            <li>
+                <label>渠道负责人邮箱：</label>
+                <input type="text" name="qd_header" id="linkmanEmail" class="w200 qd_header" value="">
             </li>
             <li>
                 <label>渠道负责人电话：</label>
-                <input type="text" name="qd_phone" class="w200 qd_phone" value="">
+                <input type="text" name="qd_phone" id="linkmanPhone" class="w200 qd_phone" value="">
             </li>
-            <li>
+            <!--<li>
                 <label>我方对接人：</label>
                 <input type="text" name="qd_our_header" class="w200 qd_our_header" value="">
-            </li>
-            <li>
-                <label>创建时间：</label>
-                <input type="text" name="USER_AGE" id="USER_AGE" class="w200" readonly value=""/>
-            </li>
+            </li>-->
 
         </ul>
     </div>
     <div class="preview">
-        <a class="preview-btn btn05">提交</a>
-        <a class="cancel-btn btn05">取消</a>
+        <a class="preview-btn btn05" id="btn">提交</a>
+        <a class="cancel-btn btn05" id="cancel">取消</a>
     </div>
   </div>
 </div>
 </div>
 </body>
 </html>
-<script type="text/javascript">
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/qd_add.js"></script>
+<!--<script type="text/javascript">
     $(function () {
         var currYear = (new Date()).getFullYear();
         var opt={};
@@ -91,4 +97,4 @@
         $("#USER_AGE").mobiscroll($.extend(opt['date'], opt['default']));
 
     });
-</script>
+</script>-->

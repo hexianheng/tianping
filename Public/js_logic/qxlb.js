@@ -1,5 +1,5 @@
 
-//获取用户列表
+//权限列表
 var userId = getCookie("userId")
 var token = getCookie("token")
 
@@ -13,30 +13,22 @@ if(userId == "" || token == ""){
 	parent.location.href = CONFIG['path'] + 'Index/Login';
 }else{
 	ajax("/User/getPermission",{"userId":userId,"token":token},function(result){
-		var Count = result["data"].length;
-		$("#count").text(Count);
+		console.log(result)
 		var html = "";
 		$.each(result["data"], function(idx, obj) {
-			html += "<tr><td>" + obj.id + "</td>";
-			html += "<td>" + obj.name + "</td>";
-			html += "<td>" + obj.parentId + "</td>";
-			html += "<td>" + obj.ctime + "</td>";
-			html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改</a >  <a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
-		});
-		$("#data").html(html);
-
-		var page = "";
-		for (var i = 1;i <= result.maxPage;i++)
-		{
-			if(i==result.page){
-				page += "<a class='pages-current'>" + i +"</a>";
-			}else{
-				page += "<a>" + i +"</a>";
+			if(obj.label == 1){
+				html += '<dl class="dl_box">';
+				html += '<dt><label><input type="checkbox" value="" name="" />'+obj.name+'</label></dt>';
+				html += '<dd id="'+obj.id+'"><span><label></label></span></dd>';
+				html += '</dl>';
 			}
-		}
-		$("#page").html(page);
-    });
+			else{
+				$("#"+obj.parentId).append('<dd><span><label><input type="checkbox" value="" name="" />'+obj.name+'</label></span></dd>');
+			}
+		});
+		alert(html)
+		$("#data").html(html);
+	});
 }
 
 

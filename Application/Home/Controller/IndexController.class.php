@@ -144,4 +144,18 @@ class IndexController extends Controller {
         $this->display('File/results_import');
     }
 
+    //文件上传（量表）
+    public function scale_import(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('File/scale_import');
+    }
+
+    //产品列表
+    public function product_list(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Product/product_list');
+    }
+
 }
