@@ -4,8 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>渠道管理</title>
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
-<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css" />
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
                         <input type="text" class="w200">
                     </li>
                     <li><a class="btn01">查询</a></li>
-                    <a class="btn03" href="qd_add.html">渠道添加</a>
+                    <a class="btn03" href="{$url}/Index/qd_add">渠道添加</a>
                     <!--<a class="btn02" href="">批量删除</a>-->
                 </ul>
             </div>
@@ -41,52 +43,14 @@
                 <th>渠道级别</th>
                 <th>渠道负责人</th>
                 <th>渠道负责人电话</th>
-                <th>我方对接人</th>
+                <th>渠道负责人邮箱</th>
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>001</td>
-                <td>asdf</td>
-                <td>666</td>
-                <td>2018-02-06 12:12:12</td>
-                <td>启用/关闭</td>
-                <td>A</td>
-                <td>胖子</td>
-                <td>13122228888</td>
-                <td>大胖子</td>
-                <td class="operation del">
-                    <a class="edit btn04">锁定</a>
-                    <a class="edit btn04">删除</a>
-                </td>
-              </tr>
-              <tr>
-                  <td>002</td>
-                  <td>asdf</td>
-                  <td>667</td>
-                  <td>2018-02-06 12:12:12</td>
-                  <td>启用/关闭</td>
-                  <td>C</td>
-                  <td>二胖子</td>
-                  <td>13122228888</td>
-                  <td>二大胖子</td>
-                  <td class="operation del">
-                      <a class="edit btn04">锁定</a>
-                      <a class="edit btn04">删除</a>
-                  </td>
-              </tr>
-            </tbody>
+            <tbody id="data"></tbody>
           </table>
           <!--分页 start-->
-          <div class="pages">
-            <div class="sum">共<i>18</i>条记录</div>
-            <div class="pages-btn">
-              <a class="pre">上一页</a>
-              <div class="num-btn"><a class="pages-current">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a></div>
-              <a class="after">下一页</a>
-            </div>
-          </div>
+          <div id="page" class="page_div"></div>
           <!--分页 end-->
       </div>
       <!--detail end--> 
@@ -98,31 +62,52 @@
     <h3 class="title-big">修改班级信息</h3><a class="pop-close">X</a>
     <div class="info-box">
       <ul>
-        <li>
-          <label>班级名称：</label>
-          <input type="text" name="name" class="w200 name" value="">
-        </li>
-        <li>
-          <label>班主任：</label>
-          <select class="w200">
-            <option>于强</option>
-            <option>张三</option>
-          </select>
-        </li>
-        <li>
-          <label>讲师：</label>
-          <select class="w200">
-            <option>李朋</option>
-            <option>王五</option>
-          </select>
-        </li>
+          <li>
+              <label>渠道编码：</label>
+              <input type="text" name="qd_numbern" id="code" class="w200" value="">
+          </li>
+          <li>
+              <label>渠道名称：</label>
+              <input type="text" name="qd_name" id="name" class="w200" value="">
+          </li>
+          <li>
+              <label>渠道地址：</label>
+              <input type="text" name="address" id="address" class="w200" value="">
+          </li>
+          <li>
+              <label>渠道邮编：</label>
+              <input type="text" name="zipCode" id="zipCode" class="w200" value="">
+          </li>
+          <li>
+              <label>渠道官方邮箱：</label>
+              <input type="text" name="zipCode" id="email" class="w200" value="">
+          </li>
+          <li>
+              <label>渠道级别：</label>
+              <select class="w200" id="label">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+              </select>
+          </li>
+          <li>
+              <label>渠道负责人：</label>
+              <input type="text" name="qd_header" id="linkman" class="w200 qd_header" value="">
+          </li>
+          <li>
+              <label>渠道负责人邮箱：</label>
+              <input type="text" name="qd_header" id="linkmanEmail" class="w200 qd_header" value="">
+          </li>
+          <li>
+              <label>渠道负责人电话：</label>
+              <input type="text" name="qd_phone" id="linkmanPhone" class="w200 qd_phone" value="">
+          </li>
       </ul>
     </div>
-    <div class="preview"> <a class="preview-btn btn01">保存</a> <a class="cancel-btn btn01">取消</a> </div>
+    <div class="preview"> <span id="operation"></span>&nbsp;&nbsp;<a class="cancel-btn btn05">取消</a> </div>
   </div>
 </div>
 </body>
 </html>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js_logic/qd_list.js"></script>
