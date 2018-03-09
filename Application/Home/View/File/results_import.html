@@ -73,17 +73,19 @@
         <div class="right container">
             <div class="custom-info-1">
                 <div class="info-box">
-                    <ul class="ul-datetime">
-                        <li class="sl-custom-file">
-                            <label for=""></label>
-                            <input type="button" value="选择文件" class="btn-file"/>
-                            <input type="file" class="ui-input-file" />
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="btn-sub">提交</a>
-                        </li>
-                        <a href="" class="load">点击下载模版</a>
-                    </ul>
+                    <form action="" method='POST' enctype='multipart/form-data' id="form">
+                        <ul class="ul-datetime">
+                            <li class="sl-custom-file">
+                                <label for=""></label>
+                                <input type="button" value="选择文件" class="btn-file"/>
+                                <input type="file" class="ui-input-file file_content" />
+                            </li>
+                            <li>
+                                <a status="user" href="javascript:;" class="btn-sub import_file">提交</a>
+                            </li>
+                            <a href="../getCsv/getTemplate?templateNum=user" class="load">点击下载模版</a>
+                        </ul>
+                    </form>
                 </div>
             </div>
 
@@ -132,7 +134,10 @@
             </div>
             <!--detail end-->
         </div>
-    </div>T
+    </div>
 </div>
 </body>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/import.js"></script>
 </html>

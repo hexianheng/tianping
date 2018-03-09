@@ -17,34 +17,21 @@ class BaseModel extends Model {
         $this->errorConfig = C('ERROR');
     }
 
-    //下载csv
-    public function putCsv($fileName,$header,$data){
-        $filename = $fileName.".csv";
-        $content = $this->getScvContent($header,$data);
-        $content = implode("\n",$content);
-        header("Content-type: text/csv");
-        header("Accept-Ranges: bytes");
-        header("Content-Disposition: attachment; filename=" . $filename);
-        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-        header("Pragma: no-cache");
-        header("Expires: 0");
-        $content = iconv('utf-8','gb2312',$content);//转换编码
-        Exit($content);
-    }
-
-    //处理csv数据
-    public function getScvContent($header,$data){
-        $result = [];
-        $result[] = implode(',',$header);
-        $keys = array_keys($header);
-        foreach ($data as $val){
-            $temp = [];
-            foreach ($keys as $v){
-                $temp[] = $val[$v];
+    //下载excel
+    protected function putExcel($list,$filename,$header=array(),$index = array()){
+        $teble_header = implode("\t",$header);
+        $strexport = $teble_header."\r";
+        foreach ($list as $row){
+            foreach($index as $val){
+                $strexport.=$row[$val]."\t";
             }
-            $result[] = implode(',',$temp);
+            $strexport.="\r";
+
         }
-        return $result;
+        header("Content-type:application/vnd.ms-excel");
+        header("Content-Disposition:filename=".$filename.".xls");
+        $strexport=iconv('UTF-8',"GB2312//IGNORE",$strexport);
+        exit($strexport);
     }
 
     //生成limit
@@ -113,6 +100,18 @@ class BaseModel extends Model {
         $redisConfig = C('REDIS');
         $this->redisObj->connect($redisConfig['host'],$redisConfig['port']);
         return $this->redisObj->get($key);
+    }
+
+    //读取excel
+    public function getExcel($fileName) {
+        $result = [];
+        $fileStr = file_get_contents($fileName);
+        $fileStr = iconv("GB2312//IGNORE","UTF-8",$fileStr);
+        $fileArr = explode("\r",$fileStr);
+        foreach ($fileArr as $val){
+            $result[] = explode("\t",$val);
+        }
+        return $result;
     }
 }
 

@@ -222,17 +222,17 @@ class CodeModel extends BaseModel
         }
 
         $header = [
-            'id' => 'ID',
-            'code' => '编码',
-            'group' => '分组',
-            'channelName' => '渠道名称',
-            'productName' => '产品名称',
-            'status' => '状态',
-            'ctime' => '创建时间',
-            'mtime' => '出库时间'
+            'id' => "Id",
+            'code' => "编码",
+            'group' => "分组",
+            'channelName' => "渠道名称",
+            'productName' => "产品名称",
+            'status' => "状态",
+            'ctime' => "创建时间",
+            'mtime' => "出库时间"
         ];
         $fileName = '编码分组列表（'. $group .'）';
-        return $this->putCsv($fileName,$header,$re);
+        $this->putExcel($re,$fileName,array_values($header),array_keys($header));
     }
 
 }

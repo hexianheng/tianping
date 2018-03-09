@@ -5,6 +5,7 @@
  * */
 namespace Home\Controller;
 use Home\Model\CodeModel;
+use Home\Model\TemplateModel;
 class GetCsvController extends BaseController {
 
     //登录方法
@@ -12,5 +13,12 @@ class GetCsvController extends BaseController {
         $data = I('get.group');
         $obj = new CodeModel();
         echo $obj->codeGroup($data)['msg'];
+    }
+
+    //下载模版
+    public function getTemplate(){
+        $templateNum = I('get.templateNum');
+        $obj = new TemplateModel();
+        echo $obj->getTemplate($templateNum)['msg'];
     }
 }
