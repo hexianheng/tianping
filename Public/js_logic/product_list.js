@@ -79,12 +79,11 @@ $("#addBtn").click(function(){
 function upd(id) {
     $('.pop_layer').show();
     ajax("/Product/getOneProduct",{"userId":userId,"token":token,"id":id},function(result){
-        console.log(result)
         $("#name").val(result['data'][0]['name']);
         $("#desc").val(result['data'][0]['desc']);
         $("#projectStr").val(result['data'][0]['projectStr']);
         var operation = "<a class='preview-btn btn04' onclick='update("+result['data'][0]['id']+")'>保存</a >";
-        $("#operation").html(operation);
+        $("#addBtn").html(operation);
     });
 }
 

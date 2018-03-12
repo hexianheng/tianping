@@ -149,11 +149,6 @@ class TemplateModel extends BaseModel {
             $result['errorData'][] = $headerVal[4]. ' (' . $data[4] . ') ERROR';
             return $result;
         }
-        //验证身份证
-        if($data[5] == ''){
-            $result['errorData'][] = $headerVal[5]. ' (' . $data[5] . ') ERROR';
-            return $result;
-        }
         //验证email
         if($data[6] == '' || !strstr($data[6],'@') || !strstr($data[6],'.')){
             $result['errorData'][] = $headerVal[6]. ' (' . $data[6] . ') ERROR';

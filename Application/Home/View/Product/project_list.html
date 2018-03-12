@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>项目列表</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css" />
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+</head>
+
+<body>
+<div class="chuda_co" id="container">
+    <div class="co-box">
+        <div class="title">
+            <h4>项目管理>>项目列表</h4>
+        </div>
+        <div class="right container">
+            <div class="custom-info">
+                <div class="info-box">
+                    <ul class="ul-datetime">
+                        <li>
+                            <input type="text" placeholder="请输入项目编号/名称" class="w300" id="text">
+                        </li>
+                        <li><a class="btn07" id="search">查询</a></li>
+                        <a class="btn09" id="xg_btn">添加</a>
+                        <a class="btn09" href="">批量上传</a>
+                    </ul>
+                </div>
+            </div>
+            <!--detail start-->
+            <div class="co-detail clearfix">
+                <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>项目编号</th>
+                        <th>项目名称</th>
+                        <th>位点数</th>
+                        <th>状态</th>
+                        <th>描述</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+                <!--分页 start-->
+                <div id="page" class="page_div"></div>
+                <!--分页 end-->
+            </div>
+            <!--detail end-->
+        </div>
+    </div>
+</div>
+<div class="pop_layer add-mess">
+    <div class="fill-info pop-layer-box">
+        <h3 class="title-big">修改班级信息</h3><a class="pop-close">X</a>
+        <div class="info-box">
+            <ul>
+                <li>
+                    <label>项目名称：</label>
+                    <input type="text" name="name" class="w200 name" id="name" value="">
+                </li>
+                <li>
+                    <label>项目介绍：</label>
+                    <input type="text" name="text" class="w200 name" id="textInfo" value="">
+                </li>
+            </ul>
+        </div>
+        <div class="preview"> <a class="preview-btn btn04" id="addBtn">保存</a> <a class="cancel-btn btn04">取消</a> </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/project_list.js"></script>

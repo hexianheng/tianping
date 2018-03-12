@@ -157,5 +157,17 @@ class IndexController extends Controller {
         $this->assign("url",$url);
         $this->display('Product/product_list');
     }
+    //项目列表
+    public function project_list(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Product/project_list');
+    }
+    //位点列表
+    public function site_list(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Product/site_list');
+    }
 
 }

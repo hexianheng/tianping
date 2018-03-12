@@ -13,24 +13,42 @@ if(userId == "" || token == ""){
 	parent.location.href = CONFIG['path'] + 'Index/Login';
 }else{
 	ajax("/User/getPermission",{"userId":userId,"token":token},function(result){
-		console.log(result)
-		var html = "";
+		//console.log(result)
+		var html = "<table class = 'tablelist' border='0' cellpadding='0' cellspacing='0'>";
+		html += '<th>名称</th>';
+		html += '<th>创建时间</th>';
+		html += '<th>操作</th>';
 		$.each(result["data"], function(idx, obj) {
-			if(obj.label == 1){
-				html += '<dl class="dl_box">';
-				html += '<dt><label><input type="checkbox" value="" name="" />'+obj.name+'</label></dt>';
-				html += '<dd id="'+obj.id+'"><span><label></label></span></dd>';
-				html += '</dl>';
+
+			var tempStr = '';
+			var status = '';
+			var labelTemp = '';
+			if(obj.label != 1){
+				tempStr = '';
+				status = 'style = "display:none;" ';
+				labelTemp = "【子级】";
+			}else{
+				tempStr = '<input type="checkbox" onclick="permission_check('+ obj.id +',this)">';
+				labelTemp = "【父级】";
 			}
-			else{
-				$("#"+obj.parentId).append('<dd><span><label><input type="checkbox" value="" name="" />'+obj.name+'</label></span></dd>');
-			}
+			html += '<tr id="'+ obj.id +'" class="'+ obj.parentId +'" '+status+'>';
+			html+= '<td>'+tempStr+ labelTemp + obj.name +'</td>';
+			html+= '<td>' + obj.ctime + '</td>';
+			html+= '<td><a class="btn04" onclick="upd('+obj.id+')">修改</a> <a class="btn04" onclick="del('+obj.id+')">删除</a></td>';
+			html+= '</tr>';
 		});
-		alert(html)
+		html += "</table>";
 		$("#data").html(html);
 	});
 }
 
+function permission_check(id,that) {
+	if(that.checked){
+		$("#data").find("."+id).show();
+	}else{
+		$("#data").find("."+id).hide();
+	}
+}
 
 
 function upd(id){
