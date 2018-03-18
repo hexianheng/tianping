@@ -9,11 +9,14 @@ class BaseModel extends Model {
 
     public $redisObj;
     public $errorConfig;
+    public $redisConfig;
 
     //构造方法
     public function __construct(){
         parent::__construct();
-        $this->redisObj = new \Redis();
+        $this->redisObj = new \Redis();        
+        $this->redisConfig = C('REDIS');
+        $this->redisObj->connect($this->redisConfig['host'],$this->redisConfig['port']);
         $this->errorConfig = C('ERROR');
     }
 
@@ -90,15 +93,11 @@ class BaseModel extends Model {
 
     //set redis 默认一天
     public function setRedis($key,$val,$time = 86400){
-        $redisConfig = C('REDIS');
-        $this->redisObj->connect($redisConfig['host'],$redisConfig['port']);
         $this->redisObj->set($key,$val,$time);
     }
 
     //get redis
     public function getRedis($key){
-        $redisConfig = C('REDIS');
-        $this->redisObj->connect($redisConfig['host'],$redisConfig['port']);
         return $this->redisObj->get($key);
     }
 
