@@ -15,7 +15,7 @@ if(userId == "" || token == ""){
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene+"</td>";
             html += "<td>" + obj.origincode+"</td>";
-            html += "<td></td>";
+            html += '<td><a onclick="details('+obj.id+')">详情</a></td>';
             html += "<td>" + obj.wild_type+"</td>";
             html += "<td>" + obj.mutant_type+"</td>";
             html += "<td>" + obj.genotype_value_ww+"</td>";
@@ -57,7 +57,7 @@ function siteList(num){
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene + "</td>";
             html += "<td>" + obj.origincode + "</td>";
-            html += "<td></td>";
+            html += '<td><a onclick="details('+obj.id+')">详情</a></td>';
             html += "<td>" + obj.wild_type + "</td>";
             html += "<td>" + obj.mutant_type + "</td>";
             html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -97,7 +97,7 @@ $("#search").click(function(){
                     html += "<td>" + obj.itemid + "</td>";
                     html += "<td>" + obj.gene + "</td>";
                     html += "<td>" + obj.origincode + "</td>";
-                    html += "<td></td>";
+                    html += '<td><a onclick="details('+obj.id+')">详情</a></td>';
                     html += "<td>" + obj.wild_type + "</td>";
                     html += "<td>" + obj.mutant_type + "</td>";
                     html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -140,7 +140,7 @@ function siteSearch(where,num){
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene + "</td>";
             html += "<td>" + obj.origincode + "</td>";
-            html += "<td></td>";
+            html += '<td><a onclick="details('+obj.id+')">详情</a></td>';
             html += "<td>" + obj.wild_type + "</td>";
             html += "<td>" + obj.mutant_type + "</td>";
             html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -178,24 +178,42 @@ $("#addBtn").click(function(){
 })*/
 
 
-
 //修改
 function upd(id) {
     $('.pop_layer').show();
     ajax("/Site/getOneSite",{"userId":userId,"token":token,"id":id},function(result){
-        console.log(result)
-        $("#name").val(result['data'][0]['name']);
-        $("#textInfo").val(result['data'][0]['text']);
-        var operation = "<a class='preview-btn btn04' onclick='update("+result['data'][0]['itemid']+")'>保存</a >";
-        $("#addbtn").html(operation);
+        $("#gene").val(result['data']['gene']);
+        $("#origincode").val(result['data']['origincode']);
+        $("#itemid").val(result['data']['itemid']);
+        $("#gene_text").val(result['data']['gene_text']);
+        $("#wild_type").val(result['data']['wild_type']);
+        $("#mutant_type").val(result['data']['mutant_type']);
+        $("#genotype_value_ww").val(result['data']['genotype_value_ww']);
+        $("#genotype_value_wm").val(result['data']['genotype_value_wm']);
+        $("#genotype_value_mm").val(result['data']['genotype_value_mm']);
+        $("#risk_desc_ww").val(result['data']['risk_desc_ww']);
+        $("#risk_desc_wm").val(result['data']['risk_desc_wm']);
+        $("#risk_desc_mm").val(result['data']['risk_desc_mm']);
+        var operation = '<a class="preview-btn btn04" onclick="update('+id+')">保存</a >';
+        $("#updBtn").html(operation);
     });
 }
 
 //修改
 function update(id){
-    var name = $("#name").val();
-    var text = $("#textInfo").val();
-    ajax("/Item/updItem",{"userId":userId,"token":token,"name":name,"desc":desc,"projectStr":projectStr,"id":id},function(result){
+    var gene = $("#gene").val();
+    var origincode = $("#origincode").val();
+    var itemid = $("#itemid").val();
+    var gene_text = $("#gene_text").val();
+    var wild_type = $("#wild_type").val();
+    var mutant_type = $("#mutant_type").val();
+    var genotype_value_ww = $("#genotype_value_ww").val();
+    var genotype_value_wm = $("#genotype_value_wm").val();
+    var genotype_value_mm = $("#genotype_value_mm").val();
+    var risk_desc_ww = $("#risk_desc_ww").val();
+    var risk_desc_wm = $("#risk_desc_wm").val();
+    var risk_desc_mm = $("#risk_desc_mm").val();
+    ajax("/Site/updSite",{"userId":userId,"token":token,"gene":gene,"origincode":origincode,"itemid":itemid,"id":id,"gene_text":gene_text,"wild_type":wild_type,"mutant_type":mutant_type,"genotype_value_ww":genotype_value_ww,"genotype_value_wm":genotype_value_wm,"genotype_value_mm":genotype_value_mm,"risk_desc_ww":risk_desc_ww,"risk_desc_wm":risk_desc_wm,"risk_desc_mm":risk_desc_mm},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
@@ -213,4 +231,12 @@ function updType(id) {
             }
         });
     }
+}
+
+
+//详情
+function details(id){
+    ajax("/Site/getOneSite",{"userId":userId,"token":token,"id":id},function(result){
+        alert(result['data']['gene_text']);
+    });
 }

@@ -63,30 +63,60 @@
 </div>
 <div class="pop_layer add-mess">
     <div class="fill-info pop-layer-box">
-        <h3 class="title-big">修改班级信息</h3><a class="pop-close">X</a>
+        <h3 class="title-big">修改位点</h3><a class="pop-close">X</a>
         <div class="info-box">
             <ul>
                 <li>
-                    <label>班级名称：</label>
-                    <input type="text" name="name" class="w200 name" value="">
+                    <label>基因名称：</label>
+                    <input type="text" name="name" class="w200 gene" id="gene" value="">
                 </li>
                 <li>
-                    <label>班主任：</label>
-                    <select class="w200">
-                        <option>于强</option>
-                        <option>张三</option>
-                    </select>
+                    <label>rs号：</label>
+                    <input type="text" name="name" class="w200 origincode" id="origincode" value="">
                 </li>
                 <li>
-                    <label>讲师：</label>
-                    <select class="w200">
-                        <option>李朋</option>
-                        <option>王五</option>
-                    </select>
+                    <label>项目ID：</label>
+                    <input type="text" name="name" class="w200 itemid" id="itemid" value="">
+                </li>
+                <li>
+                    <label>描述：</label>
+                    <textarea name="" id="gene_text" placeholder="用竖线隔开输入多个编码" style="height: 100px;width: 200px"></textarea>
+                </li>
+                <li>
+                    <label>野生型：</label>
+                    <input type="text" name="name" class="w200 wild_type" id="wild_type" value="">
+                </li>
+                <li>
+                    <label>突变型：</label>
+                    <input type="text" name="name" class="w200 mutant_type" id="mutant_type" value="">
+                </li>
+                <li>
+                    <label>ww基因型频率：</label>
+                    <input type="text" name="name" class="w200 genotype_value_ww" id="genotype_value_ww" value="">
+                </li>
+                <li>
+                    <label>wm基因型频率：</label>
+                    <input type="text" name="name" class="w200 genotype_value_wm" id="genotype_value_wm" value="">
+                </li>
+                <li>
+                    <label>mm基因型频率：</label>
+                    <input type="text" name="name" class="w200 genotype_value_mm" id="genotype_value_mm" value="">
+                </li>
+                <li>
+                    <label>ww描述：</label>
+                    <input type="text" name="name" class="w200 risk_desc_ww" id="risk_desc_ww" value="">
+                </li>
+                <li>
+                    <label>wm描述：</label>
+                    <input type="text" name="name" class="w200 risk_desc_wm" id="risk_desc_wm" value="">
+                </li>
+                <li>
+                    <label>mm描述：</label>
+                    <input type="text" name="name" class="w200 risk_desc_mm" id="risk_desc_mm" value="">
                 </li>
             </ul>
         </div>
-        <div class="preview"> <a class="preview-btn btn04" id="addBtn">保存</a> <a class="cancel-btn btn04">取消</a> </div>
+        <div class="preview"> <span id="updBtn"></span> <a class="cancel-btn btn04">取消</a> </div>
     </div>
 </div>
 </body>

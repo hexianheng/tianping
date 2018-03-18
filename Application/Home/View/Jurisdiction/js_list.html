@@ -35,30 +35,20 @@
 </div>
 <div class="pop_layer add-mess">
   <div class="fill-info pop-layer-box">
-    <h3 class="title-big">修改班级信息</h3><a class="pop-close">X</a>
+    <h3 class="title-big">修改角色</h3><a class="pop-close">X</a>
     <div class="info-box">
       <ul>
         <li>
-          <label>班级名称：</label>
-          <input type="text" name="name" class="w200 name" value="">
+          <label>角色名：</label>
+          <input type="text" name="name" class="w200 name" id="roleName" value="">
         </li>
         <li>
-          <label>班主任：</label>
-          <select class="w200">
-            <option>于强</option>
-            <option>张三</option>
-          </select>
-        </li>
-        <li>
-          <label>讲师：</label>
-          <select class="w200">
-            <option>李朋</option>
-            <option>王五</option>
-          </select>
+          <label>权限ID：</label>
+          <textarea name="" id="permission" placeholder="用竖线隔开输入多个编码" style="height: 100px;width: 200px"></textarea>
         </li>
       </ul>
     </div>
-    <div class="preview"> <a class="preview-btn btn01">保存</a> <a class="cancel-btn btn01">取消</a> </div>
+    <div class="preview"> <span id="updBtn"></span> <a class="cancel-btn btn04">取消</a> </div>
   </div>
 </div>
 </body>
