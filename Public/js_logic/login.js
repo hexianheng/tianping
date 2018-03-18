@@ -3,7 +3,7 @@
 $("#button").click(function(){
     var uname = $("#username").val();
     var pwd = $("#userpwd").val();
-    ajax("/login/login",{"userName":uname,"password":pwd},function(result){
+    ajax("/Login/login",{"userName":uname,"password":pwd},function(result){
         setCookie("userId",result["data"]["id"]);
         setCookie("token",result["data"]["token"]);
         setCookie("uname",result["data"]["uname"]);

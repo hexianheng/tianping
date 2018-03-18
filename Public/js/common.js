@@ -21,7 +21,7 @@ function ajax(url,data,success){
             }else if(data['code'] == 'A012'){
                 delCookie("userId");
                 delCookie("token");
-                parent.location.href = CONFIG['path'] + 'Index/Login';
+                parent.location.href = CONFIG['path'] + 'Index/login';
             }
             else if(data['code'] == '-2'){
                 alert(data['msg'])
