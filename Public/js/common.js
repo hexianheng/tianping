@@ -1,14 +1,14 @@
 
 //定义配置
 var CONFIG = {
-    "path"  : "http://localhost:8080/gitjob/index.php/"
+    "path"  : "http://123.207.151.98/"
 }
 
 
 
 
 //ajax方法
-function ajax(url,data,success){    
+function ajax(url,data,success){
     $.ajax({
         type:"POST",
         url:CONFIG['path'] + url,
@@ -21,7 +21,7 @@ function ajax(url,data,success){
             }else if(data['code'] == 'A012'){
                 delCookie("userId");
                 delCookie("token");
-                parent.location.href = CONFIG['path'] + 'Index/login';
+                parent.location.href = CONFIG['path'] + 'Index/index';
             }
             else if(data['code'] == '-2'){
                 alert(data['msg'])
@@ -30,7 +30,7 @@ function ajax(url,data,success){
                 alert(data['msg'])
                 //parent.location.reload();
             }
-        }    
+        }
     });
 }
 
@@ -57,7 +57,7 @@ function delCookie(name)
     exp.setTime(exp.getTime() - 1);
     var cval=getCookie(name);
     if(cval!=null)
-        document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString()+";path=/";
 }
 
         

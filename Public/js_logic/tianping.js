@@ -50,6 +50,8 @@ if(username == "" || roleName == ""){
 	         
 		        delCookie("userId");
 		        delCookie("token");
+				delCookie("uname");
+				delCookie("roleName");
 		        parent.location.href = CONFIG['path'] + 'Index/Login';
 	         
 	        }    

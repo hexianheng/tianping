@@ -18,11 +18,6 @@ class IndexController extends Controller {
         $this->display('Index/login');
     }
 
-    public function login(){
-        $url=C("URL");
-        $this->assign("url",$url);
-        $this->display('Index/login');
-    }
     public function startUpPwd(){
         $this->display('Index/start_up_pwd');
     }
@@ -34,7 +29,7 @@ class IndexController extends Controller {
     public function tianping(){
         $url=C("URL");
         $this->assign("url",$url);
-    	$this->display('Home/lndex');
+        $this->display('Home/index');
     }
     //左侧菜单
     public function left(){
@@ -44,11 +39,11 @@ class IndexController extends Controller {
     }
     //右侧菜单
     public function right(){
-        $this->display('Home/light');
+        $this->display('Home/right');
     }
     //头部
     public function top(){
-        $this->display('Home/lop');
+        $this->display('Home/top');
     }
     //新增权限
     public function xzqx(){

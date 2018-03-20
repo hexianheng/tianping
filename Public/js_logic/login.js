@@ -1,5 +1,4 @@
 //登陆
-
 $("#button").click(function(){
     var uname = $("#username").val();
     var pwd = $("#userpwd").val();
