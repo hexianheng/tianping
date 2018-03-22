@@ -9,7 +9,7 @@ $('.type').click(function(){
 	type = $(this).val();
 });
 if(userId == "" || token == ""){
-	parent.location.href = CONFIG['path'] + 'Index/Login';
+	parent.location.href = CONFIG['path'];
 }else{
 	ajax("/User/getPId",{"userId":userId,"token":token},function(result){
 

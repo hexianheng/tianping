@@ -3,7 +3,7 @@ var username = getCookie("uname");
 var roleName = getCookie("roleName");
 
 if(username == "" || roleName == ""){
-	parent.location.href = CONFIG['path'] + 'Index/Login';
+	parent.location.href = CONFIG['path'];
 }else{
 	$("#uname").text(username + '(' + roleName + ')')
 }
@@ -52,7 +52,7 @@ if(username == "" || roleName == ""){
 		        delCookie("token");
 				delCookie("uname");
 				delCookie("roleName");
-		        parent.location.href = CONFIG['path'] + 'Index/Login';
+		        parent.location.href = CONFIG['path'];
 	         
 	        }    
 	    });

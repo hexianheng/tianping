@@ -30,7 +30,7 @@ $("#submit").click(function(){
             ajax("/Login/forgotPwd",{"phone":phone,"password":pwd,"pwdAgain":pwd_Again},function(result){
                 if(result["code"] == 0){
                     alert("修改成功")
-                    parent.location.href = CONFIG['path'] + 'Index/Login';
+                    parent.location.href = CONFIG['path'];
                 }
             });
         }

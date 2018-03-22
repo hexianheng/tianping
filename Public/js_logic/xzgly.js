@@ -9,7 +9,7 @@ $('.sex_get').click(function(){
     sex = $(this).val();
 });
 if(userId == "" || token == ""){
-    parent.location.href = CONFIG['path'] + 'Index/Login';
+    parent.location.href = CONFIG['path'];
 }else{
     //渠道下拉
     ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){

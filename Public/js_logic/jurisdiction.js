@@ -9,7 +9,7 @@ $('.sex_get').click(function(){
 });
 
 if(userId == "" || token == ""){
-	parent.location.href = CONFIG['path'] + 'Index/Login';
+	parent.location.href = CONFIG['path'];
 }else{
 	ajax("/User/userRoleList",{"userId":userId,"token":token},function(result){
 		var html = "";

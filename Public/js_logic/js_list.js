@@ -3,7 +3,7 @@ var userId = getCookie("userId")
 var token = getCookie("token")
 
 if(userId == "" || token == ""){
-    parent.location.href = CONFIG['path'] + 'Index/Login';
+    parent.location.href = CONFIG['path'];
 }else{
     //角色下拉
     ajax("/User/getSelectRole",{"userId":userId,"token":token},function(result){
