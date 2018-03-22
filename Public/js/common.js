@@ -1,7 +1,7 @@
 
 //定义配置
 var CONFIG = {
-    "path"  : "http://123.207.151.98/"
+    "path"  : "http://localhost:8080/gitjob/index.php/"
 }
 
 
@@ -21,7 +21,7 @@ function ajax(url,data,success){
             }else if(data['code'] == 'A012'){
                 delCookie("userId");
                 delCookie("token");
-                parent.location.href = CONFIG['path'] + 'Index/index';
+                parent.location.href = CONFIG['path'];
             }
             else if(data['code'] == '-2'){
                 alert(data['msg'])
