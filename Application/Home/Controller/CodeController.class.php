@@ -71,8 +71,6 @@ class CodeController extends CommonController
     public function groupOut(){
         $data = [
             'mid' => I('post.userId'),
-            'productId' => I('post.productId'),
-            'channelId' => I('post.channelId'),
             'group' => I('post.group'),
         ];
         $obj = new CodeModel();

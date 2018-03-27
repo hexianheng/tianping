@@ -160,26 +160,6 @@ class CodeModel extends BaseModel
     }
 
     public function groupOut($data){
-        //验证产品ID
-        if($data['productId'] == ''){
-            return $this->returnMsg('A035');
-        }else{
-            $sql = "select id from product where id = $data[productId]";
-            $re = $this->sqlQuery('product',$sql);
-            if(empty($re)){
-                return $this->returnMsg('A035');
-            }
-        }
-        //验证渠道ID
-        if($data['channelId'] == ''){
-            return $this->returnMsg('A031');
-        }else{
-            $sql = "select id from channel where id = '$data[channelId]'";
-            $re = $this->sqlQuery('channel',$sql);
-            if(empty($re)){
-                return $this->returnMsg('A031');
-            }
-        }
         //验证group
         if($data['group'] == ''){
             return $this->returnMsg('A042');
