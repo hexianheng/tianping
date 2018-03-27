@@ -18,9 +18,11 @@ function ajax(url,data,success){
             if(data['code'] == 0){
                 //登陆成功
                 success(data)
-            }else if(data['code'] == 'A012'){
+            }else if(data['code'] == 'A011' || data['code'] == 'A012'){
                 delCookie("userId");
                 delCookie("token");
+                delCookie("uname");
+                delCookie("roleName");
                 parent.location.href = CONFIG['path'];
             }
             else if(data['code'] == '-2'){
