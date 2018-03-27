@@ -9,22 +9,24 @@
 <div class="chuda_co" id="container">
     <div class="co-box">
         <div class="title">
-            <h4>数据倒入>>用户数据、结果导入</h4>
+            <h4>数据导入>>用户数据、结果导入</h4>
         </div>
         <div class="right container">
             <div class="custom-info-1">
                 <div class="info-box">
+                    <form action="" method='POST' enctype='multipart/form-data' id="formData">
                     <ul class="ul-datetime">
                         <li class="sl-custom-file">
                             <label for=""></label>
                             <input type="button" value="选择文件" class="btn-file"/>
-                            <input type="file" class="ui-input-file" />
+                            <input type="file" class="ui-input-file file_content" />
                         </li>
                         <li>
-                            <a href="javascript:;" class="btn-sub">提交</a>
+                            <a status="data" href="javascript:;" class="btn-sub import_file">提交</a>
                         </li>
-                        <a href="" class="load">点击下载模版</a>
+                        <a href="../getCsv/getTemplate?templateNum=data" class="load">点击下载模版</a>
                     </ul>
+                    </form>
                 </div>
             </div>
 
