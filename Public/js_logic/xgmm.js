@@ -79,8 +79,8 @@ function code(){
 	}
 }
 
-$("#btn").click(function(){
-	
+$("#btns").click(function(){
+    codes();
 	ajax("/User/getOneUser",{"userId":userId,"token":token,"id":userId},function(result){
 		var phone = result['data']['phone'];
 		ajax("/Login/sendPhoneCheck",{"phone":phone},function(results){
@@ -113,5 +113,36 @@ $("#submit").click(function(){
 
 });
 
+/*验证码倒计时读秒*/
+var sleep = 60, interval = null;
+function codes()
+{
+	var btns = document.getElementById ('btns');
+	if (!interval)
+	{
+		btns.style.backgroundColor = 'rgb(127, 127, 127)';
+		btns.disabled = "disabled";
+		btns.style.cursor = "wait";
+		btns.value = "重新发送 (" + sleep-- + ")";
+		interval = setInterval (function ()
+		{
+			if (sleep == 0)
+			{
+				if (!!interval)
+				{
+					clearInterval (interval);
+					interval = null;
+					sleep = 60;
+					btns.style.cursor = "pointer";
+					btns.removeAttribute ('disabled');
+					btns.value = "获取验证码";
+					btns.style.backgroundColor = '';
+				}
+				return false;
+			}
+			btns.value = "重新发送 (" + sleep-- + ")";
+		}, 1000);
+	}
+}
 
 

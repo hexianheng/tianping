@@ -6,6 +6,7 @@ if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
     ajax("/Code/codeList",{"userId":userId,"token":token},function(result){
+        console.log(result);
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
@@ -15,6 +16,8 @@ if(userId == "" || token == ""){
             html += "<td>" + obj.channelName + "</td>";
             html += "<td>" + obj.group + "</td>";
             if(obj.status == '1'){
+                html += "<td>未分发</td>";
+            }else if(obj.status == '2'){
                 html += "<td>未出库</td>";
             }else{
                 html += "<td>已出库</td>";
@@ -62,6 +65,8 @@ $("#search").click(function(){
                 html += "<td>" + obj.channelName + "</td>";
                 html += "<td>" + obj.group + "</td>";
                 if(obj.status == '1'){
+                    html += "<td>未分发</td>";
+                }else if(obj.status == '2'){
                     html += "<td>未出库</td>";
                 }else{
                     html += "<td>已出库</td>";
@@ -95,6 +100,8 @@ function codeList(num){
             html += "<td>" + obj.channelName + "</td>";
             html += "<td>" + obj.group + "</td>";
             if(obj.status == '1'){
+                html += "<td>未分发</td>";
+            }else if(obj.status == '2'){
                 html += "<td>未出库</td>";
             }else{
                 html += "<td>已出库</td>";
@@ -117,6 +124,8 @@ function codeListSearch(codeStr,num){
             html += "<td>" + obj.channelName + "</td>";
             html += "<td>" + obj.group + "</td>";
             if(obj.status == '1'){
+                html += "<td>未分发</td>";
+            }else if(obj.status == '2'){
                 html += "<td>未出库</td>";
             }else{
                 html += "<td>已出库</td>";
