@@ -17,8 +17,9 @@ class UserModel extends BaseModel {
             $roleId = $data['roleId'];
             unset($data['roleId']);
         }
+        $reg = "/^[\x{4e00}-\x{9fa5}]+$/u";
         //验证用户名
-        if($data['uname'] == ''){
+        if($data['uname'] == '' || !preg_match($reg,$data['uname'])){
             return $this->returnMsg('A001');
         }
         //验证密码及确认密码
@@ -156,8 +157,9 @@ class UserModel extends BaseModel {
             $roleId = $data['roleId'];
             unset($data['roleId']);
         }
+        $reg = "/^[\x{4e00}-\x{9fa5}]+$/u";
         //验证用户名
-        if($data['uname'] == ''){
+        if($data['uname'] == '' || !preg_match($reg,$data['uname'])){
             return $this->returnMsg('A001');
         }
         //验证手机号
