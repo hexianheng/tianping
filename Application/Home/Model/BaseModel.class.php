@@ -37,7 +37,7 @@ class BaseModel extends Model {
 
         }
         header("Content-type:application/vnd.ms-excel");
-        header("Content-Disposition:filename=".$filename.".xls");
+        header("Content-Disposition:filename=".urlencode($filename).".xls");
         $strexport=iconv('UTF-8',"GB2312//IGNORE",$strexport);
         exit($strexport);
     }

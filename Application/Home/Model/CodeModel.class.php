@@ -87,7 +87,7 @@ class CodeModel extends BaseModel
         if(empty($count)){
             return $this->returnMsg(-3);
         }
-        $limit = $this->_makeLimit($data['page'],10);
+        $limit = $this->_makeLimit($data['page'],50);
         $sql = "SELECT a.id,a.code,a.`group`,a.ctime,a.status,a.channelId,b.`name` as channelName,a.productId,c.`name` as productName FROM code as a left join channel as b on a.channelId = b.id left join product as c on a.productId = c.id ". $where ." ORDER BY a.id DESC " . $limit;
         $re = $this->sqlQuery('user',$sql);
         return $this->returnMsg(0,$re,['page'=>$data['page'],'maxPage'=>ceil($count/10)]);
@@ -119,7 +119,7 @@ class CodeModel extends BaseModel
         if($data['codeStr'] == ''){
             return $this->returnMsg('A041');
         }else{
-            $where = " status = 1 and code in ('". implode("','",explode('|',$data['codeStr'])) ."')";
+            $where = " status = 2 and code in ('". implode("','",explode('|',$data['codeStr'])) ."')";
             $countSql = "select count(id) as count from code where " . $where;
             $re = $this->sqlQuery('code',$countSql);
             if(empty($re) || $re[0]['count'] != count(explode('|',$data['codeStr']))){
@@ -128,7 +128,7 @@ class CodeModel extends BaseModel
         }
 
         $updData = [
-            'status' => 2,
+            'status' => 3,
             'channelId' => $data['channelId'],
             'productId' => $data['productId'],
             'mid' => $data['mid'],
