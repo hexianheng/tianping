@@ -174,8 +174,6 @@ class CodeModel extends BaseModel
 
         $updData = [
             'status' => 2,
-            'channelId' => $data['channelId'],
-            'productId' => $data['productId'],
             'mid' => $data['mid'],
             'mtime' => date('Y-m-d H:i:s')
         ];
