@@ -68,7 +68,17 @@ $("#allExcel").click(function () {
 });
 
 function groupout(group) {
-    $('.pop_layer').show();
+    if(confirm("确定分发吗")){
+        ajax("/Code/groupOut",{"userId":userId,"token":token,"group":group},function(result){
+            if(result["code"] == 0){
+                alert(result["msg"])
+                location.reload();
+            }
+        });
+    }else{
+        return false;
+    }
+    /*$('.pop_layer').show();
     //产品下拉
     ajax("/Product/productSelect",{"userId":userId,"token":token},function(result){
         var html_p = "";
@@ -85,7 +95,7 @@ function groupout(group) {
         });
         $("#channelId").html(html_c);
     });
-    $("#replace").html("<a class='preview-btn btn05' id='btn' onclick='out("+group+")'>提交</a>");
+    $("#replace").html("<a class='preview-btn btn05' id='btn' onclick='out("+group+")'>提交</a>");*/
 }
 
 function out(group){

@@ -6,7 +6,6 @@ if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
     ajax("/Code/codeList",{"userId":userId,"token":token},function(result){
-        console.log(result);
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
