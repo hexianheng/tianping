@@ -15,7 +15,15 @@ class TemplateModel extends BaseModel {
             'phone' => '电话',
             'IDcard' => '身份证号码',
             'email' => '邮箱'
+        ],
+        //检测结果导入
+        'data' => [
+            'code' => 'SNP位点'
         ]
+    ];
+    private $templateName = [
+        'user' => '用户上传模版',
+        'data' => '检测结果导入模版',
     ];
 
     //获取模版
@@ -23,7 +31,7 @@ class TemplateModel extends BaseModel {
         if($templateNum == '' || empty($this->templateConf[$templateNum])){
             return $this->returnMsg('A058');
         }
-        $this->putExcel([],'用户上传模版',$this->templateConf[$templateNum]);
+        $this->putExcel([],$this->templateName[$templateNum],$this->templateConf[$templateNum]);
     }
 
     //文件上传
@@ -48,17 +56,32 @@ class TemplateModel extends BaseModel {
         if(empty($result)){
             return $this->returnMsg('A059');
         }
-        //匹配文件表头与预定义表头
-        $header = $result[0];
-        if(implode(',',$header) !== implode(',',$this->templateConf[$data['type']])){
-            return $this->returnMsg('A050');
+
+        if($data['type'] == 'data'){
+
+            /* *
+             * 检测结果导入验证
+             * */
+
+            return $this->handleData($result);
+        }else{
+
+            /* *
+             * 通用验证
+             * */
+
+            //匹配文件表头与预定义表头
+            $header = $result[0];
+            if(implode(',',$header) !== implode(',',$this->templateConf[$data['type']])){
+                return $this->returnMsg('A050');
+            }
+            unset($result[0]);
+            if(empty($result)){
+                return $this->returnMsg('A049');
+            }
+            $result = $this->checkData($result,$this->templateConf[$data['type']],$data['type']);
+            return $this->returnMsg(0,$result);
         }
-        unset($result[0]);
-        if(empty($result)){
-            return $this->returnMsg('A049');
-        }
-        $result = $this->checkData($result,$this->templateConf[$data['type']],$data['type']);
-        return $this->returnMsg(0,$result);
     }
 
     //处理上传数据
@@ -79,7 +102,7 @@ class TemplateModel extends BaseModel {
             case 'user' :
                 //获取验证所需的code
                 $res = array_column($arr,0);
-                $sql = "select code from code where code in ('". implode("','",$res) ."')";
+                $sql = "select code from code where status = 3 code in ('". implode("','",$res) ."')";
                 $reData = $this->sqlQuery('code',$sql);
                 if(empty($reData)){
                     $result['errorData'] = $arr;
@@ -158,6 +181,59 @@ class TemplateModel extends BaseModel {
         $result['code'] = 0;
         $result['sql'] = "insert into customer (". implode(',',$headerKey) .",addtime) values ('". implode("','",$data) ."')";
         return $result;
+    }
+
+    //处理检测结果
+    public function handleData($data){
+        //验证用户编码
+        $header = $data[0];
+        unset($header[0]);
+        $sql = "select distinct code from customer where code in ('" . implode("','",$header) . "')";
+        $re = $this->sqlQuery('customer',$sql);
+        if(count($re) != count($header)){
+            return $this->returnMsg('A060');
+        }
+        //验证rs码
+        $rsData = array_column($data,0);
+        unset($rsData[0]);
+        $sql = "select distinct origincode from item_locus_value where origincode in('" . implode("','",$rsData) . "')";
+        $re = $this->sqlQuery('item_locus_value',$sql);
+        if(count($re) != count($rsData)){
+            return $this->returnMsg('A061');
+        }
+        //处理数据
+        $end = [];
+        foreach ($data as $key => $value){
+            foreach ($value as $k => $v){
+                $end[$k][$key] = $v;
+            }
+        }
+        //校验数据，拼接sql
+        $date = date("y-m-d H:i:s");
+        $allArr = ['A','C','T','G','AA','CC','TT','GG','AT','AG','CT','CG','NA','TA','GA','TC','GC','AC','CA','TG','GT'];
+        $sql = [];
+        for($i = 1; $i < count($end); $i++){
+            $temp = [];
+            $codeTemp = '';
+            for($j = 0;$j < count($end[$i]); $j++){
+                if($j == 0){
+                    $codeTemp = $end[$i][$j];
+                }else{
+                    if(in_array($end[$i][$j],$allArr)){
+                        $temp[$rsData[$j]] = $end[$i][$j];
+                    }else{
+                        return $this->returnMsg('A062');
+                    }
+                }
+            }
+            $sql[] = "('". $codeTemp ."','". json_encode($temp) ."','". $date ."')";
+        }
+        //删除重复数据
+        $sqlAll = "delete from detection where code in ('". implode("','",$header) ."')";
+        $this->sqlQuery('detection',$sqlAll);
+        $sqlAll = "insert into detection (`code`,`result`,`ctime`) VALUES ". implode(',',$sql);
+        $this->sqlQuery('detection',$sqlAll);
+        return $this->returnMsg(0);
     }
 
 }

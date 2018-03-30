@@ -48,6 +48,51 @@ class CodeModel extends BaseModel
         return $this->returnMsg(0);
     }
 
+    public function importCode($data){
+        //验证产品ID
+        if($data['productId'] != ''){
+            $sql = "select id from product where id = $data[productId]";
+            $re = $this->sqlQuery('product',$sql);
+            if(empty($re)){
+                return $this->returnMsg('A035');
+            }
+        }
+        //验证渠道ID
+        if($data['channelId'] != ''){
+            $sql = "select id from channel where id = '$data[channelId]'";
+            $re = $this->sqlQuery('channel',$sql);
+            if(empty($re)){
+                return $this->returnMsg('A031');
+            }
+        }
+        //验证导入编码
+        $reg = "/^[a-z0-9A-Z|]+$/";
+        if($data['importStr'] == '' || !preg_match($reg,$data['importStr'])){
+            return $this->returnMsg('A041');
+        }else{
+            $importArr = explode('|',$data['importStr']);
+            if(count($importArr) != count(array_unique($importArr))){
+                return $this->returnMsg('A041');
+            }else{
+                $sql = "select id from code where code in ('". implode("','",$importArr) ."')";
+                $re = $this->sqlQuery('code',$sql);
+                $data['group'] = date('Ymd');
+                if(empty($re)){
+                    $temp = [];
+                    $date = date('Y-m-d H:i:s');
+                    foreach ($importArr as $val){
+                        $temp[] = "('". $data['productId'] . "','" . $data['channelId'] . "','" . $val . "','" . $data['group'] . "','" . $date . "','" . $data['cid'] . "')";
+                    }
+                    $sql = "insert into code (productId,channelId,code,`group`,ctime,cid) values". implode(',',$temp);
+                    $this->sqlQuery('code',$sql);
+                    return $this->returnMsg(0);
+                }else{
+                    return $this->returnMsg('A041');
+                }
+            }
+        }
+    }
+
     public function getAddSql($data){
         $arr = [];
         $date = date('Y-m-d H:i:s');

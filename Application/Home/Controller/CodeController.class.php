@@ -27,6 +27,19 @@ class CodeController extends CommonController
         $this->response($result,'json');
     }
 
+    //编码导入
+    public function importCode(){
+        $data = [
+            'cid' => I('post.userId'),
+            'importStr' => I('post.importStr'),
+            'productId' => I('post.productId'),
+            'channelId' => I('post.channelId')
+        ];
+        $obj = new CodeModel();
+        $result = $obj->importCode($data);
+        $this->response($result,'json');
+    }
+
     //分组下拉
     public function groupSel(){
         $obj = new CodeModel();
