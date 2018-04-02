@@ -12,8 +12,6 @@ if(userId == "" || token == ""){
 	parent.location.href = CONFIG['path'];
 }else{
 	ajax("/User/getPId",{"userId":userId,"token":token},function(result){
-
-		//console.log(result)
 		var html = "";
 		$.each(result["data"], function(idx, obj) {
 				 html += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";

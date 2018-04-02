@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+</head>
+<title>用户SNP检测结果</title>
+<body>
+<div class="chuda_co" id="container">
+    <div class="co-box">
+        <div class="title">
+            <h4>报告管理>>用户SNP检测结果</h4>
+        </div>
+        <div class="right container">
+            <div class="custom-info">
+                <div class="info-box">
+                    <ul class="ul-datetime">
+                        <li>
+                            New api生成（全项目）解读报告：起始ID:<input type="text" class="w100">&nbsp;&nbsp;--
+                                                        结束ID: <input type="text" class="w100">
+                            产品：
+                            <select name="" id="">
+                                <option value="">糖尿病初筛专业版</option>
+                                <option value="">糖尿病初筛升级版</option>
+                                <option value="">糖尿病初筛史诗版</option>
+                            </select>
+                        </li>
+                        <li><a class="btn07">解读</a></li>
+                        <li><input type="text" class="w200"></li>
+                        <li><a class="btn07">查询</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--detail start-->
+            <div class="co-detail clearfix">
+                <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>产品ID</th>
+                        <th>送检编码</th>
+                        <th>添加时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>adas112</td>
+                        <td>NHGFGH23</td>
+                        <td>2018-02-22</td>
+                        <td class="operation del">
+                            <a class="edit btn04">修改</a>
+                            <a class="edit btn04">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--分页 start-->
+                <div class="pages">
+                    <div class="sum">共<i>18</i>条记录</div>
+                    <div class="pages-btn">
+                        <a class="pre">上一页</a>
+                        <div class="num-btn"><a class="pages-current">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a></div>
+                        <a class="after">下一页</a>
+                    </div>
+                </div>
+                <!--分页 end-->
+            </div>
+            <!--detail end-->
+        </div>
+    </div>
+</div>
+<div class="pop_layer add-mess">
+    <div class="fill-info pop-layer-box">
+        <h3 class="title-big">修改班级信息</h3><a class="pop-close">X</a>
+        <div class="info-box">
+            <ul>
+                <li>
+                    <label>产品编号：</label>
+                    <input type="text" name="" class="w200 " value="">
+                </li>
+                <li>
+                    <label>产品名称：</label>
+                    <input type="text" name="" class="w200 " value="">
+                </li>
+                <li>
+                    <label>检测项目：</label>
+                    <input type="text" name="" class="w200 " value="">
+                </li>
+                <li>
+                    <label>检测panel：</label>
+                    <input type="text" name="" class="w200 " value="">
+                </li>
+                <li>
+                    <label>状态：</label>
+                    <input type="radio" name="name" class="" value="">启用&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="name" class=" name" value="">禁用
+                </li>
+                <li>
+                    <label>产品版本：</label>
+                    <input type="text" name="" class="w200 name" value="">
+                </li>
+                <li>
+                    <label>创建时间：</label>
+                    <input type="text" name="" class="w200 name" value="">
+                </li>
+                <!--<li>
+                    <label>讲师：</label>
+                    <select class="w200">
+                        <option>李朋</option>
+                        <option>王五</option>
+                    </select>
+                </li>-->
+            </ul>
+        </div>
+        <div class="preview"> <a class="preview-btn btn04">保存</a> <a class="cancel-btn btn04">取消</a> </div>
+    </div>
+</div>
+</body>
+</html>

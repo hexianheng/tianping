@@ -23,7 +23,8 @@ if(userId == "" || token == ""){
                     data:fd,
                     async: false,
                     success:function(res){
-                        console.log(res);
+                        alert(res['msg'])
+                        //console.log(res);
                     }
                 });
             }else{

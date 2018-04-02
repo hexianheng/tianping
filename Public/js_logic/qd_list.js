@@ -82,7 +82,6 @@ function upType(id) {
 function upd(id) {
     $('.pop_layer').show();
     ajax("/Channel/getOneChannel",{"userId":userId,"token":token,"id":id},function(result){
-        console.log(result)
         $("#code").val(result['data']['code']);
         $("#name").val(result['data']['name']);
         $("#address").val(result['data']['address']);

@@ -145,7 +145,6 @@ $("#addBtn").click(function(){
 function upd(id) {
     $('.pop_layer').show();
     ajax("/Item/getOneItem",{"userId":userId,"token":token,"id":id},function(result){
-        console.log(result)
         $("#name").val(result['data'][0]['name']);
         $("#textInfo").val(result['data'][0]['text']);
         var operation = "<a class='preview-btn btn04' onclick='update("+result['data'][0]['itemid']+")'>保存</a >";

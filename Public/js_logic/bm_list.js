@@ -8,8 +8,8 @@ if(userId == "" || token == ""){
     ajax("/Code/codeList",{"userId":userId,"token":token},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
-            html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
-            html += "<td>" + obj.id + "</td>";
+            /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
+            html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productName + "</td>";
             html += "<td>" + obj.channelName + "</td>";
@@ -57,8 +57,8 @@ $("#search").click(function(){
         ajax("/Code/codeList",{"userId":userId,"token":token,"codeStr":codeStr},function(result){
             var html = "";
             $.each(result["data"], function(idx, obj) {
-                html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
-                html += "<td>" + obj.id + "</td>";
+                /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
+                html += "<tr><td>" + obj.id + "</td>";
                 html += "<td>" + obj.code + "</td>";
                 html += "<td>" + obj.productName + "</td>";
                 html += "<td>" + obj.channelName + "</td>";
@@ -92,8 +92,8 @@ function codeList(num){
     ajax("/Code/codeList",{"userId":userId,"token":token,"page":num},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
-            html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
-            html += "<td>" + obj.id + "</td>";
+            /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
+            html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productName + "</td>";
             html += "<td>" + obj.channelName + "</td>";
@@ -116,8 +116,8 @@ function codeListSearch(codeStr,num){
     ajax("/Code/codeList",{"userId":userId,"token":token,"page":num,"codeStr":codeStr},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
-            html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";
-            html += "<td>" + obj.id + "</td>";
+            /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
+            html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productName + "</td>";
             html += "<td>" + obj.channelName + "</td>";

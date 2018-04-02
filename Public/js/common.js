@@ -37,7 +37,33 @@ function ajax(url,data,success){
 }
 
 
-function setCookie(name,value){
+
+
+function setCookie(name,value,iDay){
+    if(iDay){
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate()+iDay);
+        oDate.setHours(0,0,0,0);
+        document.cookie = name+'='+escape(value)+'; PATH=/; EXPIRES='+oDate.toGMTString();
+    }else{
+        document.cookie = name+'='+escape(value)+'; PATH=/';
+    }
+}
+
+function getCookie(name){
+    var str = document.cookie;
+    var arr = str.split('; ');
+    for(var i = 0;i < arr.length;i++){
+        if(arr[i].split('=')[0] == name){
+            return unescape(arr[i].split('=')[1]);
+        }
+    }
+    return '';
+}
+function delCookie(name){
+    setCookie(name,1,-1);
+}
+/*function setCookie(name,value){
     var Days = 30;
     var exp = new Date();
     exp.setTime(exp.getTime() + Days*24*60*60*1000);
@@ -60,6 +86,6 @@ function delCookie(name)
     var cval=getCookie(name);
     if(cval!=null)
         document.cookie= name + "="+cval+";expires="+exp.toGMTString()+";path=/";
-}
+}*/
 
         

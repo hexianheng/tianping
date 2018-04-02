@@ -55,28 +55,28 @@ u,i{ font-style:normal; text-decoration:none;}
 .container .custom-info{padding:12px 0px 12px 15px; margin-top:10px; background:#f5f5f5; border-radius:3px;}
 .container .custom-info ul{ height:33px; width:100%;}
 .container .custom-info ul:after{ content:"."; visibility:hidden; display:block; height:0; clear:both;}
-.container .custom-info li{ float:left; padding-right:20px; line-height:28px;}
+.container .custom-info li{ float:left; padding-right:10px; line-height:28px;}
 .container .custom-info-1{padding:12px 0px 12px 15px; margin-top:10px; background:#f5f5f5; border-radius:3px;}
 .container .custom-info-1 ul{ height:75px; width:100%;}
 .container .custom-info-1 li{ float:left; padding-right:20px; line-height:28px;}
 .container .custom-info-1 .load{ display: inline-block; margin-top: 22px; color: #1B9BE4; border-bottom: 1px solid #1B9BE4}
 /*通用btn*/
-.top-btn{ height:35px;}
-.btn01{ height:35px; width:90px;
-    line-height:35px; border-radius:5px;
+.top-btn{ height:28px;}
+.btn01{ height:28px; width:90px;
+    line-height:28px; border-radius:5px;
     background:#2fa4e7; float:left; color:#ffffff;
     text-align:center;;}
 /*新增角色上面的两个按钮*/
-.btn02{display: inline-block; height:35px; width:90px; line-height:35px;
+.btn02{display: inline-block; height:28px; width:90px; line-height:28px;
     border-radius:5px;
     background:#169bd5;
     /*background:#dd5600;
     float:left;*/
     color:#ffffff; text-align:center; margin-left:30px;}
 
-.btn03{ height:35px; width:90px; line-height:35px; border-radius:5px; background:#73a839; float:right; color:#ffffff; text-align:center; margin-right:10px;margin-bottom:10px}
+.btn03{ height:28px; width:90px; line-height:28px; border-radius:5px; background:#73a839; float:right; color:#ffffff; text-align:center; margin-right:10px;margin-bottom:10px}
 /*权限列表操作的两个按钮*/
-.btn04{display: inline-block; height:35px; width:90px; line-height:35px;
+.btn04{display: inline-block; height:28px; width:90px; line-height:28px;
     border-radius:5px;
     background:#169bd5;
     color:#ffffff;
@@ -85,7 +85,7 @@ u,i{ font-style:normal; text-decoration:none;}
 }
 /*编码列表的两个按钮*/
 .btn05{
-    display: inline-block; height:35px; width:90px; line-height:35px;
+    display: inline-block; height:28px; width:90px; line-height:28px;
     border-radius:5px;
     background:#169bd5;
     color:#ffffff;
@@ -182,6 +182,7 @@ u,i{ font-style:normal; text-decoration:none;}
 /*通用宽度*/
 .w100{ width:100px;}
 .w200{ width:200px;}
+.w300{ width:300px;}
 
 /*分页*/
 .pages{ margin:18px auto; width:477px; height:50px;}
@@ -250,7 +251,7 @@ label{display: inline-block;max-width: 100%;margin-bottom: 5px;font-weight: 700;
 .co-box .fill-info ul li .box dl.dl_box label input{ margin-right:5px;}
 .co-box .fill-info ul li .box dl.dl_box dd label{font-weight:normal}
 /*编码列表样式*/
-.bm_list{width: 100%; height: 150px;border-bottom: 1px solid #708090}
+.bm_list{width: 100%; height: auto;border-bottom: 1px solid #708090}
 .bm_list textarea{width:240px;height: 120px}
 /*修改密码*/
 .co-box01{
@@ -271,7 +272,7 @@ label{display: inline-block;max-width: 100%;margin-bottom: 5px;font-weight: 700;
 }
 /*编码列表的两个按钮*/
 .btn05{
-    display: inline-block; height:35px; width:90px; line-height:35px;
+    display: inline-block; height:28px; width:90px; line-height:28px;
     border-radius:5px;
     background:#169bd5;
     color:#ffffff;
@@ -351,3 +352,8 @@ label{display: inline-block;max-width: 100%;margin-bottom: 5px;font-weight: 700;
     line-height:28px; border-radius:5px;
     background:#2fa4e7; float:right; color:#ffffff;
     text-align:center;margin-right: 10px;}
+
+
+.bott {
+    margin-bottom: 8px;
+}
