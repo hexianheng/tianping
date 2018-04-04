@@ -34,5 +34,26 @@ class ReportController extends CommonController
         $this->response($result,'json');
     }
 
+    //报告解读
+    public function unscrambleReport(){
+        $data = [
+            'startId' => I('post.startId'),
+            'endId' => I('post.endId')
+        ];
+        $obj = new ReportModel();
+        $result = $obj->unscrambleReport($data);
+        $this->response($result,'json');
+    }
+
+    //获取用户报告
+    public function userReport(){
+        $data = [
+            'code' => I('post.code')
+        ];
+        $obj = new ReportModel();
+        $result = $obj->userReport($data);
+        $this->response($result,'json');
+    }
+
 
 }
