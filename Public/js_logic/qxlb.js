@@ -13,7 +13,6 @@ if(userId == "" || token == ""){
 	parent.location.href = CONFIG['path'];
 }else{
 	ajax("/User/getPermission",{"userId":userId,"token":token},function(result){
-		//console.log(result)
 		var html = "<table class = 'tablelist' border='0' cellpadding='0' cellspacing='0'>";
 		html += '<th>名称</th>';
 		html += '<th>创建时间</th>';
@@ -63,7 +62,6 @@ function upd(id){
 		$("#select_parent").html(html);
 	});
 	ajax("/User/getPermissionOne",{"userId":userId,"token":token,"permissionId":id},function(result){
-		console.log(result)
 		$("#permissionName").val(result['data']['name']);
 		$("#select_parent").val(result['data']['parentId']);
 		$("#actionName").val(result['data']['action']);

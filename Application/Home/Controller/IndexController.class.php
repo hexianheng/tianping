@@ -164,5 +164,23 @@ class IndexController extends Controller {
         $this->assign("url",$url);
         $this->display('Product/site_list');
     }
+    //解读列表
+    public function sns_check(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Presentation/sns_check');
+    }
+    //用户报告列表
+    public function sns_read(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Presentation/sns_read');
+    }
+    //用户信息关联表
+    public function sample_list(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Presentation/sample_list');
+    }
 
 }

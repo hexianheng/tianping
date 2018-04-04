@@ -1,8 +1,9 @@
 
 var username = getCookie("uname");
 var roleName = getCookie("roleName");
-
-if(username == "" || roleName == ""){
+var userId = getCookie("userId");
+var token = getCookie("token");
+if(username == "" || roleName == "" || userId == "" || token == ""){
 	parent.location.href = CONFIG['path'];
 }else{
 	$("#uname").text(username + '(' + roleName + ')')

@@ -9,7 +9,6 @@ $("#button").click(function(){
         setCookie("roleName",result["data"]["roleName"]);
         userId = getCookie("userId");
         token = getCookie("token");
-        console.log(result);
         if(userId != "" && token != ""){
             if(result["data"]["repwd"] == '0'){
                 location.href=CONFIG['path'] + "Index/startUpPwd";

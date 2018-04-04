@@ -8,7 +8,6 @@ if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
     ajax("/Site/siteList",{"userId":userId,"token":token},function(result){
-        console.log(result)
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
