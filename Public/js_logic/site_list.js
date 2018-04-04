@@ -161,7 +161,7 @@ function siteSearch(where,num){
     });
 }
 
-/*//添加
+//添加
 $("#xg_btn").click(function(){
     $('.pop_layer').show();
 })
@@ -174,7 +174,7 @@ $("#addBtn").click(function(){
             location.reload();
         }
     });
-})*/
+})
 
 
 //修改
