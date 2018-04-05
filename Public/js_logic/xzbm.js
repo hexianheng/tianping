@@ -26,10 +26,10 @@ if(userId == "" || token == ""){
 
 $("#btn").click(function(){
 
-    var num = $("#num").val();
+    var importStr = $("#code").val();
     var productId = $("#productId").val();
     var channelId = $("#channelId").val();
-    ajax("/Code/addCode",{"userId":userId,"token":token,"num":num,"productId":productId,"channelId":channelId},function(result){
+    ajax("/Code/importCode",{"userId":userId,"token":token,"importStr":importStr,"productId":productId,"channelId":channelId},function(result){
         if(result['code'] == 0 ){
             alert(result["msg"])
             location.reload();
