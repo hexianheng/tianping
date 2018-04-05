@@ -45,6 +45,9 @@ class SiteController extends CommonController
             'risk_desc_ww' => I('post.risk_desc_ww'),
             'risk_desc_wm' => I('post.risk_desc_wm'),
             'risk_desc_mm' => I('post.risk_desc_mm'),
+            'ww_text' => I('post.ww_text'),
+            'wm_text' => I('post.wm_text'),
+            'mm_text' => I('post.mm_text'),
             'gene' => I('post.gene'),
             'gene_text' => I('post.gene_text')
         ];

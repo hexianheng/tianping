@@ -17,7 +17,7 @@ class UploadController extends CommonController
         $data = [
             'file' => $_FILES,
             'type' => I('post.status'),
-            'cid' => I('post.cid'),
+            'cid' => I('post.userId'),
         ];
         $obj = new TemplateModel();
         $result = $obj->fileUpload($data);
