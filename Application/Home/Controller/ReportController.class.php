@@ -48,7 +48,7 @@ class ReportController extends CommonController
     //获取用户报告
     public function userReport(){
         $data = [
-            'code' => I('post.code')
+            'code' => I('get.code')
         ];
         $obj = new ReportModel();
         $result = $obj->userReport($data);
