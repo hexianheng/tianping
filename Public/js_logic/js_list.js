@@ -44,8 +44,8 @@ function upd(id) {
 //修改
 function update(id){
     var roleName = $("#roleName").val();
-    var permission = $("#permission").val();
-    ajax("/Site/updSite",{"userId":userId,"token":token,"gene":gene,"origincode":origincode},function(result){
+    var permissionStr = $("#permission").val();
+    ajax("/User/updRole",{"userId":userId,"token":token,"roleName":roleName,"permissionStr":permissionStr,"roleId":id},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
