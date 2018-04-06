@@ -19,6 +19,26 @@ class SmsModel extends BaseModel {
             $params, $this->smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
         return json_decode($result,1);
     }
+
+    public function sendMessage($phoneArr,$text){
+        $templateId = 104361;
+        $i = 0;
+        require_once APP_PATH."Vendor/SmsSingleSender.php";
+        $ssender = new \SmsSingleSender($this->appId,$this->appKey);
+        $params = [$text];
+        foreach ($phoneArr as $val){
+            $result = $ssender->sendWithParam("86", $val, $templateId,
+                $params, $this->smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+            $re = json_decode($result,1);
+            if($re['code'] == 0){
+                $i++;
+            }else{
+                return $this->returnMsg();
+            }
+        }
+        return $i;
+    }
+
 }
 
 ?>

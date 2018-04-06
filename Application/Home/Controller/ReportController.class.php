@@ -55,5 +55,15 @@ class ReportController extends CommonController
         $this->response($result,'json');
     }
 
+    public function userReportList(){
+        $data = [
+            'where' => I('post.where'),
+            'page' => I('post.page'),
+        ];
+        $obj = new ReportModel();
+        $result = $obj->userReportList($data);
+        $this->response($result,'json');
+    }
+
 
 }

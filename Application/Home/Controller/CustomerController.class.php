@@ -23,4 +23,20 @@ class CustomerController extends CommonController
         $this->response($result,'json');
     }
 
+    //删除客户
+    public function delCustomer(){
+        $id = I('post.id');
+        $obj = new CustomerModel();
+        $result = $obj->delCustomer($id);
+        $this->response($result,'json');
+    }
+
+    //修改客户状态
+    public function updStatus(){
+        $idStr = I('post.idStr');
+        $obj = new CustomerModel();
+        $result = $obj->updStatus($idStr);
+        $this->response($result,'json');
+    }
+
 }

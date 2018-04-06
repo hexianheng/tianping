@@ -193,4 +193,29 @@ class ReportModel extends BaseModel
             return $this->returnMsg(0,$re);
         }
     }
+
+    public function userReportList($data){
+        if($data['page'] == ''){
+            $data['page'] = 1;
+        }else{
+            if(!is_numeric($data['page'])){
+                return $this->returnMsg(-4);
+            }
+        }
+        $where = [];
+        if($data['where'] != ''){
+            $where = " where a.`code` = '$data[where]'";
+        }else{
+            $where = '';
+        }
+        $countSql = "select count(id) as count from analytic_result as a " . $where;
+        $count = $this->sqlQuery('analytic_result',$countSql)[0]['count'];
+        if(empty($count)){
+            return $this->returnMsg(-3);
+        }
+        $limit = $this->_makeLimit($data['page'],10);
+        $sql = "select a.id,a.code,b.productId,a.ctime,c.name as pruductName from analytic_result as a left join code as b on a.`code` = b.`code` left join product as c on b.productId = c.id ". $where ." ORDER BY a.id DESC " . $limit;
+        $re = $this->sqlQuery('analytic_result',$sql);
+        return $this->returnMsg(0,$re,['page'=>$data['page'],'maxPage'=>ceil($count/10)]);
+    }
 }
