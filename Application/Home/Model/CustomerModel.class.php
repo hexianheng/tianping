@@ -73,13 +73,13 @@ class CustomerModel extends BaseModel
             return $this->returnMsg('A067');
         }
 
-        $phoneArr = array_column($re,'phone');
+        /*$phoneArr = array_column($re,'phone');
         //发送状态
         $smsObj = new SmsModel();
         $num = $smsObj->sendMessage($phoneArr,$smsMessage[$status]);
         if($num != count($phoneArr)){
             return $this->returnMsg('A069');
-        }
+        }*/
 
         $sql = "update customer set status = $status where id in ('" . implode("','",$idArr) . "')";
         $this->sqlQuery('customer',$sql);

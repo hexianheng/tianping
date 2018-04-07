@@ -58,16 +58,17 @@ class ReportModel extends BaseModel
         if(empty($re)){
             return $this->returnMsg('A066');
         }
-        $rsArr = [];
         foreach ($re as $key => $val){
-            $temp = json_decode($val['result']);
-            $re[$key]['result'] = $temp;
+            $rsArr = [];
+            $temp = json_decode($val['result'],1);
+            $val['result'] = $temp;
             foreach ($temp as $k => $v){
                 $rsArr[] = $k;
             }
+            $rsArr = array_unique($rsArr);
+            $this->unscrambleLogic($val,$rsArr);
         }
-        $rsArr = array_unique($rsArr);
-        return $this->unscrambleLogic($re,$rsArr);
+        return $this->returnMsg(0);
     }
 
     //解读逻辑
@@ -96,69 +97,56 @@ class ReportModel extends BaseModel
             'GT' => 'T',
             'NA' => 'NA'
         ];
-        $sql = "select * from item_locus_value where origincode in ('". implode("','",$rsArr) ."')";
+
+        $itemSql = "select b.projectStr from code as a left join product as b on a.productId = b.id where a.code = '$re[code]'";
+        $itemArr = $this->sqlQuery('code',$itemSql)[0]['projectStr'];
+
+        $sql = "select * from item_locus_value where origincode in ('". implode("','",$rsArr) ."') and itemid in ('". implode("','",explode('|',$itemArr)) ."')";
         $rsArr = $this->sqlQuery('item_locus_value',$sql);
-        $rsEnd = [];
-        foreach ($rsArr as $value){
-            $rsEnd[$value['origincode']] = $value;
-        }
-        $dataTempArr = [];
-        $time = date('Y-m-d H:i:s');
-        foreach ($re as $key => $value){
+
+        $addArr = [
+            'ctime' => date('Y-m-d H:i:s'),
+            'code' => $re['code']
+        ];
+        $addResult = [];
+
+        foreach ($rsArr as $key => $val){
             $temp = [
-                'ctime' => $time,
-                'code' => $value['code'],
-                'result' => ''
+                'rsCode' => $val['origincode'],
+                'gene' => $val['gene']
             ];
-            $tempResult = [];
-            foreach ($value['result'] as $resultKey => $resultVal){
-                switch ($analysis[$resultVal]){
-                    case 'A':
-                        $tempResult[] = [
-                            'rsCode' => $resultKey,
-                            'value' => $resultVal,
-                            'result' => $rsEnd[$resultKey]['risk_desc_ww'],
-                            'genotype' => $rsEnd[$resultKey]['genotype_value_ww'],
-                            'text' => $rsEnd[$resultKey]['ww_text']
-                        ];
-                        break;
-                    case 'AT':
-                        $tempResult[] = [
-                            'rsCode' => $resultKey,
-                            'value' => $resultVal,
-                            'result' => $rsEnd[$resultKey]['risk_desc_wm'],
-                            'genotype' => $rsEnd[$resultKey]['genotype_value_wm'],
-                            'text' => $rsEnd[$resultKey]['wm_text']
-                        ];
-                        break;
-                    case 'T':
-                        $tempResult[] = [
-                            'rsCode' => $resultKey,
-                            'value' => $resultVal,
-                            'result' => $rsEnd[$resultKey]['risk_desc_mm'],
-                            'genotype' => $rsEnd[$resultKey]['genotype_value_mm'],
-                            'text' => $rsEnd[$resultKey]['mm_text']
-                        ];
-                        break;
-                    case 'NA':
-                        $tempResult[] = [
-                            'rsCode' => $resultKey,
-                            'value' => $resultVal,
-                            'result' => '--',
-                            'genotype' => '--',
-                            'text' => '--'
-                        ];
-                        break;
-                }
+            $a = $re['result'][$val['origincode']];
+            $temp['value'] = $a;
+            switch ($analysis[$a]){
+                case 'A':
+                    $temp['result'] = $val['risk_desc_ww'];
+                    $temp['genotype'] = $val['genotype_value_ww'];
+                    $temp['text'] = $val['ww_text'];
+                    break;
+                case 'AT':
+                    $temp['result'] = $val['risk_desc_wm'];
+                    $temp['genotype'] = $val['genotype_value_wm'];
+                    $temp['text'] = $val['wm_text'];
+                    break;
+                case 'T':
+                    $temp['result'] = $val['risk_desc_mm'];
+                    $temp['genotype'] = $val['genotype_value_mm'];
+                    $temp['text'] = $val['mm_text'];
+                case 'NA':
+                    $temp['result'] = '--';
+                    $temp['genotype'] = '--';
+                    $temp['text'] = '--';
+                    break;
             }
-            $temp['result'] = json_encode($tempResult,JSON_UNESCAPED_UNICODE);
-            $dataTempArr[] = "('" . implode("','",$temp)."')";
+            $addResult[$val['itemid']][] = $temp;
         }
-        $sql = "delete from analytic_result where code in ('". implode("','",array_column($re,'code')) ."')";
+        $addArr['result'] = json_encode($addResult,JSON_UNESCAPED_UNICODE);
+
+        $sql = "delete from analytic_result where code = '$re[code]'";
         $this->sqlQuery('analytic_result',$sql);
-        $sql = "insert into analytic_result (`ctime`,`code`,`result`) values ". implode(',',$dataTempArr);
+        $sql = "insert into analytic_result (`ctime`,`code`,`result`) values ('". implode("','",$addArr) ."')";
         $this->sqlQuery('analytic_result',$sql);
-        return $this->returnMsg(0);
+
     }
 
     //用户报告

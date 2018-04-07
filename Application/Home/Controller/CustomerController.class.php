@@ -34,8 +34,10 @@ class CustomerController extends CommonController
     //修改客户状态
     public function updStatus(){
         $idStr = I('post.idStr');
+        $status = I('post.status');
+
         $obj = new CustomerModel();
-        $result = $obj->updStatus($idStr);
+        $result = $obj->updStatus($idStr,$status);
         $this->response($result,'json');
     }
 
