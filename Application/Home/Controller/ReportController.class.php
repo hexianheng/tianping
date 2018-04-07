@@ -55,6 +55,8 @@ class ReportController extends CommonController
         $this->response($result,'json');
     }
 
+    
+    //检测结果
     public function userReportList(){
         $data = [
             'where' => I('post.where'),

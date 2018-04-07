@@ -49,7 +49,7 @@ if(userId == "" || token == ""){
 
 
 function siteList(num){
-    ajax("/Site/siteList",{"userId":userId,"token":token},function(result) {
+    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num},function(result) {
         var html = "";
         $.each(result["data"], function (idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
