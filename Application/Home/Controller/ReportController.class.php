@@ -45,7 +45,7 @@ class ReportController extends CommonController
         $this->response($result,'json');
     }
 
-    //获取用户报告
+    //获取解读结果
     public function userReport(){
         $data = [
             'code' => I('get.code')
@@ -55,6 +55,7 @@ class ReportController extends CommonController
         $this->response($result,'json');
     }
 
+    //解读列表
     public function userReportList(){
         $data = [
             'where' => I('post.where'),
@@ -65,5 +66,15 @@ class ReportController extends CommonController
         $this->response($result,'json');
     }
 
+    //审核解读结果
+    public function updReport(){
+        $data = [
+            'id' => I('post.id'),
+            'status' => I('post.status')
+        ];
+        $obj = new ReportModel();
+        $result = $obj->updReport($data);
+        $this->response($result,'json');
 
+    }
 }

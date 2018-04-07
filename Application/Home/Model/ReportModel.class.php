@@ -214,8 +214,27 @@ class ReportModel extends BaseModel
             return $this->returnMsg(-3);
         }
         $limit = $this->_makeLimit($data['page'],10);
-        $sql = "select a.id,a.code,b.productId,a.ctime,c.name as pruductName from analytic_result as a left join code as b on a.`code` = b.`code` left join product as c on b.productId = c.id ". $where ." ORDER BY a.id DESC " . $limit;
+        $sql = "select a.id,a.code,a.status,b.productId,a.ctime,c.name as pruductName from analytic_result as a left join code as b on a.`code` = b.`code` left join product as c on b.productId = c.id ". $where ." ORDER BY a.id DESC " . $limit;
         $re = $this->sqlQuery('analytic_result',$sql);
         return $this->returnMsg(0,$re,['page'=>$data['page'],'maxPage'=>ceil($count/10)]);
+    }
+
+
+    public function updReport($data){
+        if($data['status'] == '' || (!in_array($data['status'],[2,3]))){
+            return $this->returnMsg('A070');
+        }
+        if($data['id'] == ''){
+            return $this->returnMsg('A070');
+        }
+        $sql = "select id from analytic_result where id = $data[id]";
+        $re = $this->sqlQuery('analytic_result',$sql);
+        if(empty($re)){
+            return $this->returnMsg('A070');
+        }else{
+            $sql = "update analytic_result set status = $data[status] where id = $id";
+            $this->sqlQuery('analytic_result',$sql);
+            return $this->returnMsg(0);
+        }
     }
 }
