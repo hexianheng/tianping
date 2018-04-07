@@ -2,20 +2,24 @@
 //获取解读列表
 var userId = getCookie("userId")
 var token = getCookie("token")
-var sex = 1;
 
 if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
-    ajax("/Report/detectionResult",{"userId":userId,"token":token},function(result){
+    ajax("/Customer/customerList",{"userId":userId,"token":token},function(result){
+        console.log(result)
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
-            html += "<td>" + obj.productId + "</td>";
             html += "<td>" + obj.code + "</td>";
-            html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
+            html += "<td>" + obj.name + "</td>";
+            html += "<td>" + obj.sex + "</td>";
+            html += "<td>" + obj.age + "</td>";
+            html += "<td>" + obj.phone + "</td>";
+            html += "<td>" + obj.email + "</td>";
+            html += "<td>" + obj.productId + "</td>";
+            html += "<td>" + obj.productName + "</td>";
+            html += "<td>" + obj.channelName + "</td>";
         });
         $("#data").append(html);
 
@@ -34,31 +38,18 @@ if(userId == "" || token == ""){
 
 
 function checkList(num){
-    ajax("/Report/detectionResult",{"userId":userId,"token":token,"page":num},function(result){
+    ajax("/Report/userReportList",{"userId":userId,"token":token,"page":num},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
-            html += "<td>" + obj.productId + "</td>";
             html += "<td>" + obj.code + "</td>";
+            html += "<td>" + obj.productId + "</td>";
+            html += "<td>" + obj.pruductName + "</td>";
+            html += "<td>" + obj.pruductName + "</td>";
             html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
         });
         $("#data").html(html);
     });
-}
-
-
-//删除解读
-function del(id) {
-    if (confirm("确定要删除吗？")) {
-        ajax("/Report/delDetection",{"userId":userId,"token":token,"id":id},function(result){
-            if(result["code"] == 0){
-                alert(result["msg"])
-                location.reload();
-            }
-        });
-    }
 }
 
 
@@ -68,15 +59,15 @@ $("#search").click(function(){
     if(where == ""){
         alert("搜索条件不能为空")
     }else{
-        ajax("/Report/detectionResult",{"userId":userId,"token":token,"where":where},function(result){
+        ajax("/Report/userReportList",{"userId":userId,"token":token,"where":where},function(result){
             var html = "";
             $.each(result["data"], function(idx, obj) {
                 html += "<tr><td>" + obj.id + "</td>";
-                html += "<td>" + obj.productId + "</td>";
                 html += "<td>" + obj.code + "</td>";
+                html += "<td>" + obj.productId + "</td>";
+                html += "<td>" + obj.pruductName + "</td>";
+                html += "<td>" + obj.pruductName + "</td>";
                 html += "<td>" + obj.ctime + "</td>";
-                html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
             });
             $("#data").html(html);
 
@@ -96,31 +87,18 @@ $("#search").click(function(){
 });
 
 function whereCheckSearch(where,num){
-    ajax("/Report/detectionResult",{"userId":userId,"token":token,"where":where,"page":num},function(result){
+    ajax("/Report/userReportList",{"userId":userId,"token":token,"where":where,"page":num},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
-            html += "<td>" + obj.productId + "</td>";
             html += "<td>" + obj.code + "</td>";
+            html += "<td>" + obj.productId + "</td>";
+            html += "<td>" + obj.pruductName + "</td>";
+            html += "<td>" + obj.pruductName + "</td>";
             html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
         });
         $("#data").html(html);
     });
 }
 
 
-//解读
-$("#check").click(function(){
-
-    var startId=$("#startId").val();
-    var endId=$("#endId").val();
-    ajax("/Report/unscrambleReport",{"userId":userId,"token":token,"startId":startId,"endId":endId},function(result){
-        if(result["code"] == 0){
-            alert(result["msg"])
-            location.reload();
-        }
-    });
-
-});

@@ -4,7 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css" />
     <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
 </head>
 <title>用户SNS解读结果列表</title>
@@ -37,10 +39,9 @@
                 <div class="info-box">
                     <ul class="ul-datetime">
                         <li>
-                            <input type="text" placeholder="请输入" class="w200">
+                            <input type="text" placeholder="请输入" class="w200" id="text">
                         </li>
-                        <li><a class="btn07">查询</a></li>
-                        <a class="btn09" id="xg_btn" href="javascript:;">添加</a>
+                        <li><a class="btn07" id="search">查询</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,37 +55,13 @@
                         <th>产品ID</th>
                         <th>web报告</th>
                         <th>pdf报告</th>
-                        <th>操作</th>
+                        <th>生成时间</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>UNHG3214</td>
-                        <td>12</td>
-                        <td>
-                            <a href="jsvascript:;" class="down">女性A</a>
-                            <a href="jsvascript:;" class="down">女性B</a>
-                        </td>
-                        <td>
-                            <a href="jsvascript:;" class="down">女性C</a>
-                        </td>
-                        <td class="operation del">
-                            <a class="edit btn04">修改</a>
-                            <a class="edit btn04">删除</a>
-                        </td>
-                    </tr>
-                    </tbody>
+                    <tbody id="data"></tbody>
                 </table>
                 <!--分页 start-->
-                <div class="pages">
-                    <div class="sum">共<i>18</i>条记录</div>
-                    <div class="pages-btn">
-                        <a class="pre">上一页</a>
-                        <div class="num-btn"><a class="pages-current">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a></div>
-                        <a class="after">下一页</a>
-                    </div>
-                </div>
+                <div id="page" class="page_div"></div>
                 <!--分页 end-->
             </div>
             <!--detail end-->
@@ -145,3 +122,5 @@
 </div>
 </body>
 </html>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/sns_read.js"></script>

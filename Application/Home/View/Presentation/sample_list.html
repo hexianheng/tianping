@@ -4,7 +4,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css" />
         <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
         <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
     </head>
         <title>样本编码产品关联表</title>
@@ -17,20 +19,28 @@
         <div class="right container">
             <div class="bm_list">
             <p class="bott">
-                更新状态：根据样本编码更新样本在产品库的状态(样本编码单竖线分割)
-                样本：<textarea name=""  placeholder="样本编码单竖线分割" ></textarea>
+                更新状态：<textarea name=""  placeholder="样本编码单竖线分割" ></textarea>
                 状态选择：<select name="">
-                            <option value="">启用</option>
-                            <option value="">未启用</option>
+                            <option>请选择</option>
+                            <option value="2">集盒已经寄出，请注意查收！</option>
+                            <option value="3">回寄样本已经收到，马上安排提取DNA，请耐心等待！</option>
+                            <option value="4">DNA已经提取成功，并且质检合格，马上上机检测</option>
+                            <option value="5">检测已经完成，正在为您准备报告！</option>
+                            <option value="6">报告已生成</option>
+                            <option value="7">报告延迟</option>
                         </select>
                 <a href="javascript:;" class="btn02">提交</a>
             </p>
             <p class="bott">
-                批量推送短信状态(样本编码单竖线分割)：
-                <textarea name=""  placeholder="样本编码单竖线分割" ></textarea>
+                批量推送短信状态<textarea name=""  placeholder="样本编码单竖线分割" ></textarea>
                 状态选择：<select name="">
-                            <option value="">启用</option>
-                            <option value="">未启用</option>
+                            <option>请选择</option>
+                            <option value="2">集盒已经寄出，请注意查收！</option>
+                            <option value="3">回寄样本已经收到，马上安排提取DNA，请耐心等待！</option>
+                            <option value="4">DNA已经提取成功，并且质检合格，马上上机检测</option>
+                            <option value="5">检测已经完成，正在为您准备报告！</option>
+                            <option value="6">报告已生成</option>
+                            <option value="7">报告延迟</option>
                         </select>
                 <a href="javascript:;" class="btn02">提交</a>
             </p>
@@ -43,7 +53,6 @@
                             <input type="text" placeholder="请输入" class="w200">
                         </li>
                         <li><a class="btn07">查询</a></li>
-                        <a class="btn09" id="xg_btn" href="javascript:;">添加</a>
                     </ul>
                 </div>
             </div>
@@ -56,42 +65,18 @@
                         <th>样本编码</th>
                         <th>受检者姓名</th>
                         <th>受检者性别</th>
+                        <th>受检者年龄</th>
                         <th>手机</th>
-                        <th>受检者生日</th>
+                        <th>email</th>
                         <th>产品ID</th>
-                        <th>产品集合</th>
-                        <th>状态0正常1禁用</th>
-                        <th>操作</th>
+                        <th>产品名称</th>
+                        <th>渠道名称</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>adas112</td>
-                        <td>张三</td>
-                        <td>男</td>
-                        <td>13288885555</td>
-                        <td>2015-12-12</td>
-                        <td>12</td>
-                        <td>45</td>
-                        <td>1</td>
-                        <!--<td>qwe</td>-->
-                        <td class="operation del">
-                            <a class="edit btn04">修改</a>
-                            <a class="edit btn04">删除</a>
-                        </td>
-                    </tr>
-                    </tbody>
+                    <tbody id="data"></tbody>
                 </table>
                 <!--分页 start-->
-                <div class="pages">
-                    <div class="sum">共<i>18</i>条记录</div>
-                    <div class="pages-btn">
-                        <a class="pre">上一页</a>
-                        <div class="num-btn"><a class="pages-current">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a></div>
-                        <a class="after">下一页</a>
-                    </div>
-                </div>
+                <div id="page" class="page_div"></div>
                 <!--分页 end-->
             </div>
             <!--detail end-->
@@ -180,3 +165,5 @@
 </div>
 </body>
 </html>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/sample_list.js"></script>
