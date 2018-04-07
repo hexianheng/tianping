@@ -35,7 +35,7 @@
                 批量推送短信状态<textarea name=""  placeholder="样本编码单竖线分割" ></textarea>
                 状态选择：<select name="">
                             <option>请选择</option>
-                            <option value="2">集盒已经寄出，请注意查收！</option>
+                            <option value="2">采集盒已经寄出，请注意查收！</option>
                             <option value="3">回寄样本已经收到，马上安排提取DNA，请耐心等待！</option>
                             <option value="4">DNA已经提取成功，并且质检合格，马上上机检测</option>
                             <option value="5">检测已经完成，正在为您准备报告！</option>
@@ -50,9 +50,9 @@
                 <div class="info-box">
                     <ul class="ul-datetime">
                         <li>
-                            <input type="text" placeholder="请输入" class="w200">
+                            <input type="text" placeholder="请输入" class="w200" id="text">
                         </li>
-                        <li><a class="btn07">查询</a></li>
+                        <li><a class="btn07" id="search">查询</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,6 +71,9 @@
                         <th>产品ID</th>
                         <th>产品名称</th>
                         <th>渠道名称</th>
+                        <th>状态</th>
+                        <th>添加时间</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody id="data"></tbody>

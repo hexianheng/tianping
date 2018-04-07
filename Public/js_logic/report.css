@@ -1,0 +1,966 @@
+@charset "utf-8";
+/*------------// Overall //------------------*/
+body {
+  font: 12px/180% Arial, Helvetica, Verdana;
+  color: #5a5a5a;
+  margin: 0;
+  background: #FFF;
+}
+table,
+td {
+  font: 12px/180% Arial, "宋体", Helvetica, sans-serif, Verdana;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+}
+th,
+td {
+  border-collapse: collapse;
+}
+A:link {
+  text-decoration: none;
+  color: #58595b;
+}
+A:visited {
+  text-decoration: none;
+  color: #58595b;
+}
+A:hover {
+  text-decoration: none;
+  color: #206fd5;
+}
+img {
+  border: 0;
+}
+div,
+p,
+img,
+ul,
+li,
+form,
+input,
+label,
+span,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+ol,
+ul,
+li {
+  list-style-type: none;
+}
+html {
+  -webkit-text-size-adjust: none;
+}
+/*----封面1样式---*/
+.fengye1 {
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  margin: 0 auto;
+  background: url("../images/skin_image/cover_bg.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+.fengye1 .header_image {
+  width: 100%;
+  height: 60%;
+  position: relative;
+  background: url("../images/skin_image/cover_bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+.fengye1 .tittle {
+  width: 100%;
+  height: 60px;
+  font-size: 46px;
+  text-align: center;
+  margin-top: 60px;
+  color: #a7347c;
+}
+.fengye1 .img01 {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+.fengye1 .img01 img {
+  width: 40%;
+  height: 100%;
+}
+.fengye1 .img02 {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  margin-top: 100px;
+}
+.fengye1 .img02 img {
+  width: 30%;
+  height: 100%;
+}
+.fengye1 .foot {
+  width: 100%;
+  height: 40px;
+  margin-top: 30px;
+}
+.fengye1 .foot p {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+}
+/*----封面2样式---*/
+.fengye2 {
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.fengye2 .header {
+  width: 100%;
+  height: 45%;
+  background: #f4f5f7;
+}
+.fengye2 .header .tittle {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-size: 28px;
+  padding-top: 150px;
+  overflow: hidden;
+}
+.fengye2 .header .img {
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  margin-top: 70px;
+}
+.fengye2 .header .img img {
+  width: 25%;
+  height: 100%;
+}
+.fengye2 .header .pers {
+  width: 100%;
+  height: 40px;
+}
+.fengye2 .header .pers p {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  color: #c09fbc;
+  font-size: 16px;
+}
+.fengye2 .main {
+  width: 100%;
+  height: 25%;
+  background: #cdb4d1;
+}
+.fengye2 .main .message {
+  margin: 0 auto;
+  position: relative;
+  top: 18%;
+  width: 65%;
+  height: 66%;
+  color: #fff;
+}
+.fengye2 .main .message li {
+  width: 100%;
+  height: 16%;
+  padding-top: 1%;
+}
+.fengye2 .main .message li input {
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: #cdb4d1;
+  border-bottom: 1px solid #fff;
+}
+.fengye2 .main .message li .long {
+  width: 71%;
+}
+.fengye2 .main .message li label {
+  display: inline-block;
+  margin-left: 30px;
+}
+.fengye2 .footer {
+  width: 100%;
+  height: 30%;
+  background: #f4f5f7;
+}
+.fengye2 .footer p {
+  width: 60%;
+  height: 40%;
+  margin: 0 auto;
+  position: relative;
+  top: 25%;
+  font-size: 13px;
+}
+/*-----封页样式结束-------*/
+/*----除了封页外的公共样式----*/
+.skin_box {
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 10mm;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 14px;
+}
+/*---第一页----*/
+.tit {
+  width: 100%;
+  height: 40px;
+  font-size: 30px;
+  color: #cdb4d1;
+  text-align: center;
+  vertical-align: middle;
+}
+.content p {
+  margin-top: 10px;
+  text-indent: 28px;
+}
+.page_footer {
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  bottom: 10mm;
+  left: 0;
+  text-align: center;
+}
+/*----第二页----*/
+.promise {
+  margin-top: 150px;
+  text-indent: 28px;
+}
+.chapter {
+  width: 280px;
+  height: 60px;
+  position: absolute;
+  right: 0;
+  bottom: 220px;
+}
+.code {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  position: absolute;
+  bottom: 86px;
+  left: 0;
+}
+.code img {
+  width: 100px;
+  height: 100px;
+}
+/*-----第3页-----*/
+.img03 {
+  width: 100%;
+  height: 35%;
+  text-align: center;
+  margin: 80px 0;
+}
+.img03 img {
+  width: 40%;
+  height: 100%;
+}
+/*-----第4页-----*/
+.box04 {
+  width: 100%;
+  height: 100%;
+  border: 5px solid #ad4586;
+  background: url("../images/skin_image/1.bmp") no-repeat;
+  background-size: 40% 80%;
+  background-position: 0 100%;
+}
+.box04 h1 {
+  text-align: center;
+  margin-top: 120px;
+}
+.box04 .directory {
+  width: 50%;
+  height: 70%;
+  margin-left: 50%;
+  border-left: 2px solid #0f0f0f;
+  padding-left: 20px;
+  margin-top: 70px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.box04 .directory .p {
+  margin-top: 35px;
+}
+.box04 .directory ul > li {
+  line-height: 24px;
+}
+.box04 .directory .part {
+  text-indent: 28px;
+}
+/*-----第五页开始的公共头部  start----*/
+/*-----第五页开始的头部  end----*/
+/*-----第五页开始灰色背景  start----*/
+.main {
+  width: 100%;
+  height: 831px;
+  margin: 0 auto;
+  clear: both;
+  position: relative;
+}
+.main .legend {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  right: 10px;
+  top: 300px;
+}
+.main .legend li {
+  line-height: 30px;
+}
+.main .legend .aa {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: #6896d3;
+}
+.main .legend .bb {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: #cc4d4c;
+}
+.main .legend .cc {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: #5fb864;
+}
+.main .legend .dd {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: #cfcfcf;
+}
+.main table {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+.main table th {
+  color: #6896d3;
+  border: 1px solid #000;
+}
+.main table td {
+  text-align: center;
+  border: 1px solid #000;
+}
+.main .role {
+  float: right;
+  padding-right: 5%;
+}
+.main .p {
+  width: 90%;
+  height: auto;
+  text-indent: 28px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.main h6 {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background: #abcdef;
+  margin-left: 5%;
+  margin-top: 20px;
+  display: inline-block;
+  color: #fff;
+}
+/*-----第五页开始灰色背景  end----*/
+/*-----第5页-----*/
+.box05 {
+  width: 100%;
+  height: 100%;
+}
+.box05 .left {
+  width: 60%;
+  height: 215px;
+  background: #cdb4d1;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box05 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box05 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box05 .main h5 {
+  width: 100px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  margin-left: 5%;
+  color: #fff;
+  background: #abcdef;
+  border-radius: 15px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+.box05 .main .res {
+  margin-left: 5%;
+}
+.box05 .table05 {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+.box05 .table05 h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.box05 .table05 table {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.box05 .table05 table th {
+  background: #cdb4d1;
+  color: #ffffff;
+}
+.box05 .table05 table tr {
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+.box05 .table05 table tr td,
+.box05 .table05 table tr th {
+  border-right: 1px solid #000;
+}
+.box05 .table05 td:nth-child(4),
+.box05 .table05 th:nth-child(4) {
+  border-right: none;
+}
+.box05 .box05-foot {
+  width: 100%;
+  height: 120px;
+  margin-top: 10px;
+  background: #67c7f1;
+}
+.box05 .box05-foot ul {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+.box05 .box05-foot ul li {
+  height: 40px;
+  line-height: 40px;
+}
+.box05 .box05-foot ul li label {
+  display: inline-block;
+  margin-left: 30px;
+  color: #ffffff;
+}
+.box05 .box05-foot ul li input {
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: #67c7f1;
+  border-bottom: 1px solid #fff;
+  text-align: center;
+}
+/*****第六页开始的表格，改变表头颜色******/
+/*****第六页开始的表格，改变表头颜色******/
+/*-----第6页、第7页-----*/
+.box06 {
+  width: 100%;
+  height: 100%;
+}
+.box06 .left {
+  width: 60%;
+  height: 215px;
+  background: #9e58a0;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box06 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box06 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box06 .main p {
+  width: 70%;
+  height: 120px;
+  color: #9e58a0;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box06 .main h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box06 .main table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box06 .main table thead {
+  text-align: center;
+  background: #9e58a0;
+  color: #fff;
+}
+.box06 .main table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box06 .main table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box06 .main table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+/*-----第8页、第9页-----*/
+.box08 {
+  width: 100%;
+  height: 100%;
+}
+.box08 .left {
+  width: 60%;
+  height: 215px;
+  background: #cf3585;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box08 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box08 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box08 p {
+  width: 70%;
+  height: 120px;
+  color: #cf3585;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box08 h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box08 table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box08 table thead {
+  text-align: center;
+  background: #cf3585;
+  color: #fff;
+}
+.box08 table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box08 table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box08 table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+.box10 {
+  width: 100%;
+  height: 100%;
+}
+.box10 .left {
+  width: 60%;
+  height: 215px;
+  background: #bc95a8;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box10 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box10 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box10 .main span {
+  color: #bc95a8;
+}
+/*第十页开始的底部图片*/
+.img_zindex {
+  width: 100%;
+  height: 340px;
+  background: url("../images/skin_image/35.jpg") no-repeat;
+  background-position: center center;
+  background-size: 230px 340px;
+  position: absolute;
+  bottom: 20px;
+  z-index: -1;
+}
+.box12 .left {
+  width: 60%;
+  height: 215px;
+  background: #907558;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box12 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box12 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box12 .main span {
+  color: #907558;
+}
+.box14 .left {
+  width: 60%;
+  height: 215px;
+  background: #bc715e;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box14 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box14 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box14 .main span {
+  color: #bc715e;
+}
+.box16 .left {
+  width: 60%;
+  height: 215px;
+  background: #f8cbc6;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box16 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box16 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box16 .main span {
+  color: #f8cbc6;
+}
+.box18 .left {
+  width: 60%;
+  height: 215px;
+  background: #dea3a5;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box18 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box18 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box18 .main span {
+  color: #dea3a5;
+}
+.box20 .left {
+  width: 60%;
+  height: 215px;
+  background: #d5b0b7;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box20 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box20 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box20 .main span {
+  color: #d5b0b7;
+}
+.box22 .left {
+  width: 60%;
+  height: 215px;
+  background: #c37c50;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box22 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box22 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box22 .main span {
+  color: #c37c50;
+}
+.box24 .left {
+  width: 60%;
+  height: 215px;
+  background: #bc95a8;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box24 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box24 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box24 .main span {
+  color: #bc95a8;
+}
+.box27 .left {
+  width: 60%;
+  height: 215px;
+  background: #c68028;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box27 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box27 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box27 .main span {
+  color: #c68028;
+}
+.box30 .left {
+  width: 60%;
+  height: 215px;
+  background: #f093a6;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box30 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box30 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box30 .main span {
+  color: #f093a6;
+}
+.box32 .left {
+  width: 60%;
+  height: 215px;
+  background: #97c94e;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box32 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box32 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box32 .main span {
+  color: #97c94e;
+}
+.box32 .main .p_title {
+  width: auto;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 10px;
+  background: #abcdef;
+  margin: 0 5%;
+  margin-top: 20px;
+  display: inline-block;
+  color: #fff;
+}
+.box33 .left {
+  width: 60%;
+  height: 215px;
+  background: #97c94e;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box33 .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box33 .right img {
+  width: 100%;
+  height: 100%;
+}
+.box33 .main span {
+  color: #97c94e;
+}
+.box33 .main .p_title {
+  width: auto;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 10px;
+  background: #abcdef;
+  margin: 0 5%;
+  margin-top: 20px;
+  display: inline-block;
+  color: #fff;
+}
+.page_end {
+  position: relative;
+}
+.page_end .end_img {
+  width: 30%;
+  height: 40px;
+  margin: 400px auto 0;
+}
+.page_end .end_img img {
+  width: 100%;
+  height: 100%;
+}
+.page_end .end_foot {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  position: absolute;
+  bottom: 80px;
+}
+.page_end .end_foot img {
+  width: 15%;
+  height: 15%;
+}
+.page_end .end_foot p {
+  line-height: 20px;
+}
