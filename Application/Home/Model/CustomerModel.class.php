@@ -23,7 +23,7 @@ class CustomerModel extends BaseModel
         }
 
         $pageNum = 20;
-        $sql = "select count(id) as num from customer as a ". $where;
+        $sql = "select id from customer as a ". $where;
         $num = $this->sqlQuery('customer',$sql);
         if(empty($num)){
             return $this->returnMsg(-3);
