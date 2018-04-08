@@ -119,7 +119,11 @@ class BaseModel extends Model {
         $fileStr = iconv("GB2312//IGNORE","UTF-8",$fileStr);
         $fileArr = explode("\r",$fileStr);
         foreach ($fileArr as $val){
-            $result[] = explode("\t",$val);
+            $temp = explode("\t",$val);
+            foreach ($temp as $tempKey => $tempVal){
+                $temp[$tempKey] = trim($tempVal);
+            }
+            $result[] = $temp;
         }
         return $result;
     }

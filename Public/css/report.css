@@ -185,6 +185,8 @@ html {
   padding-top: 1%;
 }
 .fengye2 .main .message li input {
+  color: #fff;
+  text-align: center;
   outline: none;
   border: none;
   border-radius: 0;
@@ -649,12 +651,12 @@ html {
 /*第十页开始的底部图片*/
 .img_zindex {
   width: 100%;
-  height: 340px;
+  height: 200px;
   background: url("../images/skin_image/35.jpg") no-repeat;
   background-position: center center;
-  background-size: 230px 340px;
+  background-size: 230px 200px;
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   z-index: -1;
 }
 .box12 .left {

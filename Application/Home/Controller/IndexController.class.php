@@ -5,6 +5,7 @@
  * */
 namespace Home\Controller;
 use Think\Controller;
+use Home\Model\ReportModel;
 class IndexController extends Controller {
 
     //首页
@@ -181,6 +182,20 @@ class IndexController extends Controller {
         $url=C("URL");
         $this->assign("url",$url);
         $this->display('Presentation/sample_list');
+    }
+
+    //美肤产品报告
+    public function report_mf(){
+        $data = [
+            'code' => I('get.code')
+        ];
+        $obj = new ReportModel();
+        $result = $obj->userReport($data);
+        print_r($result);
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->assign("result",$result);
+        $this->display('Report/report');
     }
 
 }

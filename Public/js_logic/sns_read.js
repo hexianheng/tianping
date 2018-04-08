@@ -12,8 +12,15 @@ if(userId == "" || token == ""){
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
+            html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
             html += "<td>" + obj.pruductName + "</td>";
-            html += "<td>" + obj.pruductName + "</td>";
+            if(obj.status == '1'){
+                html += "<td>未审核</td>";
+            }else if(obj.status == '2'){
+                html += "<td>已审核</td>";
+            }else if(obj.status == '3'){
+                html += "<td>审核未成功</td>";
+            }
             html += "<td>" + obj.ctime + "</td>";
         });
         $("#data").append(html);
@@ -41,6 +48,13 @@ function checkList(num){
             html += "<td>" + obj.productId + "</td>";
             html += "<td>" + obj.pruductName + "</td>";
             html += "<td>" + obj.pruductName + "</td>";
+            if(obj.status == '1'){
+                html += "<td>未审核</td>";
+            }else if(obj.status == '2'){
+                html += "<td>已审核</td>";
+            }else if(obj.status == '3'){
+                html += "<td>审核未成功</td>";
+            }
             html += "<td>" + obj.ctime + "</td>";
         });
         $("#data").html(html);
@@ -62,6 +76,13 @@ $("#search").click(function(){
                 html += "<td>" + obj.productId + "</td>";
                 html += "<td>" + obj.pruductName + "</td>";
                 html += "<td>" + obj.pruductName + "</td>";
+                if(obj.status == '1'){
+                    html += "<td>未审核</td>";
+                }else if(obj.status == '2'){
+                    html += "<td>已审核</td>";
+                }else if(obj.status == '3'){
+                    html += "<td>审核未成功</td>";
+                }
                 html += "<td>" + obj.ctime + "</td>";
             });
             $("#data").html(html);
@@ -90,6 +111,13 @@ function whereCheckSearch(where,num){
             html += "<td>" + obj.productId + "</td>";
             html += "<td>" + obj.pruductName + "</td>";
             html += "<td>" + obj.pruductName + "</td>";
+            if(obj.status == '1'){
+                html += "<td>未审核</td>";
+            }else if(obj.status == '2'){
+                html += "<td>已审核</td>";
+            }else if(obj.status == '3'){
+                html += "<td>审核未成功</td>";
+            }
             html += "<td>" + obj.ctime + "</td>";
         });
         $("#data").html(html);

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>报告模版</title>
+    <title>美肤报告</title>
     <link rel="stylesheet" href="__PUBLIC__/css/report.css">
     <script src="__PUBLIC__/js/jquery.js"></script>
     <!--echarts 引入-->
@@ -55,21 +55,21 @@
             <ul class="message">
                 <li>
                     <label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
-                    <input type="text" name="" >
+                    <input type="text" name="" value="{$result.data.name}">
                     <label>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
-                    <input type="text" name="" >
+                    <input type="text" name="" value="{$result.data.sex}">
                 </li>
                 <li>
                     <label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</label>
-                    <input type="text" name="" >
+                    <input type="text" name="" value="{$result.data.age}">
                     <label>样本编号：</label>
-                    <input type="text" name="" >
+                    <input type="text" name="" value="{$result.data.code}">
                 </li>
                 <li>
                     <label>联系方式：</label>
-                    <input type="text" name="" >
+                    <input type="text" name="" value="{$result.data.phone}">
                     <label>检测项目：</label>
-                    <input type="text" name="" >
+                    <input type="text" name="" value="{$result.data.productName}">
                 </li>
                 <li>
                     <label>工作单位：</label>
@@ -260,15 +260,15 @@
                     <ul class="message">
                         <li>
                             <label>基因检测负责人：</label>
-                            <input type="text" name="" >
+                            <input type="text" name="" value="张博">
                             <label>营养师：</label>
-                            <input type="text" name="" >
+                            <input type="text" name="" value="林亚莲">
                         </li>
                         <li>
                             <label>遗传解读负责人：</label>
-                            <input type="text" name="" >
+                            <input type="text" name="" value="康柳阳">
                             <label>审核人：</label>
-                            <input type="text" name="" >
+                            <input type="text" name="" value="张影">
                         </li>
                         <li>
                             <label>日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期：</label>
@@ -1554,6 +1554,6 @@
     <p style="page-break-after: always;"></p>
     <!--封页-->
 
-    <script src="__PUBLIC__/js_logic/report.js"></script>
+    <script src="__PUBLIC__/js/report.js"></script>
 </body>
 </html>
