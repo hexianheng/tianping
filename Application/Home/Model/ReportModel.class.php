@@ -113,7 +113,9 @@ class ReportModel extends BaseModel
         foreach ($rsArr as $key => $val){
             $temp = [
                 'rsCode' => $val['origincode'],
-                'gene' => $val['gene']
+                'gene' => $val['gene'],
+                'wild_type' => $val['wild_type'],
+                'mutant_type' => $val['mutant_type']
             ];
             $a = $re['result'][$val['origincode']];
             $temp['value'] = $a;
