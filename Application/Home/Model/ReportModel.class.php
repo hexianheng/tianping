@@ -132,6 +132,7 @@ class ReportModel extends BaseModel
                     $temp['result'] = $val['risk_desc_mm'];
                     $temp['genotype'] = $val['genotype_value_mm'];
                     $temp['text'] = $val['mm_text'];
+                    break;
                 case 'NA':
                     $temp['result'] = '--';
                     $temp['genotype'] = '--';
