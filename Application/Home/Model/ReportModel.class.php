@@ -161,21 +161,23 @@ class ReportModel extends BaseModel
             return $this->returnMsg('A060');
         }else{
             $resultArr = json_decode($re['result'],1);
-            $rsSql = "select b.name,a.origincode from item_locus_value as a left join item as b on a.itemid = b.itemid where a.origincode in ('". implode("','",array_column($resultArr,'rsCode')) ."')";
-            $rsArr = $this->sqlQuery('item_locus_value',$rsSql);
-            $rsArrEnd = [];
-            foreach ($rsArr as $val){
-                $rsArrEnd[$val['origincode']] = $val['name'];
+            $itemSql = "select itemid,name from item where itemid in ('". implode("','",array_keys($resultArr)) ."')";
+            $itemArr = $this->sqlQuery('item',$itemSql);
+
+            $itemArrEnd = [];
+            foreach ($itemArr as $val){
+                $itemArrEnd[$val['itemid']] = $val['name'];
             }
             foreach ($resultArr as $key => $value){
-
-                $resultArr[$key]['project'] = $rsArrEnd[$value['rsCode']];
-                if($value['text'] == '--' || intval($value['text']) == 0){
-                    $resultArr[$key]['num'] = '/';
-                }else if(intval($value['text']) > 0){
-                    $resultArr[$key]['num'] = '+';
-                }else if(intval($value['text']) < 0){
-                    $resultArr[$key]['num'] = '-';
+                $resultArr[$key]['project'] = $itemArrEnd[$key];
+                foreach ($value as $k => $v){
+                    if($v['text'] == '--' || intval($v['text']) == 0){
+                        $resultArr[$key][$k]['num'] = '/';
+                    }else if(intval($v['text']) > 0){
+                        $resultArr[$key][$k]['num'] = '+';
+                    }else if(intval($v['text']) < 0){
+                        $resultArr[$key][$k]['num'] = '-';
+                    }
                 }
             }
             $re['result'] = $resultArr;
