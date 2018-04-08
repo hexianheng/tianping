@@ -22,13 +22,13 @@ if(userId == "" || token == ""){
             if(obj.status == '1'){
                 html += "<td>新建</td>";
             }else if(obj.status == '2'){
-                html += "<td>采集盒已经寄出，请注意查收！</td>";
+                html += "<td>采集盒已经寄出</td>";
             }else if(obj.status == '3'){
-                html += "<td>回寄样本已经收到，马上安排提取DNA，请耐心等待！</td>";
+                html += "<td>回寄样本已经收到</td>";
             }else if(obj.status == '4'){
-                html += "<td>DNA已经提取成功，并且质检合格，马上上机检测</td>";
+                html += "<td>DNA已经提取成功</td>";
             }else if(obj.status == '5'){
-                html += "<td>检测已经完成，正在为您准备报告</td>";
+                html += "<td>检测已经完成</td>";
             }else if(obj.status == '6'){
                 html += "<td>报告已生成</td>";
             }else if(obj.status == '7'){
@@ -70,13 +70,13 @@ function checkList(num){
             if(obj.status == '1'){
                 html += "<td>新建</td>";
             }else if(obj.status == '2'){
-                html += "<td>采集盒已经寄出，请注意查收！</td>";
+                html += "<td>采集盒已经寄出</td>";
             }else if(obj.status == '3'){
-                html += "<td>回寄样本已经收到，马上安排提取DNA，请耐心等待！</td>";
+                html += "<td>回寄样本已经收到</td>";
             }else if(obj.status == '4'){
-                html += "<td>DNA已经提取成功，并且质检合格，马上上机检测</td>";
+                html += "<td>DNA已经提取成功</td>";
             }else if(obj.status == '5'){
-                html += "<td>检测已经完成，正在为您准备报告</td>";
+                html += "<td>检测已经完成</td>";
             }else if(obj.status == '6'){
                 html += "<td>报告已生成</td>";
             }else if(obj.status == '7'){
@@ -114,13 +114,13 @@ $("#search").click(function(){
                 if(obj.status == '1'){
                     html += "<td>新建</td>";
                 }else if(obj.status == '2'){
-                    html += "<td>采集盒已经寄出，请注意查收！</td>";
+                    html += "<td>采集盒已经寄出</td>";
                 }else if(obj.status == '3'){
-                    html += "<td>回寄样本已经收到，马上安排提取DNA，请耐心等待！</td>";
+                    html += "<td>回寄样本已经收到</td>";
                 }else if(obj.status == '4'){
-                    html += "<td>DNA已经提取成功，并且质检合格，马上上机检测</td>";
+                    html += "<td>DNA已经提取成功</td>";
                 }else if(obj.status == '5'){
-                    html += "<td>检测已经完成，正在为您准备报告</td>";
+                    html += "<td>检测已经完成</td>";
                 }else if(obj.status == '6'){
                     html += "<td>报告已生成</td>";
                 }else if(obj.status == '7'){
@@ -162,13 +162,13 @@ function whereCheckSearch(where,num){
             if(obj.status == '1'){
                 html += "<td>新建</td>";
             }else if(obj.status == '2'){
-                html += "<td>采集盒已经寄出，请注意查收！</td>";
+                html += "<td>采集盒已经寄出</td>";
             }else if(obj.status == '3'){
-                html += "<td>回寄样本已经收到，马上安排提取DNA，请耐心等待！</td>";
+                html += "<td>回寄样本已经收到</td>";
             }else if(obj.status == '4'){
-                html += "<td>DNA已经提取成功，并且质检合格，马上上机检测</td>";
+                html += "<td>DNA已经提取成功</td>";
             }else if(obj.status == '5'){
-                html += "<td>检测已经完成，正在为您准备报告</td>";
+                html += "<td>检测已经完成</td>";
             }else if(obj.status == '6'){
                 html += "<td>报告已生成</td>";
             }else if(obj.status == '7'){
@@ -192,4 +192,17 @@ function del(id) {
     }
 }
 
+
+$("#status_btn").click(function(){
+
+    var idStr=$("#codes").val();
+    var status=$("#status").val();
+    ajax("/Customer/updStatus",{"userId":userId,"token":token,"idStr":idStr,"status":status},function(result){
+        if(result["code"] == 0){
+            alert(result["msg"])
+            location.reload();
+        }
+    });
+
+});
 

@@ -19,8 +19,8 @@
         <div class="right container">
             <div class="bm_list">
             <p class="bott">
-                更新状态：<textarea name=""  placeholder="样本编码单竖线分割" ></textarea>
-                状态选择：<select name="">
+                更新状态：<textarea name=""  placeholder="样本编码单竖线分割" id="codes"></textarea>
+                状态选择：<select name="" id="status">
                             <option>请选择</option>
                             <option value="2">集盒已经寄出，请注意查收！</option>
                             <option value="3">回寄样本已经收到，马上安排提取DNA，请耐心等待！</option>
@@ -29,7 +29,7 @@
                             <option value="6">报告已生成</option>
                             <option value="7">报告延迟</option>
                         </select>
-                <a href="javascript:;" class="btn02">提交</a>
+                <a href="javascript:;" class="btn02" id="status_btn">提交</a>
             </p>
             <p class="bott">
                 批量推送短信状态<textarea name=""  placeholder="样本编码单竖线分割" ></textarea>
