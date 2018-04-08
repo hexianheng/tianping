@@ -214,15 +214,26 @@ class ReportModel extends BaseModel
             return $this->returnMsg('A070');
         }
         if($data['id'] == ''){
-            return $this->returnMsg('A070');
+            return $this->returnMsg('A071');
         }
-        $sql = "select id from analytic_result where id = $data[id]";
+        $sql = "select id,code from analytic_result where id = $data[id] and status = 1";
         $re = $this->sqlQuery('analytic_result',$sql);
         if(empty($re)){
-            return $this->returnMsg('A070');
+            return $this->returnMsg('A071');
         }else{
-            $sql = "update analytic_result set status = $data[status] where id = $id";
+            //生成pdf报告
+            if($data['status'] == 2){
+                $wkhtmltopdf = C('wkhtmltopdf');
+                $path = C('URL') . "/Index/report_mf/code/" . $re[0]['code'] . " ". C('PATH') . "Public/pdf/" . $re[0]['code'] . ".pdf";
+                system($wkhtmltopdf.$path, $result);
+                if($result !== 0){
+                    return $this->returnMsg("A072");
+                }
+            }
+
+            $sql = "update analytic_result set status = $data[status] where id = $data[id]";
             $this->sqlQuery('analytic_result',$sql);
+
             return $this->returnMsg(0);
         }
     }

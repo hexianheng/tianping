@@ -55,31 +55,32 @@ class CustomerModel extends BaseModel
     public function updStatus($idStr,$status){
         //定义短信内容
         $smsMessage = [
-            2 => '采集盒已经寄出，请注意查收！',
-            3 => '回寄样本已经收到，马上安排提取DNA，请耐心等待！',
-            4 => 'DNA已经提取成功，并且质检合格，马上上机检测',
-            5 => '检测已经完成，正在为您准备报告！',
-            6 => '报告已生成',
-            7 => '报告延迟'
+            2 => 84127, //样本采集盒送出
+            3 => 84133, //样本已回收
+            4 => 84134, //样本质检合格
+            5 => 84139, //完成检测
+            6 => 104821, //已出报告
+            7 => 84143  //报告延迟
         ];
 
         if($status == '' || (!in_array($status,[2,3,4,5,6,7]))){
             return $this->returnMsg('A068');
         }
         $idArr = explode('|',$idStr);
-        $sql = "select id,phone from customer where id in ('" . implode("','",$idArr) . "')";
+        $sql = "select id,name,phone from customer where id in ('" . implode("','",$idArr) . "')";
         $re = $this->sqlQuery('customer',$sql);
         if(empty($re) || count($idArr) != count($re)){
             return $this->returnMsg('A067');
         }
 
-        /*$phoneArr = array_column($re,'phone');
+        $phoneArr = array_column($re,'phone');
+        $nameArr = array_column($re,'name');
         //发送状态
         $smsObj = new SmsModel();
-        $num = $smsObj->sendMessage($phoneArr,$smsMessage[$status]);
+        $num = $smsObj->sendMessage($phoneArr,$smsMessage[$status],$nameArr);
         if($num != count($phoneArr)){
             return $this->returnMsg('A069');
-        }*/
+        }
 
         $sql = "update customer set status = $status where id in ('" . implode("','",$idArr) . "')";
         $this->sqlQuery('customer',$sql);

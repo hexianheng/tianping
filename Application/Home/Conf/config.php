@@ -18,6 +18,10 @@ return array(
         'host' => '127.0.0.1',
         'port' => 6379
     ),
-
-    'URL' => 'http://localhost:8080/gitjob/index.php',
+    //web地址
+    'URL' => "http://mypro.com/tianping/index.php",
+    //wkhtmltopdf地址
+    'wkhtmltopdf' => "/usr/local/src/wkhtmltox/bin/wkhtmltopdf --print-media-type --page-width 100mm --page-height 100mm --margin-top 0mm --margin-bottom 0mm --margin-right 0mm --margin-left 0mm --disable-smart-shrinking ",
+    //项目地址
+    'path' => '/Users/wangpeiyun/pro/tianping/'
 );
