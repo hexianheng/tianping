@@ -157,7 +157,7 @@ class ReportModel extends BaseModel
         if($data['code'] == ''){
             return $this->returnMsg('A060');
         }
-        $sql = "SELECT b.`name`,b.age,b.sex,b.code,b.phone,a.result,d. NAME AS 'productName' FROM analytic_result AS a LEFT JOIN customer AS b ON a.`code` = b.`code` LEFT JOIN `code` AS c ON a.`code` = c.`code` LEFT JOIN product AS d ON c.productId = d.id WHERE a. CODE = '$data[code]'";
+        $sql = "SELECT a.pdfPath,b.`name`,b.age,b.sex,b.code,b.phone,a.result,d. NAME AS 'productName' FROM analytic_result AS a LEFT JOIN customer AS b ON a.`code` = b.`code` LEFT JOIN `code` AS c ON a.`code` = c.`code` LEFT JOIN product AS d ON c.productId = d.id WHERE a. CODE = '$data[code]'";
         $re = $this->sqlQuery('analytic_result',$sql)[0];
         if(empty($re)){
             return $this->returnMsg('A060');
