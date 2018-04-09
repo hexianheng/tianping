@@ -226,14 +226,14 @@ class ReportModel extends BaseModel
             return $this->returnMsg('A071');
         }else{
             //生成pdf报告
-            if($data['status'] == 2){
+            /*if($data['status'] == 2){
                 $wkhtmltopdf = C('wkhtmltopdf');
                 $path = C('URL') . "/Index/report_mf/code/" . $re[0]['code'] . " ". C('PATH') . "Public/pdf/" . $re[0]['code'] . ".pdf";
                 system($wkhtmltopdf.$path, $result);
                 if($result !== 0){
                     return $this->returnMsg("A072");
                 }
-            }
+            }*/
 
             $sql = "update analytic_result set status = $data[status] where id = $data[id]";
             $this->sqlQuery('analytic_result',$sql);
