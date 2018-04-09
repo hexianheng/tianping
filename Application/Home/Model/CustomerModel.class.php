@@ -23,9 +23,9 @@ class CustomerModel extends BaseModel
         }
 
         $pageNum = 20;
-        $sql = "select id from customer as a ". $where;
+        $sql = "select count(id) as num from customer as a ". $where;
         $num = $this->sqlQuery('customer',$sql);
-        if(empty($num)){
+        if(empty($num) || $num[0]['num'] == 0){
             return $this->returnMsg(-3);
         }
         $start = $pageNum * ($page -1);
