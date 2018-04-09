@@ -16,8 +16,7 @@
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
     <!--echarts 引入-->
-
-
+    <script src="https://cdn.bootcss.com/echarts/3.8.4/echarts.js"></script>
 </head>
 <body>
     <!--封页1start-->
@@ -603,7 +602,7 @@
             <div class="main">
                 <p class="p">随着年龄的增长，人的皮肤逐渐老化，弹性减弱，尤其是眼睛周围，眼睑松弛，上睑松垂使眼裂变小。眼睑松弛由多种原因造成，如遗传、月经周期的影响、酗酒、睡眠障碍等，但最多见于衰老所致。眼睑松弛表现为睑部皮肤失去弹性，眶隔脂肪下垂，外眦处出现皱纹，眼睑松弛并下垂(影响视野)、睑缘被推移内翻(出现倒睫)</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分1正常。</span>与眼睑松弛相关的核心基因未发生保护型变异，蛋白质行使功能正常，与群体水平持平</p>
+                <p class="p">{$arrdata.11.desc}</p>
                 <!--眼睑的柱状图-->
                 <div id="container01" style="height:300px"></div>
                 <ul class="legend">
@@ -626,20 +625,20 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>COLA23</td>
-                            <td>C</td>
-                            <td>T</td>
-                            <td>CC</td>
-                            <td>74.6%</td>
-                            <td>/</td>
+                            <td>{$result.data.result.11.0.gene}</td>
+                            <td>{$result.data.result.11.0.wild_type}</td>
+                            <td>{$result.data.result.11.0.mutant_type}</td>
+                            <td>{$result.data.result.11.0.value}</td>
+                            <td>{$result.data.result.11.0.genotype}</td>
+                            <td>{$result.data.result.11.0.num}</td>
                         </tr>
                         <tr>
-                            <td>TGIF1</td>
-                            <td>T</td>
-                            <td>C</td>
-                            <td>TT</td>
-                            <td>26.2%</td>
-                            <td>/</td>
+                            <td>{$result.data.result.11.1.gene}</td>
+                            <td>{$result.data.result.11.1.wild_type}</td>
+                            <td>{$result.data.result.11.1.mutant_type}</td>
+                            <td>{$result.data.result.11.1.value}</td>
+                            <td>{$result.data.result.11.1.genotype}</td>
+                            <td>{$result.data.result.11.1.num}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -690,7 +689,7 @@
             <div class="main">
                 <p class="p">鱼尾纹是氧化纹的一种表现形式，通常发生在30岁以上的人群中，中老年女性更为明显。组织学表现为因弹性纤维退行性变而导致的结构变化，主要是眼轮匝肌运动促其产生，另外嘴角提肌、笑肌、颧肌也参与了其产生的过程。皮肤会显得暗淡、松弛、干燥，一道一道的皱纹呈放射状排列，长短、深浅、数量、形态因人而异。造成鱼尾纹的原因有内分泌失调、弹性纤维蜕变、胶原蛋白断裂、气候与个人因素。最新的全基因组关联分析找到了与鱼尾纹发生相关的核心基因。</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分1正常。</span>AHR基因发生杂合突变，存在一个风险等位基因A，导致鱼尾纹的风险与正常水平相比增加7%，46.6%的个体均是AG基因型，超过一半的中国汉族人群存在风险等位基因，说明中国汉族人群鱼尾纹发生易感性高。</p>
+                <p class="p">{$arrdata.12.desc}</p>
                 <!--柱状图-->
                 <div id="container02" style="height:300px"></div>
                 <ul class="legend">
@@ -713,12 +712,12 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>AHR</td>
-                        <td>A</td>
-                        <td>G</td>
-                        <td>AG</td>
-                        <td>46.6%</td>
-                        <td>-</td>
+                        <td>{$result.data.result.12.0.gene}</td>
+                        <td>{$result.data.result.12.0.wild_type}</td>
+                        <td>{$result.data.result.12.0.mutant_type}</td>
+                        <td>{$result.data.result.12.0.value}</td>
+                        <td>{$result.data.result.12.0.genotype}</td>
+                        <td>{$result.data.result.12.0.num}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -767,7 +766,7 @@
             <div class="main">
                 <p class="p">发生面部皮肤上的黄褐色点状色素沉着斑，系常染色体显性遗传。日晒可诱发和加重皮损。损害为浅褐或暗褐色针头大小到绿豆大斑疹，圆形、卵圆形或不规则。散在或群集分布，孤立不融合。无自觉症状。一般在 3-5 岁左右出现，青春期时加重，但随着年龄增长有减淡趋势。夏季经日晒后皮疹颜色加深、数目增多，冬季则减轻或消失。</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分1正常。</span>与亚洲人雀斑发生相关的两个核心基因均未发生风险变异，蛋白行使功能正常，与群体水平持平。</p>
+                <p class="p">{$arrdata.13.desc}</p>
                 <!--柱状图-->
                 <div id="container03" style="height:300px"></div>
                 <ul class="legend">
@@ -790,10 +789,29 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>MC1R	<td>G	<td>A	<td>GG	<td>49.8%	<td>/</td>
+                        <td>{$result.data.result.13.0.gene}</td>
+                        <td>{$result.data.result.13.0.wild_type}</td>
+                        <td>{$result.data.result.13.0.mutant_type}</td>
+                        <td>{$result.data.result.13.0.value}</td>
+                        <td>{$result.data.result.13.0.genotype}</td>
+                        <td>{$result.data.result.13.0.num}</td>
                     </tr>
-                    <tr><td>ASIP-1	<td>T	<td>C	<td>CC	<td>68.5%	<td>/</td></tr>
-                    <tr><td>ASIP-2	<td>G	<td>T	<td>GG	<td>69.0%	<td>/</td></tr>
+                    <tr>
+                        <td>{$result.data.result.13.1.gene}</td>
+                        <td>{$result.data.result.13.1.wild_type}</td>
+                        <td>{$result.data.result.13.1.mutant_type}</td>
+                        <td>{$result.data.result.13.1.value}</td>
+                        <td>{$result.data.result.13.1.genotype}</td>
+                        <td>{$result.data.result.13.1.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.13.2.gene}</td>
+                        <td>{$result.data.result.13.2.wild_type}</td>
+                        <td>{$result.data.result.13.2.mutant_type}</td>
+                        <td>{$result.data.result.13.2.value}</td>
+                        <td>{$result.data.result.13.2.genotype}</td>
+                        <td>{$result.data.result.13.2.num}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -849,7 +867,7 @@
                 <p class="p">痤疮是毛囊皮脂腺单位的一种慢性炎症性皮肤病，主要好发于青少年，对青少年的心理和社交影响很大，但青春期后往往能自然减轻或痊愈。临床表现以好发于面部的粉刺、丘疹、脓疱、结节等多形性皮损为特点。</p>
                 <p class="p">痤疮的发生主要与皮脂分泌过多、毛囊皮脂腺导管堵塞、细菌感染和炎症反应等因素密切相关，痤疮常表现为家族遗传性。</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分2。</span>SELL基因发生保护型变异，等位基因A导致个体患痤疮的风险降低，19.6%的个体是这种基因型。</p>
+                <p class="p">{$arrdata.14.desc}</p>
                 <!--柱状图-->
                 <div id="container04" style="height:300px"></div>
                 <ul class="legend">
@@ -871,9 +889,30 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr><td>DDB2-1</td>	<td>C</td>	<td>T</td>	<td>TT</td>	<td>53.8%</td>	<td>/</td></tr>
-                        <tr><td>DDB2-2</td>	<td>A</td>	<td>G</td>	<td>AA</td>	<td>53.8%</td>	<td>/</td></tr>
-                        <tr><td>SELL</td>	<td>G</td>	<td>A</td>	<td>AA</td>	<td>19.6%</td>	<td>+</td></tr>
+                    <tr>
+                        <td>{$result.data.result.14.0.gene}</td>
+                        <td>{$result.data.result.14.0.wild_type}</td>
+                        <td>{$result.data.result.14.0.mutant_type}</td>
+                        <td>{$result.data.result.14.0.value}</td>
+                        <td>{$result.data.result.14.0.genotype}</td>
+                        <td>{$result.data.result.14.0.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.14.1.gene}</td>
+                        <td>{$result.data.result.14.1.wild_type}</td>
+                        <td>{$result.data.result.14.1.mutant_type}</td>
+                        <td>{$result.data.result.14.1.value}</td>
+                        <td>{$result.data.result.14.1.genotype}</td>
+                        <td>{$result.data.result.14.1.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.14.2.gene}</td>
+                        <td>{$result.data.result.14.2.wild_type}</td>
+                        <td>{$result.data.result.14.2.mutant_type}</td>
+                        <td>{$result.data.result.14.2.value}</td>
+                        <td>{$result.data.result.14.2.genotype}</td>
+                        <td>{$result.data.result.14.2.num}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -923,7 +962,7 @@
             <div class="main">
                 <p class="p">日晒斑大部分为面状或块状，颜色为黄褐色或褐色，由日晒过度，肌肤底层中麦拉宁色素增加，在皮肤表面渐渐积聚而成。发生于经常日光照晒的部位，如面部、胳膊、手背等，直径大小由毫米到厘米不等，颜色为浅黄或褐色。日晒斑是皮肤损伤和老化的信号，有时与黑色素瘤的发生有关。</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分3。</span>在BNC2基因上存在保护型变异，导致对抗日晒斑的能力增加，不易出现晒斑，当两个位点都存在有益变异时，这种保护作用最强</p>
+                <p class="p">{$arrdata.15.desc}</p>
                 <!--柱状图-->
                 <div id="container05" style="height:300px"></div>
                 <ul class="legend">
@@ -945,10 +984,38 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr><td>BNC2-1</td>	<td>T</td>	<td>G</td>	<td>GT</td>	<td>47.8%</td></tr>
-                    <tr><td>BNC2-2</td>	<td>C</td>	<td>A</td>	<td>CC</td>	<td>43.1%</td></tr>
-                    <tr><td>ASIP-1</td>	<td>T</td>	<td>G</td>	<td>GG</td>	<td>68.5%</td></tr>
-                    <tr><td>ASIP-2</td>	<td>G</td>	<td>T</td>	<td>GG</td>	<td>69.0%</td></tr>
+                    <tr>
+                        <td>{$result.data.result.15.0.gene}</td>
+                        <td>{$result.data.result.15.0.wild_type}</td>
+                        <td>{$result.data.result.15.0.mutant_type}</td>
+                        <td>{$result.data.result.15.0.value}</td>
+                        <td>{$result.data.result.15.0.genotype}</td>
+                        <td>{$result.data.result.15.0.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.15.1.gene}</td>
+                        <td>{$result.data.result.15.1.wild_type}</td>
+                        <td>{$result.data.result.15.1.mutant_type}</td>
+                        <td>{$result.data.result.15.1.value}</td>
+                        <td>{$result.data.result.15.1.genotype}</td>
+                        <td>{$result.data.result.15.1.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.15.2.gene}</td>
+                        <td>{$result.data.result.15.2.wild_type}</td>
+                        <td>{$result.data.result.15.2.mutant_type}</td>
+                        <td>{$result.data.result.15.2.value}</td>
+                        <td>{$result.data.result.15.2.genotype}</td>
+                        <td>{$result.data.result.15.2.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.15.3.gene}</td>
+                        <td>{$result.data.result.15.3.wild_type}</td>
+                        <td>{$result.data.result.15.3.mutant_type}</td>
+                        <td>{$result.data.result.15.3.value}</td>
+                        <td>{$result.data.result.15.3.genotype}</td>
+                        <td>{$result.data.result.15.3.num}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -1004,7 +1071,7 @@
             <div class="main">
                 <p class="p">皱纹是皮肤老化的结果，皮肤缺乏水分、表面脂肪减少、弹性下降，真皮层细胞胶原蛋白降解，从而产生皱纹。胶原蛋白是人体的一种非常重要的蛋白质，主要存在于结缔组织中。它具有很强的伸张能力，它使皮肤保持弹性，而胶原蛋白的降解，则使皮肤出现皱纹。皱纹的产生受内源性（遗传、激素水平和皮肤色素）和外源性（年龄、重力、长期紫外损伤、吸烟和酗酒）因素共同影响</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分2。</span>在STXBP5L基因区域存在一个保护型变异A，与人群平均水平相比，存在保护型变异的个体更不容易出现皱纹。</p>
+                <p class="p">{$arrdata.16.desc}</p>
                 <!--柱状图-->
                 <div id="container06" style="height:300px"></div>
                 <ul class="legend">
@@ -1026,9 +1093,30 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr><td>STXBP5L</td>	<td>G</td>	<td>A</td>	<td>GA</td>	<td>30.0%</td>	<td>+</td></tr>
-                    <tr><td>EXOC2/IRF4</td>	<td>C</td>	<td>T</td>	<td>CC</td>	<td>51.4%</td>	<td>/</td></tr>
-                    <tr><td>MMP1</td>	<td>C</td>	<td>G</td>	<td>CC</td>	<td>12.3%</td>	<td>/</td></tr>
+                    <tr>
+                        <td>{$result.data.result.16.0.gene}</td>
+                        <td>{$result.data.result.16.0.wild_type}</td>
+                        <td>{$result.data.result.16.0.mutant_type}</td>
+                        <td>{$result.data.result.16.0.value}</td>
+                        <td>{$result.data.result.16.0.genotype}</td>
+                        <td>{$result.data.result.16.0.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.16.1.gene}</td>
+                        <td>{$result.data.result.16.1.wild_type}</td>
+                        <td>{$result.data.result.16.1.mutant_type}</td>
+                        <td>{$result.data.result.16.1.value}</td>
+                        <td>{$result.data.result.16.1.genotype}</td>
+                        <td>{$result.data.result.16.1.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.16.2.gene}</td>
+                        <td>{$result.data.result.16.2.wild_type}</td>
+                        <td>{$result.data.result.16.2.mutant_type}</td>
+                        <td>{$result.data.result.16.2.value}</td>
+                        <td>{$result.data.result.16.2.genotype}</td>
+                        <td>{$result.data.result.16.2.num}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -1090,7 +1178,7 @@
             <div class="main">
                 <p class="p">是一系列复杂的非酶促反应，蛋白质和葡萄糖在体内发生非酶促反应形成不可逆的非酶糖基化终产物(advanced glycosylation endproducts , AGEs ) ，AGEs使蛋白质交联，如弹性蛋白与细胞外液的葡糖发生交联形成AGEs，它导致弹性纤维弹性消失，皮肤变薄，含水量减少，皮肤进一步萎缩变皱。越来越多的研究表明非酶糖基化作用可导致蛋白质功能降低和老化，进而使机体组织发生衰老和病变。</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分-1。</span>出现一个核心基因变异，抗糖基化作用降低，皮肤容易老化。</p>
+                <p class="p">{$arrdata.17.desc}</p>
                 <!--柱状图-->
                 <div id="container07" style="height:300px"></div>
                 <ul class="legend">
@@ -1112,12 +1200,30 @@
                     </tr>
                     </thead>
                     <tbody>
-
-
-
-                    <tr><td>RAGE-1</td>	<td>C</td>	<td>T</td>	<td>CT</td>	<td>35.9%</td>	<td>-</td></tr>
-                    <tr><td>RAGE-2</td>	<td>C</td>	<td>T</td>	<td>CC</td>	<td>93.8%</td>	<td>/</td></tr>
-                    <tr><td>GLO1</td>	<td>T</td>	<td>A</td>	<td>TT</td>	<td>59.1%</td>	<td>/</td></tr>
+                    <tr>
+                        <td>{$result.data.result.17.0.gene}</td>
+                        <td>{$result.data.result.17.0.wild_type}</td>
+                        <td>{$result.data.result.17.0.mutant_type}</td>
+                        <td>{$result.data.result.17.0.value}</td>
+                        <td>{$result.data.result.17.0.genotype}</td>
+                        <td>{$result.data.result.17.0.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.17.1.gene}</td>
+                        <td>{$result.data.result.17.1.wild_type}</td>
+                        <td>{$result.data.result.17.1.mutant_type}</td>
+                        <td>{$result.data.result.17.1.value}</td>
+                        <td>{$result.data.result.17.1.genotype}</td>
+                        <td>{$result.data.result.17.1.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.17.2.gene}</td>
+                        <td>{$result.data.result.17.2.wild_type}</td>
+                        <td>{$result.data.result.17.2.mutant_type}</td>
+                        <td>{$result.data.result.17.2.value}</td>
+                        <td>{$result.data.result.17.2.genotype}</td>
+                        <td>{$result.data.result.17.2.num}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -1173,7 +1279,7 @@
             <div class="main">
                 <p class="p">人类的皮肤颜色与遗传有着密切关系，研究表明控制黑色素合成的关键基因与皮肤颜色密切相关。虽然中国普遍以白为美，但黑色素却可保护皮肤免受紫外线损伤，降低皮肤光老化风险，增加防晒伤能力。黑色素合成能力弱的个体，皮肤偏白，在紫外线的照射下不容易晒黑，表现为晒黑反应不敏感，晒黑反应不敏感人群，往往具有较高的晒伤、雀斑、皱纹、叶酸流失、黑色素瘤的风险；晒黑反应敏感的人群，皮肤易晒黑，晒伤、日晒斑风险较低。对黑色素合成通路中的关键基因进行检测，可以了解个体的先天黑色素合成能力，（黑色素合成能力皮肤美白负相关，与晒黑反应正相关。</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分4。</span>黑色素合成能力较差，先天肤色偏白，由于黑色素的合成能力较差，在紫外线照射时，晒黑反应不明显，恰恰由于缺乏黑色素对紫外线的吸收，肌肤虽不容易晒黑，却会容易出现胶原流失，炎症，晒伤等状况，所以更应该加强防晒工作。与群体相比，受试者属于先天皮肤偏白的人群，在恰当的保养和防护下更容易拥有白皙的肌肤。</p>
+                <p class="p">{$arrdata.18.desc}</p>
                 <!--柱状图-->
                 <div id="container08" style="height:300px"></div>
                 <ul class="legend">
@@ -1195,13 +1301,62 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr><td>SLC45A2	<td>C	<td>G	<td>CC	<td>98.8%	<td>/</td></tr>
-                    <tr><td>SLC24A5	<td>G	<td>A	<td>GG	<td>85.9%	<td>/</td></tr>
-                    <tr><td>KITLG	<td>A	<td>G	<td>AG	<td>32.5%	<td>+</td></tr>
-                    <tr><td>DCT	<td>G	<td>A	<td>AA	<td>53.4%	<td>/</td></tr>
-                    <tr><td>MC1R	<td>G	<td>A	<td>AA	<td>35.7%	<td>+</td></tr>
-                    <tr><td>OCA2-1	<td>C	<td>A	<td>CA	<td>5.0%	<td>+</td></tr>
-                    <tr><td>OCA2-2	<td>T	<td>C	<td>TT	<td>14.9%	<td>/</td></tr>
+                    <tr>
+                        <td>{$result.data.result.18.0.gene}</td>
+                        <td>{$result.data.result.18.0.wild_type}</td>
+                        <td>{$result.data.result.18.0.mutant_type}</td>
+                        <td>{$result.data.result.18.0.value}</td>
+                        <td>{$result.data.result.18.0.genotype}</td>
+                        <td>{$result.data.result.18.0.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.18.1.gene}</td>
+                        <td>{$result.data.result.18.1.wild_type}</td>
+                        <td>{$result.data.result.18.1.mutant_type}</td>
+                        <td>{$result.data.result.18.1.value}</td>
+                        <td>{$result.data.result.18.1.genotype}</td>
+                        <td>{$result.data.result.18.1.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.18.2.gene}</td>
+                        <td>{$result.data.result.18.2.wild_type}</td>
+                        <td>{$result.data.result.18.2.mutant_type}</td>
+                        <td>{$result.data.result.18.2.value}</td>
+                        <td>{$result.data.result.18.2.genotype}</td>
+                        <td>{$result.data.result.18.2.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.18.3.gene}</td>
+                        <td>{$result.data.result.18.3.wild_type}</td>
+                        <td>{$result.data.result.18.3.mutant_type}</td>
+                        <td>{$result.data.result.18.3.value}</td>
+                        <td>{$result.data.result.18.3.genotype}</td>
+                        <td>{$result.data.result.18.3.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.18.4.gene}</td>
+                        <td>{$result.data.result.18.4.wild_type}</td>
+                        <td>{$result.data.result.18.4.mutant_type}</td>
+                        <td>{$result.data.result.18.4.value}</td>
+                        <td>{$result.data.result.18.4.genotype}</td>
+                        <td>{$result.data.result.18.4.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.18.5.gene}</td>
+                        <td>{$result.data.result.18.5.wild_type}</td>
+                        <td>{$result.data.result.18.5.mutant_type}</td>
+                        <td>{$result.data.result.18.5.value}</td>
+                        <td>{$result.data.result.18.5.genotype}</td>
+                        <td>{$result.data.result.18.5.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.18.6.gene}</td>
+                        <td>{$result.data.result.18.6.wild_type}</td>
+                        <td>{$result.data.result.18.6.mutant_type}</td>
+                        <td>{$result.data.result.18.6.value}</td>
+                        <td>{$result.data.result.18.6.genotype}</td>
+                        <td>{$result.data.result.18.6.num}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -1291,7 +1446,7 @@
             <div class="main">
                 <p class="p">氧化损伤是机体内自由基引起的蛋白质氧化损伤，与衰老、肿瘤、糖尿病及许多神经退行性疾病的发生相关。抗氧化是指抗氧化自由基的简称，抗氧化反应是身体的本能。皮肤是各种理化因素损伤的重要靶组织，紫外线与环境污染物的不良影响不断的在人体内产生自由基，造成皮肤结构和功能的损伤，抗氧化反应可以有效克服其所带来的危害。越来越多的证据表明皮肤氧化与抗氧化稳态的失衡与皮肤老化、干燥、色素沉着等直接相关，而过敏性皮炎、色斑形成等严重皮肤病变也与氧化损伤密切相关</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分-1。</span>抗氧化能力与群体水平相比较弱。</p>
+                <p class="p">{$arrdata.19.desc}</p>
                 <!--柱状图-->
                 <div id="container09" style="height:300px"></div>
                 <ul class="legend">
@@ -1313,12 +1468,54 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr><td>SOD2</td>	<td>C</td>	<td>T</td>	<td>TT</td>	<td>76.4%</td>	<td>/</td></tr>
-                    <tr><td>CAT</td>	<td>C</td>	<td>T</td>	<td>CC</td>	<td>93.8%</td>	<td>/</td></tr>
-                    <tr><td>GPX1</td>	<td>C</td>	<td>T</td>	<td>CC</td>	<td>85.7%</td>	<td>/</td></tr>
-                    <tr><td>NQO1</td>	<td>C</td>	<td>T</td>	<td>CC</td>	<td>31.9%</td>	<td>/</td></tr>
-                    <tr><td>NFE2L2</td>	<td>T</td>	<td>C</td>	<td>TT</td>	<td>20.8%</td>	<td>/</td></tr>
-                    <tr><td>GSPT1</td>	<td>G</td>	<td>A</td>	<td>AG</td>	<td>29.8%</td>	<td>-</td></tr>
+                    <tr>
+                        <td>{$result.data.result.19.0.gene}</td>
+                        <td>{$result.data.result.19.0.wild_type}</td>
+                        <td>{$result.data.result.19.0.mutant_type}</td>
+                        <td>{$result.data.result.19.0.value}</td>
+                        <td>{$result.data.result.19.0.genotype}</td>
+                        <td>{$result.data.result.19.0.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.19.1.gene}</td>
+                        <td>{$result.data.result.19.1.wild_type}</td>
+                        <td>{$result.data.result.19.1.mutant_type}</td>
+                        <td>{$result.data.result.19.1.value}</td>
+                        <td>{$result.data.result.19.1.genotype}</td>
+                        <td>{$result.data.result.19.1.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.19.2.gene}</td>
+                        <td>{$result.data.result.19.2.wild_type}</td>
+                        <td>{$result.data.result.19.2.mutant_type}</td>
+                        <td>{$result.data.result.19.2.value}</td>
+                        <td>{$result.data.result.19.2.genotype}</td>
+                        <td>{$result.data.result.19.2.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.19.3.gene}</td>
+                        <td>{$result.data.result.19.3.wild_type}</td>
+                        <td>{$result.data.result.19.3.mutant_type}</td>
+                        <td>{$result.data.result.19.3.value}</td>
+                        <td>{$result.data.result.19.3.genotype}</td>
+                        <td>{$result.data.result.19.3.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.19.4.gene}</td>
+                        <td>{$result.data.result.19.4.wild_type}</td>
+                        <td>{$result.data.result.19.4.mutant_type}</td>
+                        <td>{$result.data.result.19.4.value}</td>
+                        <td>{$result.data.result.19.4.genotype}</td>
+                        <td>{$result.data.result.19.4.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.19.5.gene}</td>
+                        <td>{$result.data.result.19.5.wild_type}</td>
+                        <td>{$result.data.result.19.5.mutant_type}</td>
+                        <td>{$result.data.result.19.5.value}</td>
+                        <td>{$result.data.result.19.5.genotype}</td>
+                        <td>{$result.data.result.19.5.num}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -1406,7 +1603,7 @@
             <div class="main">
                 <p class="p">皮肤外观与皮肤本身保湿系统功能有关，保湿系统的功能在于维持皮肤一定的含水量，抵抗由内外因素对皮肤所造成的蒸发干燥 、脆裂等损害 。在健康的皮肤角质层中 , 含水量约 10 -20%，有了这些水分，皮肤才会光滑有弹性，当皮肤的含水量下降到 10% 以下时，就会引起皮肤干燥。皮肤本身保湿系统功能及细胞含水量受遗传、营养和环境因素影响，日晒、空气干燥、劣质保湿剂、热水等均可导致皮肤水分丧失，引起干燥。</p>
                 <h6>基因检测结果</h6>
-                <p class="p"><span>得分1。</span>皮肤锁水能力较高，APQ3与水分的运输有关，是将外源水分子运送到表皮中，而HAS1基因主要是皮肤保持水润的能力，FLG-1可以阻挡水分向外的流失。结果显示您在APQ3基因发生了一个保护性突变，导致了个体皮肤不容易干燥缺水。</p>
+                <p class="p">{$arrdata.20.desc}</p>
                 <!--柱状图-->
                 <div id="container10" style="height:300px"></div>
                 <ul class="legend">
@@ -1428,12 +1625,46 @@
                     </tr>
                     </thead>
                     <tbody>
-
-                    <tr><td>APQ3	<td>C	<td>T	<td>CT	<td>32.9%	<td>/</td></tr>
-                    <tr><td>HAS1-1	<td>C	<td>T	<td>CC	<td>1.0%	<td>/</td></tr>
-                    <tr><td>HAS1-2	<td>G	<td>A	<td>GG	<td>28.2%	<td>/</td></tr>
-                    <tr><td>FLG-1	<td>T	<td>-	<td>TT	<td>12.8%	<td>/</td></tr>
-                    <tr><td>FLG-1	<td>T	<td>-	<td>TT	<td>98.4%	<td>/</td></tr>
+                    <tr>
+                        <td>{$result.data.result.20.0.gene}</td>
+                        <td>{$result.data.result.20.0.wild_type}</td>
+                        <td>{$result.data.result.20.0.mutant_type}</td>
+                        <td>{$result.data.result.20.0.value}</td>
+                        <td>{$result.data.result.20.0.genotype}</td>
+                        <td>{$result.data.result.20.0.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.20.1.gene}</td>
+                        <td>{$result.data.result.20.1.wild_type}</td>
+                        <td>{$result.data.result.20.1.mutant_type}</td>
+                        <td>{$result.data.result.20.1.value}</td>
+                        <td>{$result.data.result.20.1.genotype}</td>
+                        <td>{$result.data.result.20.1.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.20.2.gene}</td>
+                        <td>{$result.data.result.20.2.wild_type}</td>
+                        <td>{$result.data.result.20.2.mutant_type}</td>
+                        <td>{$result.data.result.20.2.value}</td>
+                        <td>{$result.data.result.20.2.genotype}</td>
+                        <td>{$result.data.result.20.2.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.20.3.gene}</td>
+                        <td>{$result.data.result.20.3.wild_type}</td>
+                        <td>{$result.data.result.20.3.mutant_type}</td>
+                        <td>{$result.data.result.20.3.value}</td>
+                        <td>{$result.data.result.20.3.genotype}</td>
+                        <td>{$result.data.result.20.3.num}</td>
+                    </tr>
+                    <tr>
+                        <td>{$result.data.result.20.4.gene}</td>
+                        <td>{$result.data.result.20.4.wild_type}</td>
+                        <td>{$result.data.result.20.4.mutant_type}</td>
+                        <td>{$result.data.result.20.4.value}</td>
+                        <td>{$result.data.result.20.4.genotype}</td>
+                        <td>{$result.data.result.20.4.num}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -1550,6 +1781,7 @@
             <p>www.tianpingtech.com</p>
             <p>北京市朝阳区八里庄西里100号1号楼东区1208</p>
         </div>
+        <input type="hidden"  value="{$leida}">
     </div>
     <p style="page-break-after: always;"></p>
     <!--封页-->

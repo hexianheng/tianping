@@ -22,6 +22,7 @@ if(userId == "" || token == ""){
                 html += "<td>审核未成功</td>";
             }
             html += "<td>" + obj.ctime + "</td>";
+            html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
         });
         $("#data").append(html);
 
@@ -121,6 +122,16 @@ function whereCheckSearch(where,num){
             html += "<td>" + obj.ctime + "</td>";
         });
         $("#data").html(html);
+    });
+}
+
+function status(id,status){
+    alert(status)
+    ajax("/Report/updReport",{"userId":userId,"token":token,"id":id,"status":status},function(result){
+        if(result["code"] == 0){
+            alert(result["msg"])
+            location.reload();
+        }
     });
 }
 

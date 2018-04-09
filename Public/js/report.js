@@ -1,12 +1,17 @@
 //雷达图
 var dom_radar= document.getElementById("radar");
 var myChart_radar = echarts.init(dom_radar);
+var leida=$('input[type="hidden"]').val();
+var strs= new Array(); //定义一数组
+strs=leida.split(","); //字符分割
+//console.log(strs)
 option_radar = null;
 option_radar = {
     // title: {
     //     text: '雷达图'
     // },
     tooltip: {},
+    animation:false,
     legend: {
         data: ['人均水平', '受检个体','0以上优势作用','0以下劣势作用'],
         orient:'vertical',
@@ -24,45 +29,52 @@ option_radar = {
             }
         },
         indicator: [
-            { name: '眼睑松弛', max: 10},
-            { name: '反锁水能力', max: 10},
-            { name: '抗氧化能力', max: 10},
-            { name: '晒黑反应/美白能力', max: 10},
-            { name: '糖基化保护', max: 10},
-            { name: '皱纹和胶原蛋白降解', max: 10},
-            { name: '晒斑', max: 10},
-            { name: '痔疮', max: 10},
-            { name: '雀斑', max: 10},
-            { name: '鱼尾纹', max: 10},
-        ]
+            { name: '眼睑松弛',min:-5, max: 10},
+            { name: '反锁水能力',axisLabel:{show:false},min:-5, max: 10},
+            { name: '抗氧化能力', axisLabel:{show:false},min:-5,max: 10},
+            { name: '晒黑反应/美白能力',axisLabel:{show:false},min:-5, max: 10},
+            { name: '糖基化保护',axisLabel:{show:false},min:-5, max: 10},
+            { name: '皱纹和胶原蛋白降解',axisLabel:{show:false},min:-5, max: 10},
+            { name: '晒斑',axisLabel:{show:false},min:-5, max: 10},
+            { name: '痔疮',axisLabel:{show:false},min:-5, max: 10},
+            { name: '雀斑',axisLabel:{show:false},min:-5, max: 10},
+            { name: '鱼尾纹',axisLabel:{show:false},min:-5, max: 10},
+        ],
+        axisLabel:{
+            show:true,
+            color:'#333',
+            showMinLabel: true,
+            //interval:0,
+        },
     },
+
     series: [{
         name: '检测检测结果总览',
         type: 'radar',
         data : [
             {
-                value : [4,2,4,4,6,2,4,5,4,2],
+                value : [1,-1,1,1,3,-1,1,2,1,-1],
                 name : '人均水平',
-                label: {
+                /*label: {
                     normal: {
                         show: true,
                         formatter:function(params) {
                             return params.value;
                         }
                     }
-                }
+                }*/
             },
             {
-                value : [2, 3, 4, 5, 6, 7,4,6,9,3],
+                value : strs,
                 name : '受检个体',
-                label: {
+                /*label: {
                     normal: {
                         show: true,
                         formatter:function(params) {
                             return params.value;
                         }
                     }
-                }
+                }*/
             },
             {name:'0以上优势作用'},{name:'0以下劣势作用'}
         ]
