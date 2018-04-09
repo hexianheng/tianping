@@ -217,23 +217,24 @@ class ReportModel extends BaseModel
         if($data['status'] == '' || (!in_array($data['status'],[2,3]))){
             return $this->returnMsg('A070');
         }
-        if($data['id'] == ''){
+        if($data['idStr'] == ''){
             return $this->returnMsg('A071');
         }
-        $sql = "select id,code from analytic_result where id = $data[id] and status = 1";
+        $idArr = explode('|',$data['idStr']);
+        $sql = "select id,code from analytic_result where id in ('". implode("','",$idArr) ."') and status = 1";
         $re = $this->sqlQuery('analytic_result',$sql);
-        if(empty($re)){
+        if(empty($re) || count($idArr) != count($re)){
             return $this->returnMsg('A071');
         }else{
-            //生成pdf报告
-            /*if($data['status'] == 2){
-                $wkhtmltopdf = C('wkhtmltopdf');
-                $path = C('URL') . "/Index/report_mf/code/" . $re[0]['code'] . " ". C('PATH') . "Public/pdf/" . $re[0]['code'] . ".pdf";
-                system($wkhtmltopdf.$path, $result);
-                if($result !== 0){
-                    return $this->returnMsg("A072");
-                }
-            }*/
+            //推送pdf任务
+            if($data['status'] == 2){
+                $codeArr = array_column($re,'code');
+                $sql = "delete from pdf_task where code in ('" .implode("','",$codeArr). "')";
+                $this->sqlQuery('pdf_task',$sql);
+                $date = date('Y-m-d H:i:s');
+                $sql = "insert into pdf_task (code,addTime) values ('" . implode("','". $date ."'),('",$codeArr) . "','". $date ."')";
+                $this->sqlQuery('pdf_task',$sql);
+            }
 
             $sql = "update analytic_result set status = $data[status] where id = $data[id]";
             $this->sqlQuery('analytic_result',$sql);
