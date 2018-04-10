@@ -242,4 +242,29 @@ class ReportModel extends BaseModel
             return $this->returnMsg(0);
         }
     }
+
+    public function downloadZip($data){
+        $pdfFile = [];
+        if($data['codeStr'] == ''){
+            return $this->returnMsg('A073');
+        }
+        $codeArr = explode('|',$data['codeStr']);
+        foreach ($codeArr as $value){
+            if(is_file( 'Public/pdf/' . $value.'.pdf')){
+                $pdfFile[] = 'Public/pdf/' . $value.'.pdf';
+            }
+        }
+
+        if(empty($pdfFile)){
+            return $this->returnMsg('A073');
+        }
+        $date = date('Y-m-d_H-i-s'). ".zip";
+        $shell = "zip -j Public/zip/" . $date . " " . implode(" ",$pdfFile);
+        system($shell,$return);
+        if($return == 0){
+            return $this->returnMsg(0,['path' => "Public/zip/" . $date]);
+        }else{
+            return $this->returnMsg('A073');
+        }
+    }
 }

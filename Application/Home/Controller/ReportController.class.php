@@ -77,4 +77,14 @@ class ReportController extends CommonController
         $this->response($result,'json');
 
     }
+
+    //批量下载报告
+    public function downloadZip(){
+        $data = [
+            'codeStr' => I('post.codeStr')
+        ];
+        $obj = new ReportModel();
+        $result = $obj->downloadZip($data);
+        $this->response($result,'json');
+    }
 }
