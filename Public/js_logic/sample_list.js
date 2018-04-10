@@ -192,7 +192,7 @@ function del(id) {
     }
 }
 
-
+//批量更改状态，同时推送短信
 $("#status_btn").click(function(){
 
     var idStr=$("#codes").val();
