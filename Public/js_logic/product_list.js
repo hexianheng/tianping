@@ -11,8 +11,9 @@ if(userId == "" || token == ""){
         $.each(result["data"]["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.name + "</td>";
-            html += "<td>" + obj.projectStr + "</td>";
+            html += '<td><a onclick="projectStr('+obj.id+')">查看详情</a ></td>';
             html += "<td>" + obj.desc+"</td>";
+            html += "<td>" + obj.panel+"</td>";
             if(obj.status == '1'){
                 html += "<td>禁用</td>";
             }else{
@@ -43,8 +44,9 @@ function productList(num){
         $.each(result["data"]["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.name + "</td>";
-            html += "<td>" + obj.projectStr + "</td>";
+            html += '<td><a onclick="projectStr('+obj.id+')">查看详情</a ></td>';
             html += "<td>" + obj.desc+"</td>";
+            html += "<td>" + obj.panel+"</td>";
             if(obj.status == '1'){
                 html += "<td>禁用</td>";
             }else{
@@ -67,7 +69,8 @@ $("#addBtn").click(function(){
     var name = $("#name").val();
     var desc = $("#desc").val();
     var projectStr = $("#projectStr").val();
-    ajax("/Product/addProduct",{"userId":userId,"token":token,"name":name,"desc":desc,"projectStr":projectStr},function(result){
+    var panel = $("#panel").val();
+    ajax("/Product/addProduct",{"userId":userId,"token":token,"name":name,"desc":desc,"projectStr":projectStr,"panel":panel},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
@@ -82,8 +85,9 @@ function upd(id) {
         $("#name").val(result['data'][0]['name']);
         $("#desc").val(result['data'][0]['desc']);
         $("#projectStr").val(result['data'][0]['projectStr']);
+        $("#panel").val(result['data'][0]['panel']);
         var operation = "<a class='preview-btn btn04' onclick='update("+result['data'][0]['id']+")'>保存</a >";
-        $("#addBtn").html(operation);
+        $("#operation").html(operation);
     });
 }
 
@@ -92,7 +96,8 @@ function update(id){
     var name = $("#name").val();
     var desc = $("#desc").val();
     var projectStr = $("#projectStr").val();
-    ajax("/Product/updProduct",{"userId":userId,"token":token,"name":name,"desc":desc,"projectStr":projectStr,"id":id},function(result){
+    var panel = $("#panel").val();
+    ajax("/Product/updProduct",{"userId":userId,"token":token,"name":name,"desc":desc,"projectStr":projectStr,"id":id,"panel":panel},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
@@ -110,4 +115,10 @@ function updType(id) {
             }
         });
     }
+}
+
+function projectStr(id){
+    ajax("/Product/getOneProduct",{"userId":userId,"token":token,"id":id},function(result){
+        alert(result['data'][0]['projectStr']);
+    });
 }
