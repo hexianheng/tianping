@@ -25,7 +25,8 @@ class TemplateModel extends BaseModel {
         'product' => [
             'name' => '产品名称',
             'projectStr' => '检测项目',
-            'desc' => '产品介绍'
+            'desc' => '产品介绍',
+            'panel' => '检测panel'
         ],
         //项目上传
         'project' => [
@@ -288,8 +289,13 @@ class TemplateModel extends BaseModel {
             $result['errorData'][] = $headerVal[2]. ' (' . $data[2] . ') ERROR';
             return $result;
         }
-        $data[3] = date('Y-m-d H:i:s');
-        $data[4] = 0;
+        //验证panel
+        if($data[3] == ''){
+            $result['errorData'][] = $headerVal[3]. ' (' . $data[3] . ') ERROR';
+            return $result;
+        }
+        $data[4] = date('Y-m-d H:i:s');
+        $data[5] = 0;
 
         $result['code'] = 0;
         $result['sql'] = "('". implode("','",$data) ."',$this->cid)";

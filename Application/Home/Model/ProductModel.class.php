@@ -18,6 +18,10 @@ class ProductModel extends BaseModel
         if($data['desc'] == ''){
             return $this->returnMsg('A033');
         }
+        //检测panel
+        if($data['panel'] == ''){
+            return $this->returnMsg('A074');
+        }
         //验证产品项目
         if($data['projectStr'] == ''){
             return $this->returnMsg('A034');
@@ -44,6 +48,10 @@ class ProductModel extends BaseModel
         //验证产品介绍
         if($data['desc'] == ''){
             return $this->returnMsg('A033');
+        }
+        //检测panel
+        if($data['panel'] == ''){
+            return $this->returnMsg('A074');
         }
         //验证产品项目
         if($data['projectStr'] == ''){

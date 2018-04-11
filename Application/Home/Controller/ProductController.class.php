@@ -20,7 +20,8 @@ class ProductController extends CommonController
             'cId' => I('post.userId'),
             'name' => I('post.name'),
             'desc' => I('post.desc'),
-            'projectStr' => I('post.projectStr')
+            'projectStr' => I('post.projectStr'),
+            'panel' => I('post.panel')
         ];
         $obj = new ProductModel();
         $result = $obj->addProduct($data);
