@@ -25,12 +25,15 @@ if(userId == "" || token == ""){
                     success:function(res){
                         var html='';
                         alert(res['msg'])
-                        alert(res['data']['msg'])
-                        $.each(res['data']['errorData'], function(idx, obj) {
-                            html += obj+'\n';
-                        });
-                        alert(html)
-                        //console.log(res);
+                        if(res['data']['num'] != ""){
+                            alert("成功"+res['data']['num']+"条")
+                        }else{
+                            alert(res['data']['msg'])
+                            $.each(res['data']['errorData'], function(idx, obj) {
+                                html += obj+'\n';
+                            });
+                            alert(html)
+                        }
                     }
                 });
             }else{
