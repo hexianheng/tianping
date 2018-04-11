@@ -138,7 +138,7 @@ class TemplateModel extends BaseModel {
             case 'user' :
                 //获取验证所需的code
                 $res = array_column($arr,0);
-                $sql = "select code from code where status = 3 code in ('". implode("','",$res) ."')";
+                $sql = "select code from code where status = 3 and code in ('". implode("','",$res) ."')";
                 $reData = $this->sqlQuery('code',$sql);
                 if(empty($reData)){
                     $result['errorData'] = $arr;
