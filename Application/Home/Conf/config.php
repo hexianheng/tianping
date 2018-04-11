@@ -2,7 +2,7 @@
 return array(
     //数据库配置信息
     'DB_TYPE'   => 'mysqli', // 数据库类型
-    'DB_HOST'   => '123.207.151.98', // 服务器地址123.207.151.98
+    'DB_HOST'   => '127.0.0.1', // 服务器地址123.207.151.98
     'DB_NAME'   => 'main', // 数据库名
     'DB_USER'   => 'root', // 用户名
     'DB_PWD'    => 'Rootroot', // 密码
@@ -19,7 +19,7 @@ return array(
         'port' => 6379
     ),
     //web地址
-    'URL' => "http://mypro.com/tianping/index.php",
+    'URL' => "http://123.207.151.98/",
     //wkhtmltopdf地址
     'wkhtmltopdf' => "/usr/local/src/wkhtmltox/bin/wkhtmltopdf --print-media-type --page-width 100mm --page-height 100mm --margin-top 0mm --margin-bottom 0mm --margin-right 0mm --margin-left 0mm --disable-smart-shrinking ",
     //项目地址
