@@ -87,7 +87,7 @@ function upd(id) {
         $("#projectStr").val(result['data'][0]['projectStr']);
         $("#panel").val(result['data'][0]['panel']);
         var operation = "<a class='preview-btn btn04' onclick='update("+result['data'][0]['id']+")'>保存</a >";
-        $("#addBtn").html(operation);
+        $("#operation").html(operation);
     });
 }
 
