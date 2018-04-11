@@ -25,7 +25,9 @@ if(userId == "" || token == ""){
                     success:function(res){
                         var html='';
                         alert(res['msg'])
-                        if(res['data']['errorData'] != ""){
+                        if(res['data']['num'] != ""){
+                            alert("成功"+res['data']['num']+"条")
+                        }else{
                             alert(res['data']['msg'])
                             $.each(res['data']['errorData'], function(idx, obj) {
                                 html += obj+'\n';
