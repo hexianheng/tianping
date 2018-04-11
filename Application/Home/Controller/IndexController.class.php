@@ -175,7 +175,7 @@ class IndexController extends Controller {
     public function sns_read(){
         $url=C("URL");
         $this->assign("url",$url);
-        $this->display('Presentation/sns_read');
+        $this->display('Presentation/SNS_read');
     }
     //用户信息关联表
     public function sample_list(){
