@@ -25,12 +25,13 @@ if(userId == "" || token == ""){
                     success:function(res){
                         var html='';
                         alert(res['msg'])
-                        alert(res['data']['msg'])
-                        $.each(res['data']['errorData'], function(idx, obj) {
-                            html += obj+'\n';
-                        });
-                        alert(html)
-                        //console.log(res);
+                        if(res['data']['errorData'] != ""){
+                            alert(res['data']['msg'])
+                            $.each(res['data']['errorData'], function(idx, obj) {
+                                html += obj+'\n';
+                            });
+                            alert(html)
+                        }
                     }
                 });
             }else{
