@@ -11,6 +11,7 @@ if(userId == "" || token == ""){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
+            html += "<td>" + obj.panel + "</td>";
             html += "<td>" + obj.name + "</td>";
             html += "<td>" + obj.sex + "</td>";
             html += "<td>" + obj.age + "</td>";
@@ -59,6 +60,7 @@ function checkList(num){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
+            html += "<td>" + obj.panel + "</td>";
             html += "<td>" + obj.name + "</td>";
             html += "<td>" + obj.sex + "</td>";
             html += "<td>" + obj.age + "</td>";
@@ -97,12 +99,11 @@ $("#search").click(function(){
         alert("搜索条件不能为空")
     }else{
         ajax("/Customer/customerList",{"userId":userId,"token":token,"where":where},function(result){
-            console.log(result)
-
             var html = "";
             $.each(result["data"], function(idx, obj) {
                 html += "<tr><td>" + obj.id + "</td>";
                 html += "<td>" + obj.code + "</td>";
+                html += "<td>" + obj.panel + "</td>";
                 html += "<td>" + obj.name + "</td>";
                 html += "<td>" + obj.sex + "</td>";
                 html += "<td>" + obj.age + "</td>";
@@ -151,6 +152,7 @@ function whereCheckSearch(where,num){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
+            html += "<td>" + obj.panel + "</td>";
             html += "<td>" + obj.name + "</td>";
             html += "<td>" + obj.sex + "</td>";
             html += "<td>" + obj.age + "</td>";

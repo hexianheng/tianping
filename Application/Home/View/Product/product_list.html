@@ -20,11 +20,6 @@
             <div class="custom-info">
                 <div class="info-box">
                     <ul class="ul-datetime">
-                        <li>
-                            <input type="text" placeholder="请输入产品编号/名称/检测项目/panel/位点进行搜索" class="w300">
-                        </li>
-                        <li><a class="btn07">查询</a></li>
-                        <!--<a class="btn08" href="">删除</a>-->
                         <a class="btn09" id="xg_btn">添加</a>
                     </ul>
                 </div>
@@ -38,6 +33,7 @@
                         <th>产品名称</th>
                         <th>检测项目</th>
                         <th>产品介绍</th>
+                        <th>检测panel</th>
                         <th>状态</th>
                         <th>创建时间</th>
                         <th>操作</th>
@@ -70,7 +66,10 @@
                     <label>产品介绍：</label>
                     <textarea name="" id="desc" placeholder="请输入"  style="height: 100px;width: 200px"></textarea>
                 </li>
-
+                <li>
+                    <label>检测panel：</label>
+                    <input type="text" name="" class="w200 " id="panel" value="">
+                </li>
             </ul>
         </div>
         <div class="preview"> <span id="operation"><a class="preview-btn btn04" id="addBtn">保存</a></span> <a class="cancel-btn btn04">取消</a> </div>
