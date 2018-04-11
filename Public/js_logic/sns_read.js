@@ -13,16 +13,24 @@ if(userId == "" || token == ""){
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
             html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
-            html += "<td>" + obj.pruductName + "</td>";
             if(obj.status == '1'){
+                html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
+                html += "<td><a href='../../Public/pdf/"+obj.code+".pdf'>" + obj.pruductName + "（可下载）</a></td>";
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
+                html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>审核未成功</td>";
             }
             html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+            }else if(obj.status == '2'){
+                html += "<td>审核成功，可下载报告</td>";
+            }else if(obj.status == '3'){
+                html += "<td>审核未成功，请重新解读</td>";
+            }
         });
         $("#data").append(html);
 
@@ -47,16 +55,25 @@ function checkList(num){
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
-            html += "<td>" + obj.pruductName + "</td>";
-            html += "<td>" + obj.pruductName + "</td>";
+            html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
             if(obj.status == '1'){
+                html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
+                html += "<td><a href='../../Public/pdf/"+obj.code+".pdf'>" + obj.pruductName + "（可下载）</a></td>";
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
+                html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>审核未成功</td>";
             }
             html += "<td>" + obj.ctime + "</td>";
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+            }else if(obj.status == '2'){
+                html += "<td>审核成功，可下载报告</td>";
+            }else if(obj.status == '3'){
+                html += "<td>审核未成功，请重新解读</td>";
+            }
         });
         $("#data").html(html);
     });
@@ -75,16 +92,25 @@ $("#search").click(function(){
                 html += "<tr><td>" + obj.id + "</td>";
                 html += "<td>" + obj.code + "</td>";
                 html += "<td>" + obj.productId + "</td>";
-                html += "<td>" + obj.pruductName + "</td>";
-                html += "<td>" + obj.pruductName + "</td>";
+                html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
                 if(obj.status == '1'){
+                    html += "<td>" + obj.pruductName + "（不可下载）</td>";
                     html += "<td>未审核</td>";
                 }else if(obj.status == '2'){
+                    html += "<td><a href='../../Public/pdf/"+obj.code+".pdf'>" + obj.pruductName + "（可下载）</a></td>";
                     html += "<td>已审核</td>";
                 }else if(obj.status == '3'){
+                    html += "<td>" + obj.pruductName + "（不可下载）</td>";
                     html += "<td>审核未成功</td>";
                 }
                 html += "<td>" + obj.ctime + "</td>";
+                if(obj.status == '1'){
+                    html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+                }else if(obj.status == '2'){
+                    html += "<td>审核成功，可下载报告</td>";
+                }else if(obj.status == '3'){
+                    html += "<td>审核未成功，请重新解读</td>";
+                }
             });
             $("#data").html(html);
 
@@ -110,29 +136,62 @@ function whereCheckSearch(where,num){
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
-            html += "<td>" + obj.pruductName + "</td>";
-            html += "<td>" + obj.pruductName + "</td>";
+            html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
             if(obj.status == '1'){
+                html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
+                html += "<td><a href='../../Public/pdf/"+obj.code+".pdf'>" + obj.pruductName + "（可下载）</a></td>";
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
+                html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>审核未成功</td>";
             }
             html += "<td>" + obj.ctime + "</td>";
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+            }else if(obj.status == '2'){
+                html += "<td>审核成功，可下载报告</td>";
+            }else if(obj.status == '3'){
+                html += "<td>审核未成功，请重新解读</td>";
+            }
         });
         $("#data").html(html);
     });
 }
 
 function status(id,status){
-    alert(status)
-    ajax("/Report/updReport",{"userId":userId,"token":token,"id":id,"status":status},function(result){
+    ajax("/Report/updReport",{"userId":userId,"token":token,"idStr":id,"status":status},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
         }
     });
 }
+
+$("#status_btn").click(function(){
+
+    var idStr=$("#statusd").val();
+    var status=$("#status").val();
+    ajax("/Report/updReport",{"userId":userId,"token":token,"idStr":idStr,"status":status},function(result){
+        if(result["code"] == 0){
+            alert(result["msg"])
+            location.reload();
+        }
+    });
+
+});
+//批量下载
+$("#download_btn").click(function(){
+
+    var codeStr=$("#download").val();
+    ajax("/Report/downloadZip",{"userId":userId,"token":token,"codeStr":codeStr},function(result){
+        if(result["code"] == 0){
+            alert(result["msg"])
+            location.reload();
+        }
+    });
+
+});
 
 

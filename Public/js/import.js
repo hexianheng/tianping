@@ -23,7 +23,13 @@ if(userId == "" || token == ""){
                     data:fd,
                     async: false,
                     success:function(res){
+                        var html='';
                         alert(res['msg'])
+                        alert(res['data']['msg'])
+                        $.each(res['data']['errorData'], function(idx, obj) {
+                            html += obj+'\n';
+                        });
+                        alert(html)
                         //console.log(res);
                     }
                 });
