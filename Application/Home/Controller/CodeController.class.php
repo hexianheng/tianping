@@ -8,12 +8,6 @@ use Home\Model\CodeModel;
 class CodeController extends CommonController
 {
 
-    //构造方法
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     //添加编码
     public function addCode(){
         $data = [

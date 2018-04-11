@@ -8,12 +8,6 @@ use Home\Model\SiteModel;
 class SiteController extends CommonController
 {
 
-    //构造方法
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     //位点列表
     public function siteList(){
         $where = I('post.where');

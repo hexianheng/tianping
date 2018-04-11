@@ -8,12 +8,6 @@ use Home\Model\CustomerModel;
 class CustomerController extends CommonController
 {
 
-    //构造方法
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     //客户列表
     public function customerList(){
         $page = I('post.page');

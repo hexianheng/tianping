@@ -8,12 +8,6 @@ use Home\Model\ItemModel;
 class ItemController extends CommonController
 {
 
-    //构造方法
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     //添加项目
     public function addItem(){
         $data = [

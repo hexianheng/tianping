@@ -7,11 +7,6 @@ namespace Home\Controller;
 use Home\Model\ChannelModel;
 class ChannelController extends CommonController {
 
-    //构造方法
-    public function __construct(){
-        parent::__construct();
-    }
-
     //添加渠道
     public function addChannel(){
         $data = [

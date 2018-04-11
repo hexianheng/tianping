@@ -11,9 +11,6 @@ class LoginController extends BaseController {
     public function __construct(){
         $this->obj = new UserModel();
     }
-
-    
-    
     
     //登录方法
     public function login(){

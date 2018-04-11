@@ -8,11 +8,6 @@ use Home\Model\TokenModel;
 use Home\Model\UserModel;
 class UserController extends CommonController {
 
-    //构造方法
-    public function __construct(){
-        parent::__construct();
-    }
-
     //注销登录
     public function logout(){
         $userId = I('userId');

@@ -8,12 +8,6 @@ use Home\Model\ReportModel;
 class ReportController extends CommonController
 {
 
-    //构造方法
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     //检测结果列表
     public function detectionResult()
     {
