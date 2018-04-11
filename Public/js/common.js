@@ -1,7 +1,7 @@
 
 //定义配置
 var CONFIG = {
-    "path"  : "http://localhost:8080/gitjob/index.php/"
+    "path"  : ""
 }
 
 

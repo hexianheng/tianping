@@ -6,6 +6,7 @@
 namespace Home\Controller;
 use Think\Controller;
 use Home\Model\ReportModel;
+use Home\Controller\CommonController;
 class IndexController extends Controller {
 
     //首页
@@ -186,6 +187,8 @@ class IndexController extends Controller {
 
     //美肤产品报告
     public function report_mf(){
+        $obj = new CommonController();
+        $obj->checkToken();
         $data = [
             'code' => I('get.code')
         ];
