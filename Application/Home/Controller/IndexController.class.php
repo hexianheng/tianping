@@ -185,6 +185,13 @@ class IndexController extends Controller {
         $this->display('Presentation/sample_list');
     }
 
+    //用户信息关联表
+    public function api_list(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Api/api_list');
+    }
+
     //美肤产品报告
     public function report_mf(){
         $obj = new CommonController();
