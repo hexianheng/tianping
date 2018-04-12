@@ -50,18 +50,4 @@ class CommonController extends BaseController {
             $this->response($return,'json');
         }
     }
-
-    //验证外部api请求
-    public function checkApi(){
-        $data = [
-            'time' => I('time'),
-            'sign' => I('sign'),
-            'appKey' => I('appKey')
-        ];
-        $obj = new InvokModel();
-        $return = $obj->checkApi($data);
-        if($return['code'] !== 0){
-            $this->response($return,'json');
-        }
-    }
 }

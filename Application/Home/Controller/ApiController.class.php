@@ -5,22 +5,35 @@
  * */
 namespace Home\Controller;
 use Home\Model\ApiModel;
-class ApiController extends CommonController {
+use Home\Model\InvokModel;
+class ApiController extends BaseController {
 
-    //构造方法
+    private $obj;
+    private $apiObj;
+    private $data;
+
     public function __construct(){
-        //调取验证
-        $this->checkApi();
+        parent::__construct();
+        $this->data = json_decode($GLOBALS['HTTP_RAW_POST_DATA'],1);
+        $this->apiObj = new ApiModel();
+        $result = $this->checkApi($this->data);
+        if($result['code'] !== 0){
+            $this->response($result,'json');
+        }
     }
 
     //绑定微信号与客户
     public function bindCustomer(){
-        $data = [
-            'phone' => I('post.phone'),
-            'uniqueId' => I('post.uniqueId')
-        ];
-        $obj = new ApiModel();
-        $result = $obj->bindCustomer($data);
+        $result = $this->apiObj->bindCustomer($this->data);
         $this->response($result,'json');
+    }
+
+    //验证外部api请求
+    public function checkApi($data){
+        $obj = new InvokModel();
+        $return = $obj->checkApi($data);
+        if($return['code'] !== 0){
+            $this->response($return,'json');
+        }
     }
 }
