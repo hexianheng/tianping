@@ -63,4 +63,27 @@ class InvokModel extends BaseModel
             return $this->returnMsg(0);
         }
     }
+
+    //验证api请求
+    public function checkApi($data){
+        //验证时间
+        if($data['time'] == '' || intval($data['time']) > time() || intval($data['time']) + 60*2 < time()){
+            return $this->returnMsg('A077');
+        }
+        //验证appId
+        if($data['sign'] == '' || $data['sign'] != md5($data['appKey'].$data['time'])){
+            return $this->returnMsg('A081');
+        }
+        //验证appKey
+        if($data['appKey'] == ''){
+            return $this->returnMsg('A075');
+        }
+        $sql = "select appId from app_invok where appKey = '$data[appKey]'";
+        $re = $this->sqlQuery('app_invok',$sql);
+        if(empty($re)){
+            return $this->returnMsg(-5);
+        }else{
+            return $this->returnMsg(0);
+        }
+    }
 }

@@ -6,6 +6,7 @@ return array(
         -2 => '请求无权限',
         -3 => '无数据',
         -4 => '页码不合法',
+        -5 => '参数错误',
         //wpy
         'A001' => '用户名不合法',
         'A002' => '密码，确认密码不合法',
@@ -81,8 +82,13 @@ return array(
         'A072' => '报告生成失败',
         'A073' => '暂无符合条件的pdf文件',
         'A074' => '检测panel不合法',
-        'A075' => 'appName不合法',
-        'A076' => 'appId不合法',
+        'A075' => 'appName is empty or appName error',
+        'A076' => 'appId is empty or appId error',
+        'A077' => 'Time is empty or Time error',
+        'A078' => 'wxOpenId is empty or wxOpenId error',
+        'A079' => 'phone is empty or phone error',
+        'A080' => 'The cell phone number is bound',
+        'A081' => 'sign is empty or sign error',
         //hxh
         'B001' => '',
         //lyt
