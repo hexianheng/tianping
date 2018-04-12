@@ -17,7 +17,7 @@ class ApiController extends CommonController {
     public function bindCustomer(){
         $data = [
             'phone' => I('post.phone'),
-            'wxOpenId' => I('post.wxOpenId')
+            'uniqueId' => I('post.uniqueId')
         ];
         $obj = new ApiModel();
         $result = $obj->bindCustomer($data);

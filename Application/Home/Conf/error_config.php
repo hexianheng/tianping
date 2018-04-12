@@ -85,7 +85,7 @@ return array(
         'A075' => 'appName is empty or appName error',
         'A076' => 'appId is empty or appId error',
         'A077' => 'Time is empty or Time error',
-        'A078' => 'wxOpenId is empty or wxOpenId error',
+        'A078' => 'uniqueId is empty or uniqueId error',
         'A079' => 'phone is empty or phone error',
         'A080' => 'The cell phone number is bound',
         'A081' => 'sign is empty or sign error',
