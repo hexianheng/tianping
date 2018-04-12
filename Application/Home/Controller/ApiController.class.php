@@ -16,10 +16,7 @@ class ApiController extends BaseController {
         parent::__construct();
         $this->data = json_decode($GLOBALS['HTTP_RAW_POST_DATA'],1);
         $this->apiObj = new ApiModel();
-        $result = $this->checkApi($this->data);
-        if($result['code'] !== 0){
-            $this->response($result,'json');
-        }
+        $this->checkApi($this->data);
     }
 
     //绑定微信号与客户
