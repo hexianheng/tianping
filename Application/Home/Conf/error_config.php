@@ -87,7 +87,7 @@ return array(
         'A077' => 'Time is empty or Time error',
         'A078' => 'uniqueId is empty or uniqueId error',
         'A079' => 'phone is empty or phone error',
-        'A080' => 'The cell phone number is bound',
+        'A080' => 'The phone or uniqueId is bound',
         'A081' => 'sign is empty or sign error',
         //hxh
         'B001' => '',
