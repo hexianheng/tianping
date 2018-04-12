@@ -71,7 +71,7 @@ class InvokModel extends BaseModel
             return $this->returnMsg('A077');
         }
         //验证appId
-        if($data['sign'] == '' || $data['sign'] != md5($data['appKey'].$data['time'])){
+        if($data['sign'] == '' || $data['sign'] != md5($data['appKey'].md5($data['time']))){
             return $this->returnMsg('A081');
         }
         //验证appKey
