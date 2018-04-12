@@ -12,7 +12,7 @@ if(userId == "" || token == ""){
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
-            html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
+            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "</a></td>";
             if(obj.status == '1'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
@@ -48,6 +48,7 @@ if(userId == "" || token == ""){
 }
 
 
+
 function checkList(num){
     ajax("/Report/userReportList",{"userId":userId,"token":token,"page":num},function(result){
         var html = "";
@@ -55,7 +56,7 @@ function checkList(num){
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
-            html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
+            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "</a></td>";
             if(obj.status == '1'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
@@ -92,7 +93,7 @@ $("#search").click(function(){
                 html += "<tr><td>" + obj.id + "</td>";
                 html += "<td>" + obj.code + "</td>";
                 html += "<td>" + obj.productId + "</td>";
-                html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
+                html += "<td><a onclick='url(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "</a></td>";
                 if(obj.status == '1'){
                     html += "<td>" + obj.pruductName + "（不可下载）</td>";
                     html += "<td>未审核</td>";
@@ -136,7 +137,7 @@ function whereCheckSearch(where,num){
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
-            html += "<td><a href='"+CONFIG['path']+"/Index/report_mf/code/"+obj.code+"'>" + obj.pruductName + "</a></td>";
+            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "</a></td>";
             if(obj.status == '1'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
@@ -194,4 +195,6 @@ $("#download_btn").click(function(){
 
 });
 
-
+function url(code) {
+    parent.location.href = CONFIG['path']+"/Index/report_mf/code/"+code+"/userId/"+userId+"/token/"+token;
+}
