@@ -17,7 +17,7 @@ function ajax(url,data,success){
         success:function(datas){
             if(datas['code'] == 0){
                 //登陆成功
-                success(data)
+                success(datas)
             }else if(datas['code'] == 'A011' || datas['code'] == 'A012'){
                 delCookie("userId");
                 delCookie("token");
@@ -26,7 +26,7 @@ function ajax(url,data,success){
                 parent.location.href = CONFIG['path'];
             }
             else if(datas['code'] == '-2'){
-                alert(data['msg'])
+                alert(datas['msg'])
                 location.reload();
             }else{
                 alert(datas['msg'])
