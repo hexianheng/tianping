@@ -211,7 +211,7 @@ class IndexController extends Controller {
         }
         $leida = implode(",",$leida);
         $arrData = $this->mf($result["data"]["result"]);
-        //print_r($result);
+        //print_r($arrData);
 
         $url=C("URL");
         $this->assign("url",$url);
@@ -222,44 +222,67 @@ class IndexController extends Controller {
     }
 
     public function mf($data){
+        $url=C("URL");
+        $src = $url."/Public/images/skin_image";
         //眼皮松弛
+        $ypsc = 0;
         if($data[11]["sum"]==0){
             $arr[11]["desc"] = "<span>得分0 正常</span>，与眼睑松弛相关的核心基因未发生保护型变异，蛋白质行使功能正常，与群体水平持平；";
+            $arr[11]["desc"] = "";
         }else if($data[11]["sum"]==1){
             $arr[11]["desc"] = "<span>得分1</span> 与眼睑松弛相关的核心基因COL1A2发生杂合（纯合）突变，导致眼皮松弛程度比群体水平降低26%（52%）/与眼睑松弛相关的核心基因TGIF1发生纯合突变，导致眼皮松弛程度比群体水平降低27~45%。";
         }else if($data[11]["sum"]==2){
             $arr[11]["desc"] = "<span>得分2</span> 与眼睑皮肤松弛相关的两个核心基因均发生保护型变异，与群体水平相比眼部皮肤不易出现松弛或下垂现象。/TGIF1基因发生风险变异导致眼睑松垂的风险增加。";
         }
         //鱼尾纹
+        $yww = 0;
         if($data[12]["sum"]==0){
             $arr[12]["desc"] = "<span>得分0 正常</span>，AHR基因未发生风险变异，蛋白正常行使功能，此基因型占群体水平的39.7%；";
         }else if($data[12]["sum"]=='-1'){
+            $yww = $yww+1;
             $arr[12]["desc"] = "<span>得分-1</span> AHR基因发生杂合突变，存在一个风险等位基因A，导致鱼尾纹的风险与正常水平相比增加7%，42.7%的个体均是AG型；";
         }else if($data[12]["sum"]=='-2'){
+            $yww = $yww+1;
             $arr[12]["desc"] = "<span>得分-2</span> AHR基因发生纯合突变，存在两个风险等位基因A，导致鱼尾纹的风险与正常水平相比增加14%，13.7%的个体是AA型。";
         }
         //雀斑
         if($data[13]["sum"]==0){
             $arr[13]["desc"] = "<span>得分0 正常</span>，与亚洲人雀斑发生相关的两个核心基因均未发生风险变异，蛋白行使功能正常，与群体水平持平；";
+            $arr[qb]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[qb]["desc"] ="不容易长雀斑";
         }else if($data[13]["sum"]=='-1'){
             $arr[13]["desc"] = "<span>得分-1</span> MC1R基因发生变异，风险等位基因A导致个体出现雀斑的风险增加/ASIP基因发生变异，风险等位基因T导致个体出现雀斑的风险增加；";
+            $arr[qb]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[qb]["desc"] ="较容易长雀斑";
         }else if($data[13]["sum"]=='-2'){
             $arr[13]["desc"] = "<span>得分-2</span> 与亚洲人雀斑发生先关的两个核心基因均出现了风险变异，皮肤容易出现色素沉积或雀斑。";
+            $arr[qb]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[qb]["desc"] ="容易长雀斑";
         }
         //痤疮
         if($data[14]["sum"]==0){
             $arr[14]["desc"] = "<span>得分0 正常</span>，与中国汉族痤疮发生的三个核心基因均未发生风险变异，蛋白行使功能正常，与群体水平持平；";
+            $arr[cc]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[cc]["desc"] ="痤疮风险一般";
         }else if($data[14]["sum"]=='-1'){
             $arr[14]["desc"] = "<span>得分-1</span> DDB2基因发生变异，风险等位基因G导致个体患痤疮的风险增加/DDB2两个基因位点均发生变异，风险等位基因G导致个体患痤疮的风险明显增加/SELL基因发生变异，风险等位基因G导致个体患痤疮的风险增加；";
+            $arr[cc]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[cc]["desc"] ="痤疮风险较高";
         }else if($data[14]["sum"]=='-2'){
             $arr[14]["desc"] = "<span>得分-2</span> DDB2基因发生变异，风险等位基因G导致个体患痤疮的风险增加/DDB2两个基因位点均发生变异，风险等位基因G导致个体患痤疮的风险明显增加/SELL基因发生变异，风险等位基因G导致个体患痤疮的风险增加；";
+            $arr[cc]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[cc]["desc"] ="痤疮风险高";
         }else if($data[14]["sum"]=='1'){
             $arr[14]["desc"] = "<span>得分1</span> SELL基因发生保护型变异，等位基因A导致个体患痤疮的风险降低，19.6%的个体是这种基因型。";
+            $arr[cc]["img"] ="<img src='".$src."/green.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[cc]["desc"] ="不容易长痤疮";
         }
         //日晒斑
+        $rsb = 0;
         if($data[15]["sum"]==0){
             $arr[15]["desc"] = "<span>得分0</span> 与中国人群日晒斑相关的基因均不存在功能性变异，蛋白行使功能正常，但是与群体水平相比抵抗晒斑的能力有所下降，需要做好日常防护；";
         }else if($data[15]["sum"]=='-1'){
+            $rsb = $rsb+1;
             $arr[15]["desc"] = "<span>得分-1</span> 31.6%的个体在ASIP基因上存在风险变异T导致个体的色素沉积能力，雀斑或日晒斑风险较群体水平有所增加；";
         }else if($data[15]["sum"]=='1'){
             $arr[15]["desc"] = "<span>得分1</span> 在BNC2基因上存在保护型变异，导致对抗日晒斑的能力增加，不易出现晒斑，当两个位点都存在有益变异时，这种保护作用最强。";
@@ -267,27 +290,35 @@ class IndexController extends Controller {
             $arr[15]["desc"] = "<span>得分2</span> 在BNC2基因上存在保护型变异，导致对抗日晒斑的能力增加，不易出现晒斑，当两个位点都存在有益变异时，这种保护作用最强。";
         }
         //皱纹和胶原蛋白降解
+        $zwjy = 0;
         if($data[16]["sum"]==0){
             $arr[16]["desc"] = "<span>得分0</span> 与皱纹相关的三个核心基因均未出现功能变异，蛋白行使功能正常，抗皱能力优于群体水平；";
         }else if($data[16]["sum"]=='-1'){
+            $zw = $zwjy+1;
             $arr[16]["desc"] = "<span>得分-1</span> 在EXOC2/IRF4基因中间区域存在一个风险变异T，不同人群的研究结果表明，与人群平均水平相比，存在风险变异的个体更容易出现皱纹/-1MMP1基因出现纯合突变，GG基因型个体降解胶原的能力明显增加，有45.4%的个体均是这种基因型，预示中国汉族人的抗胶原蛋白降解能力普遍偏低,胶原蛋白的降解加速致使机体更容易出现皱纹；";
         }else if($data[16]["sum"]=='1'){
             $arr[16]["desc"] = "<span>得分1</span> 在STXBP5L基因区域存在一个保护型变异A，与人群平均水平相比，存在保护型变异的个体更不容易出现皱纹。";
         }
         //糖基化作用
+        $tjh = 0;
         if($data[17]["sum"]==0){
             $arr[17]["desc"] = "<span>得分0正常</span>，与糖基化作用相关的核心基因均为出现功能性变异，蛋白行使功能正常，与群体水平持平；";
         }else if($data[17]["sum"]=='-1'){
+            $tjh = 1;
             $arr[17]["desc"] = "<span>得分-1</span> 出现一个核心基因变异，抗糖基化作用降低，皮肤容易老化；";
         }else if($data[17]["sum"]=='-2'){
+            $tjh = 1;
             $arr[17]["desc"] = "<span>得分-2</span> 出现2个核心基因变异，抗糖基化作用降低，皮肤容易老化；";
         }else if($data[17]["sum"]=='-3'){
+            $tjh = 1;
             $arr[17]["desc"] = "<span>得分-3</span> 出现3个核心基因变异，抗糖基化作用明显降低，皮肤容易老化，这种个体在人群中极少数存在。";
         }
         //美白基因
+        $mb = 0;
         if($data[18]["sum"]==0){
             $arr[18]["desc"] = "<span>得分0</span> 代表黑色素合成能力较高，属于先天肤色偏暗个体，比较容易晒黑，放在皮肤美白上的精力不必过多；";
         }else if($data[18]["sum"]=='-1'){
+            $mb = $mb+1;
             $arr[18]["desc"] = "<span>得分-1</span> 代表黑色素合成能力较高，属于先天肤色偏暗个体，比较容易晒黑，放在皮肤美白上的精力不必过多；";
         }else if($data[18]["sum"]=='1'){
             $arr[18]["desc"] = "<span>得分1</span> 代表黑色素合成能力中等，肤色正常，晒黑反应属于群体正常水平，注意防晒，适当使用美白产品能达到肌肤美白的效果；";
@@ -307,30 +338,104 @@ class IndexController extends Controller {
             $arr[18]["desc"] = "<span>得分8</span> 在黑色素合成通路中的大部分关键基因发生变异，肤色整体偏白，在紫外线照射时无法形成黑色素以保护皮肤免受损伤，增加了基底细胞癌的风险，这种个体在人群中的概率极低，应实时注意防止紫外线照射。";
         }
         //抗氧化能力
+        $kyh = 0;
         if($data[19]["sum"]=='-3' || $data[19]["sum"]=='-4'){
+            $kyh = 1;
             $arr[19]["desc"] = "得分".$data[19]["sum"]."极低";
         }else if($data[19]["sum"]=='-2'){
+            $kyh = 1;
             $arr[19]["desc"] = "<span>得分-2 很低</span>";
         }else if($data[19]["sum"]=='-1'){
+            $kyh = 1;
             $arr[19]["desc"] = "<span>得分-1 较低</span>";
         }else if($data[19]["sum"]=='0'){
             $arr[19]["desc"] = "<span>得分0 正常</span>";
         }else if($data[19]["sum"]=='1'){
+            $kyh = 2;
             $arr[19]["desc"] = "<span>得分1 较高</span>";
         }else if($data[19]["sum"]=='2'){
+            $kyh = 2;
             $arr[19]["desc"] = "<span>得分2 很高</span>";
         }
         //皮肤锁水能力
         if($data[20]["sum"]=='-1'){
             $arr[20]["desc"] = "<span>得分".$data[20]["sum"]."锁水能力一般</span>";
+            $arr[ss]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ss]["desc"] ="皮肤锁水能力正常";
         }else if($data[20]["sum"]=='0'){
             $arr[20]["desc"] = "<span>得分0 锁水能力正常</span>";
+            $arr[ss]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ss]["desc"] ="皮肤锁水能力正常";
         }else if($data[20]["sum"]=='1'){
             $arr[20]["desc"] = "<span>得分1 锁水能力很高</span>";
+            $arr[ss]["img"] ="<img src='".$src."/green.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ss]["desc"] ="皮肤锁水能力提升";
         }else if($data[20]["sum"]=='-2' || $data[20]["sum"]=='-3'){
             $arr[19]["desc"] = "<span>得分".$data[20]["sum"]."锁水能力很低</span>";
+            if($data[20]["sum"]=='-2'){
+                $arr[ss]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+                $arr[ss]["desc"] ="皮肤锁水能力一般";
+            }
+            if($data[20]["sum"]=='-3'){
+                $arr[ss]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+                $arr[ss]["desc"] ="皮肤锁水能力较差";
+            }
         }else if($data[20]["sum"] <= -4){
             $arr[20]["desc"] = "<span>得分".$data[20]["sum"]."锁水能力极低</span>";
+            $arr[ss]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[ss]["desc"] ="皮肤锁水能力差";
+        }
+
+        $glh = $mb+$rsb;//光老化
+        if($glh==2){
+            $arr[glh]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[glh]["desc"] ="很容易光老化";
+        }else if($glh==1){
+            $arr[glh]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[glh]["desc"] ="容易光老化";
+        }else{
+            $arr[glh]["img"] ="<img src='".$src."/gray.png'><img src='".$src."/gray.png'>";
+            $arr[glh]["desc"] ="不容易光老化";
+        }
+
+        $zw = $ypsc+$yww+$zwjy;//皱纹
+        if(zw==3){
+            $arr[zw]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[zw]["desc"] ="很容易长皱纹";
+        }else if(zw==2){
+            $arr[zw]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[zw]["desc"] ="容易光长皱纹";
+        }else if(zw==1){
+            $arr[zw]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[zw]["desc"] ="较容易长皱纹";
+        }else{
+            $arr[zw]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[zw]["desc"] ="不容易长皱纹";
+        }
+
+        if($tjh == 0 && $kyh ==0){
+            $arr[ksl]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ksl]["desc"] ="抗衰老能力正常";
+        }
+        else if($tjh == 1 && $kyh ==0){
+            $arr[ksl]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ksl]["desc"] ="抗衰老能力弱";
+        }
+        else if($tjh == 0 && $kyh ==1){
+            $arr[ksl]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ksl]["desc"] ="抗衰老能力弱";
+        }
+        else if($tjh == 1 && $kyh ==1){
+            $arr[ksl]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[ksl]["desc"] ="抗衰老能力很弱";
+        }
+        else if($tjh == 1 && $kyh ==2){
+            $arr[ksl]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/green.png'alt=''>";
+            $arr[ksl]["desc"] ="抗衰老能力一般";
+        }
+        else if($tjh == 0 && $kyh ==2){
+            $arr[ksl]["img"] ="<img src='".$src."/green.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ksl]["desc"] ="抗衰老能力强";
         }
         return $arr;
     }

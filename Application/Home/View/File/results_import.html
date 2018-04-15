@@ -19,7 +19,8 @@
                         <li class="sl-custom-file">
                             <label for=""></label>
                             <input type="button" value="选择文件" class="btn-file"/>
-                            <input type="file" class="ui-input-file file_content" />
+                            <input type="file" id="file_formData" class="ui-input-file file_content"  accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                            <span id="show_formData"></span>
                         </li>
                         <li>
                             <a status="data" href="javascript:;" class="btn-sub import_file">提交</a>
@@ -80,7 +81,8 @@
                             <li class="sl-custom-file">
                                 <label for=""></label>
                                 <input type="button" value="选择文件" class="btn-file"/>
-                                <input type="file" class="ui-input-file file_content" />
+                                <input type="file" id="file_form" class="ui-input-file file_content"  accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                                <span id="show_form"></span>
                             </li>
                             <li>
                                 <a status="user" href="javascript:;" class="btn-sub import_file">提交</a>
@@ -104,8 +106,6 @@
                         <th>电话</th>
                         <th>身份证号</th>
                         <th>邮箱</th>
-                        <th>企业编码</th>
-                        <th>产品ID</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -117,8 +117,6 @@
                         <td>13123456789</td>
                         <td>123456789987654321</td>
                         <td>123456789@qq.com</td>
-                        <td>W1243</td>
-                        <td>CP123</td>
                     </tr>
                     <tr>
                         <td>ERT1254321324</td>
@@ -128,8 +126,6 @@
                         <td>13123456789</td>
                         <td>123456789987654321</td>
                         <td>123456789@qq.com</td>
-                        <td>W1243</td>
-                        <td>RE234</td>
                     </tr>
                     </tbody>
                 </table>
@@ -145,7 +141,8 @@
                             <li class="sl-custom-file">
                                 <label for=""></label>
                                 <input type="button" value="选择文件" class="btn-file"/>
-                                <input type="file" class="ui-input-file file_content" />
+                                <input type="file" id="file_product" class="ui-input-file file_content"  accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                                <span id="show_product"></span>
                             </li>
                             <li>
                                 <a status="product" href="javascript:;" class="btn-sub import_file">提交</a>
@@ -196,7 +193,8 @@
                             <li class="sl-custom-file">
                                 <label for=""></label>
                                 <input type="button" value="选择文件" class="btn-file"/>
-                                <input type="file" class="ui-input-file file_content" />
+                                <input type="file" id="file_project" class="ui-input-file file_content"  accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                                <span id="show_project"></span>
                             </li>
                             <li>
                                 <a status="project" href="javascript:;" class="btn-sub import_file">提交</a>
@@ -243,7 +241,8 @@
                             <li class="sl-custom-file">
                                 <label for=""></label>
                                 <input type="button" value="选择文件" class="btn-file"/>
-                                <input type="file" class="ui-input-file file_content" />
+                                <input type="file" id="file_site" class="ui-input-file file_content"  accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                                <span id="show_site"></span>
                             </li>
                             <li>
                                 <a status="site" href="javascript:;" class="btn-sub import_file">提交</a>

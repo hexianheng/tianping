@@ -475,6 +475,14 @@ html {
   margin-top: 10px;
   background: #67c7f1;
 }
+.box05 .table05 table .img {
+  width: 100px;
+  height: 22px;
+}
+.box05 .table05 table .img img {
+  width: 12px;
+  height: 12px;
+}
 .box05 .box05-foot ul {
   width: 80%;
   height: 100%;

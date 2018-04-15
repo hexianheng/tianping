@@ -17,7 +17,7 @@ if(userId == "" || token == ""){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
-                html += "<td><a href='../../Public/pdf/"+obj.code+".pdf'>" + obj.pruductName + "（可下载）</a></td>";
+                html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
@@ -61,7 +61,7 @@ function checkList(num){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
-                html += "<td><a href='../../Public/pdf/"+obj.code+".pdf'>" + obj.pruductName + "（可下载）</a></td>";
+                html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
@@ -98,7 +98,7 @@ $("#search").click(function(){
                     html += "<td>" + obj.pruductName + "（不可下载）</td>";
                     html += "<td>未审核</td>";
                 }else if(obj.status == '2'){
-                    html += "<td><a href='../../Public/pdf/"+obj.code+".pdf'>" + obj.pruductName + "（可下载）</a></td>";
+                    html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
                     html += "<td>已审核</td>";
                 }else if(obj.status == '3'){
                     html += "<td>" + obj.pruductName + "（不可下载）</td>";
@@ -142,7 +142,7 @@ function whereCheckSearch(where,num){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
-                html += "<td><a href='../../Public/pdf/"+obj.code+".pdf'>" + obj.pruductName + "（可下载）</a></td>";
+                html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
@@ -187,6 +187,7 @@ $("#download_btn").click(function(){
 
     var codeStr=$("#download").val();
     ajax("/Report/downloadZip",{"userId":userId,"token":token,"codeStr":codeStr},function(result){
+        console.log(result)
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
@@ -197,4 +198,8 @@ $("#download_btn").click(function(){
 
 function url(code) {
     parent.location.href = CONFIG['path']+"/Index/report_mf/code/"+code+"/userId/"+userId+"/token/"+token;
+}
+
+function pdf(code){
+    parent.location.href = "../../Public/pdf/"+code+".pdf";
 }
