@@ -187,10 +187,10 @@ $("#download_btn").click(function(){
 
     var codeStr=$("#download").val();
     ajax("/Report/downloadZip",{"userId":userId,"token":token,"codeStr":codeStr},function(result){
-        console.log(result)
         if(result["code"] == 0){
+            location.href = CONFIG['path']+result["data"]["path"];
+        }else{
             alert(result["msg"])
-            location.reload();
         }
     });
 
