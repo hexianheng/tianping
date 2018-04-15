@@ -5,6 +5,7 @@
  * */
 namespace Home\Controller;
 use Home\Model\UserModel;
+use Home\Model\InvokModel;
 
 class CommonController extends BaseController {
 
