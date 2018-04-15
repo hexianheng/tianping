@@ -14,22 +14,22 @@ function ajax(url,data,success){
         url:CONFIG['path'] + url,
         data:data,
         datatype: "text",
-        success:function(data){
-            if(data['code'] == 0){
+        success:function(datas){
+            if(datas['code'] == 0){
                 //登陆成功
                 success(data)
-            }else if(data['code'] == 'A011' || data['code'] == 'A012'){
+            }else if(datas['code'] == 'A011' || datas['code'] == 'A012'){
                 delCookie("userId");
                 delCookie("token");
                 delCookie("uname");
                 delCookie("roleName");
                 parent.location.href = CONFIG['path'];
             }
-            else if(data['code'] == '-2'){
+            else if(datas['code'] == '-2'){
                 alert(data['msg'])
                 location.reload();
             }else{
-                alert(data['msg'])
+                alert(datas['msg'])
                 //parent.location.reload();
             }
         }
