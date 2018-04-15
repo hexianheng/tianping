@@ -260,11 +260,7 @@ class ReportModel extends BaseModel
         }
         $date = date('Y-m-d_H-i-s'). ".zip";
         $shell = "zip -j Public/zip/" . $date . " " . implode(" ",$pdfFile);
-        system($shell,$return);
-        if($return == 0){
-            return $this->returnMsg(0,['path' => "Public/zip/" . $date]);
-        }else{
-            return $this->returnMsg('A073');
-        }
+        shell_exec($shell);
+        return $this->returnMsg(0,['path' => "Public/zip/" . $date]);
     }
 }
