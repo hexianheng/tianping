@@ -17,7 +17,11 @@ if(userId == "" || token == ""){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
-                html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
+                if(obj.pdfPath ==""){
+                    html += "<td>" + obj.pruductName + "（PDF正在生成，请等待）</td>";
+                }else{
+                    html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
+                }
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
@@ -61,7 +65,11 @@ function checkList(num){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
-                html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
+                if(obj.pdfPath ==""){
+                    html += "<td>" + obj.pruductName + "（PDF正在生成，请等待）</td>";
+                }else{
+                    html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
+                }
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
@@ -98,7 +106,11 @@ $("#search").click(function(){
                     html += "<td>" + obj.pruductName + "（不可下载）</td>";
                     html += "<td>未审核</td>";
                 }else if(obj.status == '2'){
-                    html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
+                    if(obj.pdfPath ==""){
+                        html += "<td>" + obj.pruductName + "（PDF正在生成，请等待）</td>";
+                    }else{
+                        html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
+                    }
                     html += "<td>已审核</td>";
                 }else if(obj.status == '3'){
                     html += "<td>" + obj.pruductName + "（不可下载）</td>";
@@ -142,7 +154,11 @@ function whereCheckSearch(where,num){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
             }else if(obj.status == '2'){
-                html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
+                if(obj.pdfPath ==""){
+                    html += "<td>" + obj.pruductName + "（PDF正在生成，请等待）</td>";
+                }else{
+                    html += "<td><a onclick='pdf(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "（可下载）</a></td>";
+                }
                 html += "<td>已审核</td>";
             }else if(obj.status == '3'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
