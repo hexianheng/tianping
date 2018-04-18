@@ -413,7 +413,7 @@ class TemplateModel extends BaseModel {
             return $this->returnMsg('A060');
         }
         //验证rs码
-        $rsData = array_unique(array_column($data,0));
+        $rsData = array_filter(array_unique(array_column($data,0)));
         unset($rsData[0]);
         $sql = "select distinct origincode from item_locus_value where origincode in('" . implode("','",$rsData) . "')";
         $re = $this->sqlQuery('item_locus_value',$sql);
