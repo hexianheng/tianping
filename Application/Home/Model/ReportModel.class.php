@@ -119,11 +119,22 @@ class ReportModel extends BaseModel
             ];
             $a = $re['result'][$val['origincode']];
             $temp['value'] = $a;
+
+            $suffixA = '';
+            $suffixB = '';
+            if($val['wild_type'] == 'A' || $val['wild_type'] == 'C'){
+                $suffixA = 'ww';
+                $suffixB = 'mm';
+            }else if($val['wild_type'] == 'T' || $val['wild_type'] == 'G'){
+                $suffixA = 'mm';
+                $suffixB = 'ww';
+            }
+
             switch ($analysis[$a]){
                 case 'A':
-                    $temp['result'] = $val['risk_desc_ww'];
-                    $temp['genotype'] = $val['genotype_value_ww'];
-                    $temp['text'] = $val['ww_text'];
+                    $temp['result'] = $val['risk_desc_'.$suffixA];
+                    $temp['genotype'] = $val['genotype_value_'.$suffixA];
+                    $temp['text'] = $val[$suffixA.'_text'];
                     break;
                 case 'AT':
                     $temp['result'] = $val['risk_desc_wm'];
@@ -131,9 +142,9 @@ class ReportModel extends BaseModel
                     $temp['text'] = $val['wm_text'];
                     break;
                 case 'T':
-                    $temp['result'] = $val['risk_desc_mm'];
-                    $temp['genotype'] = $val['genotype_value_mm'];
-                    $temp['text'] = $val['mm_text'];
+                    $temp['result'] = $val['risk_desc_'.$suffixB];
+                    $temp['genotype'] = $val['genotype_value_'.$suffixB];
+                    $temp['text'] = $val[$suffixB.'_text'];
                     break;
                 case 'NA':
                     $temp['result'] = '--';
