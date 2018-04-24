@@ -33,4 +33,16 @@ class ApiController extends BaseController {
             $this->response($return,'json');
         }
     }
+
+    //查询编码状态
+    public function queryCode(){
+        $result = $this->apiObj->queryCode($this->data);
+        $this->response($result,'json');
+    }
+
+    //添加客户
+    public function addCustomer(){
+        $result = $this->apiObj->addCustomer($this->data);
+        $this->response($result,'json');
+    }
 }

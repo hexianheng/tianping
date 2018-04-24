@@ -89,6 +89,12 @@ return array(
         'A079' => 'phone is empty or phone error',
         'A080' => 'The phone or uniqueId is bound',
         'A081' => 'sign is empty or sign error',
+        'A082' => 'code is empty or code error',
+        'A083' => 'name is empty or name error',
+        'A084' => 'sex is empty or sex error',
+        'A085' => 'age is empty or age error',
+        'A086' => 'email is empty or email error',
+        'A087' => 'The code is bound',
         //hxh
         'B001' => '',
         //lyt
