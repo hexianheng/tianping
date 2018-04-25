@@ -142,6 +142,8 @@ class TemplateModel extends BaseModel {
                 $res = array_column($arr,0);
                 $sql = "select code from code where status = 3 and code in ('". implode("','",$res) ."')";
                 $reData = $this->sqlQuery('code',$sql);
+                $sql = "select code from customer where code in ('". implode("','",$res) ."')";
+                $delData = $this->sqlQuery('customer',$sql);
                 if(empty($reData)){
                     $result['errorData'] = $arr;
                     $result['msg'] = '无匹配编码';
@@ -152,6 +154,14 @@ class TemplateModel extends BaseModel {
                     $sqlHead = "insert into customer (". implode(',',$headerKey) .",addtime) values ";
                     $result['tableName'] = 'customer';
                     $reData = array_column($reData,'code');
+                    if(!empty($delData)){
+                        $delData = array_column($delData,'code');
+                        foreach ($reData as $reKey => $reVal){
+                            if(in_array($reVal,$delData)){
+                                unset($reData[$reKey]);
+                            }
+                        }
+                    }
                 }
                 break;
             //产品上传
