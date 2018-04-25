@@ -29,7 +29,7 @@ class CustomerModel extends BaseModel
             return $this->returnMsg(-3);
         }
         $start = $pageNum * ($page -1);
-        $sql = "select a.id,a.status,a.code,a.name,a.sex,a.age,a.phone,a.addtime,a.email,c.id as 'channelId',c.name as 'channelName',d.id as 'productId',d.name as 'productName',d.panel from customer AS a left join `code` as b on a.code = b.code left join channel as c on b.channelId = c.id left join product as d on b.productId = d.id ". $where ." order by a.id desc limit $start,$pageNum";
+        $sql = "select a.id,a.status,a.code,a.name,a.sex,a.age,a.phone,a.addtime,a.email,a.address,c.id as 'channelId',c.name as 'channelName',d.id as 'productId',d.name as 'productName',d.panel from customer AS a left join `code` as b on a.code = b.code left join channel as c on b.channelId = c.id left join product as d on b.productId = d.id ". $where ." order by a.id desc limit $start,$pageNum";
         $re = $this->sqlQuery('customer',$sql);
         $result = [
             'data' => $re,

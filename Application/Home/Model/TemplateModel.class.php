@@ -15,7 +15,8 @@ class TemplateModel extends BaseModel {
             'age' => '年龄',
             'phone' => '电话',
             'IDcard' => '身份证号码',
-            'email' => '邮箱'
+            'email' => '邮箱',
+            'address' => '邮寄地址'
         ],
         //检测结果导入
         'data' => [
@@ -265,7 +266,12 @@ class TemplateModel extends BaseModel {
             $result['errorData'][] = $headerVal[6]. ' (' . $data[6] . ') ERROR';
             return $result;
         }
-        $data[7] = date('Y-m-d H:i:s');
+        //验证address
+        if($data[7] == ''){
+            $result['errorData'][] = $headerVal[6]. ' (' . $data[6] . ') ERROR';
+            return $result;
+        }
+        $data[8] = date('Y-m-d H:i:s');
         $result['code'] = 0;
         $result['sql'] = "('". implode("','",$data) ."')";
         return $result;

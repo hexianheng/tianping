@@ -95,6 +95,7 @@ return array(
         'A085' => 'age is empty or age error',
         'A086' => 'email is empty or email error',
         'A087' => 'The code is bound',
+        'A088' => 'address is empty',
         //hxh
         'B001' => '',
         //lyt
