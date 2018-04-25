@@ -48,7 +48,7 @@ function run($config,$pdfConf){
         //生成pdf
         $date = date("Y-m-d H:i:s");
         foreach ($re as $val){
-            $token = "/userId/root/token/". md5(date('Y-m-d H:i').'roottianping@admin.com');
+            $token = "/userId/root/token/". md5('roottianping@admin.com');
             $shell = $pdfConf['wkhtmltopdf'] . $pdfConf['webPath'] . $val['code'] . $token . $pdfConf['path'] .$val['code'] .'.pdf';
             system($shell, $result);
             if($result !== 0){
