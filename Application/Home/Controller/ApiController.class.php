@@ -8,7 +8,6 @@ use Home\Model\ApiModel;
 use Home\Model\InvokModel;
 class ApiController extends BaseController {
 
-    private $obj;
     private $apiObj;
     private $data;
 
