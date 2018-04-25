@@ -29,6 +29,7 @@ function sql($config,$baseName,$sql){
         //array_push(要存入的数组，要存的值)
         array_push($arr,$row);
     }
+    echo date('Y-m-d H:i:s');
     var_dump($arr);
     //4.关闭连接
     mysqli_close($connect);
