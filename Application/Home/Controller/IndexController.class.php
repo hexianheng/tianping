@@ -4,10 +4,9 @@
  * author：PeiYun Wang
  * */
 namespace Home\Controller;
-use Think\Controller;
 use Home\Model\ReportModel;
-use Home\Controller\CommonController;
-class IndexController extends Controller {
+use Home\Model\UserModel;
+class IndexController extends BaseController {
 
     //首页
     /**
@@ -194,8 +193,13 @@ class IndexController extends Controller {
 
     //美肤产品报告
     public function report_mf(){
-        $obj = new CommonController();
-        $obj->checkToken();
+        $userId = I('userId');
+        $token = I('token');
+        $obj = new UserModel();
+        $return = $obj->checkToken($userId,$token);
+        if($return['code'] !== 0){
+            $this->response($return,'json');
+        }
         $data = [
             'code' => I('get.code')
         ];
