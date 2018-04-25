@@ -121,4 +121,86 @@ class ApiModel extends BaseModel {
         $this->sqlUpdate('code',['status'=>3]," code = '$data[code]'");
         return $this->returnMsg(0);
     }
+
+    //获取已绑定的编码列表
+    public function getCode($data){
+        //唯一请求ID
+        if($data['uniqueId'] == ''){
+            return $this->returnMsg('A078');
+        }
+        //验证唯一请求ID是否绑定
+        $sql = "select phone from bind_customer where uniqueId = '" . md5($data['uniqueId'].$data['appKey']) . "'";
+        $re = $this->sqlQuery('bind_customer',$sql);
+        if(empty($re)) {
+            return $this->returnMsg('A089');
+        }
+        $sql = "select a.`code`,c.`name` from customer as a left join `code` as b on a.`code` = b.`code` left join product as c on b.productId = c.id where a.phone = '" .$re[0]['phone']. "'";
+        $re = $this->sqlQuery('customer',$sql);
+        return empty($re) ? $this->returnMsg(-3) : $this->returnMsg(0,$re);
+    }
+
+    /* *
+     * 获取已绑定编码的详细数据
+     * return status
+     * 0：用户信息待上传
+     * 1：检测结果待上传
+     * 2：检测结果待分析
+     * 3：分析结果待审核
+     * 4：分析结果审核拒绝
+     * 5：分析结果审核通过
+     * */
+    public function getCodeDetail($data){
+        $result = [
+            'code' =>   $data['code'],
+            'status' => 0
+        ];
+        //唯一请求ID
+        if($data['uniqueId'] == ''){
+            return $this->returnMsg('A078');
+        }
+        //验证编码
+        if($data['code'] == ''){
+            return $this->returnMsg('A082');
+        }
+        //验证唯一请求ID是否绑定
+        $sql = "select phone from bind_customer where uniqueId = '" . md5($data['uniqueId'].$data['appKey']) . "'";
+        $re = $this->sqlQuery('bind_customer',$sql);
+        if(empty($re)) {
+            return $this->returnMsg('A089');
+        }
+        //验证编码是否绑定客户
+        $sql = "select id from customer where code = '$data[code]' and phone = '".$re[0]['phone']."'";
+        $re = $this->sqlQuery('customer',$sql);
+        if(empty($re)){
+            return $this->returnMsg(0,$result);
+        }
+        //验证检测结果是否上传
+        $sql = "select id from detection where code = '$data[code]'";
+        $re = $this->sqlQuery('customer',$sql);
+        if(empty($re)){
+            $result['status'] = 1;
+            return $this->returnMsg(0,$result);
+        }
+        //验证检测结果是否分析并获取分析状态
+        $sql = "select * from analytic_result where code = '$data[code]'";
+        $re = $this->sqlQuery('analytic_result',$sql);
+        if(empty($re)){
+            $result['status'] = 2;
+            return $this->returnMsg(0,$result);
+        }else{
+            switch ($re[0]['status']){
+                case 1:
+                    $result['status'] = 3;
+                    break;
+                case 2:
+                    $result['status'] = 5;
+                    $result['pdfPath'] = $re[0]['pdfPath'] == '' ? 'pdf生成中' : C("URL").$re[0]['pdfPath'];
+                    break;
+                case 3:
+                    $result['status'] = 4;
+                    break;
+            }
+            return $this->returnMsg(0,$result);
+        }
+    }
 }

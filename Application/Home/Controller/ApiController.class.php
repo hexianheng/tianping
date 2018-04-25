@@ -18,12 +18,6 @@ class ApiController extends BaseController {
         $this->checkApi($this->data);
     }
 
-    //绑定微信号与客户
-    public function bindCustomer(){
-        $result = $this->apiObj->bindCustomer($this->data);
-        $this->response($result,'json');
-    }
-
     //验证外部api请求
     public function checkApi($data){
         $obj = new InvokModel();
@@ -31,6 +25,12 @@ class ApiController extends BaseController {
         if($return['code'] !== 0){
             $this->response($return,'json');
         }
+    }
+
+    //绑定微信号与客户
+    public function bindCustomer(){
+        $result = $this->apiObj->bindCustomer($this->data);
+        $this->response($result,'json');
     }
 
     //查询编码状态
@@ -42,6 +42,18 @@ class ApiController extends BaseController {
     //添加客户
     public function addCustomer(){
         $result = $this->apiObj->addCustomer($this->data);
+        $this->response($result,'json');
+    }
+
+    //获取绑定的编码列表
+    public function getCode(){
+        $result = $this->apiObj->getCode($this->data);
+        $this->response($result,'json');
+    }
+
+    //获取绑定编码的详细数据
+    public function getCodeDetail(){
+        $result = $this->apiObj->getCodeDetail($this->data);
         $this->response($result,'json');
     }
 }

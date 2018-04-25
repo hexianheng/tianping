@@ -96,6 +96,8 @@ return array(
         'A086' => 'email is empty or email error',
         'A087' => 'The code is bound',
         'A088' => 'address is empty',
+        'A089' => 'Unbound uniqueId',
+        'A090' => 'Unbound code',
         //hxh
         'B001' => '',
         //lyt
