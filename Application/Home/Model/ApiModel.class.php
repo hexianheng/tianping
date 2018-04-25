@@ -47,7 +47,7 @@ class ApiModel extends BaseModel {
         if($data['code'] == ''){
             return $this->returnMsg('A082');
         }
-        $sql = "select code from code where code = '$data[code]' and status = 3";
+        $sql = "select code from code where code = '$data[code]' and status = 2";
         $re = $this->sqlQuery('code',$sql);
         if(!empty($re)){
             $result['isExist'] = 1;
@@ -91,7 +91,11 @@ class ApiModel extends BaseModel {
         if($data['email'] == '' || !strstr($data['email'],'@') || !strstr($data['email'],'.')){
             return $this->returnMsg('A086');
         }
-        $sql = "select code from code where code = '$data[code]' and status = 3";
+        //验证address
+        if($data['address'] == ''){
+            return $this->returnMsg('A088');
+        }
+        $sql = "select code from code where code = '$data[code]' and status = 2";
         $re = $this->sqlQuery('code',$sql);
         if(empty($re)){
             return $this->returnMsg('A082');
@@ -110,9 +114,11 @@ class ApiModel extends BaseModel {
             'phone' => $data['phone'],
             'email' => $data['email'],
             'idcard' => $data['idCard'],
-            'addtime' => date('Y-m-d H:i:s')
+            'addtime' => date('Y-m-d H:i:s'),
+            'address' => $data['address']
         ];
         $this->sqlInsert('customer',$addData);
+        $this->sqlUpdate('code',['status'=>3]," code = '$data[code]'");
         return $this->returnMsg(0);
     }
 }
