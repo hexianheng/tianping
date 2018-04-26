@@ -99,6 +99,8 @@ return array(
         'A089' => 'Unbound uniqueId',
         'A090' => 'Unbound code',
         'A091' => '编码状态不合法',
+        'A092' => 'expressCompany is empty',
+        'A093' => 'expressNumber is empty',
         //hxh
         'B001' => '',
         //lyt

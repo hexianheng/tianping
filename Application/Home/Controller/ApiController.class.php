@@ -56,4 +56,16 @@ class ApiController extends BaseController {
         $result = $this->apiObj->getCodeDetail($this->data);
         $this->response($result,'json');
     }
+
+    //更新客户回寄地址
+    public function updAddress(){
+        $result = $this->apiObj->updAddress($this->data);
+        $this->response($result,'json');
+    }
+
+    //更新回寄单
+    public function updateReturnMail(){
+        $result = $this->apiObj->updateReturnMail($this->data);
+        $this->response($result,'json');
+    }
 }

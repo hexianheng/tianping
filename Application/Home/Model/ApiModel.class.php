@@ -203,4 +203,60 @@ class ApiModel extends BaseModel {
             return $this->returnMsg(0,$result);
         }
     }
+
+    public function updAddress($data){
+        //唯一请求ID
+        if($data['uniqueId'] == ''){
+            return $this->returnMsg('A078');
+        }
+        //验证编码
+        if($data['code'] == ''){
+            return $this->returnMsg('A082');
+        }
+        //验证address
+        if($data['address'] == ''){
+            return $this->returnMsg('A088');
+        }
+        //验证唯一请求ID是否绑定
+        $sql = "select phone from bind_customer where uniqueId = '" . md5($data['uniqueId'].$data['appKey']) . "'";
+        $re = $this->sqlQuery('bind_customer',$sql);
+        if(empty($re)) {
+            return $this->returnMsg('A089');
+        }
+        //验证编码是否绑定客户
+        $sql = "select id from customer where code = '$data[code]' and phone = '".$re[0]['phone']."'";
+        $re = $this->sqlQuery('customer',$sql);
+        if(empty($re)){
+            return $this->returnMsg('A090');
+        }
+        $sql = "update customer set address = '$data[address]' where id = ". $re[0]['id'];
+        $this->sqlQuery('customer',$sql);
+        return $this->returnMsg(0);
+    }
+
+    public function updateReturnMail($data){
+        //验证快递公司
+        if($data['expressCompany'] == ''){
+            return $this->returnMsg('A092');
+        }
+        //验证快递单号
+        if($data['expressNumber'] == ''){
+            return $this->returnMsg('A093');
+        }
+        //验证唯一请求ID是否绑定
+        $sql = "select phone from bind_customer where uniqueId = '" . md5($data['uniqueId'].$data['appKey']) . "'";
+        $re = $this->sqlQuery('bind_customer',$sql);
+        if(empty($re)) {
+            return $this->returnMsg('A089');
+        }
+        //验证编码是否绑定客户
+        $sql = "select id from customer where code = '$data[code]' and phone = '".$re[0]['phone']."'";
+        $re = $this->sqlQuery('customer',$sql);
+        if(empty($re)){
+            return $this->returnMsg('A090');
+        }
+        $sql = "update customer set expressCompany = '$data[expressCompany]',expressNumber = '$data[expressNumber]' where id = ". $re[0]['id'];
+        $this->sqlQuery('customer',$sql);
+        return $this->returnMsg(0);
+    }
 }
