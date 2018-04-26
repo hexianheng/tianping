@@ -52,7 +52,7 @@ class CustomerModel extends BaseModel
 
 
     //修改客户状态
-    public function updStatus($idStr,$status){
+    public function updStatus($codeArr,$status){
         //定义短信内容
         $smsMessage = [
             2 => 84127, //样本采集盒送出
@@ -66,10 +66,10 @@ class CustomerModel extends BaseModel
         if($status == '' || (!in_array($status,[2,3,4,5,6,7]))){
             return $this->returnMsg('A068');
         }
-        $idArr = explode('|',$idStr);
-        $sql = "select id,name,phone from customer where id in ('" . implode("','",$idArr) . "')";
+        $codeArr = explode('|',$codeArr);
+        $sql = "select id,name,phone from customer where code in ('" . implode("','",$codeArr) . "')";
         $re = $this->sqlQuery('customer',$sql);
-        if(empty($re) || count($idArr) != count($re)){
+        if(empty($re) || count($codeArr) != count($re)){
             return $this->returnMsg('A067');
         }
 
@@ -82,7 +82,7 @@ class CustomerModel extends BaseModel
             return $this->returnMsg('A069');
         }
 
-        $sql = "update customer set status = $status where id in ('" . implode("','",$idArr) . "')";
+        $sql = "update customer set status = $status where code in ('" . implode("','",$codeArr) . "')";
         $this->sqlQuery('customer',$sql);
         return $this->returnMsg(0);
     }

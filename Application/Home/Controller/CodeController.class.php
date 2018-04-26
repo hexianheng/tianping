@@ -74,11 +74,12 @@ class CodeController extends CommonController
         $this->response($result,'json');
     }
 
-    //分组编码出库
+    //分组编码分发/出库（2：分发，3：出库）
     public function groupOut(){
         $data = [
             'mid' => I('post.userId'),
             'group' => I('post.group'),
+            'status' => I('post.status')
         ];
         $obj = new CodeModel();
         $result = $obj->groupOut($data);

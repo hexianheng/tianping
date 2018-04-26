@@ -209,19 +209,25 @@ class CodeModel extends BaseModel
         if($data['group'] == ''){
             return $this->returnMsg('A042');
         }else{
-            $where = " `group` = '$data[group]' and status = 1";
+            //验证states
+            $updData = [
+                'mid' => $data['mid'],
+                'mtime' => date('Y-m-d H:i:s')
+            ];
+            if($data['status'] == '' || !in_array($data['status'],[2,3])){
+                return $this->returnMsg('A091');
+            }else if($data['status'] == 2){
+                $where = " `group` = '$data[group]' and status = 1";
+            }else{
+                $where = " `group` = '$data[group]' and status = 2";
+            }
+            $updData['status'] = $data['status'];
             $sql = "select id from code where " . $where;
             $re = $this->sqlQuery('code',$sql);
             if(empty($re)){
                 return $this->returnMsg('A042');
             }
         }
-
-        $updData = [
-            'status' => 2,
-            'mid' => $data['mid'],
-            'mtime' => date('Y-m-d H:i:s')
-        ];
         $this->sqlUpdate('code',$updData,$where);
         return $this->returnMsg(0);
     }

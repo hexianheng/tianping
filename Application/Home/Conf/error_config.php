@@ -98,6 +98,7 @@ return array(
         'A088' => 'address is empty',
         'A089' => 'Unbound uniqueId',
         'A090' => 'Unbound code',
+        'A091' => '编码状态不合法',
         //hxh
         'B001' => '',
         //lyt
