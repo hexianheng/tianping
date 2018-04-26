@@ -101,6 +101,8 @@ return array(
         'A091' => '编码状态不合法',
         'A092' => 'expressCompany is empty',
         'A093' => 'expressNumber is empty',
+        'A094' => 'answer is empty or answer error',
+        'A095' => 'titleId error',
         //hxh
         'B001' => '',
         //lyt

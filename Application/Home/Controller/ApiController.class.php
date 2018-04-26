@@ -68,4 +68,10 @@ class ApiController extends BaseController {
         $result = $this->apiObj->updReturnMail($this->data);
         $this->response($result,'json');
     }
+
+    //记录问卷回复
+    public function recordAnswer(){
+        $result = $this->apiObj->recordAnswer($this->data);
+        $this->response($result,'json');
+    }
 }

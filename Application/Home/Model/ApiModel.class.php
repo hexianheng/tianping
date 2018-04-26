@@ -235,6 +235,14 @@ class ApiModel extends BaseModel {
     }
 
     public function updReturnMail($data){
+        //唯一请求ID
+        if($data['uniqueId'] == ''){
+            return $this->returnMsg('A078');
+        }
+        //验证编码
+        if($data['code'] == ''){
+            return $this->returnMsg('A082');
+        }
         //验证快递公司
         if($data['expressCompany'] == ''){
             return $this->returnMsg('A092');
@@ -257,6 +265,48 @@ class ApiModel extends BaseModel {
         }
         $sql = "update customer set expressCompany = '$data[expressCompany]',expressNumber = '$data[expressNumber]' where id = ". $re[0]['id'];
         $this->sqlQuery('customer',$sql);
+        return $this->returnMsg(0);
+    }
+
+    public function recordAnswer($data){
+        //唯一请求ID
+        if($data['uniqueId'] == ''){
+            return $this->returnMsg('A078');
+        }
+        //答案
+        if($data['answer'] == ''){
+            return $this->returnMsg('A094');
+        }else{
+            $answer = json_decode($data['answer'],true);
+            if(empty($answer)){
+                return $this->returnMsg('A094');
+            }
+            $titleIdArr = array_column($answer,'titleId');
+            $sql = "select id from title where id in ('" . implode("','",$titleIdArr) . "')";
+            $re = $this->sqlQuery('title',$sql);
+            if(empty($re) || count($re) != count($titleIdArr)){
+                print_r($titleIdArr);die;
+                return $this->returnMsg('A095');
+            }
+        }
+        //验证唯一请求ID是否绑定
+        $sql = "select phone from bind_customer where uniqueId = '" . md5($data['uniqueId'].$data['appKey']) . "'";
+        $re = $this->sqlQuery('bind_customer',$sql);
+        if(empty($re)) {
+            return $this->returnMsg('A089');
+        }
+        $addData = [
+            'uniqueId' => md5($data['uniqueId'].$data['appKey']),
+            'answerjson' => $data['answer']
+        ];
+        $sql = "select id from answer where uniqueId = '". md5($data['uniqueId'].$data['appKey']) ."'";
+        $re = $this->sqlQuery('answer',$sql);
+        if(empty($re)){
+            $this->sqlInsert('answer',$addData);
+        }else{
+            $sql = "update answer set answerjson = '$data[answer]' where uniqueId = '". md5($data['uniqueId'].$data['appKey']) ."'";
+            $this->sqlQuery('answer',$sql);
+        }
         return $this->returnMsg(0);
     }
 }
