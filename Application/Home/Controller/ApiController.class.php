@@ -64,8 +64,8 @@ class ApiController extends BaseController {
     }
 
     //更新回寄单
-    public function updateReturnMail(){
-        $result = $this->apiObj->updateReturnMail($this->data);
+    public function updReturnMail(){
+        $result = $this->apiObj->updReturnMail($this->data);
         $this->response($result,'json');
     }
 }

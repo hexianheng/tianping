@@ -234,7 +234,7 @@ class ApiModel extends BaseModel {
         return $this->returnMsg(0);
     }
 
-    public function updateReturnMail($data){
+    public function updReturnMail($data){
         //验证快递公司
         if($data['expressCompany'] == ''){
             return $this->returnMsg('A092');
