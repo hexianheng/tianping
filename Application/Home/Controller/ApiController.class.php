@@ -13,7 +13,7 @@ class ApiController extends BaseController {
 
     public function __construct(){
         parent::__construct();
-        $this->data = json_decode($GLOBALS['HTTP_RAW_POST_DATA'],1);
+        $this->data = json_decode(file_get_contents("php://input"),1);
         $this->apiObj = new ApiModel();
         $this->checkApi($this->data);
     }

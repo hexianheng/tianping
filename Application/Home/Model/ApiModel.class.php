@@ -289,7 +289,6 @@ class ApiModel extends BaseModel {
             $sql = "select id from title where id in ('" . implode("','",$titleIdArr) . "')";
             $re = $this->sqlQuery('title',$sql);
             if(empty($re) || count($re) != count($titleIdArr)){
-                print_r($titleIdArr);die;
                 return $this->returnMsg('A095');
             }
         }
