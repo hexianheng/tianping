@@ -103,6 +103,8 @@ return array(
         'A093' => 'expressNumber is empty',
         'A094' => 'answer is empty or answer error',
         'A095' => 'titleId error',
+        'A096' => 'answerType is empty or answerType error',
+        'A097' => 'A questionnaire has been answered',
         //hxh
         'B001' => '',
         //lyt

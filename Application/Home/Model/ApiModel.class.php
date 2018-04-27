@@ -273,6 +273,10 @@ class ApiModel extends BaseModel {
         if($data['uniqueId'] == ''){
             return $this->returnMsg('A078');
         }
+        //验证答案分类
+        if($data['answerType'] == '' || !in_array($data['answerType'],[1,2])){
+            return $this->returnMsg('A096');
+        }
         //答案
         if($data['answer'] == ''){
             return $this->returnMsg('A094');
@@ -297,16 +301,15 @@ class ApiModel extends BaseModel {
         }
         $addData = [
             'uniqueId' => md5($data['uniqueId'].$data['appKey']),
-            'answerjson' => $data['answer']
+            'answerjson' => $data['answer'],
+            'type' => $data['answerType']
         ];
-        $sql = "select id from answer where uniqueId = '". md5($data['uniqueId'].$data['appKey']) ."'";
+        $sql = "select id from answer where type = '$data[answerType]' and uniqueId = '". md5($data['uniqueId'].$data['appKey']) ."'";
         $re = $this->sqlQuery('answer',$sql);
-        if(empty($re)){
-            $this->sqlInsert('answer',$addData);
-        }else{
-            $sql = "update answer set answerjson = '$data[answer]' where uniqueId = '". md5($data['uniqueId'].$data['appKey']) ."'";
-            $this->sqlQuery('answer',$sql);
+        if(!empty($re)){
+            return $this->returnMsg('A097');
         }
+        $this->sqlInsert('answer',$addData);
         return $this->returnMsg(0);
     }
 }
