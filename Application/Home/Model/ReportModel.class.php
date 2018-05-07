@@ -76,25 +76,25 @@ class ReportModel extends BaseModel
         //定义分析逻辑
         $analysis = [
             'A' => 'A',
-            'C' => 'A',
+            'T' => 'A',
             'AA' => 'A',
-            'CC' => 'A',
-            'AC' => 'A',
-            'CA' => 'A',
-            'AT' => 'AT',
-            'AG' => 'AT',
-            'CT' => 'AT',
-            'CG' => 'AT',
-            'TA' => 'AT',
-            'TC' => 'AT',
-            'GA' => 'AT',
-            'GC' => 'AT',
-            'T' => 'T',
-            'G' => 'T',
-            'TT' => 'T',
-            'GG' => 'T',
-            'TG' => 'T',
-            'GT' => 'T',
+            'TT' => 'A',
+            'AT' => 'A',
+            'TA' => 'A',
+            'AC' => 'AC',
+            'CA' => 'AC',
+            'AG' => 'AC',
+            'GA' => 'AC',
+            'TC' => 'AC',
+            'CT' => 'AC',
+            'TG' => 'AC',
+            'GT' => 'AC',
+            'C' => 'C',
+            'G' => 'C',
+            'CC' => 'C',
+            'GG' => 'C',
+            'CG' => 'C',
+            'GC' => 'C',
             'NA' => 'NA'
         ];
 
@@ -122,10 +122,10 @@ class ReportModel extends BaseModel
 
             $suffixA = '';
             $suffixB = '';
-            if($val['wild_type'] == 'A' || $val['wild_type'] == 'C'){
+            if($val['wild_type'] == 'A' || $val['wild_type'] == 'T'){
                 $suffixA = 'ww';
                 $suffixB = 'mm';
-            }else if($val['wild_type'] == 'T' || $val['wild_type'] == 'G'){
+            }else if($val['wild_type'] == 'C' || $val['wild_type'] == 'G'){
                 $suffixA = 'mm';
                 $suffixB = 'ww';
             }
@@ -136,12 +136,12 @@ class ReportModel extends BaseModel
                     $temp['genotype'] = $val['genotype_value_'.$suffixA];
                     $temp['text'] = $val[$suffixA.'_text'];
                     break;
-                case 'AT':
+                case 'AC':
                     $temp['result'] = $val['risk_desc_wm'];
                     $temp['genotype'] = $val['genotype_value_wm'];
                     $temp['text'] = $val['wm_text'];
                     break;
-                case 'T':
+                case 'C':
                     $temp['result'] = $val['risk_desc_'.$suffixB];
                     $temp['genotype'] = $val['genotype_value_'.$suffixB];
                     $temp['text'] = $val[$suffixB.'_text'];
