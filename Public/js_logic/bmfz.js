@@ -12,7 +12,8 @@ if(userId == "" || token == ""){
             html += "<td>" + obj.group + "</td>";
             html += "<td>" + obj.countCode + "</td>";
             html += "<td class='operation'><a class='edit btn04'onclick='excel("+obj.group+")'>导出</a>  ";
-            html += "<a class='edit btn04' onclick='groupout("+obj.group+")'>分发</a></td></tr>";
+            html += "<a class='edit btn04' onclick='groupout("+obj.group+")'>分发</a> ";
+            html += "<a class='edit btn04' onclick='checkout("+obj.group+")'>出库</a></td></tr>";
         });
         $("#data").append(html);
         var num_max = result['page'];
@@ -37,7 +38,8 @@ function groupList(num){
             html += "<td>" + obj.group + "</td>";
             html += "<td>" + obj.countCode + "</td>";
             html += "<td class='operation'><a class='edit btn04' onclick='excel("+obj.group+")'>导出</a>  ";
-            html += "<a class='edit btn04' onclick='groupout("+obj.group+")'>分发</a></td></tr>";
+            html += "<a class='edit btn04' onclick='groupout("+obj.group+")'>分发</a> ";
+            html += "<a class='edit btn04' onclick='checkout("+obj.group+")'>出库</a></td></tr>";
         });
         $("#data").html(html);
     });
@@ -69,7 +71,7 @@ $("#allExcel").click(function () {
 
 function groupout(group) {
     if(confirm("确定分发吗")){
-        ajax("/Code/groupOut",{"userId":userId,"token":token,"group":group},function(result){
+        ajax("/Code/groupOut",{"userId":userId,"token":token,"group":group,"status":2},function(result){
             if(result["code"] == 0){
                 alert(result["msg"])
                 location.reload();
@@ -78,30 +80,33 @@ function groupout(group) {
     }else{
         return false;
     }
-    /*$('.pop_layer').show();
-    //产品下拉
-    ajax("/Product/productSelect",{"userId":userId,"token":token},function(result){
-        var html_p = "";
-        $.each(result["data"], function(idx, obj) {
-            html_p += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
-        });
-        $("#productId").html(html_p);
-    });
-    //渠道下拉
-    ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
-        var html_c = "";
-        $.each(result["data"], function(idx, obj) {
-            html_c += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
-        });
-        $("#channelId").html(html_c);
-    });
-    $("#replace").html("<a class='preview-btn btn05' id='btn' onclick='out("+group+")'>提交</a>");*/
+}
+
+function checkout(group){
+    $('.pop_layer').show();
+     //产品下拉
+     ajax("/Product/productSelect",{"userId":userId,"token":token},function(result){
+     var html_p = "";
+     $.each(result["data"], function(idx, obj) {
+     html_p += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
+     });
+     $("#productId").html(html_p);
+     });
+     //渠道下拉
+     ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
+     var html_c = "";
+     $.each(result["data"], function(idx, obj) {
+     html_c += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
+     });
+     $("#channelId").html(html_c);
+     });
+     $("#replace").html("<a class='preview-btn btn05' id='btn' onclick='out("+group+")'>提交</a>");
 }
 
 function out(group){
     var productId = $("#productId").val();
     var channelId = $("#channelId").val();
-    ajax("/Code/groupOut",{"userId":userId,"token":token,"group":group,"productId":productId,"channelId":channelId},function(result){
+    ajax("/Code/groupOut",{"userId":userId,"token":token,"group":group,"productId":productId,"channelId":channelId,"status":3},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();

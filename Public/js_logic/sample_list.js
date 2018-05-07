@@ -7,6 +7,7 @@ if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
     ajax("/Customer/customerList",{"userId":userId,"token":token},function(result){
+        console.log(result)
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
@@ -197,9 +198,9 @@ function del(id) {
 //批量更改状态，同时推送短信
 $("#status_btn").click(function(){
 
-    var idStr=$("#codes").val();
+    var codeArr=$("#codes").val();
     var status=$("#status").val();
-    ajax("/Customer/updStatus",{"userId":userId,"token":token,"idStr":idStr,"status":status},function(result){
+    ajax("/Customer/updStatus",{"userId":userId,"token":token,"codeArr":codeArr,"status":status},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
