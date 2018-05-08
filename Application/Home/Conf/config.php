@@ -19,7 +19,7 @@ return array(
         'port' => 6379
     ),
     //web地址
-    'URL' => "http://123.207.151.98/",
+    'URL' => "http://home.aitianping.com/",
     //wkhtmltopdf地址
     'wkhtmltopdf' => "/usr/local/src/wkhtmltox/bin/wkhtmltopdf --print-media-type --page-width 100mm --page-height 100mm --margin-top 0mm --margin-bottom 0mm --margin-right 0mm --margin-left 0mm --disable-smart-shrinking ",
     //项目地址

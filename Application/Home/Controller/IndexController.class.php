@@ -215,7 +215,7 @@ class IndexController extends BaseController {
         }
         $leida = implode(",",$leida);
         $arrData = $this->mf($result["data"]["result"]);
-        //print_r($arrData);
+        print_r($result);
 
         $url=C("URL");
         $this->assign("url",$url);

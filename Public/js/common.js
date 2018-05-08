@@ -1,7 +1,7 @@
 
 //定义配置
 var CONFIG = {
-    "path"  : "http://123.207.151.98/"
+    "path"  : "http://home.aitianping.com/"
 }
 
 

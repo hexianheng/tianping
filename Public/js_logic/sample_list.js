@@ -7,7 +7,6 @@ if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
     ajax("/Customer/customerList",{"userId":userId,"token":token},function(result){
-        console.log(result)
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
@@ -36,6 +35,7 @@ if(userId == "" || token == ""){
             }else if(obj.status == '7'){
                 html += "<td>报告延迟</td>";
             }
+            html += "<td>" + obj.address + "</td>";
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
         });
@@ -85,6 +85,7 @@ function checkList(num){
             }else if(obj.status == '7'){
                 html += "<td>报告延迟</td>";
             }
+            html += "<td>" + obj.address + "</td>";
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
         });
@@ -128,6 +129,7 @@ $("#search").click(function(){
                 }else if(obj.status == '7'){
                     html += "<td>报告延迟</td>";
                 }
+                html += "<td>" + obj.address + "</td>";
                 html += "<td>" + obj.addtime + "</td>";
                 html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
             });
@@ -177,6 +179,7 @@ function whereCheckSearch(where,num){
             }else if(obj.status == '7'){
                 html += "<td>报告延迟</td>";
             }
+            html += "<td>" + obj.address + "</td>";
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
         });
