@@ -89,13 +89,41 @@ class ReportModel extends BaseModel
             'CT' => 'AC',
             'TG' => 'AC',
             'GT' => 'AC',
+            'A-' => 'AC',
+            'C-' => 'AC',
+            'T-' => 'AC',
+            'G-' => 'AC',
+            '-A' => 'AC',
+            '-C' => 'AC',
+            '-T' => 'AC',
+            '-G' => 'AC',
             'C' => 'C',
             'G' => 'C',
             'CC' => 'C',
             'GG' => 'C',
             'CG' => 'C',
             'GC' => 'C',
-            'NA' => 'NA'
+            'NA' => 'NA',
+            '--' => '--'
+        ];
+        //定义解读逻辑
+        $openAnalysis = [
+            'AC' => 'AC',
+            'AG' => 'AC',
+            'TC' => 'AC',
+            'TG' => 'AC',
+            'CA' => 'CA',
+            'CT' => 'CA',
+            'GA' => 'CA',
+            'GT' => 'CA',
+            'A-' => 'A-',
+            'T-' => 'A-',
+            'C-' => 'C-',
+            'G-' => 'C-',
+            '-A' => '-A',
+            '-T' => '-A',
+            '-C' => '-C',
+            '-G' => '-C'
         ];
 
         $itemSql = "select b.projectStr from code as a left join product as b on a.productId = b.id where a.code = '$re[code]'";
@@ -120,31 +148,95 @@ class ReportModel extends BaseModel
             $a = $re['result'][$val['origincode']];
             $temp['value'] = $a;
 
-            $suffixA = '';
-            $suffixB = '';
-            if($val['wild_type'] == 'A' || $val['wild_type'] == 'T'){
-                $suffixA = 'ww';
-                $suffixB = 'mm';
-            }else if($val['wild_type'] == 'C' || $val['wild_type'] == 'G'){
-                $suffixA = 'mm';
-                $suffixB = 'ww';
+            $A = '';
+            $AC = '';
+            $C = '';
+            $line = '';
+            $NA = '';
+
+            switch ($openAnalysis[$val['wild_type'].$val['mutant_type']]){
+                case 'AC':
+                    $A = 'ww';
+                    $AC = 'wm';
+                    $C = 'mm';
+                    $line = '--';
+                    break;
+                case 'CA':
+                    $A = 'mm';
+                    $AC = 'wm';
+                    $C = 'ww';
+                    $line = '--';
+                    break;
+                case 'A-':
+                    $A = 'ww';
+                    $AC = '--';
+                    $C = '--';
+                    $line = 'mm';
+                    break;
+                case 'C-':
+                    $A = '--';
+                    $AC = '--';
+                    $C = 'ww';
+                    $line = 'mm';
+                    break;
+                case '-A':
+                    $A = 'mm';
+                    $AC = '--';
+                    $C = '--';
+                    $line = 'ww';
+                    break;
+                case '-C':
+                    $A = '--';
+                    $AC = '--';
+                    $C = 'mm';
+                    $line = 'ww';
+                    break;
             }
 
             switch ($analysis[$a]){
                 case 'A':
-                    $temp['result'] = $val['risk_desc_'.$suffixA];
-                    $temp['genotype'] = $val['genotype_value_'.$suffixA];
-                    $temp['text'] = $val[$suffixA.'_text'];
+                    if($A != '--'){
+                        $temp['result'] = $val['risk_desc_'.$A];
+                        $temp['genotype'] = $val['genotype_value_'.$A];
+                        $temp['text'] = $val[$A.'_text'];
+                    }else{
+                        $temp['result'] = '--';
+                        $temp['genotype'] = '--';
+                        $temp['text'] = '--';
+                    }
                     break;
                 case 'AC':
-                    $temp['result'] = $val['risk_desc_wm'];
-                    $temp['genotype'] = $val['genotype_value_wm'];
-                    $temp['text'] = $val['wm_text'];
+                    if($AC != '--'){
+                        $temp['result'] = $val['risk_desc_'.$AC];
+                        $temp['genotype'] = $val['genotype_value_'.$AC];
+                        $temp['text'] = $val[$AC.'_text'];
+                    }else{
+                        $temp['result'] = '--';
+                        $temp['genotype'] = '--';
+                        $temp['text'] = '--';
+                    }
                     break;
                 case 'C':
-                    $temp['result'] = $val['risk_desc_'.$suffixB];
-                    $temp['genotype'] = $val['genotype_value_'.$suffixB];
-                    $temp['text'] = $val[$suffixB.'_text'];
+                    if($C != '--'){
+                        $temp['result'] = $val['risk_desc_'.$C];
+                        $temp['genotype'] = $val['genotype_value_'.$C];
+                        $temp['text'] = $val[$C.'_text'];
+                    }else{
+                        $temp['result'] = '--';
+                        $temp['genotype'] = '--';
+                        $temp['text'] = '--';
+                    }
+                    break;
+                case '--':
+                    if($line != '--'){
+                        $temp['result'] = $val['risk_desc_'.$line];
+                        $temp['genotype'] = $val['genotype_value_'.$line];
+                        $temp['text'] = $val[$line.'_text'];
+                    }else{
+                        $temp['result'] = '--';
+                        $temp['genotype'] = '--';
+                        $temp['text'] = '--';
+                    }
                     break;
                 case 'NA':
                     $temp['result'] = '--';

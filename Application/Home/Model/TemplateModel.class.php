@@ -445,7 +445,7 @@ class TemplateModel extends BaseModel {
         }
         //校验数据，拼接sql
         $date = date("y-m-d H:i:s");
-        $allArr = ['A','C','T','G','AA','CC','TT','GG','AT','AG','CT','CG','NA','TA','GA','TC','GC','AC','CA','TG','GT'];
+        $allArr = ['A','C','T','G','AA','CC','TT','GG','AT','AG','CT','CG','NA','TA','GA','TC','GC','AC','CA','TG','GT','-A','-C','-T','-G','A-','C-','T-','G-','--'];
         $sql = [];
         for($i = 1; $i < count($end); $i++){
             $temp = [];
