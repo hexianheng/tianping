@@ -35,6 +35,7 @@ if(userId == "" || token == ""){
             }else if(obj.status == '7'){
                 html += "<td>报告延迟</td>";
             }
+            html += "<td>" + obj.address + "</td>";
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
         });
@@ -84,6 +85,7 @@ function checkList(num){
             }else if(obj.status == '7'){
                 html += "<td>报告延迟</td>";
             }
+            html += "<td>" + obj.address + "</td>";
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
         });
@@ -127,6 +129,7 @@ $("#search").click(function(){
                 }else if(obj.status == '7'){
                     html += "<td>报告延迟</td>";
                 }
+                html += "<td>" + obj.address + "</td>";
                 html += "<td>" + obj.addtime + "</td>";
                 html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
             });
@@ -176,6 +179,7 @@ function whereCheckSearch(where,num){
             }else if(obj.status == '7'){
                 html += "<td>报告延迟</td>";
             }
+            html += "<td>" + obj.address + "</td>";
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
         });
@@ -197,9 +201,9 @@ function del(id) {
 //批量更改状态，同时推送短信
 $("#status_btn").click(function(){
 
-    var idStr=$("#codes").val();
+    var codeArr=$("#codes").val();
     var status=$("#status").val();
-    ajax("/Customer/updStatus",{"userId":userId,"token":token,"idStr":idStr,"status":status},function(result){
+    ajax("/Customer/updStatus",{"userId":userId,"token":token,"codeArr":codeArr,"status":status},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
