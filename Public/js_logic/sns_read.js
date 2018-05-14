@@ -178,7 +178,7 @@ function whereCheckSearch(where,num){
 }
 
 function status(id,status){
-    ajax("/Report/updReport",{"userId":userId,"token":token,"idStr":id,"status":status},function(result){
+    ajax("/Report/updReport",{"userId":userId,"token":token,"codeStr":id,"status":status},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
@@ -188,9 +188,9 @@ function status(id,status){
 
 $("#status_btn").click(function(){
 
-    var idStr=$("#statusd").val();
+    var codeStr=$("#statusd").val();
     var status=$("#status").val();
-    ajax("/Report/updReport",{"userId":userId,"token":token,"idStr":idStr,"status":status},function(result){
+    ajax("/Report/updReport",{"userId":userId,"token":token,"codeStr":codeStr,"status":status},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
