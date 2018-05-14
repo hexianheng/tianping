@@ -63,7 +63,7 @@ class ReportController extends CommonController
     //审核解读结果
     public function updReport(){
         $data = [
-            'idStr' => I('post.idStr'),
+            'codeStr' => I('post.codeStr'),
             'status' => I('post.status')
         ];
         $obj = new ReportModel();

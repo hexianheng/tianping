@@ -320,11 +320,11 @@ class ReportModel extends BaseModel
         if($data['status'] == '' || (!in_array($data['status'],[2,3]))){
             return $this->returnMsg('A070');
         }
-        if($data['idStr'] == ''){
+        if($data['codeStr'] == ''){
             return $this->returnMsg('A071');
         }
-        $idArr = explode('|',$data['idStr']);
-        $sql = "select id,code from analytic_result where id in ('". implode("','",$idArr) ."') and status = 1";
+        $idArr = explode('|',$data['codeStr']);
+        $sql = "select id,code from analytic_result where code in ('". implode("','",$idArr) ."') and status = 1";
         $re = $this->sqlQuery('analytic_result',$sql);
         if(empty($re) || count($idArr) != count($re)){
             return $this->returnMsg('A071');
