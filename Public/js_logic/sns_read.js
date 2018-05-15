@@ -29,7 +29,7 @@ if(userId == "" || token == ""){
             }
             html += "<td>" + obj.ctime + "</td>";
             if(obj.status == '1'){
-                html += '<td><a class="btn04" id="xg_btn" onclick="status(&quot;'+obj.code+',2&quot;)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" onclick="statusY(&quot;'+obj.code+'&quot;)">审核通过</a >  <a class="btn04" onclick="statusN(&quot;'+obj.code+'&quot;)">审核未通过</a ></td></tr>';
             }else if(obj.status == '2'){
                 html += "<td>审核成功，可下载报告</td>";
             }else if(obj.status == '3'){
@@ -77,7 +77,7 @@ function checkList(num){
             }
             html += "<td>" + obj.ctime + "</td>";
             if(obj.status == '1'){
-                html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" onclick="statusY(&quot;'+obj.code+'&quot;)">审核通过</a >  <a class="btn04" onclick="statusN(&quot;'+obj.code+'&quot;)">审核未通过</a ></td></tr>';
             }else if(obj.status == '2'){
                 html += "<td>审核成功，可下载报告</td>";
             }else if(obj.status == '3'){
@@ -118,7 +118,7 @@ $("#search").click(function(){
                 }
                 html += "<td>" + obj.ctime + "</td>";
                 if(obj.status == '1'){
-                    html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+                    html += '<td><a class="btn04" id="xg_btn" onclick="statusY(&quot;'+obj.code+'&quot;)">审核通过</a >  <a class="btn04" onclick="statusN(&quot;'+obj.code+'&quot;)">审核未通过</a ></td></tr>';
                 }else if(obj.status == '2'){
                     html += "<td>审核成功，可下载报告</td>";
                 }else if(obj.status == '3'){
@@ -166,7 +166,7 @@ function whereCheckSearch(where,num){
             }
             html += "<td>" + obj.ctime + "</td>";
             if(obj.status == '1'){
-                html += '<td><a class="btn04" id="xg_btn" onclick="status('+obj.id+',2)">审核通过</a >  <a class="btn04" onclick="status('+obj.id+',3)">审核未通过</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" onclick="statusY(&quot;'+obj.code+'&quot;)">审核通过</a >  <a class="btn04" onclick="statusN(&quot;'+obj.code+'&quot;)">审核未通过</a ></td></tr>';
             }else if(obj.status == '2'){
                 html += "<td>审核成功，可下载报告</td>";
             }else if(obj.status == '3'){
@@ -177,8 +177,16 @@ function whereCheckSearch(where,num){
     });
 }
 
-function status(code,status){
-    ajax("/Report/updReport",{"userId":userId,"token":token,"codeStr":code,"status":status},function(result){
+function statusY(code){
+    ajax("/Report/updReport",{"userId":userId,"token":token,"codeStr":code,"status":2},function(result){
+        if(result["code"] == 0){
+            alert(result["msg"])
+            location.reload();
+        }
+    });
+}
+function statusN(code){
+    ajax("/Report/updReport",{"userId":userId,"token":token,"codeStr":code,"status":3},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
