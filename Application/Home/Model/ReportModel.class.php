@@ -339,7 +339,7 @@ class ReportModel extends BaseModel
                 $this->sqlQuery('pdf_task',$sql);
             }
 
-            $sql = "update analytic_result set status = $data[status] where id in ('". implode("','",$idArr) ."')";
+            $sql = "update analytic_result set status = $data[status] where code in ('". implode("','",$idArr) ."')";
             $this->sqlQuery('analytic_result',$sql);
 
             return $this->returnMsg(0);
