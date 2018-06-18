@@ -194,7 +194,9 @@ class ApiModel extends BaseModel {
                     break;
                 case 2:
                     $result['status'] = 5;
-                    $result['pdfPath'] = $re[0]['pdfPath'] == '' ? 'pdf生成中' : C("URL").$re[0]['pdfPath'];
+                    $result['pdfPath1'] = C("URL")."Index/report_mf/code/".$data['code']."/type/1";
+                    $result['pdfPath2'] = C("URL")."Index/report_mf/code/".$data['code']."/type/2";
+                    $result['pdfPath3'] = C("URL")."Index/report_mf/code/".$data['code']."/type/3";
                     break;
                 case 3:
                     $result['status'] = 4;

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+
+    <!--echarts 引入-->
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+    <!--echarts 引入-->
+    <script src="https://cdn.bootcss.com/echarts/3.8.4/echarts.js"></script>
+    <title>美肤长图</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/skin_long.css">
+</head>
+<body>
+    <div class="container-01">
+        <img src="__PUBLIC__/images/skin-img/1.jpg" alt="">
+        <img src="__PUBLIC__/images/skin-img/2.jpg" alt="">
+        <img src="__PUBLIC__/images/skin-img/3.jpg" alt="">
+        <img src="__PUBLIC__/images/skin-img/4.jpg" alt="">
+    </div>
+    
+    <div class="container-02">
+        <img src="__PUBLIC__/images/skin-img/5.png" alt="">
+        <p>
+            <label for="">姓名:</label>
+            <input type="text" value="{$result.data.name}">
+            <label for="">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</label>
+            <input type="text" value="{$result.data.sex}">
+        </p>
+        <p>
+            <label for="">年龄:</label>
+            <input type="text" value="{$result.data.age}">
+            <label for="">样本编码:</label>
+            <input type="text" value="{$result.data.code}">
+        </p>
+        <h3>根据您的基因检测结果，酷基因为您绘制了您的专属图谱：</h3>
+        <div class="legend">
+            <span class="span-1"></span>人群水平
+            <span class="span-2"></span>您的水平
+        </div>
+        <div id="radar" style="height: 300px; padding-top:0 "></div>
+        <div class="zy">0以上为优势作用，0以下为劣势作用</div>
+
+        <div class="content">
+            从图谱可以看出：
+            <ul>
+                <li>
+                    先天劣势项目: <span>糖基化保护作用、抗氧化能力两个方面存在劣势，风险明显高于群体水平，在本报告第二部分《个性化美肤指导方案》中，针对您两项劣势由专家从饮食搭配、外用护肤、生活习惯和治疗建议四个方面给出预防方案；</span>
+                </li>
+                <li>
+                    先天优势项目: <span>抗痤疮、抗皱能力、美白能力、皮肤锁水能力，参考本报告第三部分《基因检测结果解读》，对您的基因检测结果进行详细了解。</span>
+                </li>
+            </ul>
+        </div>
+        <div class="Trial">
+            <label for="">报告审核人:</label>
+            <input type="text" value="张影">
+            <label for="">报告日期:</label>
+            <input type="text" >
+        </div>
+    </div>
+    
+    <div class="container-03">
+        <img src="__PUBLIC__/images/skin-img/6.jpg" alt="">
+    </div>
+
+    <div class="container-04">
+        <img src="__PUBLIC__/images/skin-img/10.jpg" alt="">
+        <h1>糖基化保护作用</h1>
+        <p class="content">基因检测结果表明您的糖基化保护作用较弱，明显低于群体水平，是您日常保养和预防的重点，建议您合理安排日常饮食，保持良好生活习惯，定期进行外用护肤及医学美容治疗，以有效延缓皮肤衰老。</p>
+        <img src="__PUBLIC__/images/skin-img/7.jpg" alt="">
+    </div>
+
+    <div  class="container-04">
+        <img src="__PUBLIC__/images/skin-img/10.jpg" alt="">
+        <h1>抗氧化能力</h1>
+        <p class="content">基因检测结果表明您的抗氧化能力明显低于群体水平，是您日常保养和预防的重点。由于您的抗氧化能力先天较差，推荐您定期进行医学美容治疗，尽量按照下表中的饮食和生活习惯进行保养，以有延缓皮肤衰老。</p>
+        <img src="__PUBLIC__/images/skin-img/8.jpg" alt="">
+    </div>
+
+    <div  class="container-05">
+        <img src="__PUBLIC__/images/skin-img/9.jpg" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/11.png" alt="">
+        <div class="hava">
+            {$arrdata.11.desc}
+        </div>
+        <div id="column01" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.11.0.gene}</td>
+                <td>{$result.data.result.11.0.wild_type}</td>
+                <td>{$result.data.result.11.0.mutant_type}</td>
+                <td>{$result.data.result.11.0.value}</td>
+                <td>{$result.data.result.11.0.genotype}</td>
+                <td>{$result.data.result.11.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.11.1.gene}</td>
+                <td>{$result.data.result.11.1.wild_type}</td>
+                <td>{$result.data.result.11.1.mutant_type}</td>
+                <td>{$result.data.result.11.1.value}</td>
+                <td>{$result.data.result.11.1.genotype}</td>
+                <td>{$result.data.result.11.1.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/12.png" alt="">
+    </div>
+    <input type="hidden" id="11" value="{$arrdata.11.color}">
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/13.png" alt="">
+        <div class="hava">
+            {$arrdata.12.desc}
+        </div>
+        <div id="column02" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.12.0.gene}</td>
+                <td>{$result.data.result.12.0.wild_type}</td>
+                <td>{$result.data.result.12.0.mutant_type}</td>
+                <td>{$result.data.result.12.0.value}</td>
+                <td>{$result.data.result.12.0.genotype}</td>
+                <td>{$result.data.result.12.0.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/14.png" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/15.png" alt="">
+        <div class="hava">
+            {$arrdata.13.desc}
+        </div>
+        <div id="column03" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.13.0.gene}</td>
+                <td>{$result.data.result.13.0.wild_type}</td>
+                <td>{$result.data.result.13.0.mutant_type}</td>
+                <td>{$result.data.result.13.0.value}</td>
+                <td>{$result.data.result.13.0.genotype}</td>
+                <td>{$result.data.result.13.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.13.1.gene}</td>
+                <td>{$result.data.result.13.1.wild_type}</td>
+                <td>{$result.data.result.13.1.mutant_type}</td>
+                <td>{$result.data.result.13.1.value}</td>
+                <td>{$result.data.result.13.1.genotype}</td>
+                <td>{$result.data.result.13.1.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.13.2.gene}</td>
+                <td>{$result.data.result.13.2.wild_type}</td>
+                <td>{$result.data.result.13.2.mutant_type}</td>
+                <td>{$result.data.result.13.2.value}</td>
+                <td>{$result.data.result.13.2.genotype}</td>
+                <td>{$result.data.result.13.2.num}</td>
+            </tr>
+
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/16.png" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/17.png" alt="">
+        <div class="hava">
+            {$arrdata.14.desc}
+        </div>
+        <div id="column04" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.14.0.gene}</td>
+                <td>{$result.data.result.14.0.wild_type}</td>
+                <td>{$result.data.result.14.0.mutant_type}</td>
+                <td>{$result.data.result.14.0.value}</td>
+                <td>{$result.data.result.14.0.genotype}</td>
+                <td>{$result.data.result.14.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.14.1.gene}</td>
+                <td>{$result.data.result.14.1.wild_type}</td>
+                <td>{$result.data.result.14.1.mutant_type}</td>
+                <td>{$result.data.result.14.1.value}</td>
+                <td>{$result.data.result.14.1.genotype}</td>
+                <td>{$result.data.result.14.1.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.14.2.gene}</td>
+                <td>{$result.data.result.14.2.wild_type}</td>
+                <td>{$result.data.result.14.2.mutant_type}</td>
+                <td>{$result.data.result.14.2.value}</td>
+                <td>{$result.data.result.14.2.genotype}</td>
+                <td>{$result.data.result.14.2.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/18.png" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/19.png" alt="">
+        <div class="hava">
+            {$arrdata.15.desc}
+        </div>
+        <div id="column05" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.15.0.gene}</td>
+                <td>{$result.data.result.15.0.wild_type}</td>
+                <td>{$result.data.result.15.0.mutant_type}</td>
+                <td>{$result.data.result.15.0.value}</td>
+                <td>{$result.data.result.15.0.genotype}</td>
+                <td>{$result.data.result.15.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.15.1.gene}</td>
+                <td>{$result.data.result.15.1.wild_type}</td>
+                <td>{$result.data.result.15.1.mutant_type}</td>
+                <td>{$result.data.result.15.1.value}</td>
+                <td>{$result.data.result.15.1.genotype}</td>
+                <td>{$result.data.result.15.1.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.15.2.gene}</td>
+                <td>{$result.data.result.15.2.wild_type}</td>
+                <td>{$result.data.result.15.2.mutant_type}</td>
+                <td>{$result.data.result.15.2.value}</td>
+                <td>{$result.data.result.15.2.genotype}</td>
+                <td>{$result.data.result.15.2.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.15.3.gene}</td>
+                <td>{$result.data.result.15.3.wild_type}</td>
+                <td>{$result.data.result.15.3.mutant_type}</td>
+                <td>{$result.data.result.15.3.value}</td>
+                <td>{$result.data.result.15.3.genotype}</td>
+                <td>{$result.data.result.15.3.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/20.png" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/21.png" alt="">
+        <div class="hava">
+            {$arrdata.16.desc}
+        </div>
+        <div id="column06" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.16.0.gene}</td>
+                <td>{$result.data.result.16.0.wild_type}</td>
+                <td>{$result.data.result.16.0.mutant_type}</td>
+                <td>{$result.data.result.16.0.value}</td>
+                <td>{$result.data.result.16.0.genotype}</td>
+                <td>{$result.data.result.16.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.16.1.gene}</td>
+                <td>{$result.data.result.16.1.wild_type}</td>
+                <td>{$result.data.result.16.1.mutant_type}</td>
+                <td>{$result.data.result.16.1.value}</td>
+                <td>{$result.data.result.16.1.genotype}</td>
+                <td>{$result.data.result.16.1.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.16.2.gene}</td>
+                <td>{$result.data.result.16.2.wild_type}</td>
+                <td>{$result.data.result.16.2.mutant_type}</td>
+                <td>{$result.data.result.16.2.value}</td>
+                <td>{$result.data.result.16.2.genotype}</td>
+                <td>{$result.data.result.16.2.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/22.png" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/23.png" alt="">
+        <div class="hava">
+            {$arrdata.17.desc}
+        </div>
+        <div id="column07" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.17.0.gene}</td>
+                <td>{$result.data.result.17.0.wild_type}</td>
+                <td>{$result.data.result.17.0.mutant_type}</td>
+                <td>{$result.data.result.17.0.value}</td>
+                <td>{$result.data.result.17.0.genotype}</td>
+                <td>{$result.data.result.17.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.17.1.gene}</td>
+                <td>{$result.data.result.17.1.wild_type}</td>
+                <td>{$result.data.result.17.1.mutant_type}</td>
+                <td>{$result.data.result.17.1.value}</td>
+                <td>{$result.data.result.17.1.genotype}</td>
+                <td>{$result.data.result.17.1.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.17.2.gene}</td>
+                <td>{$result.data.result.17.2.wild_type}</td>
+                <td>{$result.data.result.17.2.mutant_type}</td>
+                <td>{$result.data.result.17.2.value}</td>
+                <td>{$result.data.result.17.2.genotype}</td>
+                <td>{$result.data.result.17.2.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/24.png" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/25.png" alt="">
+        <div class="hava">
+            {$arrdata.18.desc}
+        </div>
+        <div id="column08" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.18.0.gene}</td>
+                <td>{$result.data.result.18.0.wild_type}</td>
+                <td>{$result.data.result.18.0.mutant_type}</td>
+                <td>{$result.data.result.18.0.value}</td>
+                <td>{$result.data.result.18.0.genotype}</td>
+                <td>{$result.data.result.18.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.18.1.gene}</td>
+                <td>{$result.data.result.18.1.wild_type}</td>
+                <td>{$result.data.result.18.1.mutant_type}</td>
+                <td>{$result.data.result.18.1.value}</td>
+                <td>{$result.data.result.18.1.genotype}</td>
+                <td>{$result.data.result.18.1.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.18.2.gene}</td>
+                <td>{$result.data.result.18.2.wild_type}</td>
+                <td>{$result.data.result.18.2.mutant_type}</td>
+                <td>{$result.data.result.18.2.value}</td>
+                <td>{$result.data.result.18.2.genotype}</td>
+                <td>{$result.data.result.18.2.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.18.3.gene}</td>
+                <td>{$result.data.result.18.3.wild_type}</td>
+                <td>{$result.data.result.18.3.mutant_type}</td>
+                <td>{$result.data.result.18.3.value}</td>
+                <td>{$result.data.result.18.3.genotype}</td>
+                <td>{$result.data.result.18.3.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.18.4.gene}</td>
+                <td>{$result.data.result.18.4.wild_type}</td>
+                <td>{$result.data.result.18.4.mutant_type}</td>
+                <td>{$result.data.result.18.4.value}</td>
+                <td>{$result.data.result.18.4.genotype}</td>
+                <td>{$result.data.result.18.4.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.18.5.gene}</td>
+                <td>{$result.data.result.18.5.wild_type}</td>
+                <td>{$result.data.result.18.5.mutant_type}</td>
+                <td>{$result.data.result.18.5.value}</td>
+                <td>{$result.data.result.18.5.genotype}</td>
+                <td>{$result.data.result.18.5.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.18.6.gene}</td>
+                <td>{$result.data.result.18.6.wild_type}</td>
+                <td>{$result.data.result.18.6.mutant_type}</td>
+                <td>{$result.data.result.18.6.value}</td>
+                <td>{$result.data.result.18.6.genotype}</td>
+                <td>{$result.data.result.18.6.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/26.png" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/27.png" alt="">
+        <div class="hava">
+            {$arrdata.19.desc}
+        </div>
+        <div id="column09" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.19.0.gene}</td>
+                <td>{$result.data.result.19.0.wild_type}</td>
+                <td>{$result.data.result.19.0.mutant_type}</td>
+                <td>{$result.data.result.19.0.value}</td>
+                <td>{$result.data.result.19.0.genotype}</td>
+                <td>{$result.data.result.19.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.19.1.gene}</td>
+                <td>{$result.data.result.19.1.wild_type}</td>
+                <td>{$result.data.result.19.1.mutant_type}</td>
+                <td>{$result.data.result.19.1.value}</td>
+                <td>{$result.data.result.19.1.genotype}</td>
+                <td>{$result.data.result.19.1.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.19.2.gene}</td>
+                <td>{$result.data.result.19.2.wild_type}</td>
+                <td>{$result.data.result.19.2.mutant_type}</td>
+                <td>{$result.data.result.19.2.value}</td>
+                <td>{$result.data.result.19.2.genotype}</td>
+                <td>{$result.data.result.19.2.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.19.3.gene}</td>
+                <td>{$result.data.result.19.3.wild_type}</td>
+                <td>{$result.data.result.19.3.mutant_type}</td>
+                <td>{$result.data.result.19.3.value}</td>
+                <td>{$result.data.result.19.3.genotype}</td>
+                <td>{$result.data.result.19.3.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.19.4.gene}</td>
+                <td>{$result.data.result.19.4.wild_type}</td>
+                <td>{$result.data.result.19.4.mutant_type}</td>
+                <td>{$result.data.result.19.4.value}</td>
+                <td>{$result.data.result.19.4.genotype}</td>
+                <td>{$result.data.result.19.4.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.19.5.gene}</td>
+                <td>{$result.data.result.19.5.wild_type}</td>
+                <td>{$result.data.result.19.5.mutant_type}</td>
+                <td>{$result.data.result.19.5.value}</td>
+                <td>{$result.data.result.19.5.genotype}</td>
+                <td>{$result.data.result.19.5.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/28.png" alt="">
+    </div>
+
+    <div  class="container-06">
+        <img src="__PUBLIC__/images/skin-img/29.png" alt="">
+        <div class="hava">
+            {$arrdata.20.desc}
+        </div>
+        <div id="column10" style="height:300px"></div>
+        <div class="legend">
+            <ul class="ul-01">
+                <li><span class="aa"></span>群体水平</li>
+                <li><span class="bb"></span>其他检测结果等级</li>
+                <li><span class="cc">≥</span>1优势逐渐增加</li>
+            </ul>
+            <ul class="ul-02">
+                <li><span class="dd"></span>受检者</li>
+                <li><span class="ee"></span>不考虑</li>
+                <li><span class="ff">≤</span>-1劣势逐渐增加</li>
+            </ul>
+        </div>
+        <table>
+            <tr>
+                <td>基因</td> <td>野生型</td>	<td>突变型</td>	<td>结果</td>	  <td>人群分布</td>	<td>作用</td>
+            </tr>
+
+            <tr>
+                <td>{$result.data.result.20.0.gene}</td>
+                <td>{$result.data.result.20.0.wild_type}</td>
+                <td>{$result.data.result.20.0.mutant_type}</td>
+                <td>{$result.data.result.20.0.value}</td>
+                <td>{$result.data.result.20.0.genotype}</td>
+                <td>{$result.data.result.20.0.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.20.1.gene}</td>
+                <td>{$result.data.result.20.1.wild_type}</td>
+                <td>{$result.data.result.20.1.mutant_type}</td>
+                <td>{$result.data.result.20.1.value}</td>
+                <td>{$result.data.result.20.1.genotype}</td>
+                <td>{$result.data.result.20.1.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.20.2.gene}</td>
+                <td>{$result.data.result.20.2.wild_type}</td>
+                <td>{$result.data.result.20.2.mutant_type}</td>
+                <td>{$result.data.result.20.2.value}</td>
+                <td>{$result.data.result.20.2.genotype}</td>
+                <td>{$result.data.result.20.2.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.20.3.gene}</td>
+                <td>{$result.data.result.20.3.wild_type}</td>
+                <td>{$result.data.result.20.3.mutant_type}</td>
+                <td>{$result.data.result.20.3.value}</td>
+                <td>{$result.data.result.20.3.genotype}</td>
+                <td>{$result.data.result.20.3.num}</td>
+            </tr>
+            <tr>
+                <td>{$result.data.result.20.4.gene}</td>
+                <td>{$result.data.result.20.4.wild_type}</td>
+                <td>{$result.data.result.20.4.mutant_type}</td>
+                <td>{$result.data.result.20.4.value}</td>
+                <td>{$result.data.result.20.4.genotype}</td>
+                <td>{$result.data.result.20.4.num}</td>
+            </tr>
+        </table>
+        <p>“+”优势作用；“-”劣势作用；“/”无作用</p>
+        <img src="__PUBLIC__/images/skin-img/30.png" alt="">
+    </div>
+
+    <div class="container-07">
+        <img src="__PUBLIC__/images/skin-img/31.jpg" alt="">
+        <img src="__PUBLIC__/images/skin-img/32.jpg" alt="">
+    </div>
+    <input type="hidden" id="hidden" value="{$leida}">
+    <script src="__PUBLIC__/js/jquery.js"></script>
+    <script src="__PUBLIC__/js/skin_img_long.js"></script>
+</body>
+</html>

@@ -185,13 +185,13 @@ html {
   padding-top: 1%;
 }
 .fengye2 .main .message li input {
-  color: #fff;
-  text-align: center;
   outline: none;
   border: none;
   border-radius: 0;
   background: #cdb4d1;
   border-bottom: 1px solid #fff;
+  color: #fff;
+  text-align: center;
 }
 .fengye2 .main .message li .long {
   width: 71%;
@@ -319,6 +319,7 @@ html {
 .main {
   width: 100%;
   height: 831px;
+  background: #f4f5f7;
   margin: 0 auto;
   clear: both;
   position: relative;
@@ -361,16 +362,16 @@ html {
   border-radius: 3px;
   background: #cfcfcf;
 }
-.main table {
+.main .tab_code {
   width: 90%;
   height: auto;
   margin: 0 auto;
 }
-.main table th {
+.main .tab_code th {
   color: #6896d3;
   border: 1px solid #000;
 }
-.main table td {
+.main .tab_code td {
   text-align: center;
   border: 1px solid #000;
 }
@@ -383,7 +384,7 @@ html {
   height: auto;
   text-indent: 28px;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 .main h6 {
   width: 100px;
@@ -402,6 +403,12 @@ html {
 .box05 {
   width: 100%;
   height: 100%;
+}
+.box05 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
 }
 .box05 .left {
   width: 60%;
@@ -465,16 +472,6 @@ html {
 .box05 .table05 table tr th {
   border-right: 1px solid #000;
 }
-.box05 .table05 td:nth-child(4),
-.box05 .table05 th:nth-child(4) {
-  border-right: none;
-}
-.box05 .box05-foot {
-  width: 100%;
-  height: 120px;
-  margin-top: 10px;
-  background: #67c7f1;
-}
 .box05 .table05 table .img {
   width: 100px;
   height: 22px;
@@ -483,19 +480,29 @@ html {
   width: 12px;
   height: 12px;
 }
+.box05 .table05 td:nth-child(4),
+.box05 .table05 th:nth-child(4) {
+  border-right: none;
+}
+.box05 .box05-foot {
+  width: 100%;
+  height: 90px;
+  margin-top: 10px;
+  background: #67c7f1;
+}
 .box05 .box05-foot ul {
   width: 80%;
   height: 100%;
   margin: 0 auto;
 }
 .box05 .box05-foot ul li {
-  height: 40px;
-  line-height: 40px;
+  height: 30px;
+  line-height: 30px;
 }
 .box05 .box05-foot ul li label {
   display: inline-block;
   margin-left: 30px;
-  color: #ffffff;
+  color: #fff;
 }
 .box05 .box05-foot ul li input {
   outline: none;
@@ -504,6 +511,7 @@ html {
   background: #67c7f1;
   border-bottom: 1px solid #fff;
   text-align: center;
+  color: #fff;
 }
 /*****第六页开始的表格，改变表头颜色******/
 /*****第六页开始的表格，改变表头颜色******/
@@ -511,6 +519,12 @@ html {
 .box06 {
   width: 100%;
   height: 100%;
+}
+.box06 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
 }
 .box06 .left {
   width: 60%;
@@ -573,6 +587,12 @@ html {
   width: 100%;
   height: 100%;
 }
+.box08 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
 .box08 .left {
   width: 60%;
   height: 215px;
@@ -633,6 +653,12 @@ html {
   width: 100%;
   height: 100%;
 }
+.box10 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
 .box10 .left {
   width: 60%;
   height: 215px;
@@ -656,16 +682,87 @@ html {
 .box10 .main span {
   color: #bc95a8;
 }
+.box10s {
+  width: 100%;
+  height: 100%;
+}
+.box10s .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.box10s .left {
+  width: 60%;
+  height: 215px;
+  background: #bc95a8;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box10s .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box10s .right img {
+  width: 100%;
+  height: 100%;
+}
+.box10s p {
+  width: 70%;
+  height: 120px;
+  color: #bc95a8;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box10s h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box10s table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box10s table thead {
+  text-align: center;
+  background: #bc95a8;
+  color: #fff;
+}
+.box10s table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box10s table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box10s table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
 /*第十页开始的底部图片*/
 .img_zindex {
   width: 100%;
   height: 200px;
-  background: url("../images/skin_image/35.jpg") no-repeat;
+  background: url("../images/skin_image/buchong.png") no-repeat;
   background-position: center center;
-  background-size: 230px 200px;
+  background-size: 200px 200px;
   position: absolute;
   bottom: 40px;
-  z-index: -1;
+}
+.box12 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
 }
 .box12 .left {
   width: 60%;
@@ -690,6 +787,78 @@ html {
 .box12 .main span {
   color: #907558;
 }
+.box12s {
+  width: 100%;
+  height: 100%;
+}
+.box12s .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.box12s .left {
+  width: 60%;
+  height: 215px;
+  background: #907558;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box12s .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box12s .right img {
+  width: 100%;
+  height: 100%;
+}
+.box12s p {
+  width: 70%;
+  height: 120px;
+  color: #907558;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box12s h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box12s table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box12s table thead {
+  text-align: center;
+  background: #907558;
+  color: #fff;
+}
+.box12s table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box12s table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box12s table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+.box14 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
 .box14 .left {
   width: 60%;
   height: 215px;
@@ -712,6 +881,78 @@ html {
 }
 .box14 .main span {
   color: #bc715e;
+}
+.box14s {
+  width: 100%;
+  height: 100%;
+}
+.box14s .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.box14s .left {
+  width: 60%;
+  height: 215px;
+  background: #bc715e;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box14s .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box14s .right img {
+  width: 100%;
+  height: 100%;
+}
+.box14s p {
+  width: 70%;
+  height: 120px;
+  color: #bc715e;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box14s h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box14s table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box14s table thead {
+  text-align: center;
+  background: #bc715e;
+  color: #fff;
+}
+.box14s table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box14s table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box14s table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+.box16 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
 }
 .box16 .left {
   width: 60%;
@@ -736,6 +977,78 @@ html {
 .box16 .main span {
   color: #f8cbc6;
 }
+.box16s {
+  width: 100%;
+  height: 100%;
+}
+.box16s .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.box16s .left {
+  width: 60%;
+  height: 215px;
+  background: #f8cbc6;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box16s .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box16s .right img {
+  width: 100%;
+  height: 100%;
+}
+.box16s p {
+  width: 70%;
+  height: 120px;
+  color: #f8cbc6;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box16s h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box16s table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box16s table thead {
+  text-align: center;
+  background: #f8cbc6;
+  color: #fff;
+}
+.box16s table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box16s table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box16s table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+.box18 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
 .box18 .left {
   width: 60%;
   height: 215px;
@@ -758,6 +1071,78 @@ html {
 }
 .box18 .main span {
   color: #dea3a5;
+}
+.box18s {
+  width: 100%;
+  height: 100%;
+}
+.box18s .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.box18s .left {
+  width: 60%;
+  height: 215px;
+  background: #dea3a5;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box18s .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box18s .right img {
+  width: 100%;
+  height: 100%;
+}
+.box18s p {
+  width: 70%;
+  height: 120px;
+  color: #dea3a5;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box18s h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box18s table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box18s table thead {
+  text-align: center;
+  background: #dea3a5;
+  color: #fff;
+}
+.box18s table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box18s table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box18s table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+.box20 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
 }
 .box20 .left {
   width: 60%;
@@ -782,6 +1167,78 @@ html {
 .box20 .main span {
   color: #d5b0b7;
 }
+.box20s {
+  width: 100%;
+  height: 100%;
+}
+.box20s .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.box20s .left {
+  width: 60%;
+  height: 215px;
+  background: #d5b0b7;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box20s .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box20s .right img {
+  width: 100%;
+  height: 100%;
+}
+.box20s p {
+  width: 70%;
+  height: 120px;
+  color: #d5b0b7;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box20s h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box20s table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box20s table thead {
+  text-align: center;
+  background: #d5b0b7;
+  color: #fff;
+}
+.box20s table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box20s table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box20s table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+.box22 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
 .box22 .left {
   width: 60%;
   height: 215px;
@@ -804,6 +1261,12 @@ html {
 }
 .box22 .main span {
   color: #c37c50;
+}
+.box24 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
 }
 .box24 .left {
   width: 60%;
@@ -828,6 +1291,78 @@ html {
 .box24 .main span {
   color: #bc95a8;
 }
+.box24s {
+  width: 100%;
+  height: 100%;
+}
+.box24s .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.box24s .left {
+  width: 60%;
+  height: 215px;
+  background: #bc95a8;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box24s .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box24s .right img {
+  width: 100%;
+  height: 100%;
+}
+.box24s p {
+  width: 70%;
+  height: 120px;
+  color: #bc95a8;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box24s h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box24s table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box24s table thead {
+  text-align: center;
+  background: #bc95a8;
+  color: #fff;
+}
+.box24s table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box24s table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box24s table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+.box27 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
 .box27 .left {
   width: 60%;
   height: 215px;
@@ -851,6 +1386,12 @@ html {
 .box27 .main span {
   color: #c68028;
 }
+.box30 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
 .box30 .left {
   width: 60%;
   height: 215px;
@@ -873,6 +1414,78 @@ html {
 }
 .box30 .main span {
   color: #f093a6;
+}
+.box30s {
+  width: 100%;
+  height: 100%;
+}
+.box30s .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.box30s .left {
+  width: 60%;
+  height: 215px;
+  background: #f093a6;
+  font-size: 14px;
+  float: left;
+  line-height: 215px;
+  color: white;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.box30s .right {
+  width: 38%;
+  height: 215px;
+  float: right;
+}
+.box30s .right img {
+  width: 100%;
+  height: 100%;
+}
+.box30s p {
+  width: 70%;
+  height: 120px;
+  color: #f093a6;
+  margin: 0 auto;
+  text-indent: 28px;
+  padding: 60px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box30s h3 {
+  text-align: center;
+  padding-top: 20px;
+}
+.box30s table {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+.box30s table thead {
+  text-align: center;
+  background: #f093a6;
+  color: #fff;
+}
+.box30s table thead tr td {
+  height: 30px;
+  font-size: 14px;
+}
+.box30s table tbody tr {
+  border-bottom: 1px solid #000;
+}
+.box30s table tbody td:nth-child(1) {
+  border-right: 1px solid #000;
+  width: 30px;
+  text-align: center;
+}
+.box32 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
 }
 .box32 .left {
   width: 60%;
@@ -910,6 +1523,12 @@ html {
   margin-top: 20px;
   display: inline-block;
   color: #fff;
+}
+.box33 .head {
+  width: 100%;
+  height: 215px;
+  margin-bottom: 10px;
+  clear: both;
 }
 .box33 .left {
   width: 60%;

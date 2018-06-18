@@ -7,12 +7,13 @@ if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
     ajax("/Report/userReportList",{"userId":userId,"token":token},function(result){
+        console.log(result)
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
-            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "</a></td>";
+            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;,&quot;"+1+"&quot;)'>" + obj.pruductName + "h5</a><a onclick='url(&quot;"+obj.code+"&quot;,&quot;"+2+"&quot;)'>" + obj.pruductName + "长图</a></td>";
             if(obj.status == '1'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
@@ -60,7 +61,7 @@ function checkList(num){
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
-            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "</a></td>";
+            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;,&quot;"+1+"&quot;)'>" + obj.pruductName + "h5</a><a onclick='url(&quot;"+obj.code+"&quot;,&quot;"+2+"&quot;)'>" + obj.pruductName + "长图</a></td>";
             if(obj.status == '1'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
@@ -101,7 +102,7 @@ $("#search").click(function(){
                 html += "<tr><td>" + obj.id + "</td>";
                 html += "<td>" + obj.code + "</td>";
                 html += "<td>" + obj.productId + "</td>";
-                html += "<td><a onclick='url(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "</a></td>";
+                html += "<td><a onclick='url(&quot;"+obj.code+"&quot;,&quot;"+1+"&quot;)'>" + obj.pruductName + "h5</a><a onclick='url(&quot;"+obj.code+"&quot;,&quot;"+2+"&quot;)'>" + obj.pruductName + "长图</a></td>";
                 if(obj.status == '1'){
                     html += "<td>" + obj.pruductName + "（不可下载）</td>";
                     html += "<td>未审核</td>";
@@ -149,7 +150,7 @@ function whereCheckSearch(where,num){
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.productId + "</td>";
-            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;)'>" + obj.pruductName + "</a></td>";
+            html += "<td><a onclick='url(&quot;"+obj.code+"&quot;,&quot;"+1+"&quot;)'>" + obj.pruductName + "h5</a><a onclick='url(&quot;"+obj.code+"&quot;,&quot;"+2+"&quot;)'>" + obj.pruductName + "长图</a></td>";
             if(obj.status == '1'){
                 html += "<td>" + obj.pruductName + "（不可下载）</td>";
                 html += "<td>未审核</td>";
@@ -220,8 +221,8 @@ $("#download_btn").click(function(){
 
 });
 
-function url(code) {
-    parent.location.href = CONFIG['path']+"/Index/report_mf/code/"+code+"/userId/"+userId+"/token/"+token;
+function url(code,type) {
+    parent.location.href = CONFIG['path']+"/Index/report_mf/code/"+code+"/userId/"+userId+"/token/"+token+"/type/"+type;
 }
 
 function pdf(code){
