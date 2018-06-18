@@ -240,14 +240,14 @@ class IndexController extends BaseController {
         }else{
             $arr = array("a"=>"cc", "b"=>"glh", "c"=>"ksl", "d"=>"qb", "e"=>"ss","f"=>"zw");
             shuffle($arr);
-            header("location:http://localhost:8080/gitjob/Public/images/share/".$arr[0]."/".$arrData[$arr[0]]["url"]);
+            header("location:http://home.aitianping.com/Public/images/share/".$arr[0]."/".$arrData[$arr[0]]["url"]);
         }
     }
 
     public function mf($data){
         $url=C("URL");
-        //$src = $url."/Public/images/skin_phone";
-        $src = "http://localhost:8080/gitjob/Public/images/skin-phone";
+        $src = $url."/Public/images/skin_phone";
+        //$src = "http://localhost:8080/gitjob/Public/images/skin-phone";
         //眼皮松弛
         $ypsc = 0;
         if($data[11]["sum"]==0){
