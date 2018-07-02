@@ -222,7 +222,8 @@ $("#download_btn").click(function(){
 });
 
 function url(code,type) {
-    parent.location.href = CONFIG['path']+"/Index/report_mf/code/"+code+"/userId/"+userId+"/token/"+token+"/type/"+type;
+    window.open(CONFIG['path']+"/Index/report_mf/code/"+code+"/userId/"+userId+"/token/"+token+"/type/"+type);
+    //parent.location.href = CONFIG['path']+"/Index/report_mf/code/"+code+"/userId/"+userId+"/token/"+token+"/type/"+type;
 }
 
 function pdf(code){

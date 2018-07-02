@@ -52,7 +52,7 @@ function channelList(num){
             }else{
                 html += "<td>正常</td>";
             }
-            html += "<td>" + obj.lable + "</td>";
+            html += "<td>" + obj.label + "</td>";
 
             html += "<td>" + obj.linkman + "</td>";
             html += "<td>" + obj.linkmanPhone + "</td>";

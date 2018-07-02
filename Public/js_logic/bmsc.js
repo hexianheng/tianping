@@ -29,13 +29,20 @@ if(userId == "" || token == ""){
 $("#btn").click(function(){
 
     var num = $("#num").val();
-    var productId = $("#productId").val();
-    var channelId = $("#channelId").val();
+    var r = /^\+?[1-9][0-9]*$/;
+    if(r.test(num)==false){
+        alert("必须为正整数");
+    }else{
+        var productId = $("#productId").val();
+        var channelId = $("#channelId").val();
         ajax("/Code/addCode",{"userId":userId,"token":token,"num":num,"productId":productId,"channelId":channelId},function(result){
             if(result['code'] == 0 ){
                 alert(result["msg"])
                 location.reload();
-            }        
+            }
         });
-
+    }
+});
+$("#outbtn").click(function(){
+    location.reload();
 });

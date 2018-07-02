@@ -87,6 +87,7 @@ function checkout(group){
      //产品下拉
      ajax("/Product/productSelect",{"userId":userId,"token":token},function(result){
      var html_p = "";
+         html_p += "<option value = ''>---请选择---</option>";
      $.each(result["data"], function(idx, obj) {
      html_p += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
      });
@@ -95,6 +96,7 @@ function checkout(group){
      //渠道下拉
      ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
      var html_c = "";
+         html_c += "<option value = ''>---请选择---</option>";
      $.each(result["data"], function(idx, obj) {
      html_c += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
      });

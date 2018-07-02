@@ -14,6 +14,7 @@ if(userId == "" || token == ""){
     //渠道下拉
     ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
         var html_c = "";
+            html_c += "<option value = ''>---请选择---</option>";
         $.each(result["data"], function(idx, obj) {
             html_c += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
         });
@@ -22,6 +23,7 @@ if(userId == "" || token == ""){
     //角色下拉
     ajax("/User/getSelectRole",{"userId":userId,"token":token},function(result){
         var html_u = "";
+            html_u += "<option value = ''>---请选择---</option>";
         $.each(result["data"], function(idx, obj) {
             html_u += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
         });
@@ -57,7 +59,7 @@ $("#btn").click(function(){
     ajax("/User/addUser",{"userId":userId,"token":token,"roleId":roleId,"userName":userName,"password":password,"phone":phone,"email":email,"sex":sex,"channelId":channelId,"job":job},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
-            location.reload();
+            location.href = CONFIG['path']+"Index/gly_list";
         }
     });
 
