@@ -17,7 +17,7 @@ if(userId == "" || token == ""){
             }else{
                 html += "<td>正常</td>";
             }
-            html += "<td>" + obj.text + "</td>";
+            html += '<td><a onclick="projectStr(&quot;'+obj.text+'&quot;)">查看详情</a ></td>';
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">更改状态</a ></td></tr>';
 
@@ -50,7 +50,7 @@ function projectList(num){
             }else{
                 html += "<td>正常</td>";
             }
-            html += "<td>" + obj.text + "</td>";
+            html += '<td><a onclick="projectStr(&quot;'+obj.text+'&quot;)">查看详情</a ></td>';
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">更改状态</a ></td></tr>';
 
@@ -81,7 +81,7 @@ $("#search").click(function(){
                     }else{
                         html += "<td>正常</td>";
                     }
-                    html += "<td>" + obj.text + "</td>";
+                    html += '<td><a onclick="projectStr(&quot;'+obj.text+'&quot;)">查看详情</a ></td>';
                     html += "<td>" + obj.addtime + "</td>";
                     html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">更改状态</a ></td></tr>';
 
@@ -115,7 +115,7 @@ function projectSearch(where,num){
             }else{
                 html += "<td>正常</td>";
             }
-            html += "<td>" + obj.text + "</td>";
+            html += '<td><a onclick="projectStr(&quot;'+obj.text+'&quot;)">查看详情</a ></td>';
             html += "<td>" + obj.addtime + "</td>";
             html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">更改状态</a ></td></tr>';
 
@@ -174,4 +174,8 @@ function updType(id) {
             }
         });
     }
+}
+
+function projectStr(text){
+    alert(text);
 }

@@ -193,13 +193,14 @@ class IndexController extends BaseController {
 
     //美肤产品报告
     public function report_mf(){
-        $userId = I('userId');
-        $token = I('token');
-        $obj = new UserModel();
-        $return = $obj->checkToken($userId,$token);
-        if($return['code'] !== 0){
-            $this->response($return,'json');
-        }
+        //$userId = I('userId');
+        //$token = I('token');
+        $type = I('type');
+        //$obj = new UserModel();
+        //$return = $obj->checkToken($userId,$token);
+        //if($return['code'] !== 0){
+        //    $this->response($return,'json');
+        //}
         $data = [
             'code' => I('get.code')
         ];
@@ -211,31 +212,53 @@ class IndexController extends BaseController {
             }
         }
         foreach ($result["data"]["result"] as $k => $v){
+            if($v["sum"]>0){
+                $v["sum"]=$v["sum"]+1;
+                $result["data"]["result"][$k]["sum_text"]=0;
+            }else if($v["sum"]==0){
+                $v["sum"]=$v["sum"]+1;
+                $result["data"]["result"][$k]["sum_text"]=0;
+            }else{
+                $result["data"]["result"][$k]["sum_text"]=1;
+            }
             $leida[] = $v["sum"];
+            $suggest[$k] = $v["sum"];
         }
         $leida = implode(",",$leida);
         $arrData = $this->mf($result["data"]["result"]);
-        print_r($result);
-
+        //print_r($suggest);
         $url=C("URL");
         $this->assign("url",$url);
         $this->assign("result",$result);
         $this->assign("leida",$leida);
+        $this->assign("suggest",$suggest);
         $this->assign("arrdata",$arrData);
-        $this->display('Report/report');
+        if($type==1){
+            $this->display('Report/report');
+        }else if($type==2){
+            $this->display('Report/skin_img');
+        }else{
+            $arr = array("a"=>"cc", "b"=>"glh", "c"=>"ksl", "d"=>"qb", "e"=>"ss","f"=>"zw");
+            shuffle($arr);
+            header("location:http://home.aitianping.com/Public/images/share/".$arr[0]."/".$arrData[$arr[0]]["url"]);
+        }
     }
 
     public function mf($data){
         $url=C("URL");
-        $src = $url."/Public/images/skin_image";
+        $src = $url."/Public/images/skin_phone";
+        //$src = "http://localhost:8080/gitjob/Public/images/skin-phone";
         //眼皮松弛
         $ypsc = 0;
         if($data[11]["sum"]==0){
+            // #6896d3 是蓝色[其他检测结果]，#5fb864 绿色【群体水平】，  #cfcfcf 灰色【不考虑】， #ca5048 红色【受检者
+            $arr[11]["color"] ="#cfcfcf,#cfcfcf,#cfcfcf,#ca5048,#6896d3,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf";
             $arr[11]["desc"] = "<span>得分0 正常</span>，与眼睑松弛相关的核心基因未发生保护型变异，蛋白质行使功能正常，与群体水平持平；";
-            $arr[11]["desc"] = "";
         }else if($data[11]["sum"]==1){
+            $arr[11]["color"] ="#cfcfcf,#cfcfcf,#cfcfcf,#ca5048,#6896d3,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf";
             $arr[11]["desc"] = "<span>得分1</span> 与眼睑松弛相关的核心基因COL1A2发生杂合（纯合）突变，导致眼皮松弛程度比群体水平降低26%（52%）/与眼睑松弛相关的核心基因TGIF1发生纯合突变，导致眼皮松弛程度比群体水平降低27~45%。";
         }else if($data[11]["sum"]==2){
+            $arr[11]["color"] ="#cfcfcf,#cfcfcf,#cfcfcf,#5fb864,#ca5048,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf,#cfcfcf";
             $arr[11]["desc"] = "<span>得分2</span> 与眼睑皮肤松弛相关的两个核心基因均发生保护型变异，与群体水平相比眼部皮肤不易出现松弛或下垂现象。/TGIF1基因发生风险变异导致眼睑松垂的风险增加。";
         }
         //鱼尾纹
@@ -252,33 +275,40 @@ class IndexController extends BaseController {
         //雀斑
         if($data[13]["sum"]==0){
             $arr[13]["desc"] = "<span>得分0 正常</span>，与亚洲人雀斑发生相关的两个核心基因均未发生风险变异，蛋白行使功能正常，与群体水平持平；";
-            $arr[qb]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[qb]["img"] ="<li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[qb]["url"] = "q4.jpg";
             $arr[qb]["desc"] ="不容易长雀斑";
         }else if($data[13]["sum"]=='-1'){
             $arr[13]["desc"] = "<span>得分-1</span> MC1R基因发生变异，风险等位基因A导致个体出现雀斑的风险增加/ASIP基因发生变异，风险等位基因T导致个体出现雀斑的风险增加；";
-            $arr[qb]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[qb]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[qb]["url"] = "q3.jpg";
             $arr[qb]["desc"] ="较容易长雀斑";
         }else if($data[13]["sum"]=='-2'){
             $arr[13]["desc"] = "<span>得分-2</span> 与亚洲人雀斑发生先关的两个核心基因均出现了风险变异，皮肤容易出现色素沉积或雀斑。";
-            $arr[qb]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[qb]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[qb]["url"] = "q2.jpg";
             $arr[qb]["desc"] ="容易长雀斑";
         }
         //痤疮
         if($data[14]["sum"]==0){
             $arr[14]["desc"] = "<span>得分0 正常</span>，与中国汉族痤疮发生的三个核心基因均未发生风险变异，蛋白行使功能正常，与群体水平持平；";
-            $arr[cc]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[cc]["img"] ="<li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[cc]["url"] = "c4.jpg";
             $arr[cc]["desc"] ="痤疮风险一般";
         }else if($data[14]["sum"]=='-1'){
             $arr[14]["desc"] = "<span>得分-1</span> DDB2基因发生变异，风险等位基因G导致个体患痤疮的风险增加/DDB2两个基因位点均发生变异，风险等位基因G导致个体患痤疮的风险明显增加/SELL基因发生变异，风险等位基因G导致个体患痤疮的风险增加；";
-            $arr[cc]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[cc]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[cc]["url"] = "c3.jpg";
             $arr[cc]["desc"] ="痤疮风险较高";
         }else if($data[14]["sum"]=='-2'){
             $arr[14]["desc"] = "<span>得分-2</span> DDB2基因发生变异，风险等位基因G导致个体患痤疮的风险增加/DDB2两个基因位点均发生变异，风险等位基因G导致个体患痤疮的风险明显增加/SELL基因发生变异，风险等位基因G导致个体患痤疮的风险增加；";
-            $arr[cc]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[cc]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[cc]["url"] = "c2.jpg";
             $arr[cc]["desc"] ="痤疮风险高";
         }else if($data[14]["sum"]=='1'){
             $arr[14]["desc"] = "<span>得分1</span> SELL基因发生保护型变异，等位基因A导致个体患痤疮的风险降低，19.6%的个体是这种基因型。";
-            $arr[cc]["img"] ="<img src='".$src."/green.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[cc]["img"] ="<li><img src='".$src."/lv.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[cc]["url"] = "c5.jpg";
             $arr[cc]["desc"] ="不容易长痤疮";
         }
         //日晒斑
@@ -364,81 +394,100 @@ class IndexController extends BaseController {
         //皮肤锁水能力
         if($data[20]["sum"]=='-1'){
             $arr[20]["desc"] = "<span>得分".$data[20]["sum"]."锁水能力一般</span>";
-            $arr[ss]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ss]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ss]["url"] = "s5.jpg";
             $arr[ss]["desc"] ="皮肤锁水能力正常";
         }else if($data[20]["sum"]=='0'){
             $arr[20]["desc"] = "<span>得分0 锁水能力正常</span>";
-            $arr[ss]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ss]["img"] ="<li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ss]["url"] = "s6.jpg";
             $arr[ss]["desc"] ="皮肤锁水能力正常";
         }else if($data[20]["sum"]=='1'){
             $arr[20]["desc"] = "<span>得分1 锁水能力很高</span>";
-            $arr[ss]["img"] ="<img src='".$src."/green.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ss]["img"] ="<li><img src='".$src."/lv.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ss]["url"] = "s7.jpg";
             $arr[ss]["desc"] ="皮肤锁水能力提升";
         }else if($data[20]["sum"]=='-2' || $data[20]["sum"]=='-3'){
             $arr[19]["desc"] = "<span>得分".$data[20]["sum"]."锁水能力很低</span>";
             if($data[20]["sum"]=='-2'){
-                $arr[ss]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+                $arr[ss]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+                $arr[ss]["url"] = "s4.jpg";
                 $arr[ss]["desc"] ="皮肤锁水能力一般";
             }
             if($data[20]["sum"]=='-3'){
-                $arr[ss]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+                $arr[ss]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+                $arr[ss]["url"] = "s3.jpg";
                 $arr[ss]["desc"] ="皮肤锁水能力较差";
             }
         }else if($data[20]["sum"] <= -4){
             $arr[20]["desc"] = "<span>得分".$data[20]["sum"]."锁水能力极低</span>";
-            $arr[ss]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[ss]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ss]["url"] = "s2.jpg";
             $arr[ss]["desc"] ="皮肤锁水能力差";
         }
 
         $glh = $mb+$rsb;//光老化
         if($glh==2){
-            $arr[glh]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[glh]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[glh]["url"] = "g1.jpg";
             $arr[glh]["desc"] ="很容易光老化";
         }else if($glh==1){
-            $arr[glh]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[glh]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[glh]["url"] = "g2.jpg";
             $arr[glh]["desc"] ="容易光老化";
         }else{
-            $arr[glh]["img"] ="<img src='".$src."/gray.png'><img src='".$src."/gray.png'>";
+            $arr[glh]["img"] ="<li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[glh]["url"] = "g3.jpg";
             $arr[glh]["desc"] ="不容易光老化";
         }
 
         $zw = $ypsc+$yww+$zwjy;//皱纹
         if(zw==3){
-            $arr[zw]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[zw]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[zw]["url"] = "z1.jpg";
             $arr[zw]["desc"] ="很容易长皱纹";
         }else if(zw==2){
-            $arr[zw]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[zw]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[zw]["url"] = "z2.jpg";
             $arr[zw]["desc"] ="容易光长皱纹";
         }else if(zw==1){
-            $arr[zw]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[zw]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[zw]["url"] = "z3.jpg";
             $arr[zw]["desc"] ="较容易长皱纹";
         }else{
-            $arr[zw]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[zw]["img"] ="<li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[zw]["url"] = "z4.jpg";
             $arr[zw]["desc"] ="不容易长皱纹";
         }
 
         if($tjh == 0 && $kyh ==0){
-            $arr[ksl]["img"] ="<img src='".$src."/gray.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ksl]["img"] ="<li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ksl]["url"] = "k6.jpg";
             $arr[ksl]["desc"] ="抗衰老能力正常";
         }
         else if($tjh == 1 && $kyh ==0){
-            $arr[ksl]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ksl]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ksl]["url"] = "k4.jpg";
             $arr[ksl]["desc"] ="抗衰老能力弱";
         }
         else if($tjh == 0 && $kyh ==1){
-            $arr[ksl]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ksl]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ksl]["url"] = "k4.jpg";
             $arr[ksl]["desc"] ="抗衰老能力弱";
         }
         else if($tjh == 1 && $kyh ==1){
-            $arr[ksl]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/red.png'alt=''>";
+            $arr[ksl]["img"] ="<li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ksl]["url"] = "k3.jpg";
             $arr[ksl]["desc"] ="抗衰老能力很弱";
         }
         else if($tjh == 1 && $kyh ==2){
-            $arr[ksl]["img"] ="<img src='".$src."/red.png'alt=''><img src='".$src."/green.png'alt=''>";
+            $arr[ksl]["img"] ="<li><img src='".$src."/lv.png'alt=''></li><li><img src='".$src."/03.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ksl]["url"] = "k5.jpg";
             $arr[ksl]["desc"] ="抗衰老能力一般";
         }
         else if($tjh == 0 && $kyh ==2){
-            $arr[ksl]["img"] ="<img src='".$src."/green.png'alt=''><img src='".$src."/gray.png'alt=''>";
+            $arr[ksl]["img"] ="<li><img src='".$src."/lv.png'alt=''></li><li><img src='".$src."/lv.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li><li><img src='".$src."/04.png'alt=''></li>";
+            $arr[ksl]["url"] = "k2.jpg";
             $arr[ksl]["desc"] ="抗衰老能力强";
         }
         return $arr;

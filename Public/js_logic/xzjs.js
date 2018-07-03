@@ -59,7 +59,7 @@ $("#btn").click(function(){
         	
         	if (result['code'] == 0) {
         		alert(result["msg"])
-				location.reload();
+				location.href = CONFIG['path']+"Index/js_list";
         	}
 
         })

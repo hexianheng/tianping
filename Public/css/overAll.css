@@ -1,0 +1,14 @@
+@charset "utf-8";
+/*------------// Overall //------------------*/
+body{font:12px/180% Arial,Helvetica,Verdana;color:#5a5a5a; margin:0; background:#FFF;}
+table,td{font:12px/180% Arial, "宋体",Helvetica, sans-serif,Verdana; }
+table{border-collapse:collapse; border-spacing:0; empty-cells:show; }
+th, td { border-collapse:collapse;padding: 0;}
+A:link{text-decoration:none; color:#58595b;}
+A:visited{text-decoration:none; color:#58595b;}
+A:hover{text-decoration:none; color:#206fd5;}
+img{ border:0; }
+div,p,img,ul,li,form,input,label,span,dl,dt,dd,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"] > input[type="button"]::-moz-focus-inner{   border:none;padding:0 }
+ol,ul,li{list-style-type:none;}
+html{-webkit-text-size-adjust:none;}

@@ -33,7 +33,7 @@ if(userId == "" || token == ""){
 			html += '<tr id="'+ obj.id +'" class="'+ obj.parentId +'" '+status+'>';
 			html+= '<td>'+tempStr+ labelTemp + obj.name +'</td>';
 			html+= '<td>' + obj.ctime + '</td>';
-			html+= '<td><a class="btn04" onclick="upd('+obj.id+')">修改</a> <a class="btn04" onclick="del('+obj.id+')">删除</a></td>';
+			html+= '<td><a class="btn04" onclick="upd('+obj.id+')">修改</a> <a class="btn04" onclick="del('+obj.id+','+obj.label+')">删除</a></td>';
 			html+= '</tr>';
 		});
 		html += "</table>";
@@ -90,14 +90,25 @@ function update(id){
 }
 
 
-function del(id) {
-	if (confirm("确定要删除吗？")) {
-		ajax("/User/delPermission",{"userId":userId,"token":token,"permissionId":id},function(result){
-			if(result["code"] == 0){
-				alert(result["msg"])
-				location.reload();
-			}
-		});
+function del(id,label) {
+	if(label != 1){
+		if (confirm("确定要删除吗？")) {
+			ajax("/User/delPermission",{"userId":userId,"token":token,"permissionId":id},function(result){
+				if(result["code"] == 0){
+					alert(result["msg"])
+					location.reload();
+				}
+			});
+		}
+	}else{
+		if (confirm("该项为父级权限，确定要删除吗？")) {
+			ajax("/User/delPermission",{"userId":userId,"token":token,"permissionId":id},function(result){
+				if(result["code"] == 0){
+					alert(result["msg"])
+					location.reload();
+				}
+			});
+		}
 	}
 }
 

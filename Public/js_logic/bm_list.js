@@ -11,8 +11,16 @@ if(userId == "" || token == ""){
             /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
-            html += "<td>" + obj.productName + "</td>";
-            html += "<td>" + obj.channelName + "</td>";
+            if(obj.productName==null){
+                html += "<td>未选择</td>";
+            }else{
+                html += "<td>" + obj.productName + "</td>";
+            }
+            if(obj.channelName==null){
+                html += "<td>未选择</td>";
+            }else{
+                html += "<td>" + obj.channelName + "</td>";
+            }
             html += "<td>" + obj.group + "</td>";
             if(obj.status == '1'){
                 html += "<td>未分发</td>";
@@ -60,8 +68,16 @@ $("#search").click(function(){
                 /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
                 html += "<tr><td>" + obj.id + "</td>";
                 html += "<td>" + obj.code + "</td>";
-                html += "<td>" + obj.productName + "</td>";
-                html += "<td>" + obj.channelName + "</td>";
+                if(obj.productName==null){
+                    html += "<td>未选择</td>";
+                }else{
+                    html += "<td>" + obj.productName + "</td>";
+                }
+                if(obj.channelName==null){
+                    html += "<td>未选择</td>";
+                }else{
+                    html += "<td>" + obj.channelName + "</td>";
+                }
                 html += "<td>" + obj.group + "</td>";
                 if(obj.status == '1'){
                     html += "<td>未分发</td>";
@@ -95,8 +111,16 @@ function codeList(num){
             /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
-            html += "<td>" + obj.productName + "</td>";
-            html += "<td>" + obj.channelName + "</td>";
+            if(obj.productName==null){
+                html += "<td>未选择</td>";
+            }else{
+                html += "<td>" + obj.productName + "</td>";
+            }
+            if(obj.channelName==null){
+                html += "<td>未选择</td>";
+            }else{
+                html += "<td>" + obj.channelName + "</td>";
+            }
             html += "<td>" + obj.group + "</td>";
             if(obj.status == '1'){
                 html += "<td>未分发</td>";
@@ -119,8 +143,16 @@ function codeListSearch(codeStr,num){
             /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.code + "</td>";
-            html += "<td>" + obj.productName + "</td>";
-            html += "<td>" + obj.channelName + "</td>";
+            if(obj.productName==null){
+                html += "<td>未选择</td>";
+            }else{
+                html += "<td>" + obj.productName + "</td>";
+            }
+            if(obj.channelName==null){
+                html += "<td>未选择</td>";
+            }else{
+                html += "<td>" + obj.channelName + "</td>";
+            }
             html += "<td>" + obj.group + "</td>";
             if(obj.status == '1'){
                 html += "<td>未分发</td>";

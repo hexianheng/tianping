@@ -51,7 +51,28 @@ $("#search").click(function(){
 
     var where=$("#where").val();
     if(where == ""){
-        alert("搜索条件不能为空")
+        ajax("/Invok/appList",{"userId":userId,"token":token},function(result){
+            var html = "";
+            $.each(result["data"], function(idx, obj) {
+                html += "<tr><td>" + obj.appId + "</td>";
+                html += "<td>" + obj.appKey + "</td>";
+                html += "<td>" + obj.appName + "</td>";
+                html += "<td>" + obj.desc + "</td>";
+                html += "<td>" + obj.ctime + "</td>";
+                html += '<td><a class="btn04" onclick="del('+obj.appId+')">删除</a ></td></tr>';
+            });
+            $("#data").html(html);
+            var num_max = result['page'];
+            var num_page = result['maxPage'];
+            $("#page").paging({
+                pageNo:1,
+                totalPage: num_page,
+                totalSize: num_max,
+                callback: function(num) {
+                    ApiList(num);
+                }
+            })
+        });
     }else{
         ajax("/Invok/appList",{"userId":userId,"token":token,"where":where},function(result){
             var html = "";

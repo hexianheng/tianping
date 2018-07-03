@@ -13,6 +13,7 @@ if(userId == "" || token == ""){
 }else{
 	ajax("/User/getPId",{"userId":userId,"token":token},function(result){
 		var html = "";
+			html += "<option value = ''>---请选择---</option>";
 		$.each(result["data"], function(idx, obj) {
 				 html += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
 				//alert();
@@ -34,7 +35,7 @@ $("#button").click(function(){
 
 		if(result['code'] == 0 ){
 			alert(result["msg"])
-			location.reload();
+			location.href = CONFIG['path']+"Index/qxlb";
 		}
 		
     });

@@ -20,12 +20,10 @@ $("#btn").click(function(){
     var linkmanPhone = $("#linkmanPhone").val();
 
     ajax("/Channel/addChannel",{"userId":userId,"token":token,"code":code,"name":name,"address":address,"zipCode":zipCode,"email":email,"label":label,"linkman":linkman,"linkmanEmail":linkmanEmail,"linkmanPhone":linkmanPhone},function(result){
-
         if(result['code'] == 0 ){
             alert(result["msg"])
-            location.reload();
+            location.href = CONFIG['path']+"Index/qd_list";
         }
-
     });
 })
 

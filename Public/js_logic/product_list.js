@@ -53,8 +53,7 @@ function productList(num){
                 html += "<td>正常</td>";
             }
             html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改</a >  <a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
+            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">更改状态</a ></td></tr>';
         });
         $("#data").html(html);
     });
@@ -62,6 +61,7 @@ function productList(num){
 
 //产品添加
 $("#xg_btn").click(function(){
+    location.reload();
     $('.pop_layer').show();
 })
 
