@@ -22,7 +22,7 @@ class CustomerModel extends BaseModel
             $where = " where a.code = '$where'";
         }
 
-        $pageNum = 20;
+        $pageNum = 10;
         $sql = "select count(id) as num from customer as a ". $where;
         $num = $this->sqlQuery('customer',$sql);
         if(empty($num) || $num[0]['num'] == 0){

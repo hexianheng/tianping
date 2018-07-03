@@ -32,7 +32,7 @@ class InvokModel extends BaseModel
             $where = " where appName = '$where'";
         }
 
-        $pageNum = 20;
+        $pageNum = 10;
         $sql = "select count(appId) as num from app_invok ". $where;
         $num = $this->sqlQuery('app_invok',$sql);
         if(empty($num) || $num[0]['num'] == 0){

@@ -163,7 +163,7 @@ class ChannelModel extends BaseModel {
                 return $this->returnMsg(-4);
             }
         }
-        $pageNum = 20;
+        $pageNum = 10;
         $sql = "select count(id) as num from channel";
         $num = $this->sqlQuery('channel',$sql);
         if(empty($num)){

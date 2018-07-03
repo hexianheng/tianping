@@ -132,10 +132,10 @@ class CodeModel extends BaseModel
         if(empty($count)){
             return $this->returnMsg(-3);
         }
-        $limit = $this->_makeLimit($data['page'],50);
+        $limit = $this->_makeLimit($data['page'],10);
         $sql = "SELECT a.id,a.code,a.`group`,a.ctime,a.status,a.channelId,b.`name` as channelName,a.productId,c.`name` as productName FROM code as a left join channel as b on a.channelId = b.id left join product as c on a.productId = c.id ". $where ." ORDER BY a.id DESC " . $limit;
         $re = $this->sqlQuery('user',$sql);
-        return $this->returnMsg(0,$re,['page'=>$data['page'],'maxPage'=>ceil($count/50)]);
+        return $this->returnMsg(0,$re,['page'=>$data['page'],'maxPage'=>ceil($count/10)]);
     }
 
     //编码出库

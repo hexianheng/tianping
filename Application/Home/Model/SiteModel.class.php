@@ -21,7 +21,7 @@ class SiteModel extends BaseModel
             $where = " where itemid = '$where' or gene = '$where' or origincode = '$where'";
         }
 
-        $pageNum = 20;
+        $pageNum = 10;
         $sql = "select count(id) as num from item_locus_value ". $where;
         $num = $this->sqlQuery('item_locus_value',$sql);
         if(empty($num)){

@@ -135,7 +135,7 @@ class ProductModel extends BaseModel
                 return $this->returnMsg(-4);
             }
         }
-        $pageNum = 20;
+        $pageNum = 10;
         $sql = "select count(id) as num from product";
         $num = $this->sqlQuery('product',$sql);
         if(empty($num)){

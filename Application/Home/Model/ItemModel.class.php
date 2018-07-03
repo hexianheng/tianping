@@ -96,7 +96,7 @@ class ItemModel extends BaseModel
             $where = " where itemid = '$where' or name like '%$where%'";
         }
 
-        $pageNum = 20;
+        $pageNum = 10;
         $sql = "select count(itemid) as num from item ". $where;
         $num = $this->sqlQuery('item',$sql);
         if(empty($num)){
