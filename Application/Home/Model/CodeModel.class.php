@@ -126,6 +126,12 @@ class CodeModel extends BaseModel
         if($data['codeStr'] != ''){
             $where[] = " a.code in ('". implode("','",explode('|',$data['codeStr'])) ."')";
         }
+        if($data['productId'] != 0){
+            $where[] = " a.productId = '$data[productId]";
+        }
+        if($data['channelId'] != 0){
+            $where[] = " a.channelId = '$data[channelId]";
+        }
         $where = empty($where) ? '' : (' where ' . implode(' and ',$where));
         $countSql = "select count(id) as count from code as a " . $where;
         $count = $this->sqlQuery('code',$countSql)[0]['count'];

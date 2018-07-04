@@ -133,9 +133,10 @@ class UserController extends CommonController {
 
     //获取角色列表
     public function getRole(){
+        $where = I('post.where');
         $page = I('post.page');
         $obj = new UserModel();
-        $result = $obj->getRole($page);
+        $result = $obj->getRole($page,$where);
         $this->response($result,'json');
     }
 
@@ -169,8 +170,10 @@ class UserController extends CommonController {
     public function userRoleList(){
         $page = I('post.page');
         $where = I('post.where');
+        $phone = I('post.phone');
+        $channelId = I('post.channelId');
         $obj = new UserModel();
-        $result = $obj->userRoleList($page,$where);
+        $result = $obj->userRoleList($page,$where,$phone,$channelId);
         $this->response($result,'json');
     }
 

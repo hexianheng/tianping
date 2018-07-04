@@ -46,7 +46,9 @@ class CodeController extends CommonController
         $data = [
             'codeStr' => I('post.codeStr'),
             'group' => I('post.group'),
-            'page' => I('post.page')
+            'page' => I('post.page'),
+            'channelId' => I('post.channelId'),
+            'productId' => I('post.productId'),
         ];
         $obj = new CodeModel();
         $result = $obj->codeList($data);

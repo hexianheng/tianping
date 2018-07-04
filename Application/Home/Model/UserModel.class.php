@@ -336,7 +336,7 @@ class UserModel extends BaseModel {
     }
 
     //获取用户列表
-    public function userRoleList($page,$where = ''){
+    public function userRoleList($page,$where = '',$phone = '',$channelId = 0){
         if($page == ''){
             $page = 1;
         }else{
@@ -345,8 +345,18 @@ class UserModel extends BaseModel {
             }
         }
 
-        if($where != ''){
-            $where = "where a.uname = '$where' or a.id = '$where' or a.code = '$where'";
+        if($where != '' || $phone != '' || $channelId != 0){
+            $t = [];
+            if($where != ""){
+                $t[] = " a.uname like '%$where%'";
+            }
+            if($phone != ""){
+                $t[] = " a.phone = '$phone'";
+            }
+            if($channelId != 0){
+                $t[] = " a.channelId = '$channelId'";
+            }
+            $where = "where " . implode(' and ',$t);
         }
 
         $countSql = "select count(a.id) as count from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id " . $where;
@@ -595,7 +605,7 @@ class UserModel extends BaseModel {
     }
 
     //角色列表
-    public function getRole($page){
+    public function getRole($page,$where){
         if($page == ''){
             $page = 1;
         }else{
@@ -603,15 +613,17 @@ class UserModel extends BaseModel {
                 return $this->returnMsg(-4);
             }
         }
-
+        if($where != ''){
+            $where = " where name like '%$where%'";
+        }
         $pageNum = 10;
-        $sql = "select count(id) as num from role";
+        $sql = "select count(id) as num from role" . $where;
         $num = $this->sqlQuery('role',$sql);
         if(empty($num)){
             return $this->returnMsg(-3);
         }
         $start = $pageNum * ($page -1);
-        $sql = "select * from role order by id desc limit $start,$pageNum";
+        $sql = "select * from role " . $where . " order by id desc limit $start,$pageNum";
         $re = $this->sqlQuery('role',$sql);
         $result = [
             'data' => $re,
