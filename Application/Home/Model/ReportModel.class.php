@@ -29,6 +29,11 @@ class ReportModel extends BaseModel
         $limit = $this->_makeLimit($data['page'],10);
         $sql = "select a.id,a.code,b.productId,a.ctime from detection as a left join code as b on a.`code` = b.`code` ". $where ." ORDER BY a.id DESC " . $limit;
         $re = $this->sqlQuery('user',$sql);
+        $sql = "select code from analytic_result where code in ('". implode("','",array_column($re,'code')) ."')";
+        $codeArr = array_column($this->sqlQuery('analytic_result',$sql),'code');
+        foreach ($re as $key => $val){
+            $re[$key]['status'] = in_array($val['code'],$codeArr) ? '已解读' : '未解读';
+        }
         return $this->returnMsg(0,$re,['page'=>$data['page'],'maxPage'=>ceil($count/10)]);
     }
 

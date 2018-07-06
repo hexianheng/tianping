@@ -56,8 +56,9 @@ class ProductController extends CommonController
     //获取产品列表
     public function listProduct(){
         $page = I('post.page');
+        $name = I('post.name');
         $obj = new ProductModel();
-        $result = $obj->listProduct($page);
+        $result = $obj->listProduct($page,$name);
         $this->response($result,'json');
     }
 

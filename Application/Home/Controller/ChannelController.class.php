@@ -72,8 +72,9 @@ class ChannelController extends CommonController {
     //获取渠道列表
     public function listChannel(){
         $page = I('post.page');
+        $where = I('post.where');
         $obj = new ChannelModel();
-        $result = $obj->listChannel($page);
+        $result = $obj->listChannel($page,$where);
         $this->response($result,'json');
     }
 }

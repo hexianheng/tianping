@@ -127,7 +127,7 @@ class ProductModel extends BaseModel
     }
 
     //获取列表
-    public function listProduct($page){
+    public function listProduct($page,$name){
         if($page == ''){
             $page = 1;
         }else{
@@ -135,14 +135,19 @@ class ProductModel extends BaseModel
                 return $this->returnMsg(-4);
             }
         }
+
+        if($name != ''){
+            $where = " where name like '%$name%'";
+        }
+
         $pageNum = 10;
-        $sql = "select count(id) as num from product";
+        $sql = "select count(id) as num from product ". $where;
         $num = $this->sqlQuery('product',$sql);
         if(empty($num)){
             return $this->returnMsg(-3);
         }
         $start = $pageNum * ($page -1);
-        $sql = "select * from product order by id desc limit $start,$pageNum";
+        $sql = "select * from product ". $where ." order by id desc limit $start,$pageNum";
         $re = $this->sqlQuery('product',$sql);
 
         //处理数据

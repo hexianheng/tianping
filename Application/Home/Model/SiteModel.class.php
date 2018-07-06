@@ -8,7 +8,7 @@ class SiteModel extends BaseModel
 {
 
     //位点列表
-    public function siteList($where = '',$page = 1){
+    public function siteList($itemid = 0,$gene = '',$origincode = '',$page = 1){
         if($page == ''){
             $page = 1;
         }else{
@@ -17,9 +17,17 @@ class SiteModel extends BaseModel
             }
         }
 
-        if($where != ''){
-            $where = " where itemid = '$where' or gene = '$where' or origincode = '$where'";
+        $where = [];
+        if($itemid != 0){
+            $where[] = " itemid = '$itemid'";
         }
+        if($gene != ''){
+            $where[] = " gene = '$gene'";
+        }
+        if($origincode != ''){
+            $where[] = " origincode = '$origincode'";
+        }
+        $where = empty($where) ? '' : " where " . implode(" and ",$where);
 
         $pageNum = 10;
         $sql = "select count(id) as num from item_locus_value ". $where;

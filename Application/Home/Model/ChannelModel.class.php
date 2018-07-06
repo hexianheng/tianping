@@ -155,7 +155,7 @@ class ChannelModel extends BaseModel {
     }
 
     //获取列表
-    public function listChannel($page){
+    public function listChannel($page,$where = ""){
         if($page == ''){
             $page = 1;
         }else{
@@ -163,14 +163,17 @@ class ChannelModel extends BaseModel {
                 return $this->returnMsg(-4);
             }
         }
+        if($where != ''){
+            $where = " where linkman = '$where' or linkmanPhone = '$where'";
+        }
         $pageNum = 10;
-        $sql = "select count(id) as num from channel";
+        $sql = "select count(id) as num from channel" .$where;
         $num = $this->sqlQuery('channel',$sql);
         if(empty($num)){
             return $this->returnMsg(-3);
         }
         $start = $pageNum * ($page -1);
-        $sql = "select * from channel order by id desc limit $start,$pageNum";
+        $sql = "select * from channel ". $where ." order by id desc limit $start,$pageNum";
         $re = $this->sqlQuery('channel',$sql);
         $result = [
             'data' => $re,

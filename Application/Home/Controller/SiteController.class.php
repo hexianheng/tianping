@@ -10,10 +10,12 @@ class SiteController extends CommonController
 
     //位点列表
     public function siteList(){
-        $where = I('post.where');
+        $itemid = I('post.itemid');
+        $gene = I('post.gene');
+        $origincode = I('post.origincode');
         $page = I('post.page');
         $obj = new SiteModel();
-        $result = $obj->siteList($where,$page);
+        $result = $obj->siteList($itemid,$gene,$origincode,$page);
         $this->response($result,'json');
     }
 
