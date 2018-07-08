@@ -8,6 +8,31 @@
     <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+    <style>
+        .content{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width:100px;
+        }
+    </style>
+    <script>
+        function overShow(obj,e) {
+            var showDiv = document.getElementById('showDiv');
+            var theEvent = window.event|| e;
+            showDiv.style.left = theEvent.clientX+"px";
+            showDiv.style.top = theEvent.clientY+"px";
+            showDiv.style.display = 'block';
+            //alert(obj.innerHTML);
+            showDiv.innerHTML = obj.innerHTML;
+        }
+
+        function outHide() {
+            var showDiv = document.getElementById('showDiv');
+            showDiv.style.display = 'none';
+            showDiv.innerHTML = '';
+        }
+    </script>
 </head>
 
 <body>
@@ -115,9 +140,10 @@
                 </li>
             </ul>
         </div>
-        <div class="preview"> <span id="updBtn"><a class="btn04" id="addBtn">添加</a >&nbsp;&nbsp;</span> <a class="cancel-btn btn04">取消</a> </div>
+        <div class="preview"> <span id="huan"></span> <a class="cancel-btn btn04">取消</a> </div>
     </div>
 </div>
+<div id="showDiv" style="position: absolute; background-color: white; border: 1px solid black;"></div>
 </body>
 </html>
 <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>

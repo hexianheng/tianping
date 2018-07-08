@@ -14,7 +14,11 @@ if(userId == "" || token == ""){
             html += "<td>" + obj.productId + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
+            if(obj.status=="已解读"){
+                html += '<td>已解读</td></tr>';
+            }else{
+                html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
+            }
 
         });
         $("#data").append(html);
@@ -41,8 +45,11 @@ function checkList(num){
             html += "<td>" + obj.productId + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
+            if(obj.status=="已解读"){
+                html += '<td>已解读</td></tr>';
+            }else{
+                html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
+            }
         });
         $("#data").html(html);
     });
@@ -75,8 +82,11 @@ $("#search").click(function(){
                 html += "<td>" + obj.productId + "</td>";
                 html += "<td>" + obj.code + "</td>";
                 html += "<td>" + obj.ctime + "</td>";
-                html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
+                if(obj.status=="已解读"){
+                    html += '<td>已解读</td></tr>';
+                }else{
+                    html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
+                }
             });
             $("#data").html(html);
 
@@ -103,8 +113,11 @@ function whereCheckSearch(where,num){
             html += "<td>" + obj.productId + "</td>";
             html += "<td>" + obj.code + "</td>";
             html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
-
+            if(obj.status=="已解读"){
+                html += '<td>已解读</td></tr>';
+            }else{
+                html += '<td><a class="btn04" onclick="del('+obj.id+')">删除</a ></td></tr>';
+            }
         });
         $("#data").html(html);
     });
