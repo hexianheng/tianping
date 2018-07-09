@@ -8,6 +8,31 @@
     <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+    <style>
+        .content{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width:100px;
+        }
+    </style>
+    <script>
+        function overShow(obj,e) {
+            var showDiv = document.getElementById('showDiv');
+            var theEvent = window.event|| e;
+            showDiv.style.left = theEvent.clientX+"px";
+            showDiv.style.top = theEvent.clientY+"px";
+            showDiv.style.display = 'block';
+            //alert(obj.innerHTML);
+            showDiv.innerHTML = obj.innerHTML;
+        }
+
+        function outHide() {
+            var showDiv = document.getElementById('showDiv');
+            showDiv.style.display = 'none';
+            showDiv.innerHTML = '';
+        }
+    </script>
 </head>
 
 <body>
@@ -20,6 +45,10 @@
             <div class="custom-info">
                 <div class="info-box">
                     <ul class="ul-datetime">
+                        <li>
+                            <input type="text" placeholder="请输入产品名称" class="w300" id="text">
+                        </li>
+                        <li><a class="btn07" id="search">查询</a></li>
                         <a class="btn09" id="xg_btn">添加</a>
                     </ul>
                 </div>
@@ -75,6 +104,7 @@
         <div class="preview"> <span id="operation"><a class="preview-btn btn04" id="addBtn">保存</a></span> <a class="cancel-btn btn04">取消</a> </div>
     </div>
 </div>
+<div id="showDiv" style="position: absolute; background-color: white; border: 1px solid black;"></div>
 </body>
 </html>
 <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>

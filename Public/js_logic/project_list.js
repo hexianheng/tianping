@@ -17,10 +17,12 @@ if(userId == "" || token == ""){
             }else{
                 html += "<td>正常</td>";
             }
-            html += '<td><a onclick="projectStr(&quot;'+obj.text+'&quot;)">查看详情</a ></td>';
-            html += "<td>" + obj.addtime + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">更改状态</a ></td></tr>';
-
+            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';            html += "<td>" + obj.addtime + "</td>";
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">禁用</a ></td></tr>';
+            }
         });
         $("#data").append(html);
 
@@ -50,10 +52,12 @@ function projectList(num){
             }else{
                 html += "<td>正常</td>";
             }
-            html += '<td><a onclick="projectStr(&quot;'+obj.text+'&quot;)">查看详情</a ></td>';
-            html += "<td>" + obj.addtime + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">更改状态</a ></td></tr>';
-
+            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';            html += "<td>" + obj.addtime + "</td>";
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">禁用</a ></td></tr>';
+            }
         });
         $("#data").html(html);
     });
@@ -65,7 +69,37 @@ $("#search").click(function(){
 
     var where=$("#text").val();
     if(where == ""){
-        alert("搜索条件不能为空")
+        ajax("/Item/itemList",{"userId":userId,"token":token},function(result){
+            var html = "";
+            $.each(result["data"], function(idx, obj) {
+                html += "<tr><td>" + obj.itemid + "</td>";
+                html += "<td>" + obj.name + "</td>";
+                html += "<td>" + obj.siteNum+"</td>";
+                if(obj.status == '1'){
+                    html += "<td>禁用</td>";
+                }else{
+                    html += "<td>正常</td>";
+                }
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';            html += "<td>" + obj.addtime + "</td>";
+                if(obj.status == '1'){
+                    html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
+                }else{
+                    html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">禁用</a ></td></tr>';
+                }
+            });
+            $("#data").append(html);
+
+            var num_max = result['page'];
+            var num_page = result['maxPage'];
+            $("#page").paging({
+                pageNo:1,
+                totalPage: num_page,
+                totalSize: num_max,
+                callback: function(num) {
+                    projectList(num);
+                }
+            })
+        });
     }else{
         ajax("/Item/itemList",{"userId":userId,"token":token,"where":where},function(result){
             if(result['data'] == ""){
@@ -81,10 +115,12 @@ $("#search").click(function(){
                     }else{
                         html += "<td>正常</td>";
                     }
-                    html += '<td><a onclick="projectStr(&quot;'+obj.text+'&quot;)">查看详情</a ></td>';
-                    html += "<td>" + obj.addtime + "</td>";
-                    html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">更改状态</a ></td></tr>';
-
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';                    html += "<td>" + obj.addtime + "</td>";
+                    if(obj.status == '1'){
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
+                    }else{
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">禁用</a ></td></tr>';
+                    }
                 });
                 $("#data").html(html);
                 var num_max = result['maxPage'];
@@ -115,10 +151,12 @@ function projectSearch(where,num){
             }else{
                 html += "<td>正常</td>";
             }
-            html += '<td><a onclick="projectStr(&quot;'+obj.text+'&quot;)">查看详情</a ></td>';
-            html += "<td>" + obj.addtime + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">更改状态</a ></td></tr>';
-
+            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';            html += "<td>" + obj.addtime + "</td>";
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">禁用</a ></td></tr>';
+            }
         });
         $("#data").html(html);
     });
@@ -127,8 +165,11 @@ function projectSearch(where,num){
 //项目添加
 $("#xg_btn").click(function(){
     $('.pop_layer').show();
+    var operation = "<a class='preview-btn btn04' id='addBtn'>添加</a >";
+    $("#huan").html(operation);
 })
 $("#addBtn").click(function(){
+    $('.pop_layer').show();
     var name = $("#name").val();
     var text = $("#textInfo").val();
     ajax("/Item/addItem",{"userId":userId,"token":token,"name":name,"text":text},function(result){
@@ -148,7 +189,7 @@ function upd(id) {
         $("#name").val(result['data'][0]['name']);
         $("#textInfo").val(result['data'][0]['text']);
         var operation = "<a class='preview-btn btn04' onclick='update("+result['data'][0]['itemid']+")'>保存</a >";
-        $("#addbtn").html(operation);
+        $("#huan").html(operation);
     });
 }
 

@@ -14,7 +14,7 @@ if(userId == "" || token == ""){
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene+"</td>";
             html += "<td>" + obj.origincode+"</td>";
-            html += '<td><a onclick="details('+obj.id+')">详情</a></td>';
+            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
             html += "<td>" + obj.wild_type+"</td>";
             html += "<td>" + obj.mutant_type+"</td>";
             html += "<td>" + obj.genotype_value_ww+"</td>";
@@ -29,8 +29,11 @@ if(userId == "" || token == ""){
             }else{
                 html += "<td>正常</td>";
             }
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">更改状态</a ></td></tr>';
-
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+            }
         });
         $("#data").append(html);
 
@@ -56,7 +59,7 @@ function siteList(num){
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene + "</td>";
             html += "<td>" + obj.origincode + "</td>";
-            html += '<td><a onclick="details('+obj.id+')">详情</a></td>';
+            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
             html += "<td>" + obj.wild_type + "</td>";
             html += "<td>" + obj.mutant_type + "</td>";
             html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -71,8 +74,11 @@ function siteList(num){
             } else {
                 html += "<td>正常</td>";
             }
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd(' + obj.id + ')">修改信息</a >  <a class="btn04" onclick="updType(' + obj.id + ')">更改状态</a ></td></tr>';
-
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+            }
         });
         $("#data").html(html);
     })
@@ -96,7 +102,7 @@ $("#search").click(function(){
                     html += "<td>" + obj.itemid + "</td>";
                     html += "<td>" + obj.gene + "</td>";
                     html += "<td>" + obj.origincode + "</td>";
-                    html += '<td><a onclick="details('+obj.id+')">详情</a></td>';
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
                     html += "<td>" + obj.wild_type + "</td>";
                     html += "<td>" + obj.mutant_type + "</td>";
                     html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -111,8 +117,11 @@ $("#search").click(function(){
                     } else {
                         html += "<td>正常</td>";
                     }
-                    html += '<td><a class="btn04" id="xg_btn" onclick="upd(' + obj.id + ')">修改信息</a >  <a class="btn04" onclick="updType(' + obj.id + ')">更改状态</a ></td></tr>';
-
+                    if(obj.status == '1'){
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+                    }else{
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+                    }
                 });
                 $("#data").html(html);
                 var num_max = result['maxPage'];
@@ -139,7 +148,7 @@ function siteSearch(where,num){
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene + "</td>";
             html += "<td>" + obj.origincode + "</td>";
-            html += '<td><a onclick="details('+obj.id+')">详情</a></td>';
+            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
             html += "<td>" + obj.wild_type + "</td>";
             html += "<td>" + obj.mutant_type + "</td>";
             html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -164,6 +173,8 @@ function siteSearch(where,num){
 //添加
 $("#xg_btn").click(function(){
     $('.pop_layer').show();
+    var operation = "<a class='preview-btn btn04' id='addBtn'>添加</a >";
+    $("#huan").html(operation);
 })
 $("#addBtn").click(function(){
     var name = $("#name").val();
@@ -194,7 +205,7 @@ function upd(id) {
         $("#risk_desc_wm").val(result['data']['risk_desc_wm']);
         $("#risk_desc_mm").val(result['data']['risk_desc_mm']);
         var operation = '<a class="preview-btn btn04" onclick="update('+id+')">保存</a >';
-        $("#updBtn").html(operation);
+        $("#huan").html(operation);
     });
 }
 

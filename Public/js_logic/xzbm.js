@@ -28,7 +28,8 @@ if(userId == "" || token == ""){
 
 $("#btn").click(function(){
 
-    var importStr = $("#code").val();
+    var code=$("#code").val();
+    var importStr = code.replace('\n','|');
     var productId = $("#productId").val();
     var channelId = $("#channelId").val();
     ajax("/Code/importCode",{"userId":userId,"token":token,"importStr":importStr,"productId":productId,"channelId":channelId},function(result){
