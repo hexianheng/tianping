@@ -56,7 +56,7 @@ class InvokModel extends BaseModel
         $sql = "select appId from app_invok where appId = ". $appId;
         $re = $this->sqlQuery('app_invok',$sql);
         if(empty($re)){
-            return $this->returnMsg('A076');
+            return $this->returnMsg('B076');
         }else{
             $sql = "delete from app_invok where appId = ". $appId;
             $this->sqlQuery('app_invok',$sql);
@@ -67,12 +67,21 @@ class InvokModel extends BaseModel
     //验证api请求
     public function checkApi($data){
         //验证时间
-        if($data['time'] == '' || intval($data['time']) > time() || intval($data['time']) + 60*2 < time()){
+        if($data['time'] == ''){
             return $this->returnMsg('A077');
         }
+        if(intval($data['time']) > time()){
+            return $this->returnMsg('B077');
+        }
+        if(intval($data['time']) + 60*2 < time()){
+            return $this->returnMsg('C077');
+        }
         //验证appId
-        if($data['sign'] == '' || $data['sign'] != md5($data['appKey'].md5($data['time']))){
+        if($data['sign'] == ''){
             return $this->returnMsg('A081');
+        }
+        if($data['sign'] != md5($data['appKey'].md5($data['time']))){
+            return $this->returnMsg('B081');
         }
         //验证appKey
         if($data['appKey'] == ''){

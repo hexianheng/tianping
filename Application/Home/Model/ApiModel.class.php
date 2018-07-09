@@ -15,8 +15,10 @@ class ApiModel extends BaseModel {
         }
         //验证手机号
         $reg = "/^(13|14|15|17|18)[0-9]{9}$/";
-        if($data['phone'] == '' || !preg_match($reg,$data['phone'])){
+        if($data['phone'] == '') {
             return $this->returnMsg('A079');
+        }else if(!preg_match($reg,$data['phone'])){
+            return $this->returnMsg('B079');
         }else{
             $addData['phone'] = $data['phone'];
         }
@@ -75,21 +77,33 @@ class ApiModel extends BaseModel {
             return $this->returnMsg('A083');
         }
         //验证性别
-        if($data['sex'] == '' || !in_array($data['sex'],['男','女','未知'])){
+        if($data['sex'] == ''){
             return $this->returnMsg('A084');
         }
+        if(!in_array($data['sex'],['男','女','未知'])){
+            return $this->returnMsg('B084');
+        }
         //验证年龄
-        if($data['age'] == '' || !is_numeric(intval($data['age'])) || intval($data['age']) <= 0){
+        if($data['age'] == ''){
             return $this->returnMsg('A085');
+        }
+        if(!is_numeric(intval($data['age'])) || intval($data['age']) <= 0){
+            return $this->returnMsg('B085');
         }
         //验证手机号
         $reg = "/^(13|14|15|17|18)[0-9]{9}$/";
-        if($data['phone'] == '' || !preg_match($reg,$data['phone'])){
-            return $this->returnMsg('A078');
+        if($data['phone'] == ''){
+            return $this->returnMsg('A079');
+        }
+        if(!preg_match($reg,$data['phone'])){
+            return $this->returnMsg('B079');
         }
         //验证email
-        if($data['email'] == '' || !strstr($data['email'],'@') || !strstr($data['email'],'.')){
+        if($data['email'] == ''){
             return $this->returnMsg('A086');
+        }
+        if(!strstr($data['email'],'@') || !strstr($data['email'],'.')){
+            return $this->returnMsg('B086');
         }
         //验证address
         if($data['address'] == ''){
@@ -98,7 +112,7 @@ class ApiModel extends BaseModel {
         $sql = "select code from code where code = '$data[code]' and status = 2";
         $re = $this->sqlQuery('code',$sql);
         if(empty($re)){
-            return $this->returnMsg('A082');
+            return $this->returnMsg('B082');
         }
         $sql = "select phone from customer where code = '$data[code]'";
         $re = $this->sqlQuery('customer',$sql);
@@ -276,8 +290,11 @@ class ApiModel extends BaseModel {
             return $this->returnMsg('A078');
         }
         //验证答案分类
-        if($data['answerType'] == '' || !in_array($data['answerType'],[1,2])){
+        if($data['answerType'] == ''){
             return $this->returnMsg('A096');
+        }
+        if(!in_array($data['answerType'],[1,2])){
+            return $this->returnMsg('B096');
         }
         //答案
         if($data['answer'] == ''){
@@ -285,7 +302,7 @@ class ApiModel extends BaseModel {
         }else{
             $answer = json_decode($data['answer'],true);
             if(empty($answer)){
-                return $this->returnMsg('A094');
+                return $this->returnMsg('B094');
             }
             $titleIdArr = array_column($answer,'titleId');
             $sql = "select id from title where id in ('" . implode("','",$titleIdArr) . "')";
