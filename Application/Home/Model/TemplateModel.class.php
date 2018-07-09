@@ -426,7 +426,7 @@ class TemplateModel extends BaseModel {
         $sql = "select distinct code from customer where code in ('" . implode("','",$header) . "')";
         $re = $this->sqlQuery('customer',$sql);
         if(count($re) != count($header)){
-            return $this->returnMsg('A060');
+            return $this->returnMsg('B060');
         }
         //验证rs码
         $rsData = array_filter(array_unique(array_column($data,0)));

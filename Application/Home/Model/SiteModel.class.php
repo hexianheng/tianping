@@ -53,7 +53,7 @@ class SiteModel extends BaseModel
             $sql = "select * from item_locus_value where id = ". $id;
             $re = $this->sqlQuery('item_locus_value',$sql);
             if(empty($re)){
-                return $this->returnMsg('A046');
+                return $this->returnMsg('B046');
             }else{
                 return $this->returnMsg(0,$re[0]);
             }
@@ -113,7 +113,7 @@ class SiteModel extends BaseModel
             $sql = "select itemid from item where itemid = ". $data['itemid'];
             $re = $this->sqlQuery('item',$sql);
             if(empty($re)){
-                return $this->returnMsg('A034');
+                return $this->returnMsg('B034');
             }
         }
         //验证id
@@ -123,7 +123,7 @@ class SiteModel extends BaseModel
             $sql = "select id from item_locus_value where id = ". $id;
             $re = $this->sqlQuery('item_locus_value',$sql);
             if(empty($re)){
-                return $this->returnMsg('A046');
+                return $this->returnMsg('B046');
             }
         }
         $this->sqlUpdate('item_locus_value',$data,' id = '. $id);

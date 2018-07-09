@@ -268,7 +268,7 @@ class ReportModel extends BaseModel
         $sql = "SELECT b.`name`,b.age,b.sex,b.code,b.phone,a.result,d. NAME AS 'productName' FROM analytic_result AS a LEFT JOIN customer AS b ON a.`code` = b.`code` LEFT JOIN `code` AS c ON a.`code` = c.`code` LEFT JOIN product AS d ON c.productId = d.id WHERE a. CODE = '$data[code]'";
         $re = $this->sqlQuery('analytic_result',$sql)[0];
         if(empty($re)){
-            return $this->returnMsg('A060');
+            return $this->returnMsg('B060');
         }else{
             $resultArr = json_decode($re['result'],1);
             $itemSql = "select itemid,name from item where itemid in ('". implode("','",array_keys($resultArr)) ."')";
@@ -322,8 +322,11 @@ class ReportModel extends BaseModel
 
 
     public function updReport($data){
-        if($data['status'] == '' || (!in_array($data['status'],[2,3]))){
+        if($data['status'] == ''){
             return $this->returnMsg('A070');
+        }
+        if(!in_array($data['status'],[2,3])){
+            return $this->returnMsg('B070');
         }
         if($data['codeStr'] == ''){
             return $this->returnMsg('A071');
@@ -332,7 +335,7 @@ class ReportModel extends BaseModel
         $sql = "select id,code from analytic_result where code in ('". implode("','",$idArr) ."') and status = 1";
         $re = $this->sqlQuery('analytic_result',$sql);
         if(empty($re) || count($idArr) != count($re)){
-            return $this->returnMsg('A071');
+            return $this->returnMsg('B071');
         }else{
             //推送pdf任务
             if($data['status'] == 2){

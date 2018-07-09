@@ -41,7 +41,7 @@ class ItemModel extends BaseModel
             $sql = "select itemid from item where itemid = ". $id;
             $re = $this->sqlQuery('item',$sql);
             if(empty($re)){
-                return $this->returnMsg('A034');
+                return $this->returnMsg('B034');
             }
         }
         $this->sqlUpdate('item',$data,' itemid = ' .$id);
@@ -57,7 +57,7 @@ class ItemModel extends BaseModel
             $sql = "select itemid from item where itemid = ". $id;
             $re = $this->sqlQuery('item',$sql);
             if(empty($re)){
-                return $this->returnMsg('A034');
+                return $this->returnMsg('B034');
             }
         }
         $sql = "update item set status = 1 - status where itemid = ". $id;

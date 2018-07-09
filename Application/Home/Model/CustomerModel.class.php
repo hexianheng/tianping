@@ -63,8 +63,11 @@ class CustomerModel extends BaseModel
             7 => 84143  //报告延迟
         ];
 
-        if($status == '' || (!in_array($status,[2,3,4,5,6,7]))){
+        if($status == ''){
             return $this->returnMsg('A068');
+        }
+        if(!in_array($status,[2,3,4,5,6,7])){
+            return $this->returnMsg('B068');
         }
         $codeArr = explode('|',$codeArr);
         $sql = "select id,name,phone from customer where code in ('" . implode("','",$codeArr) . "')";

@@ -11,13 +11,13 @@ class CodeModel extends BaseModel
     public function addCode($data)
     {
         //验证生成数量
-        if($data['num'] == '' || !is_numeric($data['num'])){
+        if($data['num'] == ''){
             return $this->returnMsg('A040');
         }else{
             $start = 0;
             $end = 10000;
-            if($data['num'] <= $start || $data['num'] > $end){
-                return $this->returnMsg('A040');
+            if($data['num'] <= $start || $data['num'] > $end || !is_numeric($data['num'])){
+                return $this->returnMsg('B040');
             }
         }
         //验证产品ID
@@ -25,7 +25,7 @@ class CodeModel extends BaseModel
             $sql = "select id from product where id = $data[productId]";
             $re = $this->sqlQuery('product',$sql);
             if(empty($re)){
-                return $this->returnMsg('A035');
+                return $this->returnMsg('B035');
             }
         }
 
@@ -34,7 +34,7 @@ class CodeModel extends BaseModel
             $sql = "select id from channel where id = '$data[channelId]'";
             $re = $this->sqlQuery('channel',$sql);
             if(empty($re)){
-                return $this->returnMsg('A031');
+                return $this->returnMsg('B031');
             }
         }
 
@@ -54,7 +54,7 @@ class CodeModel extends BaseModel
             $sql = "select id from product where id = $data[productId]";
             $re = $this->sqlQuery('product',$sql);
             if(empty($re)){
-                return $this->returnMsg('A035');
+                return $this->returnMsg('B035');
             }
         }
         //验证渠道ID
@@ -62,17 +62,19 @@ class CodeModel extends BaseModel
             $sql = "select id from channel where id = '$data[channelId]'";
             $re = $this->sqlQuery('channel',$sql);
             if(empty($re)){
-                return $this->returnMsg('A031');
+                return $this->returnMsg('B031');
             }
         }
         //验证导入编码
         $reg = "/^[a-z0-9A-Z|]+$/";
-        if($data['importStr'] == '' || !preg_match($reg,$data['importStr'])){
+        if($data['importStr'] == '') {
             return $this->returnMsg('A041');
+        }else if(!preg_match($reg,$data['importStr'])){
+            return $this->returnMsg('B041');
         }else{
             $importArr = explode('|',$data['importStr']);
             if(count($importArr) != count(array_unique($importArr))){
-                return $this->returnMsg('A041');
+                return $this->returnMsg('B043');
             }else{
                 $sql = "select id from code where code in ('". implode("','",$importArr) ."')";
                 $re = $this->sqlQuery('code',$sql);
@@ -87,7 +89,7 @@ class CodeModel extends BaseModel
                     $this->sqlQuery('code',$sql);
                     return $this->returnMsg(0);
                 }else{
-                    return $this->returnMsg('A041');
+                    return $this->returnMsg('B042');
                 }
             }
         }
@@ -153,7 +155,7 @@ class CodeModel extends BaseModel
             $sql = "select id from product where id = $data[productId]";
             $re = $this->sqlQuery('product',$sql);
             if(empty($re)){
-                return $this->returnMsg('A035');
+                return $this->returnMsg('B035');
             }
         }
         //验证渠道ID
@@ -163,7 +165,7 @@ class CodeModel extends BaseModel
             $sql = "select id from channel where id = '$data[channelId]'";
             $re = $this->sqlQuery('channel',$sql);
             if(empty($re)){
-                return $this->returnMsg('A031');
+                return $this->returnMsg('B031');
             }
         }
         //验证codeStr
@@ -174,7 +176,7 @@ class CodeModel extends BaseModel
             $countSql = "select count(id) as count from code where " . $where;
             $re = $this->sqlQuery('code',$countSql);
             if(empty($re) || $re[0]['count'] != count(explode('|',$data['codeStr']))){
-                return $this->returnMsg('A041');
+                return $this->returnMsg('B042');
             }
         }
 
@@ -220,8 +222,10 @@ class CodeModel extends BaseModel
                 'mid' => $data['mid'],
                 'mtime' => date('Y-m-d H:i:s')
             ];
-            if($data['status'] == '' || !in_array($data['status'],[2,3])){
+            if($data['status'] == '') {
                 return $this->returnMsg('A091');
+            }else if(!in_array($data['status'],[2,3])){
+                return $this->returnMsg('B091');
             }else if($data['status'] == 2){
                 $where = " `group` = '$data[group]' and status = 1";
             }else{
@@ -231,7 +235,7 @@ class CodeModel extends BaseModel
             $sql = "select id from code where " . $where;
             $re = $this->sqlQuery('code',$sql);
             if(empty($re)){
-                return $this->returnMsg('A042');
+                return $this->returnMsg('B044');
             }
         }
         $this->sqlUpdate('code',$updData,$where);
@@ -247,7 +251,7 @@ class CodeModel extends BaseModel
             $sql = "select id from code as a where " . $where;
             $re = $this->sqlQuery('code',$sql);
             if(empty($re)){
-                return $this->returnMsg('A042');
+                return $this->returnMsg('B044');
             }
         }
         $sql = "SELECT a.id,a.code,a.`group`,a.ctime,a.status,a.channelId,b.`name` as channelName,a.productId,c.`name` as productName,IFNULL(a.mtime,'') as mtime FROM code as a left join channel as b on a.channelId = b.id left join product as c on a.productId = c.id where ". $where ." ORDER BY a.id DESC ";

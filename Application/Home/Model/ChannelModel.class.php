@@ -29,8 +29,11 @@ class ChannelModel extends BaseModel {
             return $this->returnMsg('A027');
         }
         //验证联系人联系方式
-        if($data['linkmanPhone'] == '' || !preg_match($reg,$data['linkmanPhone'])){
+        if($data['linkmanPhone'] == ''){
             return $this->returnMsg('A029');
+        }
+        if(!preg_match($reg,$data['linkmanPhone'])){
+            return $this->returnMsg('B029');
         }
         //验证联系人邮箱
         if($data['linkmanEmail'] != ''){
@@ -46,8 +49,11 @@ class ChannelModel extends BaseModel {
             }
         }
         //验证等级
-        if($data['label'] == '' || !in_array($data['label'],['A','B','C'])){
+        if($data['label'] == ''){
             return $this->returnMsg('A043');
+        }
+        if(!in_array($data['label'],['A','B','C'])){
+            return $this->returnMsg('C043');
         }
         $data['ctime'] = date('Y-m-d H:i:s');
         $data['cId'] = $data['userId'];
@@ -82,8 +88,11 @@ class ChannelModel extends BaseModel {
             return $this->returnMsg('A027');
         }
         //验证联系人联系方式
-        if($data['linkmanPhone'] == '' || !preg_match($reg,$data['linkmanPhone'])){
+        if($data['linkmanPhone'] == ''){
             return $this->returnMsg('A029');
+        }
+        if(!preg_match($reg,$data['linkmanPhone'])){
+            return $this->returnMsg('B029');
         }
         //验证联系人邮箱
         if($data['linkmanEmail'] != ''){
@@ -99,14 +108,17 @@ class ChannelModel extends BaseModel {
             }
         }
         //验证等级
-        if($data['label'] == '' || !in_array($data['label'],['A','B','C'])){
+        if($data['label'] == ''){
             return $this->returnMsg('A043');
+        }
+        if(!in_array($data['label'],['A','B','C'])){
+            return $this->returnMsg('C043');
         }
         //验证渠道ID
         $sql = "select id from channel where id = '$data[id]'";
         $re = $this->sqlQuery('channel',$sql);
         if(empty($re)){
-            return $this->returnMsg('A031');
+            return $this->returnMsg('B031');
         }
         $data['mtime'] = date('Y-m-d H:i:s');
         $data['mId'] = $data['userId'];
@@ -124,7 +136,7 @@ class ChannelModel extends BaseModel {
         $sql = "select * from channel where id = '$id'";
         $re = $this->sqlQuery('channel',$sql);
         if(empty($re)){
-            return $this->returnMsg('A031');
+            return $this->returnMsg('B031');
         }else{
             return $this->returnMsg(0,$re[0]);
         }
@@ -138,7 +150,7 @@ class ChannelModel extends BaseModel {
         $sql = "select id,status from channel where id = '$id'";
         $re = $this->sqlQuery('channel',$sql);
         if(empty($re)){
-            return $this->returnMsg('A031');
+            return $this->returnMsg('B031');
         }
         $this->sqlUpdate('channel',['status' => 1-$re[0]['status']],'id = ' .$re[0]['id']);
         return $this->returnMsg(0);

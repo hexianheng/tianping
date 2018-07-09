@@ -30,7 +30,7 @@ class ProductModel extends BaseModel
             $sql = "select count(itemid) as count from item where itemid in ('".implode("','",$tempArr)."')";
             $re = $this->sqlQuery('item',$sql);
             if(empty($re[0]['count']) || $re[0]['count'] != count($tempArr)){
-                return $this->returnMsg('A034');
+                return $this->returnMsg('B034');
             }
         }
         $data['ctime'] = date('Y-m-d H:i:s');
@@ -61,7 +61,7 @@ class ProductModel extends BaseModel
             $sql = "select count(itemid) as count from item where itemid in ('".implode("','",$tempArr)."')";
             $re = $this->sqlQuery('item',$sql);
             if(empty($re[0]['count']) || $re[0]['count'] != count($tempArr)){
-                return $this->returnMsg('A034');
+                return $this->returnMsg('B034');
             }
         }
         //验证产品ID
@@ -71,7 +71,7 @@ class ProductModel extends BaseModel
             $sql = "select id from product where id = $data[id]";
             $re = $this->sqlQuery('product',$sql);
             if(empty($re[0]['id'])){
-                return $this->returnMsg('A035');
+                return $this->returnMsg('B035');
             }
             unset($data['id']);
         }
@@ -104,7 +104,7 @@ class ProductModel extends BaseModel
             $re[$key]['projectStr'] = implode('|',$temp);
         }
         if(empty($re)){
-            return $this->returnMsg('A035');
+            return $this->returnMsg('B035');
         }else{
             return $this->returnMsg(0,$re);
         }
@@ -119,7 +119,7 @@ class ProductModel extends BaseModel
         $sql = "select id,status from product where id = $id";
         $re = $this->sqlQuery('product',$sql);
         if(empty($re)){
-            return $this->returnMsg('A035');
+            return $this->returnMsg('B035');
         }
         $status = 1 - $re[0]['status'];
         $this->sqlUpdate('product',['status'=>$status],'id = '.$id);

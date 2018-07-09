@@ -39,8 +39,11 @@ class UserModel extends BaseModel {
         }
 
         //验证性别
-        if($data['sex'] == '' || !in_array($data['sex'],[1,2])){
+        if($data['sex'] == ''){
             return $this->returnMsg('A037');
+        }
+        if(!in_array($data['sex'],[1,2])){
+            return $this->returnMsg('B037');
         }
 
         //验证渠道ID
@@ -50,7 +53,7 @@ class UserModel extends BaseModel {
             $sql = "select id from channel where id = ". $data['channelId'];
             $re = $this->sqlQuery('channel',$sql);
             if(empty($re)){
-                return $this->returnMsg('A038');
+                return $this->returnMsg('B038');
             }
         }
 
@@ -94,7 +97,7 @@ class UserModel extends BaseModel {
         }
         //验证密码及确认密码
         if($data['pwd'] == ''){
-            return $this->returnMsg('A009');
+            return $this->returnMsg('A002');
         }
         $sql = "select id,uname,pwd,repwd from user where uname = '$data[uname]' and pwd = '". md5($data['pwd'])."'";
         $rs = $this->sqlQuery('user',$sql);
@@ -135,17 +138,17 @@ class UserModel extends BaseModel {
         $sql = "select id,uname,pwd from user where id = $userId";
         $rs = $this->sqlQuery('user',$sql);
         if(empty($rs)){
-            return $this->returnMsg('A011');
+            return $this->returnMsg('B011');
         }else{
             $tokenObj = new TokenModel();
             $result = $tokenObj->getToken($userId);
             if(empty($result)){
-                return $this->returnMsg('A012');
+                return $this->returnMsg('B012');
             }else{
                 if($result['token'] == $token){
                     return $this->returnMsg(0,$result);
                 }else{
-                    return $this->returnMsg('A012');
+                    return $this->returnMsg('B012');
                 }
             }
         }
@@ -176,8 +179,11 @@ class UserModel extends BaseModel {
         }
 
         //验证性别
-        if($data['sex'] == '' || !in_array($data['sex'],[1,2])){
+        if($data['sex'] == ''){
             return $this->returnMsg('A037');
+        }
+        if(!in_array($data['sex'],[1,2])){
+            return $this->returnMsg('B037');
         }
 
         //验证渠道ID
@@ -187,7 +193,7 @@ class UserModel extends BaseModel {
             $sql = "select id from channel where id = ". $data['channelId'];
             $re = $this->sqlQuery('channel',$sql);
             if(empty($re)){
-                return $this->returnMsg('A038');
+                return $this->returnMsg('B038');
             }
         }
 
@@ -202,7 +208,7 @@ class UserModel extends BaseModel {
         $sql = "select * from user where id = ". $id;
         $baseData = $this->sqlQuery('user',$sql)[0];
         if(empty($baseData)){
-            return $this->returnMsg('A011');
+            return $this->returnMsg('B011');
         }
 
         foreach ($data as $key => $val){
@@ -263,12 +269,15 @@ class UserModel extends BaseModel {
             $sql = "select id from permission where id = $data[parentId] and status = 0";
             $re = $this->sqlQuery('permission',$sql);
             if(empty($re)){
-                return $this->returnMsg('A016');
+                return $this->returnMsg('B016');
             }
         }
         //验证排序字段
-        if($data['group'] == '' || !is_numeric($data['group']) || !in_array($data['group'],[0,1])){
+        if($data['group'] == ''){
             return $this->returnMsg('A018');
+        }
+        if(!is_numeric($data['group']) || !in_array($data['group'],[0,1])){
+            return $this->returnMsg('B018');
         }
         $data['ctime'] = date('Y-m-d H:i:s');
         $this->sqlInsert('permission',$data);
@@ -324,7 +333,7 @@ class UserModel extends BaseModel {
             $sql = "select id from permission where id in ('".implode("','",$permissionArr)."')";
             $re = $this->sqlQuery('permission',$sql);
             if(empty($re) || count($permissionArr) != count($re)){
-                return $this->returnMsg('A019');
+                return $this->returnMsg('B019');
             }else{
                 unset($data['permissionStr']);
                 $data['permission'] = json_encode($permissionArr);
@@ -377,7 +386,7 @@ class UserModel extends BaseModel {
         $sql = "select id from role where id = $data[roleId]";
         $rs = $this->sqlQuery('role',$sql);
         if(empty($rs)){
-            return $this->returnMsg('A020');
+            return $this->returnMsg('B020');
         }
         //查询是否存在关联信息（存在update,不存在add）
         $sql = "select id from user_role where userId = $data[userId]";
@@ -393,9 +402,16 @@ class UserModel extends BaseModel {
     //修改密码
     public function updPwd($data){
         //验证密码及确认密码
-        if($data['pwd'] == '' || $data['pwdAgain'] == '' || $data['pwd'] != $data['pwdAgain']){
+        if($data['pwd'] == ''){
             return $this->returnMsg('A002');
         }
+        if($data['pwdAgain'] == ''){
+            return $this->returnMsg('B002');
+        }
+        if($data['pwd'] != $data['pwdAgain']){
+            return $this->returnMsg('B003');
+        }
+
         //验证旧密码
         $sql = "select id from user where id = $data[userId] and pwd = '".md5($data['pwdOld'])."'";
         $rs = $this->sqlQuery('user',$sql);
@@ -412,8 +428,14 @@ class UserModel extends BaseModel {
             return $this->returnMsg('A003');
         }
         //验证密码及确认密码
-        if($data['pwd'] == '' || $data['pwdAgain'] == '' || $data['pwd'] != $data['pwdAgain']){
+        if($data['pwd'] == ''){
             return $this->returnMsg('A002');
+        }
+        if($data['pwdAgain'] == ''){
+            return $this->returnMsg('B002');
+        }
+        if($data['pwd'] != $data['pwdAgain']){
+            return $this->returnMsg('B003');
         }
         //验证旧密码
         $sql = "select id from user where phone = $data[phone]";
@@ -430,7 +452,7 @@ class UserModel extends BaseModel {
         $sql = "select * from role where id = $roleId";
         $re = $this->sqlQuery('role',$sql);
         if(empty($re)){
-            return $this->returnMsg('A020');
+            return $this->returnMsg('B020');
         }else{
             return $this->returnMsg(0,$re[0]);
         }
@@ -441,7 +463,7 @@ class UserModel extends BaseModel {
         $sql = "select id from role where id = $roleId";
         $re = $this->sqlQuery('role',$sql);
         if(empty($re)){
-            return $this->returnMsg('A020');
+            return $this->returnMsg('B020');
         }else{
             $sql = "delete from role where id = $roleId";
             $this->sqlQuery('role',$sql);
@@ -461,7 +483,7 @@ class UserModel extends BaseModel {
             $sql = "select id from permission where id in ('".implode("','",$permissionArr)."')";
             $re = $this->sqlQuery('permission',$sql);
             if(empty($re) || count($permissionArr) != count($re)){
-                return $this->returnMsg('A019');
+                return $this->returnMsg('B019');
             }else{
                 unset($data['permissionStr']);
                 $data['permission'] = json_encode($permissionArr);
@@ -480,7 +502,7 @@ class UserModel extends BaseModel {
         $sql = "select id,action,function,status,name,parentId,`group` from permission where id = $id";
         $re = $this->sqlQuery('permission',$sql);
         if(empty($re)){
-            return $this->returnMsg('A022');
+            return $this->returnMsg('B022');
         }else{
             return $this->returnMsg(0,$re[0]);
         }
@@ -494,7 +516,7 @@ class UserModel extends BaseModel {
         $sql = "select id from permission where id = $id";
         $re = $this->sqlQuery('permission',$sql);
         if(empty($re)){
-            return $this->returnMsg('A022');
+            return $this->returnMsg('B022');
         }else{
             //删除权限
             $sql = "delete from permission where id = $id";
@@ -524,12 +546,15 @@ class UserModel extends BaseModel {
             $sql = "select id from permission where id = $data[parentId] and status = 0";
             $re = $this->sqlQuery('permission',$sql);
             if(empty($re)){
-                return $this->returnMsg('A016');
+                return $this->returnMsg('B016');
             }
         }
         //验证排序字段
-        if($data['group'] == '' || !is_numeric($data['group']) || !in_array($data['group'],[0,1])){
+        if($data['group'] == ''){
             return $this->returnMsg('A018');
+        }
+        if(!is_numeric($data['group']) || !in_array($data['group'],[0,1])){
+            return $this->returnMsg('B018');
         }
         //验证权限ID
         $id = $data['id'];
@@ -540,7 +565,7 @@ class UserModel extends BaseModel {
         $sql = "select id,action,function,status,name,parentId,`group` from permission where id = $id";
         $re = $this->sqlQuery('permission',$sql);
         if(empty($re)){
-            return $this->returnMsg('A022');
+            return $this->returnMsg('B022');
         }
         $data['mtime'] = date('Y-m-d H:i:s');
         $this->sqlUpdate('permission',$data,"id = $id");
@@ -555,7 +580,7 @@ class UserModel extends BaseModel {
         $sql = "select a.id as userId,a.uname,a.phone,a.email,IFNULL(c.id,0) as roleId,IFNULL(c.name,'暂无') as roleName,a.job,a.sex,a.channelId,IFNULL(d.name, '') as channelName from `user` as a left join user_role as b on a.id = b.userId left join role as c on b.roleId = c.id left join channel as d on a.channelId = d.id where a.id = $id";
         $re = $this->sqlQuery('user',$sql);
         if(empty($re[0])){
-            return $this->returnMsg('A011');
+            return $this->returnMsg('B011');
         }else{
             return $this->returnMsg(0,$re[0]);
         }
@@ -568,7 +593,7 @@ class UserModel extends BaseModel {
         $sql = "select id from `user` where id = $id";
         $re = $this->sqlQuery('user',$sql);
         if(empty($re[0])){
-            return $this->returnMsg('A011');
+            return $this->returnMsg('B011');
         }else{
             $sql = "delete from user where id = $id";
             $this->sqlQuery('user',$sql);
