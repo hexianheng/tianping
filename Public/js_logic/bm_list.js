@@ -1,7 +1,6 @@
 //编码列表
 var userId = getCookie("userId");
 var token = getCookie("token");
-
 if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
@@ -384,7 +383,7 @@ function codeListSearch1(chanpin,num){
 
 
 
-$("#search1").click(function(){
+$("#search2").click(function(){
 
     var qudao=$("#qudao").val();
     if(qudao == "0"){
