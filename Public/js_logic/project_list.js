@@ -162,23 +162,7 @@ function projectSearch(where,num){
     });
 }
 
-//项目添加
-$("#xg_btn").click(function(){
-    $('.pop_layer').show();
-    var operation = "<a class='preview-btn btn04' id='addBtn'>添加</a >";
-    $("#huan").html(operation);
-})
-$("#addBtn").click(function(){
-    $('.pop_layer').show();
-    var name = $("#name").val();
-    var text = $("#textInfo").val();
-    ajax("/Item/addItem",{"userId":userId,"token":token,"name":name,"text":text},function(result){
-        if(result["code"] == 0){
-            alert(result["msg"])
-            location.reload();
-        }
-    });
-})
+
 
 
 
@@ -197,7 +181,7 @@ function upd(id) {
 function update(id){
     var name = $("#name").val();
     var text = $("#textInfo").val();
-    ajax("/Item/updItem",{"userId":userId,"token":token,"name":name,"desc":desc,"projectStr":projectStr,"id":id},function(result){
+    ajax("/Item/updItem",{"userId":userId,"token":token,"name":name,"text":text,"id":id},function(result){
         if(result["code"] == 0){
             alert(result["msg"])
             location.reload();
@@ -215,8 +199,4 @@ function updType(id) {
             }
         });
     }
-}
-
-function projectStr(text){
-    alert(text);
 }

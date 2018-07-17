@@ -11,7 +11,7 @@ if(userId == "" || token == ""){
 		var data = result['data'];
 		   var html = '';
 		   for(var i = 0; i < data.length; i++){
-		       html += '<div sid="'+data[i].id+'" style="padding:10px" pid="'+data[i].parentId+'"><input status="0" style="margin-right:3px" class="check" type="checkbox" value="'+data[i].id+'"/>'+data[i].name+'</div>'
+		       html += '<div sid="'+data[i].id+'" style="padding:10px" pid="'+data[i].parentId+'"><input status="0" style="margin-right:3px" class="check" type="checkbox" name="checkbox" value="'+data[i].id+'"/>'+data[i].name+'</div>'
 
 		   }
 		   $("#list").html(html)
@@ -24,9 +24,15 @@ if(userId == "" || token == ""){
 		    $(".check").click(function(){
 		        var status = $(this).attr('status');
 		        var id = $(this).parent().attr('sid');
+				var pids = $(this).parent().attr('pid');
+				if(pids==0){
+					$(this).css('margin-left','20px');
+					$(this).parent().css('background-color','#6666');
+				}
 		        if(status == 0){
 		            //下级显示
 		            status = '1'
+
 		        }else{
 		            //下级隐藏
 		            status = '0'
@@ -41,7 +47,7 @@ if(userId == "" || token == ""){
 		                }
 		            }
 		        })
-		    })		
+		    })
     });
 }
 
@@ -65,3 +71,13 @@ $("#btn").click(function(){
         })
 
 })
+
+
+$("#quanxuan").click(function(){
+	$("input[name='checkbox']").attr("checked","true");
+
+});
+$("#buxuan").click(function(){
+	$("input[name='checkbox']").removeAttr("checked");
+
+});

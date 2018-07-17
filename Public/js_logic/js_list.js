@@ -6,7 +6,75 @@ if(userId == "" || token == ""){
     parent.location.href = CONFIG['path'];
 }else{
     //角色下拉
-    ajax("/User/getSelectRole",{"userId":userId,"token":token},function(result){
+    ajax("/User/getRole",{"userId":userId,"token":token},function(result){
+        var html = "";
+        $.each(result["data"], function(idx, obj) {
+            html += "<tr><td>" + obj.id + "</td>";
+            html += "<td>" + obj.name + "</td>";
+            html += '<td class="operation del"><a class="edit btn04" onclick="upd('+obj.id+')">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
+        });
+        $("#data").append(html);
+
+        var num_max = result['page'];
+        var num_page = result['maxPage'];
+        $("#page").paging({
+            pageNo:1,
+            totalPage: num_page,
+            totalSize: num_max,
+            callback: function(num) {
+                roleList(num);
+            }
+        })
+    });
+}
+
+
+function roleList(num){
+    ajax("/User/getRole",{"userId":userId,"token":token,"page":num},function(result){
+        var html = "";
+        $.each(result["data"], function(idx, obj) {
+            html += "<tr><td>" + obj.id + "</td>";
+            html += "<td>" + obj.name + "</td>";
+            html += '<td class="operation del"><a class="edit btn04" onclick="upd('+obj.id+')">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
+        });
+        $("#data").html(html);
+    });
+}
+
+
+//搜索
+$("#search").click(function(){
+
+    var where=$("#text").val();
+    if(where == ""){
+        location.reload();
+    }else{
+        ajax("/User/getRole",{"userId":userId,"token":token,"where":where},function(result){
+            var html = "";
+            $.each(result["data"], function(idx, obj) {
+                html += "<tr><td>" + obj.id + "</td>";
+                html += "<td>" + obj.name + "</td>";
+                html += '<td class="operation del"><a class="edit btn04" onclick="upd('+obj.id+')">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
+            });
+            $("#data").html(html);
+
+            var num_max = result['page'];
+            var num_page = result['maxPage'];
+            $("#page").paging({
+                pageNo:1,
+                totalPage: num_page,
+                totalSize: num_max,
+                callback: function(num) {
+                    roleListsearch(where,num);
+                }
+            })
+        });
+    }
+
+});
+
+function roleListsearch(where,num){
+    ajax("/User/getRole",{"userId":userId,"token":token,"page":num,"where":where},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";

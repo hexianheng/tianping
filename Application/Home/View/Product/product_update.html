@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新增产品</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+</head>
+
+<body>
+<div class="chuda_co" id="container">
+    <div class="co-box">
+        <div class="title"><h4>产品管理>>产品修改</h4></div>
+        <div class="fill-info">
+            <div class="info-box">
+                <ul>
+                    <li>
+                        <label>产品名称：</label>
+                        <input type="text" name="" class="w200 " id="name" value="">
+                    </li>
+                    <li>
+                        <label>检测项目：</label>
+                        <div id="itemlist" style="margin-left: 90px;"></div>
+                    </li>
+                    <li>
+                        <label>产品介绍：</label>
+                        <textarea name="" id="desc" placeholder="请输入"  style="height: 100px;width: 200px"></textarea>
+                    </li>
+                    <li>
+                        <label>检测panel：</label>
+                        <input type="text" name="" class="w200 " id="panel" value="">
+                    </li>
+                </ul>
+            </div>
+            <input type="hidden" id="itemid" value="{$id}">
+            <div class="preview">
+                <a class="preview-btn btn05" id="btn">提交</a>
+                <a class="cancel-btn btn05" id="cancel">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/product_update.js"></script>

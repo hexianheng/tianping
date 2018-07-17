@@ -153,17 +153,47 @@ class IndexController extends BaseController {
         $this->assign("url",$url);
         $this->display('Product/product_list');
     }
+
+    //产品新增
+    public function product_add(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Product/product_add');
+    }
+
+    //产品修改
+    public function product_update(){
+        $id = $_GET["id"];
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->assign("id",$id);
+        $this->display('Product/product_update');
+    }
+    
     //项目列表
     public function project_list(){
         $url=C("URL");
         $this->assign("url",$url);
         $this->display('Product/project_list');
     }
+    //项目添加
+    public function project_add(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Product/project_add');
+    }
     //位点列表
     public function site_list(){
         $url=C("URL");
         $this->assign("url",$url);
         $this->display('Product/site_list');
+    }
+
+    //位点添加
+    public function site_add(){
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->display('Product/site_add');
     }
     //解读列表
     public function sns_check(){

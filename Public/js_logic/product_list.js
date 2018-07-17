@@ -21,9 +21,9 @@ if(userId == "" || token == ""){
             }
             html += "<td>" + obj.ctime + "</td>";
             if(obj.status == '1'){
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
             }else{
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
             }
         });
         $("#data").append(html);
@@ -57,56 +57,12 @@ function productList(num){
             }
             html += "<td>" + obj.ctime + "</td>";
             if(obj.status == '1'){
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
             }else{
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
-            }        });
+                html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+            } 
+        });
         $("#data").html(html);
-    });
-}
-
-//产品添加
-$("#xg_btn").click(function(){
-    $('.pop_layer').show();
-})
-
-$("#addBtn").click(function(){
-    var name = $("#name").val();
-    var desc = $("#desc").val();
-    var projectStr = $("#projectStr").val();
-    var panel = $("#panel").val();
-    ajax("/Product/addProduct",{"userId":userId,"token":token,"name":name,"desc":desc,"projectStr":projectStr,"panel":panel},function(result){
-        if(result["code"] == 0){
-            alert(result["msg"])
-            location.reload();
-        }
-    });
-})
-
-//修改
-function upd(id) {
-    $('.pop_layer').show();
-    ajax("/Product/getOneProduct",{"userId":userId,"token":token,"id":id},function(result){
-        $("#name").val(result['data'][0]['name']);
-        $("#desc").val(result['data'][0]['desc']);
-        $("#projectStr").val(result['data'][0]['projectStr']);
-        $("#panel").val(result['data'][0]['panel']);
-        var operation = "<a class='preview-btn btn04' onclick='update("+result['data'][0]['id']+")'>保存</a >";
-        $("#operation").html(operation);
-    });
-}
-
-//修改
-function update(id){
-    var name = $("#name").val();
-    var desc = $("#desc").val();
-    var projectStr = $("#projectStr").val();
-    var panel = $("#panel").val();
-    ajax("/Product/updProduct",{"userId":userId,"token":token,"name":name,"desc":desc,"projectStr":projectStr,"id":id,"panel":panel},function(result){
-        if(result["code"] == 0){
-            alert(result["msg"])
-            location.reload();
-        }
     });
 }
 
@@ -122,11 +78,6 @@ function updType(id) {
     }
 }
 
-function projectStr(id){
-    ajax("/Product/getOneProduct",{"userId":userId,"token":token,"id":id},function(result){
-        alert(result['data'][0]['projectStr']);
-    });
-}
 
 //搜索
 $("#search").click(function(){
@@ -148,9 +99,9 @@ $("#search").click(function(){
                 }
                 html += "<td>" + obj.ctime + "</td>";
                 if(obj.status == '1'){
-                    html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+                    html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
                 }else{
-                    html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+                    html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
                 }
             });
             $("#data").html(html);
@@ -185,9 +136,9 @@ $("#search").click(function(){
                     }
                     html += "<td>" + obj.ctime + "</td>";
                     if(obj.status == '1'){
-                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+                        html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
                     }else{
-                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+                        html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
                     }
                 });
                 $("#data").html(html);
@@ -223,8 +174,11 @@ function productsearch(where,num){
                 html += "<td>正常</td>";
             }
             html += "<td>" + obj.ctime + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">更改状态</a ></td></tr>';
-
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" href="'+CONFIG['path']+'/Index/product_update/id/'+obj.id+'">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+            }
         });
         $("#data").html(html);
     });

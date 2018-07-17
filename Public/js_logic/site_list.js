@@ -30,9 +30,9 @@ if(userId == "" || token == ""){
                 html += "<td>正常</td>";
             }
             if(obj.status == '1'){
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
             }else{
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
             }
         });
         $("#data").append(html);
@@ -75,9 +75,9 @@ function siteList(num){
                 html += "<td>正常</td>";
             }
             if(obj.status == '1'){
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
             }else{
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
             }
         });
         $("#data").html(html);
@@ -90,9 +90,9 @@ $("#search").click(function(){
 
     var where=$("#text").val();
     if(where == ""){
-        alert("搜索条件不能为空")
+        location.reload();
     }else{
-        ajax("/Site/siteList",{"userId":userId,"token":token,"where":where},function(result){
+        ajax("/Site/siteList",{"userId":userId,"token":token,"itemid":where},function(result){
             if(result['data'] == ""){
                 alert("无数据")
             }else{
@@ -118,9 +118,9 @@ $("#search").click(function(){
                         html += "<td>正常</td>";
                     }
                     if(obj.status == '1'){
-                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">启用</a ></td></tr>';
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
                     }else{
-                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.id+')">禁用</a ></td></tr>';
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
                     }
                 });
                 $("#data").html(html);
@@ -141,7 +141,7 @@ $("#search").click(function(){
 });
 
 function siteSearch(where,num){
-    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num,"where":where},function(result){
+    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num,"itemid":where},function(result){
         var html = "";
         $.each(result["data"], function (idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
@@ -163,30 +163,184 @@ function siteSearch(where,num){
             } else {
                 html += "<td>正常</td>";
             }
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd(' + obj.id + ')">修改信息</a >  <a class="btn04" onclick="updType(' + obj.id + ')">更改状态</a ></td></tr>';
+            html += '<td><a class="btn04" id="xg_btn" onclick="upd(' + obj.id + ')">修改信息</a ></td></tr>';
 
         });
         $("#data").html(html);
     });
 }
 
-//添加
-$("#xg_btn").click(function(){
-    $('.pop_layer').show();
-    var operation = "<a class='preview-btn btn04' id='addBtn'>添加</a >";
-    $("#huan").html(operation);
-})
-$("#addBtn").click(function(){
-    var name = $("#name").val();
-    var text = $("#textInfo").val();
-    ajax("/Item/addItem",{"userId":userId,"token":token,"name":name,"text":text},function(result){
-        if(result["code"] == 0){
-            alert(result["msg"])
-            location.reload();
-        }
-    });
-})
+//搜索
+$("#search1").click(function(){
 
+    var where=$("#text1").val();
+    if(where == ""){
+        location.reload();
+    }else{
+        ajax("/Site/siteList",{"userId":userId,"token":token,"gene":where},function(result){
+            if(result['data'] == ""){
+                alert("无数据")
+            }else{
+                var html = "";
+                $.each(result["data"], function (idx, obj) {
+                    html += "<tr><td>" + obj.id + "</td>";
+                    html += "<td>" + obj.itemid + "</td>";
+                    html += "<td>" + obj.gene + "</td>";
+                    html += "<td>" + obj.origincode + "</td>";
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+                    html += "<td>" + obj.wild_type + "</td>";
+                    html += "<td>" + obj.mutant_type + "</td>";
+                    html += "<td>" + obj.genotype_value_ww + "</td>";
+                    html += "<td>" + obj.genotype_value_wm + "</td>";
+                    html += "<td>" + obj.genotype_value_mm + "</td>";
+                    html += "<td>" + obj.risk_desc_ww + "</td>";
+                    html += "<td>" + obj.risk_desc_wm + "</td>";
+                    html += "<td>" + obj.risk_desc_mm + "</td>";
+
+                    if (obj.status == '1') {
+                        html += "<td>禁用</td>";
+                    } else {
+                        html += "<td>正常</td>";
+                    }
+                    if(obj.status == '1'){
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
+                    }else{
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
+                    }
+                });
+                $("#data").html(html);
+                var num_max = result['maxPage'];
+                var num_page = result['page'];
+                $("#page").paging({
+                    pageNo:1,
+                    totalPage: num_max,
+                    totalSize: num_max,
+                    callback: function(num) {
+                        siteSearch1(where,num);
+                    }
+                })
+            }
+        });
+    }
+
+});
+
+function siteSearch1(where,num){
+    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num,"gene":where},function(result){
+        var html = "";
+        $.each(result["data"], function (idx, obj) {
+            html += "<tr><td>" + obj.id + "</td>";
+            html += "<td>" + obj.itemid + "</td>";
+            html += "<td>" + obj.gene + "</td>";
+            html += "<td>" + obj.origincode + "</td>";
+            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+            html += "<td>" + obj.wild_type + "</td>";
+            html += "<td>" + obj.mutant_type + "</td>";
+            html += "<td>" + obj.genotype_value_ww + "</td>";
+            html += "<td>" + obj.genotype_value_wm + "</td>";
+            html += "<td>" + obj.genotype_value_mm + "</td>";
+            html += "<td>" + obj.risk_desc_ww + "</td>";
+            html += "<td>" + obj.risk_desc_wm + "</td>";
+            html += "<td>" + obj.risk_desc_mm + "</td>";
+
+            if (obj.status == '1') {
+                html += "<td>禁用</td>";
+            } else {
+                html += "<td>正常</td>";
+            }
+            html += '<td><a class="btn04" id="xg_btn" onclick="upd(' + obj.id + ')">修改信息</a ></td></tr>';
+
+        });
+        $("#data").html(html);
+    });
+}
+
+
+
+//搜索
+$("#search2").click(function(){
+
+    var where=$("#text2").val();
+    if(where == ""){
+        location.reload();
+    }else{
+        ajax("/Site/siteList",{"userId":userId,"token":token,"origincode":where},function(result){
+            if(result['data'] == ""){
+                alert("无数据")
+            }else{
+                var html = "";
+                $.each(result["data"], function (idx, obj) {
+                    html += "<tr><td>" + obj.id + "</td>";
+                    html += "<td>" + obj.itemid + "</td>";
+                    html += "<td>" + obj.gene + "</td>";
+                    html += "<td>" + obj.origincode + "</td>";
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+                    html += "<td>" + obj.wild_type + "</td>";
+                    html += "<td>" + obj.mutant_type + "</td>";
+                    html += "<td>" + obj.genotype_value_ww + "</td>";
+                    html += "<td>" + obj.genotype_value_wm + "</td>";
+                    html += "<td>" + obj.genotype_value_mm + "</td>";
+                    html += "<td>" + obj.risk_desc_ww + "</td>";
+                    html += "<td>" + obj.risk_desc_wm + "</td>";
+                    html += "<td>" + obj.risk_desc_mm + "</td>";
+
+                    if (obj.status == '1') {
+                        html += "<td>禁用</td>";
+                    } else {
+                        html += "<td>正常</td>";
+                    }
+                    if(obj.status == '1'){
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
+                    }else{
+                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
+                    }
+                });
+                $("#data").html(html);
+                var num_max = result['maxPage'];
+                var num_page = result['page'];
+                $("#page").paging({
+                    pageNo:1,
+                    totalPage: num_max,
+                    totalSize: num_max,
+                    callback: function(num) {
+                        siteSearch2(where,num);
+                    }
+                })
+            }
+        });
+    }
+
+});
+
+function siteSearch2(where,num){
+    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num,"origincode":where},function(result){
+        var html = "";
+        $.each(result["data"], function (idx, obj) {
+            html += "<tr><td>" + obj.id + "</td>";
+            html += "<td>" + obj.itemid + "</td>";
+            html += "<td>" + obj.gene + "</td>";
+            html += "<td>" + obj.origincode + "</td>";
+            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+            html += "<td>" + obj.wild_type + "</td>";
+            html += "<td>" + obj.mutant_type + "</td>";
+            html += "<td>" + obj.genotype_value_ww + "</td>";
+            html += "<td>" + obj.genotype_value_wm + "</td>";
+            html += "<td>" + obj.genotype_value_mm + "</td>";
+            html += "<td>" + obj.risk_desc_ww + "</td>";
+            html += "<td>" + obj.risk_desc_wm + "</td>";
+            html += "<td>" + obj.risk_desc_mm + "</td>";
+
+            if (obj.status == '1') {
+                html += "<td>禁用</td>";
+            } else {
+                html += "<td>正常</td>";
+            }
+            html += '<td><a class="btn04" id="xg_btn" onclick="upd(' + obj.id + ')">修改信息</a ></td></tr>';
+
+        });
+        $("#data").html(html);
+    });
+}
 
 //修改
 function upd(id) {
@@ -244,9 +398,3 @@ function updType(id) {
 }
 
 
-//详情
-function details(id){
-    ajax("/Site/getOneSite",{"userId":userId,"token":token,"id":id},function(result){
-        alert(result['data']['gene_text']);
-    });
-}

@@ -22,7 +22,11 @@ if(userId == "" || token == ""){
             html += "<td>" + obj.linkman + "</td>";
             html += "<td>" + obj.linkmanPhone + "</td>";
             html += "<td>" + obj.linkmanEmail + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">状态修改</a ></td></tr>';
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">禁用</a ></td></tr>';
+            }
         });
         $("#data").append(html);
         var num_max = result['page'];
@@ -57,12 +61,90 @@ function channelList(num){
             html += "<td>" + obj.linkman + "</td>";
             html += "<td>" + obj.linkmanPhone + "</td>";
             html += "<td>" + obj.linkmanEmail + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">状态修改</a ></td></tr>';
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">禁用</a ></td></tr>';
+            }
         });
         $("#data").html(html);
     });
 }
 
+
+//搜索
+$("#search").click(function(){
+
+    var where=$("#text").val();
+    if(where == ""){
+        location.reload();
+    }else{
+        ajax("/Channel/listChannel",{"userId":userId,"token":token,"where":where},function(result){
+            var html = "";
+            $.each(result["data"]["data"], function(idx, obj) {
+                html += "<tr><td>" + obj.id + "</td>";
+                html += "<td>" + obj.code + "</td>";
+                html += "<td>" + obj.name + "</td>";
+                html += "<td>" + obj.ctime + "</td>";
+                if(obj.status == '1'){
+                    html += "<td>禁用</td>";
+                }else{
+                    html += "<td>正常</td>";
+                }
+                html += "<td>" + obj.label + "</td>";
+
+                html += "<td>" + obj.linkman + "</td>";
+                html += "<td>" + obj.linkmanPhone + "</td>";
+                html += "<td>" + obj.linkmanEmail + "</td>";
+                if(obj.status == '1'){
+                    html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">启用</a ></td></tr>';
+                }else{
+                    html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">禁用</a ></td></tr>';
+                }
+            });
+            $("#data").html(html);
+            var num_max = result['page'];
+            var num_page = result["data"]['maxPage'];
+            $("#page").paging({
+                pageNo:1,
+                totalPage: num_page,
+                totalSize: num_max,
+                callback: function(num) {
+                    channelListsearch(where,num);
+                }
+            })
+        });
+    }
+
+});
+
+function channelListsearch(where,num){
+    ajax("/Channel/listChannel",{"userId":userId,"token":token,"page":num,"where":where},function(result){
+        var html = "";
+        $.each(result["data"]["data"], function(idx, obj) {
+            html += "<tr><td>" + obj.id + "</td>";
+            html += "<td>" + obj.code + "</td>";
+            html += "<td>" + obj.name + "</td>";
+            html += "<td>" + obj.ctime + "</td>";
+            if(obj.status == '1'){
+                html += "<td>禁用</td>";
+            }else{
+                html += "<td>正常</td>";
+            }
+            html += "<td>" + obj.label + "</td>";
+
+            html += "<td>" + obj.linkman + "</td>";
+            html += "<td>" + obj.linkmanPhone + "</td>";
+            html += "<td>" + obj.linkmanEmail + "</td>";
+            if(obj.status == '1'){
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">启用</a ></td></tr>';
+            }else{
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a >  <a class="btn04" onclick="upType('+obj.id+')">禁用</a ></td></tr>';
+            }
+        });
+        $("#data").html(html);
+    });
+}
 
 //修改状态
 function upType(id) {

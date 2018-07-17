@@ -3,9 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>角色列表</title>
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
-<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css" />
+  <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/paging.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
 </head>
 
 <body>
@@ -14,23 +16,36 @@
     <div class="title">
       <h4>权限管理>>角色列表</h4>
     </div>
-    <div class="right"> 
-    	<a class="btn09" href="{$url}/Index/xzjs">新增角色</a>
-      <!--detail start-->
-      <div class="co-detail clearfix"> 
-        <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
-            <thead>
-              <tr>
-                <th>角色ID</th>
-                <th>角色名称</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody id="data"></tbody>
-          </table>
+    <div class="right container">
+      <div class="custom-info">
+        <div class="info-box">
+          <ul class="ul-datetime">
+            <li>
+              <label>角色名称：</label>
+              <input type="text" class="w100" id="text">
+            </li>
+            <li><a class="btn01" id="search">查询</a></li>
+            <a class="btn09" href="{$url}/Index/xzjs">新增角色</a>
+            <!--<a class="btn02" href="">批量删除</a>-->
+          </ul>
+        </div>
       </div>
-      <!--detail end--> 
-    </div>
+      <!--detail start-->
+      <div class="co-detail clearfix">
+        <table class="tablelist" border="0" cellpadding="0" cellspacing="0">
+          <thead>
+          <tr>
+            <th>角色ID</th>
+            <th>角色名称</th>
+            <th>操作</th>
+          </tr>
+          </thead>
+          <tbody id="data"></tbody>
+        </table>
+        <!--分页 start-->
+        <div id="page" class="page_div"></div>
+        <!--分页 end-->
+      </div>
   </div>
 </div>
 <div class="pop_layer add-mess">
@@ -53,6 +68,5 @@
 </div>
 </body>
 </html>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js_logic/js_list.js"></script>

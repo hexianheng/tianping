@@ -133,37 +133,7 @@ $("#search").click(function(){
 
 	var where=$("#text").val();
 	if(where == ""){
-        ajax("/User/userRoleList",{"userId":userId,"token":token},function(result){
-            var html = "";
-            $.each(result["data"], function(idx, obj) {
-                html += "<tr><td>" + obj.userId + "</td>";
-                html += "<td>" + obj.uname + "</td>";
-                if(obj.sex == '1'){
-                    html += "<td>男</td>";
-                }else{
-                    html += "<td>女</td>";
-                }
-                html += "<td>" + obj.channelName + "</td>";
-                html += "<td>" + obj.job + "</td>";
-                html += "<td>" + obj.roleName + "</td>";
-                html += "<td>" + obj.phone + "</td>";
-                html += "<td>" + obj.email + "</td>";
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
-
-            });
-            $("#data").html(html);
-
-            var num_max = result['page'];
-            var num_page = result['maxPage'];
-            $("#page").paging({
-                pageNo:1,
-                totalPage: num_page,
-                totalSize: num_max,
-                callback: function(num) {
-                    userList(num);
-                }
-            })
-        });
+        location.reload();
 	}else{
 		ajax("/User/userRoleList",{"userId":userId,"token":token,"where":where},function(result){
 			var html = "";
@@ -201,6 +171,134 @@ $("#search").click(function(){
 
 function userListSearch(where,num){
     ajax("/User/userRoleList",{"userId":userId,"token":token,"page":num,"where":where},function(result){
+        var html = "";
+        $.each(result["data"], function(idx, obj) {
+            html += "<tr><td>" + obj.userId + "</td>";
+            html += "<td>" + obj.uname + "</td>";
+            if(obj.sex == '1'){
+                html += "<td>男</td>";
+            }else{
+                html += "<td>女</td>";
+            }
+            html += "<td>" + obj.channelName + "</td>";
+            html += "<td>" + obj.job + "</td>";
+            html += "<td>" + obj.roleName + "</td>";
+            html += "<td>" + obj.phone + "</td>";
+            html += "<td>" + obj.email + "</td>";
+            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
+
+        });
+        $("#data").html(html);
+    });
+}
+
+$("#search1").click(function(){
+
+    var where=$("#text1").val();
+    if(where == ""){
+        location.reload();
+    }else{
+        ajax("/User/userRoleList",{"userId":userId,"token":token,"channelId":where},function(result){
+            var html = "";
+            $.each(result["data"], function(idx, obj) {
+                html += "<tr><td>" + obj.userId + "</td>";
+                html += "<td>" + obj.uname + "</td>";
+                if(obj.sex == '1'){
+                    html += "<td>男</td>";
+                }else{
+                    html += "<td>女</td>";
+                }
+                html += "<td>" + obj.channelName + "</td>";
+                html += "<td>" + obj.job + "</td>";
+                html += "<td>" + obj.roleName + "</td>";
+                html += "<td>" + obj.phone + "</td>";
+                html += "<td>" + obj.email + "</td>";
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
+
+            });
+            $("#data").html(html);
+            var num_max = result['maxPage'];
+            var num_page = result['page'];
+            $("#page").paging({
+                pageNo:1,
+                totalPage: num_max,
+                totalSize: num_max,
+                callback: function(num) {
+                    userListSearch1(where,num);
+                }
+            })
+        });
+    }
+
+});
+
+function userListSearch1(where,num){
+    ajax("/User/userRoleList",{"userId":userId,"token":token,"page":num,"channelId":where},function(result){
+        var html = "";
+        $.each(result["data"], function(idx, obj) {
+            html += "<tr><td>" + obj.userId + "</td>";
+            html += "<td>" + obj.uname + "</td>";
+            if(obj.sex == '1'){
+                html += "<td>男</td>";
+            }else{
+                html += "<td>女</td>";
+            }
+            html += "<td>" + obj.channelName + "</td>";
+            html += "<td>" + obj.job + "</td>";
+            html += "<td>" + obj.roleName + "</td>";
+            html += "<td>" + obj.phone + "</td>";
+            html += "<td>" + obj.email + "</td>";
+            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
+
+        });
+        $("#data").html(html);
+    });
+}
+
+
+
+$("#search2").click(function(){
+
+    var where=$("#text2").val();
+    if(where == ""){
+        location.reload();
+    }else{
+        ajax("/User/userRoleList",{"userId":userId,"token":token,"phone":where},function(result){
+            var html = "";
+            $.each(result["data"], function(idx, obj) {
+                html += "<tr><td>" + obj.userId + "</td>";
+                html += "<td>" + obj.uname + "</td>";
+                if(obj.sex == '1'){
+                    html += "<td>男</td>";
+                }else{
+                    html += "<td>女</td>";
+                }
+                html += "<td>" + obj.channelName + "</td>";
+                html += "<td>" + obj.job + "</td>";
+                html += "<td>" + obj.roleName + "</td>";
+                html += "<td>" + obj.phone + "</td>";
+                html += "<td>" + obj.email + "</td>";
+                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
+
+            });
+            $("#data").html(html);
+            var num_max = result['maxPage'];
+            var num_page = result['page'];
+            $("#page").paging({
+                pageNo:1,
+                totalPage: num_max,
+                totalSize: num_max,
+                callback: function(num) {
+                    userListSearch2(where,num);
+                }
+            })
+        });
+    }
+
+});
+
+function userListSearch2(where,num){
+    ajax("/User/userRoleList",{"userId":userId,"token":token,"page":num,"phone":where},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.userId + "</td>";

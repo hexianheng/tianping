@@ -3,10 +3,10 @@ $("#button").click(function(){
     var uname = $("#username").val();
     var pwd = $("#userpwd").val();
     ajax("/Login/login",{"userName":uname,"password":pwd},function(result){
-        setCookie("userId",result["data"]["id"]);
-        setCookie("token",result["data"]["token"]);
-        setCookie("uname",result["data"]["uname"]);
-        setCookie("roleName",result["data"]["roleName"]);
+        setCookie("userId",result["data"]["id"],1);
+        setCookie("token",result["data"]["token"],1);
+        setCookie("uname",result["data"]["uname"],1);
+        setCookie("roleName",result["data"]["roleName"],1);
         userId = getCookie("userId");
         token = getCookie("token");
         if(userId != "" && token != ""){

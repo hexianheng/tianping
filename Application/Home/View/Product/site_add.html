@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新增位点</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/erweima-style.css" />
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+</head>
+
+<body>
+<div class="chuda_co" id="container">
+    <div class="co-box">
+        <div class="title"><h4>产品管理>>位点添加</h4></div>
+        <div class="fill-info">
+            <div class="info-box">
+                <ul>
+                    <li>
+                        <label>基因名称：</label>
+                        <input type="text" name="name" class="w200 gene" id="gene" value="">
+                    </li>
+                    <li>
+                        <label>rs号：</label>
+                        <input type="text" name="name" class="w200 origincode" id="origincode" value="">
+                    </li>
+                    <li>
+                        <label>项目ID：</label>
+                        <input type="text" name="name" class="w200 itemid" id="itemid" value="">
+                    </li>
+                    <li>
+                        <label>描述：</label>
+                        <textarea name="" id="gene_text" style="height: 100px;width: 200px"></textarea>
+                    </li>
+                    <li>
+                        <label>野生型：</label>
+                        <input type="text" name="name" class="w200 wild_type" id="wild_type" value="">
+                    </li>
+                    <li>
+                        <label>突变型：</label>
+                        <input type="text" name="name" class="w200 mutant_type" id="mutant_type" value="">
+                    </li>
+                    <li>
+                        <label>ww基因型频率：</label>
+                        <input type="text" name="name" class="w200 genotype_value_ww" id="genotype_value_ww" value="">
+                    </li>
+                    <li>
+                        <label>wm基因型频率：</label>
+                        <input type="text" name="name" class="w200 genotype_value_wm" id="genotype_value_wm" value="">
+                    </li>
+                    <li>
+                        <label>mm基因型频率：</label>
+                        <input type="text" name="name" class="w200 genotype_value_mm" id="genotype_value_mm" value="">
+                    </li>
+                    <li>
+                        <label>ww描述：</label>
+                        <input type="text" name="name" class="w200 risk_desc_ww" id="risk_desc_ww" value="">
+                    </li>
+                    <li>
+                        <label>wm描述：</label>
+                        <input type="text" name="name" class="w200 risk_desc_wm" id="risk_desc_wm" value="">
+                    </li>
+                    <li>
+                        <label>mm描述：</label>
+                        <input type="text" name="name" class="w200 risk_desc_mm" id="risk_desc_mm" value="">
+                    </li>
+                </ul>
+            </div>
+            <div class="preview">
+                <a class="preview-btn btn05" id="btn">提交</a>
+                <a class="cancel-btn btn05" id="cancel">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js_logic/site_add.js"></script>

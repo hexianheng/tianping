@@ -21,11 +21,11 @@
             <div class="info-box">
                 <ul class="ul-datetime">
                     <li>
-                        <label>渠道名称：</label>
-                        <input type="text" class="w200">
+                        <label>渠道负责人/电话：</label>
+                        <input type="text" class="w200" id="text">
                     </li>
-                    <li><a class="btn01">查询</a></li>
-                    <a class="btn03" href="{$url}/Index/qd_add">渠道添加</a>
+                    <li><a class="btn07" id="search">查询</a></li>
+                    <a class="btn09" href="{$url}/Index/qd_add">渠道添加</a>
                     <!--<a class="btn02" href="">批量删除</a>-->
                 </ul>
             </div>
@@ -85,6 +85,7 @@
           <li>
               <label>渠道级别：</label>
               <select class="w200" id="label">
+                  <option value="">---请选择---</option>
                   <option value="A">A</option>
                   <option value="B">B</option>
                   <option value="C">C</option>
