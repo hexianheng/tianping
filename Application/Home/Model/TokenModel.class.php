@@ -6,7 +6,7 @@
 namespace Home\Model;
 class TokenModel extends BaseModel {
 
-    private $tokenTime = 3600;  //设置token时间
+    private $tokenTime = 86400;  //设置token时间
     private $tokenOnlyKey = 'TianPing';  //唯一key
 
     /* *
