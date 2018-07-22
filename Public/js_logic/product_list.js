@@ -11,8 +11,16 @@ if(userId == "" || token == ""){
         $.each(result["data"]["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.name + "</td>";
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
-            html += "<td>" + obj.desc+"</td>";
+            if(obj.projectStr.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
+            }else{
+                html += "<td>"+obj.projectStr+"</td>";
+            }
+            if(obj.desc.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+            }else{
+                html += "<td>"+obj.desc+"</td>";
+            }
             html += "<td>" + obj.panel+"</td>";
             if(obj.status == '1'){
                 html += "<td>禁用</td>";
@@ -47,8 +55,16 @@ function productList(num){
         $.each(result["data"]["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.name + "</td>";
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
-            html += "<td>" + obj.desc+"</td>";
+            if(obj.projectStr.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
+            }else{
+                html += "<td>"+obj.projectStr+"</td>";
+            }
+            if(obj.desc.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+            }else{
+                html += "<td>"+obj.desc+"</td>";
+            }
             html += "<td>" + obj.panel+"</td>";
             if(obj.status == '1'){
                 html += "<td>禁用</td>";
@@ -89,8 +105,16 @@ $("#search").click(function(){
             $.each(result["data"]["data"], function(idx, obj) {
                 html += "<tr><td>" + obj.id + "</td>";
                 html += "<td>" + obj.name + "</td>";
-                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
-                html += "<td>" + obj.desc+"</td>";
+                if(obj.projectStr.length>30){
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
+                }else{
+                    html += "<td>"+obj.projectStr+"</td>";
+                }
+                if(obj.desc.length>30){
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+                }else{
+                    html += "<td>"+obj.desc+"</td>";
+                }
                 html += "<td>" + obj.panel+"</td>";
                 if(obj.status == '1'){
                     html += "<td>禁用</td>";
@@ -126,8 +150,16 @@ $("#search").click(function(){
                 $.each(result["data"]["data"], function(idx, obj) {
                     html += "<tr><td>" + obj.id + "</td>";
                     html += "<td>" + obj.name + "</td>";
-                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
-                    html += "<td>" + obj.desc+"</td>";
+                    if(obj.projectStr.length>30){
+                        html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
+                    }else{
+                        html += "<td>"+obj.projectStr+"</td>";
+                    }
+                    if(obj.desc.length>30){
+                        html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+                    }else{
+                        html += "<td>"+obj.desc+"</td>";
+                    }
                     html += "<td>" + obj.panel+"</td>";
                     if(obj.status == '1'){
                         html += "<td>禁用</td>";
@@ -165,8 +197,16 @@ function productsearch(where,num){
         $.each(result["data"]["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.name + "</td>";
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
-            html += "<td>" + obj.desc+"</td>";
+            if(obj.projectStr.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.projectStr+'</div></td>';
+            }else{
+                html += "<td>"+obj.projectStr+"</td>";
+            }
+            if(obj.desc.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+            }else{
+                html += "<td>"+obj.desc+"</td>";
+            }
             html += "<td>" + obj.panel+"</td>";
             if(obj.status == '1'){
                 html += "<td>禁用</td>";

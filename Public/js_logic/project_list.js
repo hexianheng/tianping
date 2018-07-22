@@ -17,7 +17,12 @@ if(userId == "" || token == ""){
             }else{
                 html += "<td>正常</td>";
             }
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';            html += "<td>" + obj.addtime + "</td>";
+            if(obj.text.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';
+            }else{
+                html += "<td>"+obj.text+"</td>";
+            }
+            html += "<td>" + obj.addtime + "</td>";
             if(obj.status == '1'){
                 html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
             }else{
@@ -52,7 +57,11 @@ function projectList(num){
             }else{
                 html += "<td>正常</td>";
             }
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';            html += "<td>" + obj.addtime + "</td>";
+            if(obj.text.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';
+            }else{
+                html += "<td>"+obj.text+"</td>";
+            }
             if(obj.status == '1'){
                 html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
             }else{
@@ -80,7 +89,11 @@ $("#search").click(function(){
                 }else{
                     html += "<td>正常</td>";
                 }
-                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';            html += "<td>" + obj.addtime + "</td>";
+                if(obj.text.length>30){
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';
+                }else{
+                    html += "<td>"+obj.text+"</td>";
+                }
                 if(obj.status == '1'){
                     html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
                 }else{
@@ -115,7 +128,11 @@ $("#search").click(function(){
                     }else{
                         html += "<td>正常</td>";
                     }
-                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';                    html += "<td>" + obj.addtime + "</td>";
+                    if(obj.text.length>30){
+                        html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';
+                    }else{
+                        html += "<td>"+obj.text+"</td>";
+                    }
                     if(obj.status == '1'){
                         html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
                     }else{
@@ -151,7 +168,11 @@ function projectSearch(where,num){
             }else{
                 html += "<td>正常</td>";
             }
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';            html += "<td>" + obj.addtime + "</td>";
+            if(obj.text.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.text+'</div></td>';
+            }else{
+                html += "<td>"+obj.text+"</td>";
+            }
             if(obj.status == '1'){
                 html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.itemid+')">修改信息</a >  <a class="btn04" onclick="updType('+obj.itemid+')">启用</a ></td></tr>';
             }else{

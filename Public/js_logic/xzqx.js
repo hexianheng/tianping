@@ -30,13 +30,17 @@ $("#button").click(function(){
 	var actionName = $("#actionName").val();
 	var functionName = $("#functionName").val();
 	var permissionPId = $("#select_parent").val();
+	var type = $("input[type='radio']:checked").val();
+	if(type==undefined){
+		alert("请选择权限所属")
+	}else{
+		ajax("/User/addPermission",{"userId":userId,"token":token,"permissionPId":permissionPId,"actionName":actionName,"functionName":functionName,"permissionName":permissionName,"type":type},function(result){
 
-	ajax("/User/addPermission",{"userId":userId,"token":token,"permissionPId":permissionPId,"actionName":actionName,"functionName":functionName,"permissionName":permissionName,"type":type},function(result){
+			if(result['code'] == 0 ){
+				alert(result["msg"])
+				location.href = CONFIG['path']+"Index/qxlb";
+			}
 
-		if(result['code'] == 0 ){
-			alert(result["msg"])
-			location.href = CONFIG['path']+"Index/qxlb";
-		}
-		
-    });
+		});
+	}
 })

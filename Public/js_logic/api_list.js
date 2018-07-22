@@ -10,8 +10,16 @@ if(userId == "" || token == ""){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.appId + "</td>";
             html += "<td>" + obj.appKey + "</td>";
-            html += "<td>" + obj.appName + "</td>";
-            html += "<td>" + obj.desc + "</td>";
+            if(obj.appName.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.appName+'</div></td>';
+            }else{
+                html += "<td>"+obj.appName+"</td>";
+            }
+            if(obj.desc.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+            }else{
+                html += "<td>"+obj.desc+"</td>";
+            }
             html += "<td>" + obj.ctime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.appId+')">删除</a ></td></tr>';
         });
@@ -37,8 +45,16 @@ function ApiList(num){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.appId + "</td>";
             html += "<td>" + obj.appKey + "</td>";
-            html += "<td>" + obj.appName + "</td>";
-            html += "<td>" + obj.desc + "</td>";
+            if(obj.appName.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.appName+'</div></td>';
+            }else{
+                html += "<td>"+obj.appName+"</td>";
+            }
+            if(obj.desc.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+            }else{
+                html += "<td>"+obj.desc+"</td>";
+            }
             html += "<td>" + obj.ctime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.appId+')">删除</a ></td></tr>';
         });
@@ -79,8 +95,16 @@ $("#search").click(function(){
             $.each(result["data"], function(idx, obj) {
                 html += "<tr><td>" + obj.appId + "</td>";
                 html += "<td>" + obj.appKey + "</td>";
-                html += "<td>" + obj.appName + "</td>";
-                html += "<td>" + obj.desc + "</td>";
+                if(obj.appName.length>30){
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.appName+'</div></td>';
+                }else{
+                    html += "<td>"+obj.appName+"</td>";
+                }
+                if(obj.desc.length>30){
+                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+                }else{
+                    html += "<td>"+obj.desc+"</td>";
+                }
                 html += "<td>" + obj.ctime + "</td>";
                 html += '<td><a class="btn04" onclick="del('+obj.appId+')">删除</a ></td></tr>';
             });
@@ -108,8 +132,16 @@ function ApiListSearch(where,num){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.appId + "</td>";
             html += "<td>" + obj.appKey + "</td>";
-            html += "<td>" + obj.appName + "</td>";
-            html += "<td>" + obj.desc + "</td>";
+            if(obj.appName.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.appName+'</div></td>';
+            }else{
+                html += "<td>"+obj.appName+"</td>";
+            }
+            if(obj.desc.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.desc+'</div></td>';
+            }else{
+                html += "<td>"+obj.desc+"</td>";
+            }
             html += "<td>" + obj.ctime + "</td>";
             html += '<td><a class="btn04" onclick="del('+obj.appId+')">删除</a ></td></tr>';
         });

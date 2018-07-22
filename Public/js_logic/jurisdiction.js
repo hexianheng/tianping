@@ -11,6 +11,14 @@ $('.sex_get').click(function(){
 if(userId == "" || token == ""){
 	parent.location.href = CONFIG['path'];
 }else{
+    ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
+        var html_s = "";
+        html_s += "<option value = ''>---请选择---</option>";
+        $.each(result["data"], function(idx, obj) {
+            html_s += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
+        });
+        $("#text1").html(html_s);
+    });
 	ajax("/User/userRoleList",{"userId":userId,"token":token},function(result){
 		var html = "";
 			$.each(result["data"], function(idx, obj) {
@@ -72,6 +80,7 @@ function userList(num){
 function upd(id) {
     ajax("/Channel/channelSelect",{"userId":userId,"token":token},function(result){
         var html_c = "";
+        html_c += "<option value = ''>---请选择---</option>";
         $.each(result["data"], function(idx, obj) {
             html_c += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
         });
@@ -80,6 +89,7 @@ function upd(id) {
     //角色下拉
     ajax("/User/getSelectRole",{"userId":userId,"token":token},function(result){
         var html_u = "";
+        html_u += "<option value = ''>---请选择---</option>";
         $.each(result["data"], function(idx, obj) {
             html_u += "<option value = '"+ obj.id +"'>" + obj.name +"</option>";
         });
@@ -131,11 +141,13 @@ function del(id) {
 
 $("#search").click(function(){
 
-	var where=$("#text").val();
-	if(where == ""){
+    var where=$("#text").val();
+    var phone=$("#text2").val();
+    var channelId=$("#text1").val();
+	if(where == "" && phone=="" && channelId==""){
         location.reload();
 	}else{
-		ajax("/User/userRoleList",{"userId":userId,"token":token,"where":where},function(result){
+		ajax("/User/userRoleList",{"userId":userId,"token":token,"where":where,"phone":phone,"channelId":channelId},function(result){
 			var html = "";
 			$.each(result["data"], function(idx, obj) {
 				html += "<tr><td>" + obj.userId + "</td>";
@@ -161,7 +173,7 @@ $("#search").click(function(){
                 totalPage: num_max,
                 totalSize: num_max,
                 callback: function(num) {
-                    userListSearch(where,num);
+                    userListSearch(where,phone,channelId,num);
                 }
             })
 		});
@@ -169,136 +181,8 @@ $("#search").click(function(){
 
 });
 
-function userListSearch(where,num){
-    ajax("/User/userRoleList",{"userId":userId,"token":token,"page":num,"where":where},function(result){
-        var html = "";
-        $.each(result["data"], function(idx, obj) {
-            html += "<tr><td>" + obj.userId + "</td>";
-            html += "<td>" + obj.uname + "</td>";
-            if(obj.sex == '1'){
-                html += "<td>男</td>";
-            }else{
-                html += "<td>女</td>";
-            }
-            html += "<td>" + obj.channelName + "</td>";
-            html += "<td>" + obj.job + "</td>";
-            html += "<td>" + obj.roleName + "</td>";
-            html += "<td>" + obj.phone + "</td>";
-            html += "<td>" + obj.email + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
-
-        });
-        $("#data").html(html);
-    });
-}
-
-$("#search1").click(function(){
-
-    var where=$("#text1").val();
-    if(where == ""){
-        location.reload();
-    }else{
-        ajax("/User/userRoleList",{"userId":userId,"token":token,"channelId":where},function(result){
-            var html = "";
-            $.each(result["data"], function(idx, obj) {
-                html += "<tr><td>" + obj.userId + "</td>";
-                html += "<td>" + obj.uname + "</td>";
-                if(obj.sex == '1'){
-                    html += "<td>男</td>";
-                }else{
-                    html += "<td>女</td>";
-                }
-                html += "<td>" + obj.channelName + "</td>";
-                html += "<td>" + obj.job + "</td>";
-                html += "<td>" + obj.roleName + "</td>";
-                html += "<td>" + obj.phone + "</td>";
-                html += "<td>" + obj.email + "</td>";
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
-
-            });
-            $("#data").html(html);
-            var num_max = result['maxPage'];
-            var num_page = result['page'];
-            $("#page").paging({
-                pageNo:1,
-                totalPage: num_max,
-                totalSize: num_max,
-                callback: function(num) {
-                    userListSearch1(where,num);
-                }
-            })
-        });
-    }
-
-});
-
-function userListSearch1(where,num){
-    ajax("/User/userRoleList",{"userId":userId,"token":token,"page":num,"channelId":where},function(result){
-        var html = "";
-        $.each(result["data"], function(idx, obj) {
-            html += "<tr><td>" + obj.userId + "</td>";
-            html += "<td>" + obj.uname + "</td>";
-            if(obj.sex == '1'){
-                html += "<td>男</td>";
-            }else{
-                html += "<td>女</td>";
-            }
-            html += "<td>" + obj.channelName + "</td>";
-            html += "<td>" + obj.job + "</td>";
-            html += "<td>" + obj.roleName + "</td>";
-            html += "<td>" + obj.phone + "</td>";
-            html += "<td>" + obj.email + "</td>";
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
-
-        });
-        $("#data").html(html);
-    });
-}
-
-
-
-$("#search2").click(function(){
-
-    var where=$("#text2").val();
-    if(where == ""){
-        location.reload();
-    }else{
-        ajax("/User/userRoleList",{"userId":userId,"token":token,"phone":where},function(result){
-            var html = "";
-            $.each(result["data"], function(idx, obj) {
-                html += "<tr><td>" + obj.userId + "</td>";
-                html += "<td>" + obj.uname + "</td>";
-                if(obj.sex == '1'){
-                    html += "<td>男</td>";
-                }else{
-                    html += "<td>女</td>";
-                }
-                html += "<td>" + obj.channelName + "</td>";
-                html += "<td>" + obj.job + "</td>";
-                html += "<td>" + obj.roleName + "</td>";
-                html += "<td>" + obj.phone + "</td>";
-                html += "<td>" + obj.email + "</td>";
-                html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.userId+')">修改</a >  <a class="btn04" onclick="del('+obj.userId+')">删除</a ></td></tr>';
-
-            });
-            $("#data").html(html);
-            var num_max = result['maxPage'];
-            var num_page = result['page'];
-            $("#page").paging({
-                pageNo:1,
-                totalPage: num_max,
-                totalSize: num_max,
-                callback: function(num) {
-                    userListSearch2(where,num);
-                }
-            })
-        });
-    }
-
-});
-
-function userListSearch2(where,num){
-    ajax("/User/userRoleList",{"userId":userId,"token":token,"page":num,"phone":where},function(result){
+function userListSearch(where,phone,channelId,num){
+    ajax("/User/userRoleList",{"userId":userId,"token":token,"page":num,"where":where,"phone":phone,"channelId":channelId},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.userId + "</td>";

@@ -11,7 +11,7 @@ if(userId == "" || token == ""){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.name + "</td>";
-            html += '<td class="operation del"><a class="edit btn04" onclick="upd('+obj.id+')">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
+            html += '<td class="operation del"><a class="edit btn04" href="'+CONFIG['path']+'/Index/js_update/id/'+obj.id+'">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
         });
         $("#data").append(html);
 
@@ -35,7 +35,7 @@ function roleList(num){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.name + "</td>";
-            html += '<td class="operation del"><a class="edit btn04" onclick="upd('+obj.id+')">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
+            html += '<td class="operation del"><a class="edit btn04" href="'+CONFIG['path']+'/Index/js_update/id/'+obj.id+'">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
         });
         $("#data").html(html);
     });
@@ -54,7 +54,7 @@ $("#search").click(function(){
             $.each(result["data"], function(idx, obj) {
                 html += "<tr><td>" + obj.id + "</td>";
                 html += "<td>" + obj.name + "</td>";
-                html += '<td class="operation del"><a class="edit btn04" onclick="upd('+obj.id+')">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
+                html += '<td class="operation del"><a class="edit btn04" href="'+CONFIG['path']+'/Index/js_update/id/'+obj.id+'">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
             });
             $("#data").html(html);
 
@@ -79,7 +79,7 @@ function roleListsearch(where,num){
         $.each(result["data"], function(idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.name + "</td>";
-            html += '<td class="operation del"><a class="edit btn04" onclick="upd('+obj.id+')">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
+            html += '<td class="operation del"><a class="edit btn04" href="'+CONFIG['path']+'/Index/js_update/id/'+obj.id+'">修改</a>   <a class="edit btn04" onclick="del('+obj.id+')">删除</a></td></tr>';
         });
         $("#data").html(html);
     });
@@ -98,6 +98,7 @@ function del(id) {
 }
 
 
+/*
 //修改
 function upd(id) {
     $('.pop_layer').show();
@@ -119,4 +120,4 @@ function update(id){
             location.reload();
         }
     });
-}
+}*/

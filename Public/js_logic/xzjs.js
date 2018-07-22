@@ -17,18 +17,17 @@ if(userId == "" || token == ""){
 		   $("#list").html(html)
 		    $("#list div").each(function(i){
 		        if($(this).attr('pid') != 0){
-		            $(this).hide()
-		        }
+					$(this).hide()
+					$(this).css('margin-left','40px');
+		        }else{
+					$(this).css('background-color','#6666');
+				}
 		    })
 
 		    $(".check").click(function(){
 		        var status = $(this).attr('status');
 		        var id = $(this).parent().attr('sid');
 				var pids = $(this).parent().attr('pid');
-				if(pids==0){
-					$(this).css('margin-left','20px');
-					$(this).parent().css('background-color','#6666');
-				}
 		        if(status == 0){
 		            //下级显示
 		            status = '1'
@@ -73,11 +72,13 @@ $("#btn").click(function(){
 })
 
 
-$("#quanxuan").click(function(){
-	$("input[name='checkbox']").attr("checked","true");
+$("#quanxuan").on("click",function(){
+	$(":checkbox").prop("checked",true);
 
 });
-$("#buxuan").click(function(){
-	$("input[name='checkbox']").removeAttr("checked");
+
+
+$("#buxuan").on("click",function(){
+	$(":checkbox").prop("checked",false);
 
 });

@@ -64,6 +64,14 @@ class IndexController extends BaseController {
         $this->assign("url",$url);
         $this->display('Jurisdiction/js_list');
     }
+    //角色修改
+    public function js_update(){
+        $id = $_GET["id"];
+        $url=C("URL");
+        $this->assign("url",$url);
+        $this->assign("id",$id);
+        $this->display('Jurisdiction/js_update');
+    }
     //权限列表
     public function qxlb(){
         $url=C("URL");

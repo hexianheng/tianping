@@ -54,18 +54,22 @@ $("#submit").click(function(){
 
         var code = $("#code").val();
         var num = getCookie("num");
-        if(code != num){
-            alert("验证码输入错误")
+        if(code==""){
+            alert("请输入验证码")
         }else{
-            var phone = $("#phone").val();
-            var pwd = $("#password").val();
-            var pwd_Again = $("#pwdAgain").val();
-            ajax("/Login/forgotPwd",{"phone":phone,"password":pwd,"pwdAgain":pwd_Again},function(result){
-                if(result["code"] == 0){
-                    alert("修改成功")
-                    parent.location.href = CONFIG['path'];
-                }
-            });
+            if(code != num){
+                alert("验证码输入错误")
+            }else{
+                var phone = $("#phone").val();
+                var pwd = $("#password").val();
+                var pwd_Again = $("#pwdAgain").val();
+                ajax("/Login/forgotPwd",{"phone":phone,"password":pwd,"pwdAgain":pwd_Again},function(result){
+                    if(result["code"] == 0){
+                        alert("修改成功")
+                        parent.location.href = CONFIG['path'];
+                    }
+                });
+            }
         }
 
 });

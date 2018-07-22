@@ -71,52 +71,48 @@ $("#all").click(function(){
 
 });
 
+function codeList(num){
+    ajax("/Code/codeList",{"userId":userId,"token":token,"page":num},function(result){
+        var html = "";
+        $.each(result["data"], function(idx, obj) {
+            /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
+            html += "<tr><td>" + obj.id + "</td>";
+            html += "<td>" + obj.code + "</td>";
+            if(obj.productName==null){
+                html += "<td>未选择</td>";
+            }else{
+                html += "<td>" + obj.productName + "</td>";
+            }
+            if(obj.channelName==null){
+                html += "<td>未选择</td>";
+            }else{
+                html += "<td>" + obj.channelName + "</td>";
+            }
+            html += "<td>" + obj.group + "</td>";
+            if(obj.status == '1'){
+                html += "<td>未分发</td>";
+            }else if(obj.status == '2'){
+                html += "<td>未出库</td>";
+            }else{
+                html += "<td>已出库</td>";
+            }
+            html += "<td>" + obj.ctime + "</td>";
+        });
+        $("#data").html(html);
+    });
+}
+
 
 $("#search").click(function(){
 
     var codeText=$("#codeText").val();
     var codeStr = codeText.replace('\n','|');
-    if(codeStr == ""){
-        ajax("/Code/codeList",{"userId":userId,"token":token},function(result){
-            var html = "";
-            $.each(result["data"], function(idx, obj) {
-                /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
-                html += "<tr><td>" + obj.id + "</td>";
-                html += "<td>" + obj.code + "</td>";
-                if(obj.productName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.productName + "</td>";
-                }
-                if(obj.channelName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.channelName + "</td>";
-                }
-                html += "<td>" + obj.group + "</td>";
-                if(obj.status == '1'){
-                    html += "<td>未分发</td>";
-                }else if(obj.status == '2'){
-                    html += "<td>未出库</td>";
-                }else{
-                    html += "<td>已出库</td>";
-                }
-                html += "<td>" + obj.ctime + "</td>";
-            });
-            $("#data").html(html);
-            var num_max = result['page'];
-            var num_page = result['maxPage'];
-            $("#page").paging({
-                pageNo:1,
-                totalPage: num_page,
-                totalSize: num_max,
-                callback: function(num) {
-                    codeList(num);
-                }
-            })
-        });
+    var channelId = $("#qudao").val();
+    var productId = $("#chanpin").val();
+    if(codeStr=="" && channelId=="" && productId==""){
+        location.reload();
     }else{
-        ajax("/Code/codeList",{"userId":userId,"token":token,"codeStr":codeStr},function(result){
+        ajax("/Code/codeList",{"userId":userId,"token":token,"codeStr":codeStr,"channelId":channelId,"productId":productId},function(result){
             var html = "";
             $.each(result["data"], function(idx, obj) {
                 /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
@@ -150,7 +146,7 @@ $("#search").click(function(){
                 totalPage: num_max,
                 totalSize: num_max,
                 callback: function(num) {
-                    codeListSearch(codeStr,num);
+                    codeListSearch(codeStr,channelId,productId,num);
                 }
             })
         });
@@ -158,40 +154,9 @@ $("#search").click(function(){
 
 });
 
-function codeList(num){
-    ajax("/Code/codeList",{"userId":userId,"token":token,"page":num},function(result){
-        var html = "";
-        $.each(result["data"], function(idx, obj) {
-            /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
-            html += "<tr><td>" + obj.id + "</td>";
-            html += "<td>" + obj.code + "</td>";
-            if(obj.productName==null){
-                html += "<td>未选择</td>";
-            }else{
-                html += "<td>" + obj.productName + "</td>";
-            }
-            if(obj.channelName==null){
-                html += "<td>未选择</td>";
-            }else{
-                html += "<td>" + obj.channelName + "</td>";
-            }
-            html += "<td>" + obj.group + "</td>";
-            if(obj.status == '1'){
-                html += "<td>未分发</td>";
-            }else if(obj.status == '2'){
-                html += "<td>未出库</td>";
-            }else{
-                html += "<td>已出库</td>";
-            }
-            html += "<td>" + obj.ctime + "</td>";
-        });
-        $("#data").html(html);
-    });
-}
 
-
-function codeListSearch(codeStr,num){
-    ajax("/Code/codeList",{"userId":userId,"token":token,"page":num,"codeStr":codeStr},function(result){
+function codeListSearch(codeStr,channelId,productId,num){
+    ajax("/Code/codeList",{"userId":userId,"token":token,"page":num,"codeStr":codeStr,"channelId":channelId,"productId":productId},function(result){
         var html = "";
         $.each(result["data"], function(idx, obj) {
             /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
@@ -264,238 +229,3 @@ $("#btn").click(function(){
 
 
 
-$("#search1").click(function(){
-
-    var chanpin=$("#chanpin").val();
-    if(chanpin == "0"){
-        ajax("/Code/codeList",{"userId":userId,"token":token},function(result){
-            var html = "";
-            $.each(result["data"], function(idx, obj) {
-                /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
-                html += "<tr><td>" + obj.id + "</td>";
-                html += "<td>" + obj.code + "</td>";
-                if(obj.productName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.productName + "</td>";
-                }
-                if(obj.channelName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.channelName + "</td>";
-                }
-                html += "<td>" + obj.group + "</td>";
-                if(obj.status == '1'){
-                    html += "<td>未分发</td>";
-                }else if(obj.status == '2'){
-                    html += "<td>未出库</td>";
-                }else{
-                    html += "<td>已出库</td>";
-                }
-                html += "<td>" + obj.ctime + "</td>";
-            });
-            $("#data").html(html);
-            var num_max = result['page'];
-            var num_page = result['maxPage'];
-            $("#page").paging({
-                pageNo:1,
-                totalPage: num_page,
-                totalSize: num_max,
-                callback: function(num) {
-                    codeList(num);
-                }
-            })
-        });
-    }else{
-        ajax("/Code/codeList",{"userId":userId,"token":token,"productId":chanpin},function(result){
-            console.log(result)
-            var html = "";
-            $.each(result["data"], function(idx, obj) {
-                /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
-                html += "<tr><td>" + obj.id + "</td>";
-                html += "<td>" + obj.code + "</td>";
-                if(obj.productName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.productName + "</td>";
-                }
-                if(obj.channelName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.channelName + "</td>";
-                }
-                html += "<td>" + obj.group + "</td>";
-                if(obj.status == '1'){
-                    html += "<td>未分发</td>";
-                }else if(obj.status == '2'){
-                    html += "<td>未出库</td>";
-                }else{
-                    html += "<td>已出库</td>";
-                }
-                html += "<td>" + obj.ctime + "</td>";
-            });
-            $("#data").html(html);
-            var num_max = result['maxPage'];
-            var num_page = result['page'];
-            $("#page").paging({
-                pageNo:1,
-                totalPage: num_max,
-                totalSize: num_max,
-                callback: function(num) {
-                    codeListSearch1(chanpin,num);
-                }
-            })
-        });
-    }
-
-});
-
-function codeListSearch1(chanpin,num){
-    ajax("/Code/codeList",{"userId":userId,"token":token,"page":num,"productId":chanpin},function(result){
-        var html = "";
-        $.each(result["data"], function(idx, obj) {
-            /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
-            html += "<tr><td>" + obj.id + "</td>";
-            html += "<td>" + obj.code + "</td>";
-            if(obj.productName==null){
-                html += "<td>未选择</td>";
-            }else{
-                html += "<td>" + obj.productName + "</td>";
-            }
-            if(obj.channelName==null){
-                html += "<td>未选择</td>";
-            }else{
-                html += "<td>" + obj.channelName + "</td>";
-            }
-            html += "<td>" + obj.group + "</td>";
-            if(obj.status == '1'){
-                html += "<td>未分发</td>";
-            }else if(obj.status == '2'){
-                html += "<td>未出库</td>";
-            }else{
-                html += "<td>已出库</td>";
-            }
-            html += "<td>" + obj.ctime + "</td>";
-        });
-        $("#data").html(html);
-    });
-}
-
-
-
-$("#search2").click(function(){
-
-    var qudao=$("#qudao").val();
-    if(qudao == "0"){
-        ajax("/Code/codeList",{"userId":userId,"token":token},function(result){
-            var html = "";
-            $.each(result["data"], function(idx, obj) {
-                /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
-                html += "<tr><td>" + obj.id + "</td>";
-                html += "<td>" + obj.code + "</td>";
-                if(obj.productName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.productName + "</td>";
-                }
-                if(obj.channelName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.channelName + "</td>";
-                }
-                html += "<td>" + obj.group + "</td>";
-                if(obj.status == '1'){
-                    html += "<td>未分发</td>";
-                }else if(obj.status == '2'){
-                    html += "<td>未出库</td>";
-                }else{
-                    html += "<td>已出库</td>";
-                }
-                html += "<td>" + obj.ctime + "</td>";
-            });
-            $("#data").html(html);
-            var num_max = result['page'];
-            var num_page = result['maxPage'];
-            $("#page").paging({
-                pageNo:1,
-                totalPage: num_page,
-                totalSize: num_max,
-                callback: function(num) {
-                    codeList(num);
-                }
-            })
-        });
-    }else{
-        ajax("/Code/codeList",{"userId":userId,"token":token,"channelId":qudao},function(result){
-            console.log(result)
-            var html = "";
-            $.each(result["data"], function(idx, obj) {
-                /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
-                html += "<tr><td>" + obj.id + "</td>";
-                html += "<td>" + obj.code + "</td>";
-                if(obj.productName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.productName + "</td>";
-                }
-                if(obj.channelName==null){
-                    html += "<td>未选择</td>";
-                }else{
-                    html += "<td>" + obj.channelName + "</td>";
-                }
-                html += "<td>" + obj.group + "</td>";
-                if(obj.status == '1'){
-                    html += "<td>未分发</td>";
-                }else if(obj.status == '2'){
-                    html += "<td>未出库</td>";
-                }else{
-                    html += "<td>已出库</td>";
-                }
-                html += "<td>" + obj.ctime + "</td>";
-            });
-            $("#data").html(html);
-            var num_max = result['maxPage'];
-            var num_page = result['page'];
-            $("#page").paging({
-                pageNo:1,
-                totalPage: num_max,
-                totalSize: num_max,
-                callback: function(num) {
-                    codeListSearch2(qudao,num);
-                }
-            })
-        });
-    }
-
-});
-
-function codeListSearch2(qudao,num){
-    ajax("/Code/codeList",{"userId":userId,"token":token,"page":num,"channelId":qudao},function(result){
-        var html = "";
-        $.each(result["data"], function(idx, obj) {
-            /*html += "<tr><td><input type='checkbox' name='code' value='"+obj.id+"' /></td>";*/
-            html += "<tr><td>" + obj.id + "</td>";
-            html += "<td>" + obj.code + "</td>";
-            if(obj.productName==null){
-                html += "<td>未选择</td>";
-            }else{
-                html += "<td>" + obj.productName + "</td>";
-            }
-            if(obj.channelName==null){
-                html += "<td>未选择</td>";
-            }else{
-                html += "<td>" + obj.channelName + "</td>";
-            }
-            html += "<td>" + obj.group + "</td>";
-            if(obj.status == '1'){
-                html += "<td>未分发</td>";
-            }else if(obj.status == '2'){
-                html += "<td>未出库</td>";
-            }else{
-                html += "<td>已出库</td>";
-            }
-            html += "<td>" + obj.ctime + "</td>";
-        });
-        $("#data").html(html);
-    });
-}

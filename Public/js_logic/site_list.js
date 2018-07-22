@@ -14,7 +14,11 @@ if(userId == "" || token == ""){
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene+"</td>";
             html += "<td>" + obj.origincode+"</td>";
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+            if(obj.gene_text.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+            }else{
+                html += "<td>"+obj.gene_text+"</td>";
+            }
             html += "<td>" + obj.wild_type+"</td>";
             html += "<td>" + obj.mutant_type+"</td>";
             html += "<td>" + obj.genotype_value_ww+"</td>";
@@ -59,7 +63,11 @@ function siteList(num){
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene + "</td>";
             html += "<td>" + obj.origincode + "</td>";
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+            if(obj.gene_text.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+            }else{
+                html += "<td>"+obj.gene_text+"</td>";
+            }
             html += "<td>" + obj.wild_type + "</td>";
             html += "<td>" + obj.mutant_type + "</td>";
             html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -89,10 +97,12 @@ function siteList(num){
 $("#search").click(function(){
 
     var where=$("#text").val();
-    if(where == ""){
+    var gene=$("#text1").val();
+    var origincode=$("#text2").val();
+    if(where=="" && gene=="" && origincode==""){
         location.reload();
     }else{
-        ajax("/Site/siteList",{"userId":userId,"token":token,"itemid":where},function(result){
+        ajax("/Site/siteList",{"userId":userId,"token":token,"itemid":where,"gene":gene,"origincode":origincode},function(result){
             if(result['data'] == ""){
                 alert("无数据")
             }else{
@@ -102,7 +112,11 @@ $("#search").click(function(){
                     html += "<td>" + obj.itemid + "</td>";
                     html += "<td>" + obj.gene + "</td>";
                     html += "<td>" + obj.origincode + "</td>";
-                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+                    if(obj.gene_text.length>30){
+                        html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
+                    }else{
+                        html += "<td>"+obj.gene_text+"</td>";
+                    }
                     html += "<td>" + obj.wild_type + "</td>";
                     html += "<td>" + obj.mutant_type + "</td>";
                     html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -131,7 +145,7 @@ $("#search").click(function(){
                     totalPage: num_max,
                     totalSize: num_max,
                     callback: function(num) {
-                        siteSearch(where,num);
+                        siteSearch(where,gene,origincode,num);
                     }
                 })
             }
@@ -141,99 +155,18 @@ $("#search").click(function(){
 });
 
 function siteSearch(where,num){
-    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num,"itemid":where},function(result){
+    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num,"itemid":where,"gene":gene,"origincode":origincode},function(result){
         var html = "";
         $.each(result["data"], function (idx, obj) {
             html += "<tr><td>" + obj.id + "</td>";
             html += "<td>" + obj.itemid + "</td>";
             html += "<td>" + obj.gene + "</td>";
             html += "<td>" + obj.origincode + "</td>";
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
-            html += "<td>" + obj.wild_type + "</td>";
-            html += "<td>" + obj.mutant_type + "</td>";
-            html += "<td>" + obj.genotype_value_ww + "</td>";
-            html += "<td>" + obj.genotype_value_wm + "</td>";
-            html += "<td>" + obj.genotype_value_mm + "</td>";
-            html += "<td>" + obj.risk_desc_ww + "</td>";
-            html += "<td>" + obj.risk_desc_wm + "</td>";
-            html += "<td>" + obj.risk_desc_mm + "</td>";
-
-            if (obj.status == '1') {
-                html += "<td>禁用</td>";
-            } else {
-                html += "<td>正常</td>";
-            }
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd(' + obj.id + ')">修改信息</a ></td></tr>';
-
-        });
-        $("#data").html(html);
-    });
-}
-
-//搜索
-$("#search1").click(function(){
-
-    var where=$("#text1").val();
-    if(where == ""){
-        location.reload();
-    }else{
-        ajax("/Site/siteList",{"userId":userId,"token":token,"gene":where},function(result){
-            if(result['data'] == ""){
-                alert("无数据")
+            if(obj.gene_text.length>30){
+                html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
             }else{
-                var html = "";
-                $.each(result["data"], function (idx, obj) {
-                    html += "<tr><td>" + obj.id + "</td>";
-                    html += "<td>" + obj.itemid + "</td>";
-                    html += "<td>" + obj.gene + "</td>";
-                    html += "<td>" + obj.origincode + "</td>";
-                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
-                    html += "<td>" + obj.wild_type + "</td>";
-                    html += "<td>" + obj.mutant_type + "</td>";
-                    html += "<td>" + obj.genotype_value_ww + "</td>";
-                    html += "<td>" + obj.genotype_value_wm + "</td>";
-                    html += "<td>" + obj.genotype_value_mm + "</td>";
-                    html += "<td>" + obj.risk_desc_ww + "</td>";
-                    html += "<td>" + obj.risk_desc_wm + "</td>";
-                    html += "<td>" + obj.risk_desc_mm + "</td>";
-
-                    if (obj.status == '1') {
-                        html += "<td>禁用</td>";
-                    } else {
-                        html += "<td>正常</td>";
-                    }
-                    if(obj.status == '1'){
-                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
-                    }else{
-                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
-                    }
-                });
-                $("#data").html(html);
-                var num_max = result['maxPage'];
-                var num_page = result['page'];
-                $("#page").paging({
-                    pageNo:1,
-                    totalPage: num_max,
-                    totalSize: num_max,
-                    callback: function(num) {
-                        siteSearch1(where,num);
-                    }
-                })
+                html += "<td>"+obj.gene_text+"</td>";
             }
-        });
-    }
-
-});
-
-function siteSearch1(where,num){
-    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num,"gene":where},function(result){
-        var html = "";
-        $.each(result["data"], function (idx, obj) {
-            html += "<tr><td>" + obj.id + "</td>";
-            html += "<td>" + obj.itemid + "</td>";
-            html += "<td>" + obj.gene + "</td>";
-            html += "<td>" + obj.origincode + "</td>";
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
             html += "<td>" + obj.wild_type + "</td>";
             html += "<td>" + obj.mutant_type + "</td>";
             html += "<td>" + obj.genotype_value_ww + "</td>";
@@ -255,92 +188,6 @@ function siteSearch1(where,num){
     });
 }
 
-
-
-//搜索
-$("#search2").click(function(){
-
-    var where=$("#text2").val();
-    if(where == ""){
-        location.reload();
-    }else{
-        ajax("/Site/siteList",{"userId":userId,"token":token,"origincode":where},function(result){
-            if(result['data'] == ""){
-                alert("无数据")
-            }else{
-                var html = "";
-                $.each(result["data"], function (idx, obj) {
-                    html += "<tr><td>" + obj.id + "</td>";
-                    html += "<td>" + obj.itemid + "</td>";
-                    html += "<td>" + obj.gene + "</td>";
-                    html += "<td>" + obj.origincode + "</td>";
-                    html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
-                    html += "<td>" + obj.wild_type + "</td>";
-                    html += "<td>" + obj.mutant_type + "</td>";
-                    html += "<td>" + obj.genotype_value_ww + "</td>";
-                    html += "<td>" + obj.genotype_value_wm + "</td>";
-                    html += "<td>" + obj.genotype_value_mm + "</td>";
-                    html += "<td>" + obj.risk_desc_ww + "</td>";
-                    html += "<td>" + obj.risk_desc_wm + "</td>";
-                    html += "<td>" + obj.risk_desc_mm + "</td>";
-
-                    if (obj.status == '1') {
-                        html += "<td>禁用</td>";
-                    } else {
-                        html += "<td>正常</td>";
-                    }
-                    if(obj.status == '1'){
-                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
-                    }else{
-                        html += '<td><a class="btn04" id="xg_btn" onclick="upd('+obj.id+')">修改信息</a ></td></tr>';
-                    }
-                });
-                $("#data").html(html);
-                var num_max = result['maxPage'];
-                var num_page = result['page'];
-                $("#page").paging({
-                    pageNo:1,
-                    totalPage: num_max,
-                    totalSize: num_max,
-                    callback: function(num) {
-                        siteSearch2(where,num);
-                    }
-                })
-            }
-        });
-    }
-
-});
-
-function siteSearch2(where,num){
-    ajax("/Site/siteList",{"userId":userId,"token":token,"page":num,"origincode":where},function(result){
-        var html = "";
-        $.each(result["data"], function (idx, obj) {
-            html += "<tr><td>" + obj.id + "</td>";
-            html += "<td>" + obj.itemid + "</td>";
-            html += "<td>" + obj.gene + "</td>";
-            html += "<td>" + obj.origincode + "</td>";
-            html += '<td><div class="content" onmouseover="overShow(this,event)" onmouseout="outHide()" style="text-align: center;">'+obj.gene_text+'</div></td>';
-            html += "<td>" + obj.wild_type + "</td>";
-            html += "<td>" + obj.mutant_type + "</td>";
-            html += "<td>" + obj.genotype_value_ww + "</td>";
-            html += "<td>" + obj.genotype_value_wm + "</td>";
-            html += "<td>" + obj.genotype_value_mm + "</td>";
-            html += "<td>" + obj.risk_desc_ww + "</td>";
-            html += "<td>" + obj.risk_desc_wm + "</td>";
-            html += "<td>" + obj.risk_desc_mm + "</td>";
-
-            if (obj.status == '1') {
-                html += "<td>禁用</td>";
-            } else {
-                html += "<td>正常</td>";
-            }
-            html += '<td><a class="btn04" id="xg_btn" onclick="upd(' + obj.id + ')">修改信息</a ></td></tr>';
-
-        });
-        $("#data").html(html);
-    });
-}
 
 //修改
 function upd(id) {
