@@ -68,7 +68,7 @@ function code(){
 		$("#msg_code").html("不能为空").css("color","red");
 		return false;
 	}else{
-		var num = getCookie("num");
+		var num = $.session.get('num');
 		if(code != num){
 			$("#msg_code").html("验证码输入有误").css("color","red");
 			return false;
@@ -85,7 +85,8 @@ $("#btns").click(function(){
 		var phone = result['data']['phone'];
 		ajax("/Login/sendPhoneCheck",{"phone":phone},function(results){
 			alert("已发送至您的手机，请注意查收")
-			setCookie("num",results["data"]["num"],3600);
+			$.session.set('num',results["data"]["num"]);
+			//setCookie("num",results["data"]["num"],3600);
 		});
 	});
 

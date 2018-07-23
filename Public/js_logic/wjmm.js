@@ -35,7 +35,7 @@ $("#btn").click(function(){
                     //alert('验证成功，请查看手机验证码！');
                     $("#mpanel4").hide();
                     ajax("/Login/sendPhoneCheck",{"phone":phone},function(result){
-                        setCookie("num",result["data"]["num"]);
+                        $.session.set('num',results["data"]["num"]);
                     });
                     setInterval(code(),1000);
                 },
@@ -53,7 +53,7 @@ $("#btn").click(function(){
 $("#submit").click(function(){
 
         var code = $("#code").val();
-        var num = getCookie("num");
+        var num = $.session.get('num');
         if(code==""){
             alert("请输入验证码")
         }else{
